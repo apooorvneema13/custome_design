@@ -16,11 +16,13 @@ import { ChartModule } from 'angular2-highcharts';
 import { OwlModule } from 'ng2-owl-carousel';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+// import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // ChangePasswordComponent
     // KeyinfoPage,
   ],
   imports: [

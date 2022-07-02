@@ -2,7 +2,7 @@
 <app-header></app-header>
 <div id="cover-spin"></div>
 <section id="breadcum" class="mb-2">
-  <div class="container">HOME <i class="fa fa-angle-right"></i></div>
+  <div class="container">LIFESTYLE <i class="fa fa-angle-right"></i>HOME</div>
 </section>
 <section id="product-page-header">
   <div class="container">
@@ -10,17 +10,19 @@
       class="img-fluid"
       src="../../../../../assets/images/lifestyle/tv_banner.png"
     />
-    <div class="row">
-      <div class="col-md-12">
-          <owl-carousel [options]="SlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
-              <div class="item" *ngFor="let img of Images">
-                  <div style="align-content: center">
-                      <img style="height: 260px;width:100%" src={{Images}} />
-
-                  </div>
-              </div>
-          </owl-carousel>
-          
+    <div class="container">
+      <div class="row pt-4">
+        <div class="col-md-12">
+            <owl-carousel [options]="SlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
+                <div class="item" *ngFor="let img of Images">
+                    <div style="align-content: center">
+                        <img class="owl-img-slider" src={{Images}} />
+  
+                    </div>
+                </div>
+            </owl-carousel>
+            
+        </div>
       </div>
     </div>
     <div class="product-page-header-inner">

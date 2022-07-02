@@ -11740,20 +11740,18 @@ label.custom-control-label p {
 }
 
 
-.items{
-  width:90%;
-  margin:0px auto;
-  margin-top: 100px;
-}
-.slick-slide{
-  margin:10px;
-}
-.slick-slide img{
-  width:100%;
-  border: 0px solid #fff;
+
+.owl-nav button span {
+  background: #CCCCCC !important;
+  color: #fff !important;
 }
 
-
+.owl-img-slider{
+  height: 156px;
+  width:156px !important;
+  margin: 10px;
+  padding: 5px;
+}
 
 // product slider
 #sort{
@@ -11830,6 +11828,12 @@ label.custom-control-label p {
 
 // personal head
 
+.personal-title{
+  font-size: 21px;
+  font-weight: 800;
+  padding-top: 25px;
+}
+
 .personal-head{
   font-size: 14px;
   color: #000000;
@@ -11865,6 +11869,36 @@ input[type=number] {
   border: none !important;
 
 }
+.personalinfo-change{
+  padding-top: 5px;
+  font-size: 14px;
+}
+
+// delivery details
+
+.location-box{
+  background-color: #F2F2F2;
+  padding: 20px;
+  width: 80%;
+}
+
+ .location-box .form-check-label{
+   font-size: 18px;
+   font-weight: 800;
+}
+.location-box{
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.add-location{
+  padding: 20px;
+}
+.add-location .form-check-label{
+  font-size: 20px;
+  font-weight: 800;
+}
+
 
 @media (min-width: 768px){
   .home-product .col-md-2{

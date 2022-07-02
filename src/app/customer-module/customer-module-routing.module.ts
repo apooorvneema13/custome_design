@@ -42,6 +42,9 @@ import { BeautyHomeComponent } from './component/beauty/beauty-home/beauty-home.
 import { CategoryByProductComponent } from './component/lifstyle/category-by-product/category-by-product.component';
 import { MyOrdersComponent }  from './my-acoount/component/my-orders/my-orders.component'
 import { PersonalInfoComponent }  from './my-acoount/component/personal-info/personal-info.component'
+import {ChangeEmailComponent} from './my-acoount/component/personal-info/change-email/change-email.component'
+import {ChangePasswordComponent} from './my-acoount/component/personal-info/change-password/change-password.component'
+import {DeliveryDetailsComponent} from './my-acoount/component/personal-info/delivery-details/delivery-details.component'
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -49,6 +52,9 @@ const routes: Routes = [
   {path:'myaccount',component:MyAcoountComponent, loadChildren: () => import(`./my-acoount/my-acoount.module`).then(m => m.MyAcoountModule) },
   {path:'myorder',component:MyOrdersComponent},
   {path:'pesonalinfo',component:PersonalInfoComponent},
+  {path:'pesonalinfo/change_email',component:ChangeEmailComponent},
+  {path:'pesonalinfo/change_password',component:ChangePasswordComponent},
+  {path:'pesonalinfo/delivery_details',component:DeliveryDetailsComponent},
   {path:'hearder', component: HeaderComponent},
   {path:'dashboard',component: DashboardComponent},
   // {path:'',component: DashboardComponent},

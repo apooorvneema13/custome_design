@@ -9,11 +9,11 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class CategoryByProductComponent implements OnInit {
   title = 'owlcarouselinAngular';
   url= "http://139.59.21.147:8080";
-  Images = ['../../../../assets/images/1.png', 
-  '../../../../assets/images/2.png', 
-  '../../../../assets/images/3.png',
-  '../../../../assets/images/5.png',
-  '../../../../assets/images/6.png']; 
+  Images = ['../../../../../assets/images/lifestyle/img11.png', 
+  '../../../../../assets/images/lifestyle/img11.png', 
+  '../../../../../assets/images/lifestyle/img11.png',
+  '../../../../../assets/images/lifestyle/img11.png',
+  '../../../../../assets/images/lifestyle/img11.png']; 
   SlideOptions = { items: 4, dots: true, nav: true };  
   CarouselOptions = { items: 3, dots: true, nav: true };
   constructor() { }
