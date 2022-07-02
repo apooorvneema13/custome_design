@@ -1,0 +1,201 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+<section id="cart_order_panel">
+    <div class="container">
+        <h4>Checkout</h4>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="checkout_step">
+                    <div class="steps">
+                        <span class="active"><i class="fa fa-check"></i></span>
+                        <p>Address Details</p>
+                    </div>
+                    <div class="steps">
+                        <span class="active"><i class="fa fa-check"></i></span>
+                        <p>Delivery Method</p>
+                    </div>
+                    <div class="steps">
+                        <span>3</span>
+                        <p>Payment</p>
+                    </div>
+                    <div class="steps">
+                        <span>4</span>
+                        <p>Review</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="checkout_step_mid">
+                    <div class="title-checkout">
+                        <h4>2. Delivery Method</h4>
+                    </div>
+                    <div class="delivery_add_outer">
+                        <div class="delivery_add_box  active" id="pickup_box">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <p>Pick-up Point</p>
+                        </div>
+                        <div class="delivery_add_box " id="pickup_add">
+                            <i class="fa fa-home"></i>
+                            <p>My Address</p>
+                        </div>
+                    </div>
+                    <div id="pickup_box_cont">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio2" name="customRadio1" class="custom-control-input"
+                                checked>
+                            <label class="custom-control-label" for="customRadio2">Pickup Station</label>
+                        </div>
+                        <p>Ready for pick up between Friday 7 June and Saturday 8 June 2021 with cheaper shipping fees
+                        </p>
+                        <h3>Select Location</h3>
+                        <div class="Location_box" *ngFor="let address of addressDetails;let i=index">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio1" name="customRadio1" class="custom-control-input"
+                                    checked>
+                                <label class="custom-control-label" for="customRadio1">BUMI {{i+1}}</label>
+                            </div>
+                            <p>{{address.address}}. Shipping Fee <a href="#">KSh 99</a></p>
+                        </div>
+                        <!-- <div class="Location_box">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio3" name="customRadio1" class="custom-control-input"
+                                    checked>
+                                <label class="custom-control-label" for="customRadio3">BUMI Pickup 1</label>
+                            </div>
+                            <p>Premier Industrial Park, Baba Dogo Road, Baba Dogo, Nairobi, Kenya. Shipping Fee <a
+                                    href="#">KSh 99</a></p>
+                        </div>
+                        <div class="Location_box">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio4" name="customRadio1" class="custom-control-input"
+                                    checked>
+                                <label class="custom-control-label" for="customRadio4">BUMI Pickup 1</label>
+                            </div>
+                            <p>Premier Industrial Park, Baba Dogo Road, Baba Dogo, Nairobi, Kenya. Shipping Fee <a
+                                    href="#">KSh 99</a></p>
+                        </div> -->
+                    </div>
+                    <div id="pickup_add_cont">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio6" name="customRadio6" class="custom-control-input"
+                                checked="">
+                            <label class="custom-control-label" for="customRadio6">Delivery to your Preffered Location
+                                <p>Delivery to your home or office Delivered by Saturday 29 May for KSh 100</p></label>
+                        </div>
+
+                        <div class="Location_box">
+                            <h4>Delivery Location</h4>
+                            <p>Premier Industrial Park, Baba Dogo Road, Baba Dogo, Nairobi, Kenya. Shipping Fee <a
+                                    href="#">KSh 99</a></p>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio5" name="customRadio5" class="custom-control-input"
+                                checked="">
+                            <label class="custom-control-label" for="customRadio5">New Delivery Location</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="search_add"><a href="#"><i class="fa fa-search"></i></a><input type="text"
+                                    placeholder="Search for address" name="" class="form-control"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Additional Information" name="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Additional Information" name="" class="form-control">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="save-info"><input type="checkbox"> Save my information for future</div>
+                <div class="d-flex justify-content-between"><span class="pull-right"><i class="fa fa-arrow-left"
+                            aria-hidden="true"></i> Back</span><button class="btn btn-primary pull-right">PROCEED TO
+                        PAY</button></div>
+            </div>
+            <div class="col-md-4">
+                <div class="checkout_step_order">
+                    <div class="title-checkout">
+                        <h4>Order <span>x</span></h4>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="order-img"><img src="../../../../../assets/images/f1.png"></div>
+                            <div class="order-cont">
+                                <h5>La vie est Belle </h5>
+                                <p>By Lancome</p>
+                                <a href="#">REMOVE</a>
+                            </div>
+                            <div class="order-qty text-right">
+                                <span>1</span>
+                                <h5>KSh 8000</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="order-img"><img src="../../../../../assets/images/f1.png"></div>
+                            <div class="order-cont">
+                                <h5>La vie est Belle </h5>
+                                <p>By Lancome</p>
+                                <a href="#">REMOVE</a>
+                            </div>
+                            <div class="order-qty text-right">
+                                <span>1</span>
+                                <h5>KSh 8000</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="order-img"><img src="../../../../../assets/images/f1.png"></div>
+                            <div class="order-cont">
+                                <h5>La vie est Belle </h5>
+                                <p>By Lancome</p>
+                                <a href="#">REMOVE</a>
+                            </div>
+                            <div class="order-qty text-right">
+                                <span>1</span>
+                                <h5>KSh 8000</h5>
+                            </div>
+                        </li>
+                    </ul>
+                    <h4>Have a discount code?</h4>
+                    <div class="subtotal_box">
+                        <p><span>Subtotal</span> <span>KSh 24000</span></p>
+                        <p><span>VAT</span> <span>KSh 24000</span></p>
+                        <p><span> Local delivery fees Total</span> <span>KSh 100</span></p>
+                    </div>
+                    <div class="total_box">
+                        <span>Total</span><span> KSh 27,940</span>
+                    </div>
+                    <a href="#" class="link-btn-order">MODIFY CART</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $('.btn-toggle').click(function() {
+$(this).find('.btn').toggleClass('active');
+if ($(this).find('.btn-primary').size() > 0) {
+  $(this).find('.btn').toggleClass('btn-primary');
+}
+$(this).find('.btn').toggleClass('btn-default');
+});
+  </script>
+  <script>
+$(document).ready(function(){
+$("#pickup_box").click(function(){
+   $("#pickup_add").removeClass("active");
+$(this).addClass("active");
+  $("#pickup_box_cont").show();
+   $("#pickup_add_cont").hide();
+
+});
+$("#pickup_add").click(function(){
+$("#pickup_box").removeClass("active");
+$(this).addClass("active");
+  $("#pickup_box_cont").hide();
+   $("#pickup_add_cont").show();
+
+});
+});
+</script>
+<app-footer></app-footer>

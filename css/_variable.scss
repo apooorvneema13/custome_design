@@ -1,0 +1,87 @@
+
+$container : 1170px;
+$thmRed : #ED1C24;
+$green :#8CC63F;
+$yellow :#FBB03B;
+$pink: #FF00FF;
+
+.pink-font {
+    color: $pink;
+}
+
+.tagLine {
+    color: #29A0AF;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: block;
+}
+.secTitle {
+    color: #000;
+    font-size: 35px;
+    font-weight: 900;
+    margin-bottom: 40px;
+}
+
+
+.container {
+    max-width: $container;
+    margin: auto;
+}
+
+a, a:hover, a:focus {
+    text-decoration: none;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+label {
+    width: 100%;
+    margin-bottom: 0px;
+    .form-control {
+        border: 1px solid #E6E6E6;
+        border-radius: 6px;
+        height: 54px;
+        padding: 14px 20px;
+        font-size: 18px;
+        color: #000;
+        font-weight: bold;
+        outline: none;
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        &::placeholder {
+            opacity: 1;
+            color: #808080;
+        }
+    }
+
+    select {
+        appearance: none;
+        background-color: #fff;
+        border: 1px solid #D0D0D0;
+        font-size: 12px;
+        font-weight: 300;
+        padding: 3px 30px 3px 10px;
+        background-image: url('/assets/images/ic_down_grey.png');
+        background-position: right 5px center;
+        background-repeat: no-repeat;
+        background-size: 15px 8px;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}

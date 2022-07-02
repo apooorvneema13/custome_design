@@ -1,0 +1,180 @@
+<header>
+    <app-header-top></app-header-top>
+</header>
+
+
+
+<section id="breadcum">
+    <div class="container">
+        HOME <i class="fa fa-angle-right"></i> QUEENS <i class="fa fa-angle-right"></i> BEAUTY <i
+            class="fa fa-angle-right"></i> REVLON <i class="fa fa-angle-right"></i> ULTIMATE ALL IN ONE MASCARA - BLACK
+    </div>
+</section>
+<section id="product-detail-outer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+       
+                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" 
+                 >
+                <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                    <div class="item"><img src="../../../../assets/images/pro1.jpg"></div>
+             
+                </div>
+              </ngx-slick-carousel>
+              
+
+                <!-- <div class="owl-slider">
+                    <div class="owl-carousel">
+                        <div class="item"><img src="../../../../assets/images/pro1.jpg"></div>
+                        <div class="item"><img src="../../../../assets/images/pro1.jpg"></div>
+                        <div class="item"><img src="../../../../assets/images/pro1.jpg"></div>
+                        <div class="item"><img src="../../../../assets/images/pro1.jpg"></div>
+                    </div>
+                </div> -->
+            </div>
+
+                <div class="col-md-8">
+                    <div class="product_cont">
+                        <h1>REVLON - ULTIMATE ALL IN ONE MASCARA - BLACK</h1>
+                        <div class="price">KSh1,999.00</div>
+                        <div class="old-price">KSH 2,500.00</div>
+                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                class="fa fa-star"></i>
+                            <i class="fa fa-star"></i> <i class="fa fa-star"></i> 4.8 (3936)
+                        </div>
+                        <form>
+                            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-
+                            </div>
+                            <input type="number" id="number" value="0" />
+                            <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+
+                            </div>
+                        </form>
+                        <div style="clear:both;"></div>
+                        <div class="button_wrap">
+                            <a href="#">ADD TO WISHLIST</a><a href="#">ADD TO CART</a>
+                        </div>
+                        <div class="social_share">
+                            <h6>Share this product</h6> <a href="#"><i class="fa fa-facebook-square"></i></a> <a
+                                href="#"><i class="fa fa-instagram"></i></a> <a href="#"><i
+                                    class="fa fa-twitter-square"></i></a>
+                        </div>
+                        <h2>Select Store</h2>
+                        <ul class="pro-store-list">
+                            <li><a href="#"><img src="../../../../assets/images/1.png"></a></li>
+                            <li><a href="#"><img src="../../../../assets/images/2.png"></a></li>
+                            <li><a href="#"><img src="../../../../assets/images/3.png"></a></li>
+                            <li><a href="#"><img src="../../../../assets/images/4.png"></a></li>
+                            <li><a href="#"><img src="../../../../assets/images/5.png"></a></li>
+                            <li><a href="#"><img src="../../../../assets/images/6.png"></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="product_dis">
+                        <h3>Product Description</h3>
+                        <p>Maybelline Colossal Mascara for a 100 percent carbon black lash mascara look. Colossal brush,
+                            colossal volume, colossal impact. The lush, collagen enriched formula plumps your lash look
+                            for
+                            mega impact. Load your lashes with the colossal bristle brush for a maximum lash effect
+                            without
+                            clumping. It is ophthalmologically tested and suitable for sensitive eyes and contact lens
+                            wearers. Place your order for this amazing product from Jumia Kenya and have it delivered to
+                            your doorstep at an amazing price</p>
+                        <h5>How to use :</h5>
+                        <p>For best results sweep brush from root to tip to plump lashes and achieve dramatic volume. Do
+                            not
+                            let dry between coats</p>
+                        <h3>Ingredients </h3>
+                        <p>Aqua / Water,Paraffin,Potassium Cetyl Phosphate,Ethylene/Acrylic Acid Copolymer,Acacia
+                            Senegal /
+                            Acacia Senegal Gum,Cera Alba / Beeswax,Copernicia Cerifera Cera / Carnauba
+                            Wax,Glycerin,Cetyl
+                            Alcohol,Hydroxyethylcellulose,Hydrolyzed Corn Starch,Phenoxyethanol,PGE/PPG-17/18
+                            Dimethicone,Steareth-20,Caprylyl Glycol,Sodium</p>
+                        <h3>SPECIFICATIONS</h3>
+                        <p>SKU: MA274HB1IN850NAFAMZ</p>
+                        <p> Main Material: N/A. Weight (kg): 0.210186867</p>
+                    </div>
+                    <div class="filter-title">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>POPULAR VIDEOS </h4>
+                            </div>
+                            <div class="col-md-6 text-right"><span class="left-arrow"><i class="fa fa-angle-left"
+                            aria-hidden="true"></i></span><span class="right-arrow"><i
+                            class="fa fa-angle-right" aria-hidden="true"></i></span></div>
+                        </div>
+                    </div>
+                    <div class="product-listing-wrap">
+                        <div class="row">
+                            <div class="col">
+                                <div class="product_list_inner">
+                                    <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                                    <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        4.8
+                                        (3936)</div>
+                                    <h2>KSh1,550.00 <span>Sold By: Yummy Mummy</span></h2>
+                                    <a href="#" class="btn">ADD TO CART </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="product_list_inner">
+                                    <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                                    <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        4.8
+                                        (3936)</div>
+                                    <h2>KSh1,550.00 <span>Sold By: Yummy Mummy</span></h2>
+                                    <a href="#" class="btn">ADD TO CART </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="product_list_inner">
+                                    <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                                    <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        4.8
+                                        (3936)</div>
+                                    <h2>KSh1,550.00 <span>Sold By: Yummy Mummy</span></h2>
+                                    <a href="#" class="btn">ADD TO CART </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="product_list_inner">
+                                    <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                                    <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        4.8
+                                        (3936)</div>
+                                    <h2>KSh1,550.00 <span>Sold By: Yummy Mummy</span></h2>
+                                    <a href="#" class="btn">ADD TO CART </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="product_list_inner">
+                                    <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                                    <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                            class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        4.8
+                                        (3936)</div>
+                                    <h2>KSh1,550.00 <span>Sold By: Yummy Mummy</span></h2>
+                                    <a href="#" class="btn">ADD TO CART </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+<app-footer></app-footer>

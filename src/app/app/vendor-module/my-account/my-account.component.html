@@ -1,0 +1,53 @@
+<div class="dashboard-wrapper">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-3">
+                <h3 class="title">My Account</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-account-wrapper">
+        <div class="my-account-banner mb-5">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <h2>Welcome to My Account</h2>
+                </div>
+                <div class="col-sm-6">
+                    <img class="w-100" src="assets/images/my-account-banner.svg" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="card text-center" (click)="gotoEditshop('shop')" >
+                    <img src="assets/images/shop.svg" alt="" />
+                    <h5>Shop</h5>
+                    <p>Show or update your shop information</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card text-center" (click)="gotoEditshop('profile')">
+                    <img src="assets/images/user.svg" alt="" />
+                    <h5>Account</h5>
+                    <p>Show or update your personal information</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card text-center" (click)="gotoEditshop('user')">
+                    <img src="assets/images/users.svg" alt="" />
+                    <h5>Users</h5>
+                    <p>Show or update your users’ information</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card text-center" (click)="gotoEditshop('payments')">
+                    <img src="assets/images/payment.svg" alt="" />
+                    <h5>Payments</h5>
+                    <p>Show or update your payments’ information</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

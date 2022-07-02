@@ -1,0 +1,248 @@
+
+<div class="my-wallet-wrapper">
+    <div class="my-wallet-welcome" *ngIf="isWelcomeShow">
+        <div class="my-wallet-banner mb-4">
+            <div class="row align-items-center">
+                <div class="col-sm-5">
+                    <h2>Welcome to My Wallet</h2>
+                    <p>ACCESS YOUR FUNDS EASILY AND VIEW ALL YOUR TRANSACTIONS.</p>
+                    <button type="button" (click)="onClickVerificationCodeModal()"
+                        class="btn btn-custom-light-green text-capitalize rounded mt-5">Go To Wallet</button>
+                </div>
+                <div class="col-sm-7">
+                    <img class="w-100" src="assets/images/wallet-banner.png" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="my-wallet-sub-banner">
+            <!-- <img src="assets/images/close-white.png" alt="" /> -->
+        </div>
+    </div>
+
+    <div class="my-wallet-transactions" *ngIf="isTransactionsShow">
+        <div class="sub-header">
+            <h3 class="title">My Wallet</h3>
+        </div>
+        <div *ngIf="isTransactionsListShow">
+            <div class="transactions-data">
+                <div class="transactions-banner">
+                    <p>Available Balance</p>
+                    <h2><span>KES</span>{{JsonData[0].available_balance}}</h2>
+                </div>
+                <div class="transactions-box-wrap">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="transactions-box" style="background-color: #00A99D;">
+                                <p>Pending</p>
+                                <h2><span>KES</span>{{JsonData[0].pending}}</h2>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="transactions-box" style="background-color: #29ABE2;">
+                                <p>Sales Today</p>
+                                <h2><span>KES</span>{{JsonData[0].sales_today}}</h2>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="transactions-box" style="background-color: #22B573;">
+                                <p>Total Withdrawal</p>
+                                <h2><span>KES</span>{{JsonData[0].total_withdrwals}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="withdraw">
+                    <p>All transactions</p>
+                    <a href="javascript:void(0)" (click)="onClickWithdraw()">Withdraw</a>
+                </div>
+                <div class="withdraw-filter"  >
+                    <div class="row justify-content-between">
+                        <div class="col-sm-4 d-flex align-items-center">
+                            <label>Filter by:</label>
+                            <select class="form-select" [(ngModel)]="FilterBy" (change)="onFilterBy($event)">
+                                <option selected value="all">All Transactions</option>
+                                <option  value="MPESA">MPESA</option>
+                                <option  value="BANK">BANK</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 justify-content-end d-flex align-items-center">
+                            <label>Filter:</label>
+                            <!-- <input type="text" class="form-control" placeholder="Date Range"> -->
+                            <p-calendar #calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true"
+                            inputId="range" (onSelect)="onSelect()"></p-calendar>
+
+                            <select class="form-select export ms-3" [(ngModel)]="btnExport" (change)="Downloadfile()">
+                                <option value="Export" selected>Export</option>
+                                <option value="Excel">Excel</option>
+                                <option value="CSV">CSV</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="transaction-list">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr >
+                                <th>
+                                    <!-- <label class="custom-checkbox custom-red custom-bg-light" style="height: 20px;">
+                                        <input type="checkbox" [(ngModel)]="SelectAll" (change)="onSelectAll()">
+                                        <span class="checkmark"></span>
+                                    </label> -->
+                                </th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Account
+                                    <div class="arrows">
+                                        <img class="mb-1" src="assets/images/up-gray.png" alt="">
+                                        <img src="assets/images/down-gray.png" alt="">
+                                    </div>
+                                </th>
+                                <th>Amount
+                                    <div class="arrows">
+                                        <img class="mb-1" src="assets/images/up-gray.png" alt="">
+                                        <img src="assets/images/down-gray.png" alt="">
+                                    </div>
+                                </th>
+                                <th>Deposits
+                                    <div class="arrows">
+                                        <img class="mb-1" src="assets/images/up-gray.png" alt="">
+                                        <img src="assets/images/down-gray.png" alt="">
+                                    </div>
+                                </th>
+                                <th>Withdrawals
+                                    <div class="arrows">
+                                        <img class="mb-1" src="assets/images/up-gray.png" alt="">
+                                        <img src="assets/images/down-gray.png" alt="">
+                                    </div>
+                                </th>
+                                <th>Balance
+                                    <div class="arrows">
+                                        <img class="mb-1" src="assets/images/up-gray.png" alt="">
+                                        <img src="assets/images/down-gray.png" alt="">
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr >
+                                <td>
+                                    <label class="custom-checkbox custom-red custom-bg-light">
+                                        <input type="checkbox" [(ngModel)]="JsonData.Selected">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                                 <td>{{JsonData[0].balance.date}}</td> 
+                                <td>{{JsonData[0].balance.desc}}</td>
+                                <td>{{JsonData[0].balance.account }}</td>
+                                <td>{{JsonData[0].balance.amount | number:'5.2'}}</td>
+                                <td>{{JsonData[0].balance.deposits | number:'5.2'}}</td>
+                                <td>{{JsonData[0].balance.withdrawls | number:'5.2'}}</td>
+                                <td>{{JsonData[0].balance.balance | number:'5.2'}}</td>
+                            </tr>     
+                       </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="transaction-pagination">
+                <p>Showing 1-10 of 99</p>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>></li>
+                    <li>>></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="payment-method" *ngIf="isPaymentMethodShow">
+            <div class="payment-method-banner">
+                <h2>Withdrawals</h2>
+            </div>
+            <div class="payment-method-option" *ngIf="isPaymentOptionShow">
+                <div class="row py-5 align-items-center">
+                    <div class="col-sm-4">
+                        <label class="custom-radio radio-primary radio-sm fs-6 mb-3">My Till Number
+                            <input type="radio" checked="checked" name="dicSelCat">
+                            <span class="checkmark"></span>
+                        </label>
+                        <img src="assets/images/payment-1.svg" height="100" alt="">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" mask="0000000000" class="form-control" placeholder="My Till Number">
+                    </div>
+                    <div class="col-sm-4 text-end">
+                        <div class="d-flex align-items-center pt-5 mb-2">
+                            <label class="me-2">Amount</label>
+                            <input type="text" mask="000000.00" class="form-control">
+                        </div>
+                        <button class="btn btn-custom-light-green fs-6 py-1" (click)="onClickVerificationCodeModal()" type="button">Submit</button>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row py-5 align-items-center">
+                    <div class="col-sm-4">
+                        <label class="custom-radio radio-primary radio-sm fs-6 mb-3">Account Number
+                            <input type="radio" checked="checked" name="dicSelCat">
+                            <span class="checkmark"></span>
+                        </label>
+                        <img src="assets/images/payment-2.svg" height="100" alt="">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" mask="00000000000000" class="form-control" placeholder="Account Number">
+                    </div>
+                    <div class="col-sm-4 text-end">
+                        <div class="d-flex align-items-center pt-5 mb-2">
+                            <label class="me-2">Amount</label>
+                            <input type="text" mask="000000.00" class="form-control">
+                        </div>
+                        <button class="btn btn-custom-light-green fs-6 py-1" (click)="onClickVerificationCodeModal()" type="button">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-method-option py-5" *ngIf="isWithdrawSuccessShow">
+                <img src="assets/images/thumbs.png" class="mx-auto d-block mb-4" height="100" width="100" alt="">
+                <p>Your withdrawal request has been placed successfully.</p>
+                <p>Amount: KSh 20,000.00</p>
+                <p>Date: 15/2/21</p>
+                <p>Time: 7.41 PM</p>
+                <p>Transaction cost: KSh 23.00</p>
+                <p>Amount you can transaction within the day is KSh. 50,000.00</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Verification Code Modal -->
+<div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isVerificationCodeModalShow">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content verification-code-modal border-0">
+            <h3>Verification Code</h3>
+            <div class="opt-input">
+                <input [(ngModel)]="values[0]" tabindex="0" (keyup)="onValidate($event,0)" mask="0" autocomplete="off" type="text" id="id1" maxlength="1" class="form-control " />
+                <input [(ngModel)]="values[1]" tabindex="1" (keyup)="onValidate($event,1)" mask="0" autocomplete="off" type="text" id="id2" maxlength="1" class="form-control " />
+                <input [(ngModel)]="values[2]" tabindex="2" (keyup)="onValidate($event,2)" mask="0" autocomplete="off" type="text" id="id3" maxlength="1" class="form-control " />
+                <input [(ngModel)]="values[3]" tabindex="3" (keyup)="onValidate($event,3)" mask="0" autocomplete="off" type="text" id="id4" maxlength="1" class="form-control " />
+                <input [(ngModel)]="values[4]" tabindex="4" (keyup)="onValidate($event,4)" mask="0" autocomplete="off" type="text" id="id5" maxlength="1" class="form-control " />
+                <input [(ngModel)]="values[5]" tabindex="5" (keyup)="onValidate($event,5)" mask="0" autocomplete="off" type="text" id="id6" maxlength="1" class="form-control " />
+                <!-- <input type="text" class="form-control">
+                <input type="text" class="form-control">
+                <input type="text" class="form-control">
+                <input type="text" class="form-control">
+                <input type="text" class="form-control">
+                <input type="text" class="form-control"> -->
+            </div>
+            <div class="d-flex justify-content-center mb-3">
+                <button (click)="onClickVerificationCodeModal()"
+                    class="btn btn-custom-dark fs-5 text-capitalize rounded me-4" type="button">Back</button>
+                <button (click)="onClickSubmitOtp()" class="btn btn-custom-light-green rounded"
+                    type="button">Submit</button>
+            </div>
+            <a href="javascript:void(0)" class="mb-5">Resend OTP</a>
+        </div>
+    </div>
+</div>

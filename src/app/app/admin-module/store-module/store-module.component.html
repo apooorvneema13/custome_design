@@ -1,0 +1,24 @@
+<div class="vendor-wrapper">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-3">
+                <h3 >My shop</h3>
+            </div> 
+        </div>
+    </div>
+    <div class="vendor-details">
+        <div class="vendor-menu">
+            <ul>
+                <li><a href="javascript:void(0)"  routerLinkActive="active"  [routerLink]="['/admin/store/myproduct']">My Product</a></li>
+                <li><a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/store/myorders']">My Orders</a></li>
+                <li><a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/store/brands']">Brands(3721)</a></li>
+                <li><a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/store/uploadmedia']">Upload Media</a></li>
+                <li><a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/store/viewstore']">View Store</a><i class="fa-duotone fa-eye"></i></li>
+            </ul>
+          
+        </div>
+        <router-outlet class="d-none"></router-outlet>     
+        
+        
+    </div>
+</div>

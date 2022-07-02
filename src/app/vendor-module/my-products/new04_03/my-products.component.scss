@@ -1,0 +1,10 @@
+.add-new-product-wrapper .add-product-category .browser-categories .categories label.right-arrow {
+    padding: 12px 35px 12px 35px;
+    display: block;
+}
+.add-new-product-wrapper .add-product-category .browser-categories .categories.active label {
+    background-color: rgba(222, 55, 49, 0.1);
+}
+.add-new-product-wrapper .add-product-category .browser-categories .categories.active {
+    background-color: transparent;
+}

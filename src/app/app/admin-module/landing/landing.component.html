@@ -1,0 +1,112 @@
+
+<!-- Button Trigger Login Modal -->
+<button type="button" class="btn btn-custom-primary w-25 m-5" data-bs-toggle="modal" data-bs-target="#loginModal">
+    Login
+</button>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-custom-width">
+        <div class="modal-content border-0 rounded-0">
+            <div class="login-wrap d-flex">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <img src="assets/images/close.svg" alt="" />
+                </button>
+                <div class="w-50 d-flex align-items-center justify-content-center bg-black">
+                    <a class="text-decoration-none" href="/">
+                        <img src="assets/images/logo.svg" alt="" />
+                    </a>
+                </div>
+                <div class="w-50 p-5 d-flex flex-column justify-content-between">
+                    <!-- Login Content Start-->
+                    <div *ngIf="isLoginContentShown">
+                        <h1>Login</h1>
+                        <div class="mb-4">
+                            <input type="text" class="form-control" id="email" placeholder="Email or Phone Number">
+                            <!-- <span class="error-msg">Please Enter Email or Phone Number</span> -->
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                            <!-- <span class="error-msg">Please Password</span> -->
+                        </div>
+                        <div class="remember-me d-flex align-items-center justify-content-between mb-5">
+                            <label class="custom-checkbox">Remember me
+                                <input type="checkbox" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                            <p (click)="goToForgotPassword()">Forgot your password?</p>
+                        </div>
+                        <button type="button" (click)="goToOtpVerification()" class="btn btn-custom-primary">LOGIN</button>
+                    </div>
+
+                    <!-- Forgot Password Start -->
+                    <div *ngIf="isForgotPasswordShown">
+                        <h1 class="mb-4">Forgot Password</h1>
+                        <p class="forgot-password-text">Don’t worry! It happens. Please enter your registered Email or Phone Number below to receive password reset link.</p>
+                        <div class="mb-4">
+                            <input type="text" class="form-control" id="email" placeholder="Email or Phone Number">
+                            <!-- <span class="error-msg">Please Enter Email or Phone Number</span> -->
+                        </div>
+                        <button type="button" class="btn btn-custom-primary" (click)="goToResetPassword()">SUBMIT</button>
+                    </div>
+
+                    <!-- Reset Password Start -->
+                    <div *ngIf="isResetPasswordShown">
+                        <h1 class="mb-4">Reset Password</h1>
+                        <p class="forgot-password-text">Set your new password so you can Login and access BUMI</p>
+                        <div class="mb-4">
+                            <input type="text" class="form-control" id="createNewPassword" placeholder="Create New Password">
+                            <!-- <span class="error-msg">Please Enter Email or Phone Number</span> -->
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" class="form-control" id="confirmNewPassword" placeholder="Confirm New Password">
+                            <!-- <span class="error-msg">Please Enter Email or Phone Number</span> -->
+                        </div>
+                        <button type="button" class="btn btn-custom-primary" (click)="onClickResetPassword()">RESET PASSWORD</button>
+                    </div>
+                    
+                    <!-- Change Password Start -->
+                    <div *ngIf="isChangPasswordShown">
+                        <h1 class="mb-4">Change Password</h1>
+                        <p class="change-password-text">Set your new password so you can Login and access BUMI</p>
+                        <div class="mb-4">
+                            <input type="text" class="form-control" id="createNewPassword" placeholder="Create New Password">
+                            <!-- <span class="error-msg">Please Enter Email or Phone Number</span> -->
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" class="form-control" id="confirmNewPassword" placeholder="Confirm New Password">
+                            <!-- <span class="error-msg">Please Enter Email or Phone Number</span> -->
+                        </div>
+                        <button type="button" class="btn btn-custom-primary" (click)="onClickChangePassword()">RESET PASSWORD</button>
+                    </div>
+                    <!-- OTP Content Start -->
+                    <div *ngIf="isOtpContentShown">
+                        <h1 class="mb-4">OTP Verification</h1>
+                        <p class="forgot-password-text">Please enter the 6 digit code sent to your Phone Number or Email.</p>
+                       
+                        <div class="otp-inputs">
+                            <input class="form-control" type="text" />
+                            <input class="form-control" type="text" />
+                            <input class="form-control" type="text" />
+                            <input class="form-control" type="text" />
+                            <input class="form-control" type="text" />
+                            <input class="form-control" type="text" />
+                        </div>
+                       
+                        <!-- Use 'disabled' class, When it's required -->
+                        <button type="button" (click)="onClickVerify()" class="btn btn-custom-primary">VERIFY</button>
+                        <p class="resend-code">Resend Code</p>
+                    </div>
+
+                    <!-- OTP Verified Start -->
+                    <div *ngIf="isOtpVerified" class="d-flex flex-column align-items-center justify-content-center h-100">
+                        <img class="mb-3" src="assets/images/success.svg" alt="" />
+                        <h1 class="mb-4">Successful!</h1>
+                        <p class="forgot-password-text m-0">Your OTP Verified Successfully.</p>
+                    </div>
+                    <!-- <p class="have-an-account">Don't have an account? <span>Sign Up</span></p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

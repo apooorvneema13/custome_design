@@ -1,0 +1,286 @@
+<div class="header {{ bgTransperant ? '' : 'whiteBg' }}" id= "headerEle">
+    <div class="innerHeader">
+        
+      <a *ngIf="bgTransperant" href="javascript:void(0)" class="">
+          <img src="assets/images/logo_white.png" alt="TalentHook" class="img-fluid" (click)="gotodashboard()" />
+      </a>
+      <a *ngIf="sessionUser.profileunderreview!=true && !bgTransperant" href="javascript:void(0)" class="logoLink" (click)="gotodashboard()">
+            <img src="assets/images/logo.png" alt="TalentHook" class="img-fluid" />
+        </a>
+        <a *ngIf="sessionUser.profileunderreview==true && !bgTransperant" href="javascript:void(0)" class="logoLink" >
+            <img src="assets/images/logo.png" alt="TalentHook" class="img-fluid" (click)="gotodashboard1()" />
+        </a>
+
+        <div class="map_list_toggle" *ngIf="sessionUser.UserTypeID!=undefined 
+        && sessionUser.UserTypeID==11 && islandingpage==true">
+          <a href="javascript:void(0)" (click)="onclickcmplistmapview()" 
+          class="switchDiv {{listToggle ? 'toggle_s' : ''}}">
+            <span><i class="fas fa-map"></i></span>
+            <span><i class="fas fa-list"></i></span>
+          </a>
+        </div>
+
+        <div class="rightEle">
+            <a href="javascript:void(0)" class="notifyAlert d-none">
+                <i class="fas fa-bell"></i>
+            </a>
+            <a *ngIf="sessionUser.profileunderreview!=true" href="javascript:void(0)" (click)="gotodashboard()"  class="menuLink">Home</a>
+            <a *ngIf="sessionUser.profileunderreview==true" href="javascript:void(0)" (click)="gotodashboard1()"  class="menuLink">Home</a>
+
+            <a href="javascript:void(0)" class="menuLink" (click)="OpenBlog()">Blog</a>
+           
+
+            
+            <a *ngIf="!(sessionUser!=undefined && sessionUser!=null && sessionUser.UserID!=undefined)" 
+            href="javascript:void(0)" class="menuLink"
+            (click)="signinClick = true">Sign In</a>
+
+            <a  href="javascript:void(0)" (click)="userPopup_toggle()" class="iconEle" *ngIf="sessionUser!=undefined && sessionUser!=null && sessionUser.UserID!=undefined && sessionUser.profileunderreview!=true">
+                <span class="icon" >
+                    <img class="img-fluid" *ngIf="sessionUser.ImageURL==undefined || sessionUser.ImageURL=='null' || sessionUser.ImageURL==''"
+                        src="assets/images/img6.png" />
+                    <img class="img-fluid" *ngIf="sessionUser.ImageURL!=undefined  && sessionUser.ImageURL!='null' && sessionUser.ImageURL!=''"
+                        src="{{sessionUser.ImageURL}}" />
+                </span>
+                <span class="downArrow">
+                  <i class="fas fa-angle-down"></i>
+                </span>
+                <div class="profilePopup {{userPopup_active ? 'active':''}}">
+                    <div class="innerEle">
+                        <div class="userInfo">
+                            <b>{{sessionUser.FullName}}</b>
+                            <span>{{sessionUser.Email}}</span>
+                            <span>{{sessionUser.CountryCode}}{{sessionUser.PhoneNumber}}</span>
+                        </div>
+                        <a href="javascript:void(0)" (click)="gotodashboard()" class="link">Dashboard</a>
+                        <a href="javascript:void(0)" (click)="onprofile()" class="link">My Profile</a>
+                        <a *ngIf="sessionUser.UserTypeID!=10" href="javascript:void(0)" (click)="oncompanyprofile()" class="link">Company Profile</a>
+                        <!-- <a *ngIf="sessionUser.UserTypeID==10" href="javascript:void(0)" (click) = "jobSrch()" class="link">Job Search</a>
+                        <a *ngIf="sessionUser.UserTypeID!=10" href="javascript:void(0)" (click) = "jobPost()" class="link">Job Posting</a>  -->
+                        <!-- <a href="javascript:void(0)" class="link">Job Alert</a>
+                        <a href="javascript:void(0)" class="link">Link 1</a>
+                        <a href="javascript:void(0)" class="link">Link 2</a> -->
+                        <a href="javascript:void(0)" (click)="LogOut()">LogOut1212</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="asideRight {{ isuseprofileActive ? 'active':''}}">
+    <div class="backDrops"></div>
+    <div class="asideInner">
+      <a href="javascript:void(0)" (click)="onprofileclose()"
+        class="closeDiv largeClose posAbs"><span></span><span></span></a>
+  
+      <div class="asideContent ">
+        <div class="asideBox">
+          <h3 class="title column">
+            <b>Profile</b>
+          </h3>
+         
+            <div class="userImgDiv">
+              <div class="userImg">
+    
+                <img *ngIf="(sessionUser.ImageURL==undefined || sessionUser.ImageURL==null || sessionUser.ImageURL=='')"
+                  src="assets/images/img6.png" alt="Mathew Diaz" />
+                <img *ngIf="sessionUser.ImageURL!='' && sessionUser.ImageURL!=undefined"
+                  src="{{sessionUser.ImageURL}}" alt="Mathew Diaz" />
+                
+              </div>
+            </div>
+    
+            <div class="formDiv">
+              <div class="form-group">
+                <label>
+                  <span>Full Name*</span>
+                  <input disabled autofocus="true" [(ngModel)]="sessionUser.FullName" id="FullName" name="FullName" maxlength="100"
+                    type="text"
+                    class="form-control" />
+                </label>
+              </div>
+    
+              <div class="form-group">
+                <label>
+                  <span>Gender*</span>
+                  <div class="inputDiv d-flex">
+                    <label class="c_radio ">
+                      <input disabled [(ngModel)]="sessionUser.Gender"
+                        class="form-check-input"
+                        type="radio" name="genertype" id="exampleRadios1" value="F">
+                      <span class="checkRadio"></span>
+                      <span>Female</span>
+                    </label>
+                    <label class="c_radio ">
+                      <input disabled [(ngModel)]="sessionUser.Gender"
+                        class="form-check-input"
+                        type="radio" name="genertype" id="exampleRadios1" value="M">
+                      <span class="checkRadio"></span>
+                      <span>Male</span>
+                    </label>
+                  </div>
+                  
+                </label>
+              </div>
+    
+    
+              <div class="form-group">
+                <label>
+                  <span>Phone Number*</span>
+                  <div class="inputDiv">
+                    <div class="leftDiv">{{sessionUser.CountryCode}}</div>
+                    <input disabled style="padding-left: 60px;" mask="(000) 000 0000" [(ngModel)]="sessionUser.PhoneNumber"
+                      type="text"
+                      class="form-control "
+                       />
+                   
+                  </div>
+                </label>
+              </div>
+  
+              <div class="form-group">
+                <label>
+                  <span>Email Address*</span>
+                  <input disabled [(ngModel)]="sessionUser.Email" maxlength="255" type="email" class="form-control"
+                  />
+                </label>
+              </div>
+              
+              <div class="btnDiv">
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="asideRight {{ isCompanyprofileActive ? 'active':''}}">
+    <div class="backDrops"></div>
+    <div class="asideInner">
+      <a href="javascript:void(0)" (click)="onCompanyprofileclose()"
+        class="closeDiv largeClose posAbs"><span></span><span></span></a>
+  
+      <div class="asideContent ">
+        <div class="asideBox">
+          <h3 class="title column">
+            <b>Company Information</b>
+          </h3>
+         
+           
+    
+            <div class="formDiv">
+              
+
+              <div class="form-group">
+                <label>
+                  <span>Company name*</span>
+                    <input disabled [(ngModel)]="objcompanyinfo.OrgName" maxlength="100" type="text"
+                        placeholder="Company name"
+                        class="form-control"/>
+                    <!-- <small
+                        *ngIf="iscompanysubmit==true  && (objcompanyinfo.OrgName==undefined || objcompanyinfo.OrgName==null || objcompanyinfo.OrgName=='')">
+                        Company name Required
+                    </small> -->
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                  <span>Company Website*</span>
+                    <input disabled [(ngModel)]="objcompanyinfo.OrgWebsite" maxlength="100" type="text"
+                        placeholder="Company Website"
+                        class="form-control " />
+                    <!-- <small
+                        *ngIf="iscompanysubmit==true  && (objcompanyinfo.OrgWebsite==undefined || objcompanyinfo.OrgWebsite==null || objcompanyinfo.OrgWebsite=='')">
+                        Company Website Required
+                    </small> -->
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                  <span>Email Address*</span>
+                    <input disabled placeholder="Email Address" [(ngModel)]="objcompanyinfo.OrgEmail" maxlength="255"
+                        type="email" class="form-control" 
+                         />
+                         <!-- (focusout)="onEmail_Focusout()" -->
+                    <!-- <small
+                        *ngIf="iscompanysubmit==true  && (objcompanyinfo.OrgEmail==undefined || objcompanyinfo.OrgEmail==null || objcompanyinfo.OrgEmail=='')">
+                        Email Address Required
+                    </small>
+                    <small class="font-red" *ngIf="iscompanysubmit==true  && hasvalidemail==false">
+                        Invalid Email Address
+                    </small>
+                     -->
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>
+                  <span>Phone Number*</span>
+
+                    <div class="inputDiv">
+                        <div class="leftDiv">{{CountryCode}}</div>
+                        
+                        <input disabled style="padding-left: 60px;" mask="(000) 000 0000"  placeholder="Phone Number"
+                            [(ngModel)]="objcompanyinfo.OrgPhoneNumber" type="text" class="form-control" />
+                        <!-- (focusout)="onPhoneNumber_Focusout()" -->
+
+                    </div>
+                    <!-- <small class="font-red"
+                        *ngIf="iscompanysubmit==true  && (objcompanyinfo.OrgPhoneNumber==undefined || objcompanyinfo.OrgPhoneNumber==null || objcompanyinfo.OrgPhoneNumber=='')">
+                        Phone Number Required
+                    </small> -->
+                    <!-- <small class="font-red" *ngIf="objcompanyinfo.OrgPhoneNumber!='' && verifyPhoneDisabled==false">
+                          {{verifyPhoneNomsg}}
+                        </small>  -->
+
+                </label>
+            </div>
+            <div class="form-group">
+              <span>Address*</span>
+                <label>
+                  <textarea disabled rows="5" class="form-control" placeholder="Address"
+                        [(ngModel)]="objcompanyinfo.OrgAddress" maxlength="1000"></textarea>
+
+                     <!-- <mj-google-autocomplete [disabled]="true" [autocompleteInput]="AddressName"
+                        (setAddress)="getEstablishmentAddress($event);  onCompanyName_Change(AddressName);"
+                        (setfocusout)="setaddress1($event)" [defaultCountry]="CountryISO" [specificPlace]="true"
+                        [placeholder]="'Enter Address'" [specificPlace]="true" maxlength="255" [rows]="3">
+                    </mj-google-autocomplete>  -->
+                    <!-- <small class="inValid"
+                        *ngIf="iscompanysubmit==true  && (AddressName==undefined || AddressName==null || AddressName=='')">
+                        Address Required
+                    </small> -->
+                </label>
+            </div>              
+              <div class="btnDiv">
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="asideRight signInPopup {{ signinClick ? 'active': ''}}">
+    <div class="backDrops whiteDrops"></div>
+    <div class="asideInner">
+        <a href="javascript:void(0)" (click)="signinClick = false"
+            class="closeDiv largeClose posAbs whiteCross"><span></span><span></span></a>
+        <div class="asideContent">
+            <div class="signLinks">
+                <a href="javascript:void(0)" (click)="opencandidatelogin()" class="linkCat">
+                    <small class="circle"></small>
+                    <span>Sign In <br>as a Candidate</span>
+                    <span class="ic_action"><img src="assets/images/ic_right_white.png" /></span>
+                </a>
+                <a href="javascript:void(0)" (click)="openCompanylogin()"  class="linkCat">
+                    <small class="circle"></small>
+                    <span>Sign In <br>as a Company</span>
+                    <span class="ic_action"><img src="assets/images/ic_right_white.png" /></span>
+                </a>
+               
+            </div>
+        </div>
+    </div>
+</div>

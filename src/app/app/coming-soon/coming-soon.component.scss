@@ -1,0 +1,152 @@
+.comingsoon-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    > div {
+        width: 100%;
+        text-align: center;
+        background-color: #fff;
+        &.logoDiv {
+            width: 100%;
+            text-align: center;
+            height: 180px;
+            padding: 20px;
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+        &.comingSoon_content {
+            padding: 20px 20px 0px 20px;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: #152844 linear-gradient(180deg, #243C5F 0%, #152844 100%) 0% 0% no-repeat padding-box;
+            .bottomRightImg {
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                z-index: 2;
+                img {
+                    max-width: 100%;
+                }
+                & > * {
+                    z-index: 3;
+                    position: relative;
+                }
+            }
+
+            .comingText {
+                color: #fff;
+                position: relative;
+                margin-bottom: 60px;
+                h2 {
+                    font-size: 70px;
+                    font-weight: 700;
+                    color: #FCFDFD;
+                    font-family: 'Poppins';
+                }
+                .borderText {
+                    position: absolute;
+                    top: 0px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-size: 70px;
+                    font-weight: 700;
+                    color: transparent;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-background-clip: text;
+                    -webkit-text-stroke-width: 1px;
+                    -webkit-text-stroke-color: #6EC6D2;
+                    margin-top: 4px;
+                    margin-left: 1px;
+                    font-family: 'Poppins';
+                }
+            }
+
+            h4 {
+                font-size: 27px;
+                font-weight: 400;
+                color: #fff;
+                b {
+                    font-weight: 800;
+                }
+            }
+
+            .daysBoxes {
+                display: flex;
+                max-width: 400px;
+                width: 100%;
+                justify-content: space-between;
+                align-items: flex-start;
+                column-gap: 30px;
+                margin: 20px auto 60px;
+                .boxDiv {
+                    width: 74px;
+                    height: 74px;
+                    background-color: #fff;
+                    border-radius: 8px;
+                    border-top: 1px solid #70DAE2;
+                    box-shadow: inset 0px 3px 0px #2BA2B2;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    > span {
+                        font-size: 40px;
+                        font-weight: 600;
+                        color: #646464;
+                    }
+                    > small {
+                        position: absolute;
+                        top: 100%;
+                        margin-top: 5px;
+                        color: #fff;
+                        font-weight: bold;
+                        font-size: 12px;
+                        width: 100%;
+                        left: 0px;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .notifyDiv {
+                display: flex;
+                max-width : 640px;
+                width: 100%;
+                margin: auto;
+                label {
+                    margin: 0px;
+                    width: 100%;
+                    input {
+                        width: 100%;
+                        background-color: #fff;
+                        border-radius: 8px;
+                        height: 100%;
+                    }
+                }
+                .btnDiv {
+                    min-width:170px;
+                    margin-left: 10px;
+                    button {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .copyRightDiv {
+                margin-top: auto;
+                width: 100%;
+                text-align: center;
+                > span {
+                    color: #fff;
+                    font-size: 12px;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,649 @@
+<div class="star-login-wrapper">
+    <!-- star Login Section-->
+    <form method="post" (ngSubmit)="onSubmit(userlogin)" enctype="multipart/form-data" #userlogin>
+        <div *ngIf="isVendorLoginShown" class="vendor-login">
+            <div class="col-sm-6">
+                <div class="login-content">
+                    <div class="w-100">
+                        <img class="mb-5" src="assets/images/logo.svg" alt="" />
+                        <h1>Influencer Portal</h1>
+                        <p>Your Account</p>
+                        <div class="mb-4 float-input">
+                            <input type="text" [(ngModel)]="objvendorlogin.UserName" class="form-control" id="email"
+                                placeholder="Username">
+                            <!-- <div class="placeholder-text">Username</div> -->
+                            <span *ngIf="issubmitlogin && objvendorlogin.UserName==''" class="error-msg">Please Enter
+                                UserName</span>
+                        </div>
+                        <div class="mb-4 float-input">
+                            <input type="password" [(ngModel)]="objvendorlogin.Password" class="form-control"
+                                id="password" placeholder="Password">
+                            <!-- <div class="placeholder-text">Password</div> -->
+                            <span *ngIf="issubmitlogin && objvendorlogin.Password==''" class="error-msg">Please Enter
+                                Password</span>
+                        </div>
+                        <button type="submit" (click)="ValidateUser()"
+                            class="btn mb-4 w-100 text-capitalize btn-custom-secondary">
+                            Log In
+                        </button>
+                        <p class="have-an-account">Don’t have an account? <span (click)="goToRegister()">Register
+                                Here</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <img class="left-bg-img" src="assets/images/star-login-bg-1.png" alt="" />
+            </div>
+        </div>
+    </form>
+    <!-- star Register Section-->
+    <ng-container *ngIf="isVendorRegisterShown">
+        <!-- Step 1 Section-->
+        <form method="post" #registration (ngSubmit)="onRegistrationSubmit(registration)" enctype="multipart/form-data">
+
+            <div *ngIf="isVendorRegisterStep1" class="vendor-login">
+                <div class="col-sm-6">
+                    <div class="login-content">
+                        <div class="w-100">
+                            <img class="mb-4" src="assets/images/logo.svg" alt="" />
+                            <div class="register-steps mb-4">
+                                <div class="step active"></div>
+                                <div class="step"></div>
+                                <div class="step"></div>
+                                <div class="step"></div>
+                                <div class="step"></div>
+                            </div>
+                            <h1>Influencer Portal</h1>
+                            <p>Personal Information*</p>
+                            <div class="mb-3 float-input">
+                                <input type="email" maxlength="100" [(ngModel)]="objVendormodel.VendorEmail"
+                                    class="form-control" id="email" placeholder=" " name="email">
+                                <div class="placeholder-text">Email Address</div>
+                                <span class="error-msg" *ngIf="issubmitreg && objVendormodel.VendorEmail==''">Please
+                                    Enter
+                                    Email Address</span>
+                            </div>
+                            <div class="mb-3 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="objVendormodel.PhoneNumber"
+                                    class="form-control" id="phone_number" placeholder="Mobile Number"
+                                    name="phone_number">
+                                <!-- <div class="placeholder-text">Mobile Number</div> -->
+                                <span class="error-msg" *ngIf="issubmitreg && objVendormodel.VendorEmail==''">Please
+                                    Enter
+                                    Mobile Number</span>
+                            </div>
+                            <div class="mb-3 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="objVendormodel.UserName"
+                                    class="form-control" id="username" placeholder="Username" name="username">
+                                <!-- <div class="placeholder-text">Username</div> -->
+                                <span class="error-msg" *ngIf="issubmitreg && objVendormodel.VendorEmail==''">Please
+                                    Enter
+                                    Username</span>
+                            </div>
+                            <div class="mb-3 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="objVendormodel.Password"
+                                    class="form-control" id="Password" placeholder="Password" name="Password">
+                                <!-- <div class="placeholder-text">Password</div> -->
+                                <span *ngIf="issubmitreg && objVendormodel.VendorName==''" class="error-msg">Please
+                                    Enter
+                                    Password</span>
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select" [(ngModel)]="objVendormodel.IndustryID"
+                                    placeholder="IndustryID">
+                                    <option selected>Select  Mode of Payment</option>
+                                    <option value="0" selected>Preferred Mode of Payment</option>
+                                    <option value="1">Preferred Mode of Payment 1</option>
+                                    <option value="2">Preferred Mode of Payment 2</option>
+                                    <option value="3">Preferred Mode of Payment 3</option>
+                                </select>
+                                <span *ngIf="issubmitreg && objVendormodel.IndustryID==0" class="error-msg">Please
+                                    Select
+                                    Payment Mode</span>
+                            </div>
+                            <div class="justify-content-between d-flex">
+                                <button type="button" class="btn text-capitalize btn-custom-gray">
+                                    Previous
+                                </button>
+                                <button (click)="onClickStep1()" type="button"
+                                    class="btn text-capitalize btn-custom-secondary">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <img class="left-bg-img" src="assets/images/star-login-bg-2.png" alt="" />
+                </div>
+            </div>
+
+            <!-- Step 2 Section-->
+            <div *ngIf="isVendorRegisterStep2" class="vendor-login">
+                <div class="col-sm-6">
+                    <div class="login-content">
+                        <div class="w-100">
+                            <img class="mb-4" src="assets/images/logo-black.svg" alt="" />
+                            <div class="register-steps mb-4">
+                                <div class="step active"></div>
+                                <div class="step active"></div>
+                                <div class="step"></div>
+                                <div class="step"></div>
+                                <div class="step"></div>
+                            </div>
+                            <h1>Influencer Portal</h1>
+                            <p class="mb-2">Platforms*</p>
+                            <p class="have-an-account">Select your social media platforms below and their links based on
+                                the
+                                selections made.</p>
+                            <div class="mb-3 float-input">
+                                <label class="custom-checkbox custom-red text-white fs-6">Facebook
+                                    <input type="checkbox" value="fb" [(ngModel)]="fb" id="fb" value="fb" name="fb">
+                                    <span class="checkmark">
+                                        <!-- <span class="error-msg" *ngIf="issubmitreg">Please
+                                            Enter
+                                            Mobile Number</span> -->
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="custom-checkbox custom-red text-white fs-6">Instagram
+                                    <input type="checkbox" value="insta" [(ngModel)]="insta" id="insta" name="insta">
+                                    <!-- [(ngModel)]="objVendormodel.insta" -->
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="custom-checkbox custom-red text-white fs-6">Snapchat
+                                    <input type="checkbox" [(ngModel)]="snap" id="snap" value="snap" name="snap">
+                                    <!-- [(ngModel)]="objVendormodel.snap" -->
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="custom-checkbox custom-red text-white fs-6">TikTok
+                                    <input type="checkbox" [(ngModel)]="tiktok" id="tiktok" value="tiktok"
+                                        name="tiktok">
+                                    <!-- [(ngModel)]="objVendormodel.tiktok" -->
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="custom-checkbox custom-red text-white fs-6">Twitter
+                                    <input type="checkbox" [(ngModel)]="twitter" id="twitter" value="twitter"
+                                        name="twitter">
+                                    <!-- [(ngModel)]="objVendormodel.twitch" -->
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="custom-checkbox custom-red text-white fs-6">Twitch
+                                    <input type="checkbox" [(ngModel)]="twitch" id="twitch" value="twitch"
+                                        name="twitch">
+                                    <!-- [(ngModel)]="objVendormodel.twitch" -->
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="custom-checkbox custom-red text-white fs-6">Youtube
+                                    <input type="checkbox" [(ngModel)]="youtube" id="youtube" value="youtube"
+                                        name="youtube">
+                                    <!-- [(ngModel)]="objVendormodel.youtube" -->
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="justify-content-between d-flex mt-4">
+                                <button type="button" class="btn text-capitalize btn-custom-gray"
+                                    (click)="goToRegister()">
+                                    Previous
+                                </button>
+                                <button (click)="onClickStep2()" type="button"
+                                    class="btn text-capitalize btn-custom-secondary">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <img class="left-bg-img" src="assets/images/star-login-bg-3.png" alt="" />
+                </div>
+            </div>
+
+            <!-- Step 3 Section-->
+            <div *ngIf="isVendorRegisterStep3" class="vendor-login">
+                <div class="col-sm-6">
+                    <div class="login-content">
+                        <div class="w-100">
+                            <img class="mb-4" src="assets/images/logo.svg" alt="" />
+                            <div class="register-steps mb-4">
+                                <div class="step active"></div>
+                                <div class="step active"></div>
+                                <div class="step active"></div>
+                                <div class="step"></div>
+                                <div class="step"></div>
+                            </div>
+                            <h1>Influencer Portal</h1>
+                            <p>Social Platforms Links</p>
+                            <div class="mb-3 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="fb_link" id="fb_link" value="fb_link"
+                                    name="fb_link" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">Facebook Link</div>
+                                <!-- <span class="error-msg">Please Enter Facebook Link</span> -->
+                            </div>
+                            <div class="mb-3 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="insta_link" id="insta_link"
+                                    value="insta_link" name="youtube" class="form-control" id="email" placeholder=" ">
+                                <div class="placeholder-text">Instagram Link</div>
+                                <!-- <span class="error-msg">Please Enter Instagram Link</span> -->
+                            </div>
+                            <div class="mb-3 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="snap_link" value="snap_link"
+                                    name="snap_link" class="form-control" id="snap_link" placeholder=" ">
+                                <div class="placeholder-text">Snapchat Link</div>
+                                <!-- <span class="error-msg">Please Enter Snapchat Link</span> -->
+                            </div>
+                            <div class="mb-3 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="tiktok_link" value="tiktok_link"
+                                    name="tiktok_link" class="form-control" id="tiktok_link" placeholder=" ">
+                                <div class="placeholder-text">TikTok Link</div>
+                                <!-- <span class="error-msg">Please Enter TikTok Link</span> -->
+                            </div>
+                            <div class="mb-3 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="youtube_link" value="youtube_link"
+                                    name="youtube_link" class="form-control" id="youtube_link" placeholder=" ">
+                                <div class="placeholder-text">Youtube Link</div>
+                                <!-- <span class="error-msg">Please Enter Youtube Link</span> -->
+                            </div>
+                            <div class="justify-content-between d-flex">
+                                <button type="button" class="btn text-capitalize btn-custom-gray">
+                                    Previous
+                                </button>
+                                <button (click)="onClickStep3()" type="button"
+                                    class="btn text-capitalize btn-custom-secondary">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <img class="left-bg-img" src="assets/images/star-login-bg-4.png" alt="" />
+                </div>
+            </div>
+
+            <!-- Step 4 Section-->
+            <div *ngIf="isVendorRegisterStep4" class="vendor-login">
+                <div class="col-sm-6">
+                    <div class="login-content">
+                        <div class="w-100">
+                            <img class="mb-4" src="assets/images/logo.svg" alt="" />
+                            <div class="register-steps mb-4">
+                                <div class="step active"></div>
+                                <div class="step active"></div>
+                                <div class="step active"></div>
+                                <div class="step active"></div>
+                                <div class="step"></div>
+                            </div>
+                            <h1>Influencer Portal</h1>
+                            <p class="mb-2">Interests*</p>
+                            <p class="have-an-account">Select the categories below. We will send you collaboration
+                                opportunities based on the selections made.</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red  text-white fs-6">High Fashion
+                                            <input type="checkbox" [(ngModel)]="high_fashion" value="high_fashion"
+                                                name="high_fashion">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Lingerie & Swim
+                                            <input type="checkbox" [(ngModel)]="lingerie_swim" value="lingerie_swim"
+                                                name="lingerie_swim">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Hair & Beauty
+                                            <input type="checkbox" [(ngModel)]="hair_beauty" value="hair_beauty"
+                                                name="hair_beauty">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Travel
+                                            <input type="checkbox" [(ngModel)]="travel" value="travel" name="travel">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Streetwear
+                                            <input type="checkbox" [(ngModel)]="streetwear" value="streetwear"
+                                                name="streetwear">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Footwear
+                                            <input type="checkbox" [(ngModel)]="footwear" value="footwear"
+                                                name="footwear">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Health & Fitness
+                                            <input type="checkbox" [(ngModel)]="health" value="health" name="health">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Lifestyle
+                                            <input type="checkbox" [(ngModel)]="lifestyle" value="lifestyle"
+                                                name="lifestyle">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Fashion
+                                            <input type="checkbox" [(ngModel)]="fashion" value="fashion" name="fashion">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Plus Size
+                                            <input type="checkbox" [(ngModel)]="plus_size" value="plus_size"
+                                                name="plus_size">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Pride
+                                            <input type="checkbox" [(ngModel)]="pride" value="pride" name="pride">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Tech Accessories
+                                            <input type="checkbox" [(ngModel)]="tech_acc" value="tech_acc"
+                                                name="tech_acc">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Jewellery
+                                            <input type="checkbox" [(ngModel)]="jewellery" value="jewellery"
+                                                name="jewellery">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="custom-checkbox custom-red text-white fs-6">Other Accessories
+                                            <input type="checkbox" [(ngModel)]="other" value="other" name="other">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="justify-content-between d-flex mt-4">
+                                <button type="button" class="btn text-capitalize btn-custom-gray"
+                                    (click)="goToRegister()">
+
+                                    Previous
+                                </button>
+                                <!-- <button (click)="onClickStep4()" type="button"
+                                    class="btn text-capitalize btn-custom-secondary">
+                                    Next
+                                </button> -->
+                                <button type="submit" class="btn text-capitalize btn-custom-secondary">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <img class="left-bg-img" src="assets/images/star-login-bg-5.png" alt="" />
+                </div>
+            </div>
+        </form>
+
+        <!-- Step 5 Section-->
+
+        <div *ngIf="isVendorRegisterStep5" class="terms-conditions">
+
+            <div class="col-sm-5">
+                <div class="login-content">
+                    <div class="w-100">
+                        <form method="post" #IncorporationFormId (ngSubmit)="UploadIncorpo(IncorporationFormId)"
+                            enctype="multipart/form-data">
+                            <img class="mb-4" src="assets/images/logo.svg" alt="" />
+                            <div class="register-steps mb-4">
+                                <div class="step active"></div>
+                                <div class="step active"></div>
+                                <div class="step active"></div>
+                                <div class="step active"></div>
+                                <div class="step active"></div>
+                            </div>
+                            <h1>Vendor Portal</h1>
+                            <p>Input Documents</p>
+                            <div class="btn-choose mb-3">
+                                <label class="btn">
+                                    Choose File <input type="file" hidden (change)="onFileChangedIncop($event)">
+                                </label>
+                                <p>KRA PIN</p>
+                            </div>
+                            <div class="mb-4">
+                                <button type="submit" (click)="UploadDocument()"
+                                    class="btn btn-custom-secondary w-100 text-capitalize">
+                                    Upload
+                                </button>
+                            </div>
+                            <span style="color: green;">{{UploadmsgForcerticate}}</span>
+
+                        </form>
+                        <form method="post" #DirectorsformId (ngSubmit)="UploadDirectors(DirectorsformId)">
+                            <div class="btn-choose mb-3">
+                                <label class="btn">
+                                    Choose File <input type="file" hidden (change)="onFileChangedDirect($event)">
+                                </label>
+                                <p>Profile Pic</p>
+                            </div>
+                            <div class="mb-4">
+                                <button type="submit" (click)="UploadDocument()"
+                                    class="btn btn-custom-secondary w-100 text-capitalize">
+                                    Upload
+                                </button>
+                                <span style="color: green;">{{UploadmsgForDire}}</span>
+                            </div>
+                          
+                            <div class="text-center">
+                                <button type="submit" class="btn text-capitalize btn-custom-gray">
+                                    Previous
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-7">
+                <div class="terms-conditions-wrap mb-4">
+                    <h2>Contract Terms & Conditions</h2>
+                    <h5>Before you can complete your registration, you must read and accept Bumi Vendor Terms &
+                        Conditions.</h5>
+                    <div class="terms-conditions-content">
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+                            nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-center">
+                    <label class="custom-checkbox custom-red text-white fs-6">I Accept the T&C
+                        <input type="checkbox"  (click)="Finishchange()">
+                        <span class="checkmark"></span>
+                    </label>
+                    <button type="button" (click)="AddVendor12()" [disabled]="isDisabled" class="btn text-capitalize btn-custom-secondary ms-3">
+                        Finish
+                    </button>
+                </div>
+            </div>
+
+            <!-- <div class="finish-wrap">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <button type="button" (click)="onClickStep1()" style="margin-left: 135px"
+                                class="btn text-capitalize btn-custom-gray">
+                                Previous
+                            </button>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="button" (click)="DownloadTOC()"
+                                        class="btn me-4 text-capitalize btn-custom-gray {{isActiveDownloadbtn==false?'disabled':''}}">
+                                        Download
+                                    </button>
+                                    <button type="button" (click)="UploadTOC()"
+                                        class="btn text-capitalize btn-custom-gray {{isDownloadTOC==false?'disabled':''}}">
+                                        Upload
+                                    </button>
+                                </div>
+                                <div class="col-6 d-flex justify-content-end align-items-center">
+                                    <label
+                                        class="custom-checkbox custom-red fs-6 {{isUploadTOC==false?'disabled':''}}">I
+                                        Accept the T&C
+                                        <input type="checkbox" [(ngModel)]="objVendormodel.TOCAcceptInd"
+                                            [attr.disabled]="isUploadTOC==false ? true : null">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <button type="button" (click)="AddVendor()"
+                                        class="btn ms-4 text-capitalize btn-custom-secondary {{objVendormodel.TOCAcceptInd==false ? 'disabled':''}}">
+                                        Finish
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- Finish Modal -->
+            <div class="modal fade" id="finishModal" tabindex="-1" aria-labelledby="finishModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-custom-width">
+                    <div class="modal-content border-0 rounded-0">
+                        <div class="login-wrap d-flex">
+                            <button type="button" class="close" (click)="Closepopup()" data-bs-dismiss="modal"
+                                aria-label="Close">
+                                <img src="assets/images/close.svg" alt="" />
+                            </button>
+                            <div class="w-50 d-flex align-items-center justify-content-center bg-black">
+                                <a class="text-decoration-none" href="/">
+                                    <img src="assets/images/logo.svg" alt="" />
+                                </a>
+                            </div>
+                            <div class="w-50 p-5 d-flex flex-column justify-content-between">
+                                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+                                    <img class="mb-3" src="assets/images/clock.svg" alt="" />
+                                    <h1 class="mb-4">Your Account is under review</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

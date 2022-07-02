@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BUMI</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico"> 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/owl.carousel.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" type="text/css" href="../src/assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+  <link  href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/scss" href="src/styles.scss">
+  <link rel="stylesheet" type="text/css" href="src/style.css">
+ 
+  
+  <!-- <link rel="stylesheet" href="assets/css/font-awesome.css"> -->
+</head>
+  <!-- <link rel="stylesheet" type="text/css" href="primeicons.css" /> -->
+  <script src="../src/assets/js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/owl.carousel.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+  <!-- <script src="../src/assets/js/jquery.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- <script src="js/vendor/popper.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/vendor/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+      // Developed at agap2
+// Based on:
+// http://www.codeply.com/go/s3I9ivCBYH/multi-carousel-single-slide-bootstrap-4
+
+$('.multi-item-carousel').on('slide.bs.carousel', function (e) {
+  let $e = $(e.relatedTarget),
+      itemsPerSlide = 4,
+      totalItems = $('.carousel-item', this).length,
+      $itemsContainer = $('.carousel-inner', this),
+      it = itemsPerSlide - (totalItems - $e.index());
+  if (it > 0) {
+    for (var i = 0; i < it; i++) {
+      $('.carousel-item', this).eq(e.direction == "left" ? i : 0).
+        // append slides to the end/beginning
+        appendTo($itemsContainer);
+    }
+  }
+});
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <script>
+      $(document).ready(function () {
+          $("#pickup_box").click(function () {
+              $("#pickup_add").removeClass("active");
+              $(this).addClass("active");
+              $("#pickup_box_cont").show();
+              $("#pickup_add_cont").hide();
+
+          });
+          $("#pickup_add").click(function () {
+              $("#pickup_box").removeClass("active");
+              $(this).addClass("active");
+              $("#pickup_box_cont").hide();
+              $("#pickup_add_cont").show();
+
+          });
+      });
+  </script>
+    <script type="text/javascript">
+     jQuery(".carousel").owlCarousel({
+  autoplay: true,
+  rewind: true, /* use rewind if you don't want loop */
+  margin: 20,
+   /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+  responsiveClass: true,
+  autoHeight: true,
+  autoplayTimeout: 7000,
+  smartSpeed: 800,
+  nav: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+
+    600: {
+      items: 3
+    },
+
+    1024: {
+      items: 4
+    },
+
+    1366: {
+      items: 5
+    }
+  }
+});
+    </script>
+    <script type="text/javascript">
+     jQuery(".star-carousel").owlCarousel({
+  autoplay: true,
+  rewind: true, /* use rewind if you don't want loop */
+  margin: 20,
+   /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+  responsiveClass: true,
+  autoHeight: true,
+  autoplayTimeout: 7000,
+  smartSpeed: 800,
+  nav: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+
+    600: {
+      items: 3
+    },
+
+    1024: {
+      items: 4
+    },
+
+    1366: {
+      items: 4
+    }
+  }
+});
+    </script>
+    <script type="text/javascript">
+      function increaseValue() {
+  var value = parseInt(document.getElementById('number').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  document.getElementById('number').value = value;
+}
+
+function decreaseValue() {
+  var value = parseInt(document.getElementById('number').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value < 1 ? value = 1 : '';
+  value--;
+  document.getElementById('number').value = value;
+}
+    </script>
+    <script type="text/javascript">
+      $('.btn-toggle').click(function() {
+  $(this).find('.btn').toggleClass('active');
+  if ($(this).find('.btn-primary').size() > 0) {
+    $(this).find('.btn').toggleClass('btn-primary');
+  }
+  $(this).find('.btn').toggleClass('btn-default');
+});
+    </script>
+   
+
+<script type="text/javascript">
+    // Developed at agap2
+    // Based on:
+    // http://www.codeply.com/go/s3I9ivCBYH/multi-carousel-single-slide-bootstrap-4
+
+    $('.multi-item-carousel').on('slide.bs.carousel', function (e) {
+       
+
+        let $e = $(e.relatedTarget),
+            itemsPerSlide = 4,
+            totalItems = $('.carousel-item', this).length,
+            $itemsContainer = $('.carousel-inner', this),
+            it = itemsPerSlide - (totalItems - $e.index());
+         if (it > 0) {
+            for (var i = 0; i < it; i++) {
+                $('.carousel-item', this).eq(e.direction == "left" ? i : 0).
+                // append slides to the end/beginning
+                appendTo($itemsContainer);
+            }
+        }
+    });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script type="text/javascript">
+   
+    jQuery(".carousel").owlCarousel({
+        autoplay: true,
+        rewind: true, /* use rewind if you don't want loop */
+        margin: 20,
+        /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+        responsiveClass: true,
+        autoHeight: true,
+        autoplayTimeout: 7000,
+        smartSpeed: 800,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+
+            600: {
+                items: 3
+            },
+
+            1024: {
+                items: 4
+            },
+
+            1366: {
+                items: 5
+            }
+        }
+    });
+</script>
+<script type="text/javascript">
+     
+    jQuery(".star-carousel").owlCarousel({
+        autoplay: true,
+        rewind: true, /* use rewind if you don't want loop */
+        margin: 20,
+        /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+        responsiveClass: true,
+        autoHeight: true,
+        autoplayTimeout: 7000,
+        smartSpeed: 800,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+
+            600: {
+                items: 3
+            },
+
+            1024: {
+                items: 4
+            },
+
+            1366: {
+                items: 4
+            }
+        }
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+<script src="js/vendor/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+  // Developed at agap2
+// Based on:
+// http://www.codeply.com/go/s3I9ivCBYH/multi-carousel-single-slide-bootstrap-4
+
+$('.multi-item-carousel').on('slide.bs.carousel', function (e) {
+let $e = $(e.relatedTarget),
+  itemsPerSlide = 4,
+  totalItems = $('.carousel-item', this).length,
+  $itemsContainer = $('.carousel-inner', this),
+  it = itemsPerSlide - (totalItems - $e.index());
+if (it > 0) {
+for (var i = 0; i < it; i++) {
+  $('.carousel-item', this).eq(e.direction == "left" ? i : 0).
+    // append slides to the end/beginning
+    appendTo($itemsContainer);
+}
+}
+});
+</script>
+
+<script type="text/javascript">
+  $('.btn-toggle').click(function() {
+$(this).find('.btn').toggleClass('active');
+if ($(this).find('.btn-primary').size() > 0) {
+$(this).find('.btn').toggleClass('btn-primary');
+}
+$(this).find('.btn').toggleClass('btn-default');
+});
+</script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script type="text/javascript">
+ jQuery(".carousel").owlCarousel({
+autoplay: true,
+rewind: true, /* use rewind if you don't want loop */
+margin: 20,
+/*
+animateOut: 'fadeOut',
+animateIn: 'fadeIn',
+*/
+responsiveClass: true,
+autoHeight: true,
+autoplayTimeout: 7000,
+smartSpeed: 800,
+nav: true,
+responsive: {
+0: {
+  items: 1
+},
+
+600: {
+  items: 3
+},
+
+1024: {
+  items: 4
+},
+
+1366: {
+  items: 5
+}
+}
+});
+</script>
+<script type="text/javascript">
+ jQuery(".star-carousel").owlCarousel({
+autoplay: true,
+rewind: true, /* use rewind if you don't want loop */
+margin: 20,
+/*
+animateOut: 'fadeOut',
+animateIn: 'fadeIn',
+*/
+responsiveClass: true,
+autoHeight: true,
+autoplayTimeout: 7000,
+smartSpeed: 800,
+nav: true,
+responsive: {
+0: {
+  items: 1
+},
+
+600: {
+  items: 3
+},
+
+1024: {
+  items: 4
+},
+
+1366: {
+  items: 4
+}
+}
+});
+</script>
+
+<script type="text/javascript">
+  function increaseValue() {
+var value = parseInt(document.getElementById('number').value, 10);
+value = isNaN(value) ? 0 : value;
+value++;
+document.getElementById('number').value = value;
+localStorage.setItem('inc_value',value);
+}
+
+function decreaseValue() {
+var value = parseInt(document.getElementById('number').value, 10);
+value = isNaN(value) ? 0 : value;
+value < 1 ? value = 1 : '';
+value--;
+document.getElementById('number').value = value;
+localStorage.setItem('inc_value',value);
+
+}
+</script>
+<script src="https://www.paypal.com/sdk/js?client-id=AdjpGTXNcVf7XUoe2x0S-ZH4y13xg0y-WSbzugxz0jxilS-5-cOLAHXZgLRk9qeU9HkXfPgg6iyQJsZ1"></script>
+<!-- <script>
+  paypal.Buttons({
+    // Sets up the transaction when a payment button is clicked
+    createOrder: (data, actions) => {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '77.44' // Can also reference a variable or function
+          }
+        }]
+      });
+    },
+    // Finalize the transaction after payer approval
+    onApprove: (data, actions) => {
+      return actions.order.capture().then(function(orderData) {
+        // Successful capture! For dev/demo purposes:
+        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+        const transaction = orderData.purchase_units[0].payments.captures[0];
+        let trans_status = localStorage.setItem('trans_status',transaction.status);
+        let trans_id = localStorage.setItem('trans_id',transaction.id);
+        alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+        // When ready to go live, remove the alert and show a success message within this page. For example:
+        // const element = document.getElementById('paypal-button-container');
+        // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+        // Or go to another URL:  actions.redirect('thank_you.html');
+      });
+    }
+  }).render('#paypal-button-container');
+
+</script> -->
+
+<script>
+  $(window).on('load',function(){        
+   $('#login11').modal('show');
+  });
+
+</script>
+
+
+
+
+<body>
+  <app-root></app-root>
+</body>
+</html>
+
+
+<!-- <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BUMI</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" >
+  <link  href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link
+  rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  
+  <link  rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  <link href="../css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/font-awesome.css">
+  
+  <link rel="stylesheet" type="text/css" href="primeicons.css" />
+  <script src="assets/js/jquery.js"></script>
+  <script src="../js/jquery.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')
+</script>
+<script src="js/vendor/popper.min.js"></script>
+<script src="../src/assets/js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="../src/assets/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+    // Developed at agap2
+    // Based on:
+    // http://www.codeply.com/go/s3I9ivCBYH/multi-carousel-single-slide-bootstrap-4
+
+    $('.multi-item-carousel').on('slide.bs.carousel', function (e) {
+        let $e = $(e.relatedTarget),
+            itemsPerSlide = 4,
+            totalItems = $('.carousel-item', this).length,
+            $itemsContainer = $('.carousel-inner', this),
+            it = itemsPerSlide - (totalItems - $e.index());
+        if (it > 0) {
+            for (var i = 0; i < it; i++) {
+                $('.carousel-item', this).eq(e.direction == "left" ? i : 0).
+                // append slides to the end/beginning
+                appendTo($itemsContainer);
+            }
+        }
+    });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script type="text/javascript">
+    jQuery(".carousel").owlCarousel({
+        autoplay: true,
+        rewind: true, /* use rewind if you don't want loop */
+        margin: 20,
+        /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+        responsiveClass: true,
+        autoHeight: true,
+        autoplayTimeout: 7000,
+        smartSpeed: 800,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+
+            600: {
+                items: 3
+            },
+
+            1024: {
+                items: 4
+            },
+
+            1366: {
+                items: 5
+            }
+        }
+    });
+</script>
+<script type="text/javascript">
+    jQuery(".star-carousel").owlCarousel({
+        autoplay: true,
+        rewind: true, /* use rewind if you don't want loop */
+        margin: 20,
+        /*
+  animateOut: 'fadeOut',
+  animateIn: 'fadeIn',
+  */
+        responsiveClass: true,
+        autoHeight: true,
+        autoplayTimeout: 7000,
+        smartSpeed: 800,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+
+            600: {
+                items: 3
+            },
+
+            1024: {
+                items: 4
+            },
+
+            1366: {
+                items: 4
+            }
+        }
+    });
+</script>
+
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html> -->

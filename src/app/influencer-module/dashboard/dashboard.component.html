@@ -1,0 +1,164 @@
+<div class="dashboard-wrapper">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-3">
+                <h3 class="title">Dashboard</h3>
+            </div>
+            <div class="col-sm-3">
+                <div class="date-rate">
+                    <span>Date Range</span>
+                </div>
+                <p-calendar #calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true"
+                    inputId="range" (onSelect)="onSelect()"></p-calendar>
+            </div>
+            <div class="col-sm-6">
+                <div class="date-time">
+                    <div class="time-info">
+                        <span>{{rxTime | date: 'h:mm'}}</span>
+                        <div class="time">
+                            <p>{{rxTime | date: 'a'}}</p>
+                            <span>{{rxTime | date: 'EEEE'}}</span>
+                        </div>
+                    </div>
+                    <div class="date">
+                        <span>{{rxTime | date: 'd MMM'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="star-dashboard-wrapper">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="custom-card">
+                    <h3>My Updates</h3>
+
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="assets/images/img_place1.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/images/img_place1.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="assets/images/img_place1.png" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button> 
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="custom-card">
+                    <h3>My Store Orders</h3>
+                    <div class="row mt-3">
+                        <div class="col-6 mb-4">
+                            <div class="order-card">
+                                <p>15</p>
+                                <label>Total Orders</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="order-card">
+                                <p>20</p>
+                                <label>Completed Orders</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="order-card">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <label>Top Selling Product</label>
+                                    </div>
+                                    <div class="col-6 d-flex align-items-center">
+                                        <img width="40" src="assets/images/fake-img.png" alt="">
+                                        <div class="ms-3">
+                                            <p class="border-0" style="font-size: 14px;">Black Opium Eau de Parfum</p>
+                                            <label>Fragrances</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="custom-card card-gradient">
+                    <h3>My Insights</h3>
+                    <div class="my-insights">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="store-visits">
+                                    <p>Store Visits</p>
+                                    <span>13 January - 20 January</span>
+                                    <h3 class="mt-4">20</h3>
+                                    <label>Total Store Visits <span>100%</span></label>
+                                    <p-chart type="line" [data]="website_analytics_chart" [style]="{'width': '100%'}"
+                                        [options]="basicOptions"></p-chart>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="health-score">
+                                    <p>Number of Products In Your Store:</p>
+                                    <div class="chart-text">
+                                        <!-- <p-chart type="doughnut" [data]="data" [options]="chartOptions"
+                                            [style]="{'width': '100%'}"></p-chart> -->
+                                        <h3>65</h3>
+                                    </div>
+                                    <span>Your product sales has improved by 20% during the past week.</span>
+                                    <a href="javascript:void(0)">Improve your sales with easy, actionable recommendations.</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="custom-card card-gradient">
+                    <h3>My Wallet</h3>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="my-wallet-box">
+                                <h3><span>KSH</span> 312,921</h3>
+                                <p>INCOME</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="my-wallet-box">
+                                <h3><span>KSH</span> 312,921</h3>
+                                <p>PAYMENTS</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="my-wallet-box">
+                                <h3><span>KSH</span> 312,921</h3>
+                                <p>AVAILABLE BALANCE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p-chart type="line" [data]="lineStylesData" [options]="basicOptions1"></p-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,563 @@
+<div class="dashboard-wrapper">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-3">
+                <h3 class="title">My Account</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit-my-account">
+        <div class="my-account-breadcrumb">
+            <h2>{{strtitle}}</h2>
+            <div>
+                <button type="button" class="btn btn-custom-dark" (click)="gotoMyaccount()">CANCEL</button>
+                <button type="submit" class="btn btn-custom-secondary ms-4">SAVE</button>
+            </div>
+        </div>
+        <div class="edit-content">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="content-left nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
+                        aria-orientation="vertical">
+                        <div class="profile">
+                            <img class="mb-2" src="assets/images/camera.svg" alt="" />
+                            <span>Change Profile Photo</span>
+                        </div>
+                        <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-home" (click)="editshop('Edit Shop')" type="button" role="tab"
+                            aria-controls="v-pills-home" aria-selected="true">
+                            <img class="plain-icon" src="assets/images/profile_edit_shop.svg" alt="Edit Shop" />
+                            <img class="color-icon" src="assets/images/profile_edit_shop_active.svg" alt="Edit Shop" />
+                            <span>
+                                Edit Shop
+                            </span>
+                        </button>
+                        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-profile" (click)="editshop('Edit Account')" type="button"
+                            role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                            <img class="plain-icon" src="assets/images/profile_edit_user.svg" alt="Edit Account" />
+                            <img class="color-icon" src="assets/images/profile_edit_user_active.svg"
+                                alt="Edit Account" />
+                            <span>
+                                Edit Account
+                            </span>
+                        </button>
+                        <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-messages" (click)="editshop('Edit Users')" type="button" role="tab"
+                            aria-controls="v-pills-messages" aria-selected="false">
+                            <img class="plain-icon" src="assets/images/profile_edit_users.svg" alt="Edit Users" />
+                            <img class="color-icon" src="assets/images/profile_edit_users_active.svg"
+                                alt="Edit Users" />
+                            <span>
+                                Edit Users
+                            </span>
+                        </button>
+                        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-settings" (click)="editshop('Edit Payments')" type="button"
+                            role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                            <img class="plain-icon" src="assets/images/profile_edit_payment.svg" alt="Payments" />
+                            <img class="color-icon" src="assets/images/profile_edit_payment_active.svg"
+                                alt="Payments" />
+                            <span>
+                                Payments
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                            aria-labelledby="v-pills-home-tab">
+                            <form action="POST" [formGroup]="editShopform" (ngSubmit)="editShopeFunctipn()">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="mb-4">
+                                            <label for="ShopName" class="form-label">Shop Name</label>
+                                            <input type="text" formControlName="shop_name" required placeholder="Shop Name" class="form-control"
+                                                id="ShopName" aria-describedby="ShopName">
+                                            
+                                        </div>  
+                                        <!-- <span  *ngIf="editShopform.controls['shop_name'].invalid && editShopform.controls['shop_name'].touched" class="alert alert-danger">
+                                            <span *ngIf="editShopform.controls['shop_name'].errors">
+                                                Shop Name required
+                                            </span>
+                                        </span>                      -->
+                                    </div>
+                                   
+                                    <div class="col-sm-6">
+                                        <div class="mb-4">
+                                            <label for="ShopName" class="form-label">M-PESA Phone Number</label>
+                                            <input type="text" formControlName="phone_number" required placeholder="+254-720-123-456" class="form-control"
+                                                id="ShopName" aria-describedby="ShopName">
+                                        </div>
+                                        <!-- <span  *ngIf="editShopform.controls['phone_number'].invalid && editShopform.controls['phone_number'].touched" class="alert alert-danger">
+                                            <span *ngIf="editShopform.controls['phone_number'].errors">
+                                                M-PESA Phone Number required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-4">
+                                            <label for="ShopName" class="form-label">County</label>
+                                            <input type="text" formControlName="country" placeholder="Your Region/ County" class="form-control"
+                                                id="ShopName" aria-describedby="ShopName">
+                                        </div>
+                                        <!-- <span  *ngIf="editShopform.controls['country'].invalid && editShopform.controls['country'].touched" class="alert alert-danger">
+                                            <span *ngIf="editShopform.controls['country'].errors">
+                                                County required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-4">
+                                            <label for="ShopName" class="form-label">Shop Location</label>
+                                            <input type="text" formControlName="location"  placeholder="Physical Location" class="form-control"
+                                                id="ShopName" aria-describedby="ShopName">
+                                        </div>
+                                        <!-- <span  *ngIf="editShopform.controls['location'].invalid && editShopform.controls['location'].touched" class="alert alert-danger">
+                                            <span *ngIf="editShopform.controls['location'].errors">
+                                                Shop Location required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="mb-3" for="OpenDays">Open Days</label>
+                                    <div class="d-flex align-items-center">
+                                        <label class="custom-checkbox custom-orange me-3">Mon
+                                            <input value="0" formControlName="mon" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="custom-checkbox custom-orange me-3">Tue
+                                            <input value="0" formControlName="tue" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="custom-checkbox custom-orange me-3">Wed
+                                            <input value="1" formControlName="wed" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="custom-checkbox custom-orange me-3">Thu
+                                            <input formControlName="thu" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="custom-checkbox custom-orange me-3">Fri
+                                            <input value="0" formControlName="fri" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="custom-checkbox custom-orange me-3">Sat
+                                            <input formControlName="sat" type="checkbox">
+                                            <span value="0" class="checkmark"></span>
+                                        </label>
+                                        <label class="custom-checkbox custom-orange me-3">Sun
+                                            <input value="0" formControlName="sun" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="mb-3" for="Visibleon">Visible on Bumi.ke</label>
+                                    <div class="d-flex align-items-center">
+                                        <label class="custom-checkbox custom-orange me-3">Yes
+                                            <input type="checkbox" [(ngModel)]="Bumiketypechk1"
+                                                (change)="onselectbumitype('Yes')">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="custom-checkbox custom-orange me-3">No
+                                            <input type="checkbox" [(ngModel)]="Bumiketypechk2"
+                                                (change)="onselectbumitype('No')">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                            aria-labelledby="v-pills-profile-tab">
+                            <form action="POST" [formGroup]="editAccountform" (ngSubmit)="editAccountFunctipn()">
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="mb-4">
+                                            <label for="FirstName" class="form-label">First Name</label>
+                                            <input type="text" formControlName="" placeholder="First Name" class="form-control"
+                                                id="ShopName" aria-describedby="">
+                                        </div>
+                                        <!-- <span  *ngIf="editShopform.controls['country'].invalid && editShopform.controls['country'].touched" class="alert alert-danger">
+                                            <span *ngIf="editShopform.controls['country'].errors">
+                                                County required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-4">
+                                            <label for="ShopName" class="form-label">Last Name</label>
+                                            <input type="text" formControlName="" placeholder="Last Name" class="form-control"
+                                                id="ShopName" aria-describedby="ShopName">
+                                        </div>
+                                        <!-- <span  *ngIf="editShopform.controls['country'].invalid && editShopform.controls['country'].touched" class="alert alert-danger">
+                                            <span *ngIf="editShopform.controls['country'].errors">
+                                                County required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-4">
+                                            <label for="ShopName" class="form-label">Phone Number</label>
+                                            <input type="text" formControlName="" placeholder="+254720123456" class="form-control"
+                                                id="ShopName" aria-describedby="ShopName">
+                                        </div>
+                                        <!-- <span  *ngIf="editShopform.controls['country'].invalid && editShopform.controls['country'].touched" class="alert alert-danger">
+                                            <span *ngIf="editShopform.controls['country'].errors">
+                                                County required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-4">
+                                            <label for="ShopName" class="form-label">Email Address</label>
+                                            <input type="email" formControlName="" placeholder="stellahwangu@bumi.ke" class="form-control"
+                                                id="ShopName" aria-describedby="ShopName">
+                                        </div>
+                                        <!-- <span  *ngIf="editShopform.controls['country'].invalid && editShopform.controls['country'].touched" class="alert alert-danger">
+                                            <span *ngIf="editShopform.controls['country'].errors">
+                                                County required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-4">
+                                            <label for="ShopName" class="form-label">Reset Password</label>
+                                            <input type="password" formControlName="" placeholder="Current Password" class="form-control"
+                                                id="ShopName" aria-describedby="ShopName">
+                                        </div>
+                                        <!-- <span  *ngIf="editShopform.controls['country'].invalid && editShopform.controls['country'].touched" class="alert alert-danger">
+                                            <span *ngIf="editShopform.controls['country'].errors">
+                                                County required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-4">
+                                            <label for="ShopName" class="form-label invisible">New Password</label>
+                                            <input type="password" formControlName="" placeholder="New Password" class="form-control"
+                                                id="ShopName" aria-describedby="ShopName">
+                                        </div>
+                                        <!-- <span  *ngIf="editShopform.controls['country'].invalid && editShopform.controls['country'].touched" class="alert alert-danger">
+                                            <span *ngIf="editShopform.controls['country'].errors">
+                                                County required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="mb-4">
+                                            <label for="ShopName" class="form-label">Reset Password</label>
+                                            <input type="password" formControlName="" placeholder="Confirm New Password" class="form-control"
+                                                id="ShopName" aria-describedby="ShopName">
+                                        </div>
+                                        <!-- <span  *ngIf="editShopform.controls['country'].invalid && editShopform.controls['country'].touched" class="alert alert-danger">
+                                            <span *ngIf="editShopform.controls['country'].errors">
+                                                County required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <form action="POST" [formGroup]="editUserForm" (ngSubmit)="editUserFunction()">
+                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                                aria-labelledby="v-pills-messages-tab">
+                                <div>
+                                    <label>Active Users</label>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-4">
+                                            <div class="user-list">
+                                                <div class="close-icon" (click)="onClickConfirmDeleteUser()">
+                                                    <img src="assets/images/close-red.png" alt="" />
+                                                </div>
+                                                <img class="me-3" src="assets/images/ic_wanjugu.png" alt="" />
+                                                <div>
+                                                    <h5>Azziad Nasenya</h5>
+                                                    <p>Admin</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="user-list">
+                                                <div class="close-icon">
+                                                    <img src="assets/images/close-red.png" alt="" />
+                                                </div>
+                                                <img class="me-3" src="assets/images/ic_wanjugu.png" alt="" />
+                                                <div>
+                                                    <h5>Azziad Nasenya</h5>
+                                                    <p>Editor</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="user-list">
+                                                <div class="close-icon">
+                                                    <img src="assets/images/close-red.png" alt="" />
+                                                </div>
+                                                <img class="me-3" src="assets/images/ic_wanjugu.png" alt="" />
+                                                <div>
+                                                    <h5>Azziad Nasenya</h5>
+                                                    <p>Editor</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <label>Add User</label>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-4">
+                                            <div class="mb-4">
+                                                <label for="FullName" class="form-label">Full Name</label>
+                                                <input type="text" formControlName="username" placeholder="Stellah Kairetu" class="form-control"
+                                                    id="FullName" aria-describedby="FullName">
+                                            </div>
+                                            <!-- <span  *ngIf="editUserForm.controls['username'].invalid && editUserForm.controls['username'].touched" class="alert alert-danger">
+                                                <span *ngIf="editUserForm.controls['username'].errors">
+                                                    Full Name required
+                                                </span>
+                                            </span> -->
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="mb-4">
+                                                <label for="EmailAddress" class="form-label">Email Address</label>
+                                                <input type="text" formControlName="email_address" placeholder="stellahkairetu@bumi.ke"
+                                                    class="form-control" id="EmailAddress"
+                                                    aria-describedby="EmailAddress">
+                                            </div>
+                                            <!-- <span  *ngIf="editUserForm.controls['username'].invalid && editUserForm.controls['country'].touched" class="alert alert-danger">
+                                                <span *ngIf="editUserForm.controls['country'].errors">
+                                                    Email Address required
+                                                </span>
+                                            </span> -->
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="mb-4">
+                                                <label for="MobileNumber" class="form-label">Mobile Number</label>
+                                                <input type="text" formControlName="phone_number" placeholder="+254-720-123-697" class="form-control"
+                                                    id="MobileNumber" aria-describedby="MobileNumber">
+                                            </div>
+                                            <!-- <span  *ngIf="editUserForm.controls['phone_number'].invalid && editUserForm.controls['phone_number'].touched" class="alert alert-danger">
+                                                <span *ngIf="editUserForm.controls['phone_number'].errors">
+                                                    Mobile Number required
+                                                </span>
+                                            </span> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="select-role">
+                                    <div class="row">
+                                        <div class="col-sm-4 d-flex align-items-center justify-content-between">
+                                            <label class="role-lbl" for="Select Role">Select Role</label>
+                                            <select class="form-select" formControlName="role_id">
+                                                <option selected>Admin</option>
+                                                <option value="0">Admin 1</option>
+                                                <option value="0">Admin 2</option>
+                                                <option value="0">Admin 3</option>
+                                            </select>
+                                        </div>
+                                        <!-- <span  *ngIf="editUserForm.controls['role_id'].invalid && editUserForm.controls['role_id'].touched" class="alert alert-danger">
+                                            <span *ngIf="editUserForm.controls['role_id'].errors">
+                                                Select Role required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="mb-3">
+                                            <label class="custom-checkbox custom-orange fw-bold">Wallet
+                                                <input formControlName="walletVisible" type="checkbox"> <!-- checked="checked"-->
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <!-- <span  *ngIf="editUserForm.controls['username'].invalid && editUserForm.controls['country'].touched" class="alert alert-danger">
+                                                <span *ngIf="editUserForm.controls['country'].errors">
+                                                    County required
+                                                </span>
+                                            </span> -->
+                                            <p class="m-0">User can see wallet balance and transact with wallet funds
+                                            </p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="custom-checkbox custom-orange fw-bold">Orders Management
+                                                <input formControlName="OrderVisible" type="checkbox"> <!-- checked="checked"-->
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <!-- <span  *ngIf="editUserForm.controls['username'].invalid && editUserForm.controls['country'].touched" class="alert alert-danger">
+                                                <span *ngIf="editUserForm.controls['country'].errors">
+                                                    County required
+                                                </span>
+                                            </span> -->
+                                            <p class="m-0">User can view, confirm and cancel all orders</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="custom-checkbox custom-orange fw-bold">Products Management
+                                                <input formControlName="ProductVisible" type="checkbox"> <!-- checked="checked"-->
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <!-- <span  *ngIf="editUserForm.controls['username'].invalid && editUserForm.controls['country'].touched" class="alert alert-danger">
+                                                <span *ngIf="editUserForm.controls['country'].errors">
+                                                    County required
+                                                </span>
+                                            </span> -->
+                                            <p class="m-0">User can view, upload, edit and delete all products in your
+                                                shop
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form action="POST" [formGroup]="paymentForm" (ngSubmit)="paymentfunction()">
+                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                            aria-labelledby="v-pills-settings-tab">
+
+                            <div class="row border-dashed">
+                                <div class="col-sm-5">
+                                    <img class="w-75" src="assets/images/payment-1.svg" alt="" />
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="TillNo">Till No.</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" formControlName="till_no" class="form-control" id="" aria-describedby="TillNo">
+                                        </div>
+                                        <!-- <span  *ngIf="editUserForm.controls['till_no'].invalid && editUserForm.controls['till_no'].touched" class="alert alert-danger">
+                                            <span *ngIf="editUserForm.controls['till_no'].errors">
+                                                Till No required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="PaybillNo">Paybill No.</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" formControlName="paybill_no" class="form-control" id="" aria-describedby="PaybillNo">
+                                        </div>
+                                        <!-- <span  *ngIf="paymentForm.controls['paybill_no'].invalid && paymentForm.controls['paybill_no'].touched" class="alert alert-danger">
+                                            <span *ngIf="paymentForm.controls['paybill_no'].errors">
+                                                Paybill No required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="PaybillAccountNo">Paybill Account No.</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" formControlName="paybill_acc" class="form-control" id=""
+                                                aria-describedby="PaybillAccountNo">
+                                        </div>
+                                        <!-- <span  *ngIf="paymentForm.controls['paybill_acc'].invalid && paymentForm.controls['paybill_acc'].touched" class="alert alert-danger">
+                                            <span *ngIf="paymentForm.controls['paybill_acc'].errors">
+                                                Paybill Account No required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <img class="w-75" src="assets/images/payment-2.svg" alt="" />
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="AccountName">Account Name</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" formControlName="ProductVisible" class="form-control" id=""
+                                                aria-describedby="AccountName">
+                                        </div>
+                                        <!-- <span  *ngIf="paymentForm.controls['username'].invalid && paymentForm.controls['country'].touched" class="alert alert-danger">
+                                            <span *ngIf="paymentForm.controls['country'].errors">
+                                                Account Name required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="AccountNo">Account No.</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" formControlName="acc_no" class="form-control" id="" aria-describedby="AccountNo">
+                                        </div>
+                                        <!-- <span  *ngIf="paymentForm.controls['acc_no'].invalid && paymentForm.controls['acc_no'].touched" class="alert alert-danger">
+                                            <span *ngIf="paymentForm.controls['acc_no'].errors">
+                                                Account No required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="BankName">Bank Name</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" formControlName="bank_name" class="form-control" id="" aria-describedby="BankName">
+                                        </div>
+                                        <!-- <span  *ngIf="paymentForm.controls['bank_name'].invalid && paymentForm.controls['bank_name'].touched" class="alert alert-danger">
+                                            <span *ngIf="paymentForm.controls['bank_name'].errors">
+                                                Bank Name required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="BranchName">Branch Name</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" formControlName="branch_name" class="form-control" id="" aria-describedby="BranchName">
+                                        </div>
+                                        <!-- <span  *ngIf="paymentForm.controls['branch_name'].invalid && paymentForm.controls['branch_name'].touched" class="alert alert-danger">
+                                            <span *ngIf="paymentForm.controls['branch_name'].errors">
+                                                Branch Name required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="SWIFTCode">SWIFT Code</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" formControlName="swift_code" class="form-control" id="" aria-describedby="SWIFTCode">
+                                        </div>
+                                        <!-- <span  *ngIf="paymentForm.controls['swift_code'].invalid && paymentForm.controls['swift_code'].touched" class="alert alert-danger">
+                                            <span *ngIf="paymentForm.controls['swift_code'].errors">
+                                                SWIFT Code required
+                                            </span>
+                                        </span> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Confirm Modal-->
+<div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isConfirmModalShow">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content confirm-discount-modal border-0">
+            <h3 class="mb-4">Confirm that you want to remove User</h3>
+            <div class="mt-4">
+                <button type="button" (click)="onClickConfirmDeleteUser()"
+                    class="btn btn-custom-gray w-auto rounded px-5 py-2 me-4 fs-6">No</button>
+                <button type="button" (click)="onClickConfirmDeleteUser()"
+                    class="btn btn-custom-secondary rounded w-auto px-5 py-2 fs-6">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>

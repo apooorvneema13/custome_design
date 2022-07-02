@@ -1,0 +1,592 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Karla';
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            $headerHeight : 100px;
+            $menuWidth : 138px;
+            .topHeader {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                background-color: #fff;
+                width: 100%;
+                height: $headerHeight;
+                z-index: 50;
+                .innerHeader {
+                    padding: 20px 50px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    .logoDiv {
+                        display: flex;
+                        a {
+                            // display: flex;
+                            // margin-right: 40px;
+                            max-height: 60px;
+                        }
+                        img {
+                            max-height: 100%;
+                            max-width: 100%;
+                        }
+                    }
+                    .asideBarToggle {
+                        margin-right: 40px;
+                        width: 22px;
+                        min-height: 22px;
+                    }
+                    .pageName {
+                        span {
+                            color: $thmRed;
+                            font-size: 36px;
+                            font-weight: 300;
+                        }
+                    }
+                    .rightAlign {
+                        margin-left: auto;
+                        display: flex;
+                        align-items: center;
+                        .iconsLines {
+                            display: flex;
+                            > a {
+                                margin-left: 28px;
+                                width: 48px;
+                                height: 48px;
+                                border-radius: 100%;
+                                background-color: #F6F6F6;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                position: relative;
+                                .counters {
+                                    position: absolute;
+                                    top: 0px;
+                                    right: -10px;
+                                    width: 22px;
+                                    height: 22px;
+                                    border-radius: 100%;
+                                    background-color: $thmRed;
+                                    color: #fff;
+                                    font-size: 10px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+
+                        .userDiv {
+                            border-left: 1px solid #B3B3B3;
+                            margin-left: 50px;
+                            padding-left: 50px;
+                            > a {
+                                display: flex;
+                                align-items: center;
+                                .imgCircle {
+                                    width: 48px;
+                                    height: 48px;
+                                    border-radius: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    img {
+                                        max-width: 100%;
+                                    }
+                                }
+                                .arrowSpan {
+                                    margin-left: 20px;
+                                    img {
+                                        max-width: 16px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .contentArea {
+                width: 100%;
+                height: 100%;
+                padding-top: $headerHeight;
+                overflow-y: auto;
+                overflow-x: hidden;
+                .contentInner {
+                    position: relative;
+                    display: flex;
+                    background-color: #F2F2F2;
+                }
+            }
+            .menuAside {
+                position: sticky;
+                left: 0px;
+                top: $headerHeight;
+                width: 100%;
+                max-width: $menuWidth;
+                background-color: #333333;
+                z-index: 10;
+                ul {
+                    li {
+                        a {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 15px 0px;
+                            border-right: 5px solid transparent;
+                            img {
+                                max-width: 100%;
+                                max-height: 30px;
+                                filter: contrast(0);
+                                transition: all .3s ease;
+                            }
+                            span {
+                                font-size: 12px;
+                                font-weight: 300;
+                                color: #B3B3B3;
+                                margin-top:10px;
+                                transition: all .3s ease;
+                            }
+                            
+                            &.active , &:hover {
+                                border-color: $thmRed;
+                                img {
+                                    filter: none;
+                                }
+                                span {
+                                    color: $thmRed;
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+            .contentDiv {
+                width: 100%;
+                $contentWidth : 1005px;
+                // padding-left: $menuWidth;
+                
+                z-index: 9;
+                position: relative;
+                router-outlet {
+                    display: none;
+                }
+                .line_abstrat_right {
+                    position: fixed;
+                    right: -10px;
+                    max-width: 100%;
+                    top: 30vh;
+                    img {
+                        max-width: 100%;
+                        max-height: 300px;
+                    }
+                }
+                .maincontent {
+                    display: flex;
+                    width: 100%;
+                }
+                .content-inner {
+                    width: 100%;
+                    max-width: $contentWidth;
+                    margin: 0px auto 0px 47px;
+                    .pageInfo {
+                        padding: 37px 0px;
+                        display: flex;
+                        align-items: center;
+                        &.whiteBG {
+                            margin: 30px 0px 18px;
+                            padding: 20px 20px;
+                            background-color: #fff;
+                        }
+                        > .pageName {
+                            color: #333333;
+                            font-size: 36px;
+                            font-weight: 400;
+                            margin: 0px;
+                        }
+                        .dateRage {
+                            margin: auto;
+                            display: flex;
+                            align-items: center;
+                            span {
+                                color: #4D4D4D;
+                                font-size: 16px;
+                                font-weight: 400;
+                                margin-right: 20px;
+                            }
+                            input {
+                                background-color: #fff;
+                                border: 1px solid #D0D0D0;
+                                font-size: 12px;
+                                font-weight: 300;
+                                padding: 3px 30px 3px 10px;
+                                background-image: url('/assets/images/ic_down_grey.png');
+                                background-position: right 5px center;
+                                background-repeat: no-repeat;
+                                background-size: 15px 8px;
+                            }
+                            & + .dateTime {
+                                margin-left: 0px;
+                            }
+                        }
+                        .dateTime {
+                            margin-left: auto;
+                            display: flex;
+                            align-items: center;
+                            .timeDiv {
+                                font-size: 36px;
+                                font-weight: 300;
+                                
+                                display: flex;
+                                .time {
+                                    line-height: 100%;
+                                }
+                                .timeInfo {
+                                    display: inline-flex;
+                                    flex-direction: column;
+                                    margin-left: 5px;
+                                    margin-top: 5px;
+                                    small {
+                                        color: #999999;
+                                        font-size: 12px;
+                                        line-height: 100%;
+                                    }
+                                    b {
+                                        font-size: 15px;
+                                        color: #333;
+                                    }
+                                }
+                            }
+                            .dateDiv {
+                                margin-left: 15px;
+                                padding-left: 15px;
+                                border-left: 1px solid #B3B3B3;
+                                line-height: 100%;
+                                .date {
+                                    font-size: 36px;
+                                    font-weight: 300;
+                                }
+                            }
+                        }
+                    }
+
+                    .userInfo {
+                        .infoInner {
+                            display: flex;
+                            align-items: center;
+                            padding: 20px 57px;
+                            .userImg {
+                                min-width: 100px;
+                                width: 100px;
+                                height: 100px;
+                                overflow: hidden;
+                                border-radius: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                img {
+                                    max-width: 100%;
+                                }
+                            }
+                            .userTxt {
+                                width: 100%;
+                                padding-left: 50px;
+                                display: flex;
+                                flex-direction: column;
+                                
+                                h2 {
+                                    color: $thmRed;
+                                    font-weight: 400;
+                                    font-size: 30px;
+                                    padding-bottom: 20px;
+                                    border-bottom:1px solid rgba(128, 128, 128, .1);
+                                    margin-bottom: 20px;
+                                }
+                                h5 {
+                                    color: #333333;
+                                    font-size: 24px;
+                                    font-weight: 400;
+                                }
+                                .lastSeen {
+                                    color: #333333;
+                                    font-size: 18px;
+                                    font-weight: 400;
+                                }
+                            }
+                        }
+                    }
+
+                    .top_highlights {
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 16px 0px 8px 0px;
+                        > .wBox {
+                            width: 100%;
+                            max-width: 230px;
+                            min-height: 94px;
+                            overflow: hidden;
+                            .infoInner {
+                                display: flex;
+                                height: 100%;
+                                width: 100%;
+                                
+                                .boxLeft {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    min-width: 67px;
+                                    img {
+                                        max-width: 100%;
+                                    }
+                                }
+                                .boxRight {
+                                    width: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: flex-start;
+                                    padding: 15px;
+                                    h4 {
+                                        width: 100%;
+                                        font-size: 20px;
+                                        font-weight: bold;
+                                        color: #333;
+                                        margin-bottom: 5px;
+                                        padding-bottom: 5px;
+                                        border-bottom :1px solid rgba(128, 128, 128, .1);
+                                    }
+                                    small {
+                                        font-size: 11px;
+                                        color: #333;
+                                        font-weight: 400;
+                                    }
+                                }
+                            }
+
+                            &.gross_sales {
+                                .infoInner {
+                                    .boxLeft {
+                                        background-color: #D50C91;
+                                    }
+                                    .boxRight {
+                                        h4 {
+                                            color: #D50C91;
+                                        }
+                                    }
+                                }
+                            }
+                            &.commision_paid {
+                                .infoInner {
+                                    .boxLeft {
+                                        background-color: #C8D400;
+                                    }
+                                    .boxRight {
+                                        h4 {
+                                            color: #C8D400;
+                                        }
+                                    }
+                                }
+                            }
+                            &.items_sold {
+                                .infoInner {
+                                    .boxLeft {
+                                        background-color: #FBB03B;
+                                    }
+                                    .boxRight {
+                                        h4 {
+                                            color: #FBB03B;
+                                        }
+                                    }
+                                }
+                            }
+                            &.orders_completed {
+                                .infoInner {
+                                    .boxLeft {
+                                        background-color: #00A99D;
+                                    }
+                                    .boxRight {
+                                        h4 {
+                                            color: #00A99D;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .graphBox {
+                        min-height: 320px;
+                        // margin-bottom: 23px;
+                        height: 100%;
+                        .listItems {
+                            ul {
+                                margin-bottom: 20px;
+                                li {
+                                    display: flex;
+                                    align-items: flex-start;
+                                    position: relative;
+                                    padding: 5px;
+                                    border-bottom: 1px dotted #B3B3B3;
+                                    &:last-child {
+                                        border-bottom: 0px;
+                                    }
+                                    img {
+                                        max-width: 30px;
+                                        position: absolute;
+                                        left: 8px;
+                                        top: 10px;
+                                    }
+                                    span {
+                                        padding-left: 42px;
+                                        color: #333;
+                                        font-size: 14px;
+                                        font-weight: 400;
+                                        b {
+                                            font-weight: bold;
+                                        }
+                                    }
+                                }
+                            }
+                            .btnDiv {
+                                text-align: right;
+                                .thmBtn {
+                                    min-width: 150px;
+                                    margin-left: auto;
+                                }
+                            }
+                        }
+
+                        .latestTopics {
+                            display: flex;
+                            > div {
+                                width: 100%;
+                                &.leftTopic {
+                                    display: flex;
+                                    flex-direction: column;
+                                    .imgDiv {
+                                        img {
+                                            width: 100%;
+                                        }
+                                    }
+                                    .txtDiv {
+                                        margin-top: 10px;
+                                        h5 {
+                                            font-size: 16px;
+                                            color: #000;
+                                            line-height: normal;
+                                            margin: 2px 0px 5px;
+                                        }
+                                        small {
+                                            color: #000;
+                                            font-size: 12px;
+                                            line-height: normal;
+                                            display: block;
+                                            &.catTags {
+                                                color: $pink;
+                                                text-transform: uppercase;
+                                            }
+                                        }
+                                    }
+                                }
+                                &.rightTopics {
+                                    padding-left: 15px;
+                                    p {
+                                        font-size: 11px;
+                                        color: #000;
+                                        margin-bottom: 10px;
+                                        line-height: normal;
+                                        font-weight: 500;
+                                        span {
+                                            font-weight: 700;
+                                            color: $pink;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .chartBox {
+                            width: 100%;
+                            display: flex;
+                        }
+                    }
+
+                    .vendorSection {
+                        background-color: #fff;
+                        padding: 25px;
+                        .sectionInner {
+                            display: flex;
+                            flex-direction: column;
+                            .vendorMenu {
+                                background-color: #333333;
+                                width: 100%;
+                                ul {
+                                    height: 64px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    li {
+                                        a {
+                                            width: 100%;
+                                            font-size: 15px;
+                                            color: #999;
+                                            padding: 0px 20px;
+                                            text-transform: capitalize;
+                                            display: inline-flex;
+                                            align-items: center;
+                                            &.active, &:hover {
+                                                color: $thmRed;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .filter_action {
+                                display: flex;
+                                padding: 35px 0px;
+                                align-items: center;
+                                label {
+                                    width: auto;
+                                    margin-right: 16px;
+                                }
+                                .rightEle {
+                                    margin-left: auto;
+                                    display: inline-flex;
+                                    justify-content: flex-end;
+                                    .btnDiv {
+                                        margin-left: 17px;
+                                        .thmBtn{
+                                            border-radius: 2px;
+                                            font-size: 14px;
+                                            padding: 4px 30px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    @media only screen and (min-width: 1400px)  {
+                        margin: 0px auto;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+    .owl-carousel,.owl-carousel .owl-item{-webkit-tap-highlight-color:transparent;position:relative}.owl-carousel{display:none;width:100%;z-index:1}.owl-carousel .owl-stage{position:relative;-ms-touch-action:pan-Y}.owl-carousel .owl-stage:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}.owl-carousel .owl-stage-outer{position:relative;overflow:hidden;-webkit-transform:translate3d(0,0,0)}.owl-carousel .owl-item{min-height:1px;float:left;-webkit-backface-visibility:hidden;-webkit-touch-callout:none}.owl-carousel .owl-item img{display:block;width:100%;-webkit-transform-style:preserve-3d}.owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none}.owl-carousel .owl-dot,.owl-carousel .owl-nav .owl-next,.owl-carousel .owl-nav .owl-prev{cursor:pointer;cursor:hand;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel.owl-loaded{display:block}.owl-carousel.owl-loading{opacity:0;display:block}.owl-carousel.owl-hidden{opacity:0}.owl-carousel.owl-refresh .owl-item{display:none}.owl-carousel.owl-drag .owl-item{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel.owl-grab{cursor:move;cursor:grab}.owl-carousel.owl-rtl{direction:rtl}.owl-carousel.owl-rtl .owl-item{float:right}.no-js .owl-carousel{display:block}.owl-carousel .animated{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}.owl-carousel .owl-animated-in{z-index:0}.owl-carousel .owl-animated-out{z-index:1}.owl-carousel .fadeOut{-webkit-animation-name:fadeOut;animation-name:fadeOut}@-webkit-keyframes fadeOut{0%{opacity:1}100%{opacity:0}}@keyframes fadeOut{0%{opacity:1}100%{opacity:0}}.owl-height{transition:height .5s ease-in-out}.owl-carousel .owl-item .owl-lazy{opacity:0;transition:opacity .4s ease}.owl-carousel .owl-item img.owl-lazy{-webkit-transform-style:preserve-3d;transform-style:preserve-3d}.owl-carousel .owl-video-wrapper{position:relative;height:100%;background:#000}.owl-carousel .owl-video-play-icon{position:absolute;height:80px;width:80px;left:50%;top:50%;margin-left:-40px;margin-top:-40px;background:url(owl.video.play.png) no-repeat;cursor:pointer;z-index:1;-webkit-backface-visibility:hidden;transition:-webkit-transform .1s ease;transition:transform .1s ease}.owl-carousel .owl-video-play-icon:hover{-webkit-transform:scale(1.3,1.3);-ms-transform:scale(1.3,1.3);transform:scale(1.3,1.3)}.owl-carousel .owl-video-playing .owl-video-play-icon,.owl-carousel .owl-video-playing .owl-video-tn{display:none}.owl-carousel .owl-video-tn{opacity:0;height:100%;background-position:center center;background-repeat:no-repeat;background-size:contain;transition:opacity .4s ease}.owl-carousel .owl-video-frame{position:relative;z-index:1;height:100%;width:100%}

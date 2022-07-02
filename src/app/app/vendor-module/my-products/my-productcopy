@@ -1,0 +1,1583 @@
+<div class="my-products-wrapper" *ngIf="isMyProductsShow">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h3 class="title">My Products</h3>
+            </div>
+            <!-- <div class="col-sm-6 text-end">
+                <div class="rate-page">
+                    <img src="assets/images/star.svg" alt="" />
+                    <p>Rate This Page</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="filter-wrap mb-5">
+        <div class="filter-by-lbl mb-4">
+            <a (click)="onTabSelection('All Orders')" class="{{TabSelection=='All'?'active':''}}"  href="javascript:void(0)">All</a>
+            <a (click)="onTabSelection('Live')" class="{{TabSelection=='Live'?'active':''}}" href="javascript:void(0)">Live</a>
+            <a (click)="onTabSelection('Image Missing')" class="{{TabSelection=='Image Missing'?'active':''}}" href="javascript:void(0)">Image Missing <span class="custom-badge">4</span></a>
+            <a (click)="onTabSelection('Rejected')" class="{{TabSelection=='Rejected'?'active':''}}" href="javascript:void(0)">Rejected <span class="custom-badge">1</span></a>
+            <a (click)="onTabSelection('Sold Out')" class="{{TabSelection=='Sold Out'?'active':''}}" href="javascript:void(0)">Sold Out <span class="custom-badge">3</span></a>
+            <a (click)="onTabSelection('Best Selling')" class="{{TabSelection=='Best Selling'?'active':''}}" href="javascript:void(0)">Best Selling</a>
+            <select class="form-select" >
+                <option value="Inactive">Inactive</option>
+                <option value="Active">Active</option>
+            </select>
+            <a href="javascript:void(0)" (click)="onTabSelection('No Authorized')" class="{{TabSelection=='No Authorized'?'active':''}}">No Authorized <span class="custom-badge">2</span></a>
+            <!-- <a href="javascript:void(0)">Tagged</a> -->
+        </div>
+        <div class="filter-by-search">
+            <div class="row">
+                <div class="col-sm-4 d-flex align-items-center">
+                    <select class="form-select w-auto me-2">
+                        <option value="Rejected">Bulk Action</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Sold Out">Sold Out</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="Sold Out">Recommend</option>
+                    </select>
+                    <button (click)="onClickRecommend()"
+                        class="btn btn-custom-secondary rounded fs-6 px-3 py-1">GO</button>
+                </div>
+                <div class="col-sm-3 d-flex align-items-center">
+                   
+                    <select class="form-select w-auto me-4" [(ngModel)]="btnExport" (change)="Downloadfile()">
+                        <option selected value="">Export</option>
+                        <option value="Excel">Excel</option>
+                        <option value="CSV">CSV</option>
+                    </select>
+
+                    <button (click)="onClickAdd()" class="btn btn-custom-light rounded fs-6 px-3 py-1 text-capitalize">
+                        Add
+                        <img src="assets/images/plus-red.png" height="10" alt="">
+                    </button>
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" placeholder="Product Name, SKU or available criteria">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-product-list">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th>
+                        <label class="custom-checkbox custom-red custom-bg-light">
+                            <input type="checkbox" [(ngModel)]="SelectAll" (change)="onSelectAll()">
+                            <span class="checkmark"></span>
+                        </label>
+                    </th>
+                    <th>Name
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>SKU
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Created
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Price
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Sale Price
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Subsidized Price
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Available
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Visible</th>
+                    <th>PR Kit</th>
+                    <th>Active</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>
+                        <label class="custom-checkbox custom-red custom-bg-light">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                    <td>REVLON</td>
+                    <td>BM 1710ST</td>
+                    <td>18 Dec 2021</td>
+                    <td>777,777.00</td>
+                    <td>677,777.00</td>
+                    <td>-</td>
+                    <td>
+                        <img height="14" class="me-2" src="assets/images/warning-red.png" alt="">
+                        666
+                    </td>
+                    <td>
+                        <img height="8" src="assets/images/checkmark-dark.png" alt="">
+                    </td>
+                    <td>YES</td>
+                    <td>
+                        <label class="custom-switch switch-red switch-sm mt-1">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <select class="form-select">
+                            <option value="">Action</option>
+                            <option value="">Edit</option>
+                            <option value="">Sold Out</option>
+                            <option value="">Recommend</option>
+                        </select>
+                    </td>
+                </tr> -->
+            
+                <tr *ngFor ="let item of JsonData">
+                    <td>
+                        <label class="custom-checkbox custom-red custom-bg-light">
+                            <input type="checkbox" [(ngModel)]="item.Selected">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.sku}}</td>
+                    <td>{{item.created}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.sale_price}}</td>
+                    <td>{{item.available}}</td>
+                    <td>
+                        <img height="14" class="me-2" src="assets/images/warning-red.png" alt="">
+                        {{item.available}}
+                    </td>
+                    <td>
+                        <img height="8" src="assets/images/checkmark-dark.png" alt="">
+                        <!-- {{item.Visible}} -->
+                    </td>
+                    <td>{{item.pr_kit}}</td>
+                    <td>
+                        <label class="custom-switch switch-red switch-sm mt-1">
+                            <input type="checkbox" [(ngModel)]="item.active" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <select class="form-select" [(ngModel)]="item.active" (change)=Oneditproduct(item)>
+                            <option value="">Action</option>
+                            <option value="Edit" >Edit</option>
+                            <option value="Sold Out">Sold Out</option>
+                            <option value="Recommend">Recommend</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="add-a-product-wrapper" *ngIf="isAddProductShow">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h3 class="title">Add a Product</h3>
+            </div>
+            <!-- <div class="col-sm-6 d-flex align-items-center justify-content-end">
+                <label class="me-3">Language</label>
+                <select class="form-select w-auto">
+                    <option value="">English</option>
+                    <option value="">English 1</option>
+                </select>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="create-new-product mb-3">
+        <div class="row align-items-center">
+            <div class="col-sm-8">
+                <h2 class="mb-4">Search our catalog for existing products similar to yours</h2>
+                <div class="d-flex mb-4">
+                    <input type="text" class="form-control" placeholder="Product Name, SKU or available criteria">
+                    <button type="button" class="btn btn-custom-dark">SEARCH</button>
+                </div>
+                <p>Can’t find it in our catalog? <a (click)="onClickCreateNewProduct()" href="javascript:void(0)">Create
+                        New Product</a></p>
+            </div>
+            <div class="col-sm-4 text-end">
+                <img height="180" src="assets/images/create-ad-preview.png" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <div class="lot-of-things-to-sell mb-5">
+        <div class="row align-items-center">
+            <div class="col-sm-8">
+                <h2 class="mb-4">Have a lot of things to sell?</h2>
+                <p class="mb-4">Download and fill our bulk upload template below to add all your products at one go!</p>
+                <div class="d-flex align-items-center">
+                    <button type="button"
+                        class="btn btn-custom-light rounded fs-6 text-capitalize px-4 py-2 me-5">Download Template
+                        (CSV)</button>
+                    <button type="button" class="btn btn-custom-secondary fs-6 rounded text-capitalize px-4 py-2">Upload
+                        (CSV) File(s)</button>
+                </div>
+            </div>
+            <div class="col-sm-4 text-end">
+                <img height="180" src="assets/images/csv-banner.png" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <div class="add-product-footer">
+        <div>
+            <a href="javascript:void(0)">About Bumi</a>
+            <a href="javascript:void(0)">Drop Off/RTV Locations</a>
+            <a href="javascript:void(0)"> Policies & Guidelines </a>
+            <a href="javascript:void(0)">Contact Us</a>
+        </div>
+        <!-- <div class="rate-page">
+            <img src="assets/images/star.svg" alt="" />
+            <p>Rate This Page</p>
+        </div> -->
+    </div>
+</div>
+
+<div class="add-new-product-wrapper" *ngIf="isAddNewProductShow">
+    <div class="sub-header">
+        <h3 class="title">Add a Product</h3>
+        <p>Add a Product (Please select a primary category for your product)</p>
+    </div>
+
+    <div class="add-product-category">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item col-3" role="presentation">
+                <button class="nav-link w-100 active" id="BrowseCategories-tab" data-bs-toggle="tab"
+                    data-bs-target="#BrowseCategories" type="button" role="tab" aria-controls="BrowseCategories"
+                    aria-selected="true">Browse Categories</button>
+            </li>
+            <li class="nav-item col-3" role="presentation">
+                <button class="nav-link w-100" id="MostUsedCategory-tab" data-bs-toggle="tab"
+                    data-bs-target="#MostUsedCategory" type="button" role="tab" aria-controls="MostUsedCategory"
+                    aria-selected="false">Most Used Category</button>
+            </li>
+            <li class="nav-item col-3" role="presentation">
+                <button class="nav-link w-100" id="ProductInformation-tab" data-bs-toggle="tab"
+                    data-bs-target="#ProductInformation" type="button" role="tab" aria-controls="ProductInformation"
+                    aria-selected="false">Product Information</button>
+            </li>
+            <li class="nav-item col-3" role="presentation">
+                <button class="nav-link w-100" id="ProductImage-tab" data-bs-toggle="tab" data-bs-target="#ProductImage"
+                    type="button" role="tab" aria-controls="ProductImage" aria-selected="false">Product Image</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="BrowseCategories" role="tabpanel"
+                aria-labelledby="BrowseCategories-tab">
+                <div class="browser-categories">
+                    <div class="d-flex my-3 px-4 align-items-center">
+                        <input type="text" class="form-control py-1 fs-6" placeholder="Search for categories, sub-categories">
+                        <button type="button" class="btn btn-custom-secondary rounded fs-6 py-1">SEARCH</button>
+                    </div>
+                    <div class="d-flex" style="min-height: 400px;">
+                        <div class="col-3 border-end">
+                            <div class="h-50">
+                                <div class="categories active" (click)="onClickForGender('male')">
+                                    <label class="right-arrow">FOR QUEENS</label>
+                                </div>
+                            </div>
+                            <div class="categories">
+                                <label class="right-arrow">FOR KINGS</label>
+                            </div>
+                        </div>
+                        <div class="col-3 border-end" *ngIf="isCategoryShow1">
+                            <div class="categories active" (click)="onClickCategory1()">
+                                <label>BEAUTY</label>
+                            </div>
+                            <div class="categories">
+                                <label>FASHION</label>
+                            </div>
+                            <div class="categories">
+                                <label>LIFESTYLE</label>
+                            </div>
+                            <div class="categories mt-5">
+                                <label>PERSONAL CARE</label>
+                            </div>
+                            <div class="categories">
+                                <label>FASHION</label>
+                            </div>
+                            <div class="categories">
+                                <label>LIFESTYLE</label>
+                            </div>
+                        </div>
+                        <div class="col-3 border-end" *ngIf="isCategoryShow2">
+                            <div class="categories">
+                                <label>FRAGRANCES</label>
+                            </div>
+                            <div class="categories">
+                                <label>SKIN CARE</label>
+                            </div>
+                            <div class="categories">
+                                <label>HAIR CARE</label>
+                            </div>
+                            <div class="categories active" (click)="onClickCategory2()">
+                                <label>MAKEUP</label>
+                            </div>
+                            <div class="categories">
+                                <label>TOOLS & ACCESORIES</label>
+                            </div>
+                        </div>
+                        <div class="col-3" *ngIf="isCategoryShow3">
+                            <div class="categories">
+                                <label>BRONZER</label>
+                            </div>
+                            <div class="categories">
+                                <label>CONCEALER</label>
+                            </div>
+                            <div class="categories">
+                                <label>CONTOUR POWDER</label>
+                            </div>
+                            <div class="categories">
+                                <label>EYELASH GLUE</label>
+                            </div>
+                            <div class="categories">
+                                <label>EYEBROW PENCILS</label>
+                            </div>
+                            <div class="categories active">
+                                <label>EYE PRIMER</label>
+                            </div>
+                            <div class="categories">
+                                <label>FACE POWDER</label>
+                            </div>
+                            <div class="categories">
+                                <label>FACE PRIMER</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-end p-4 border-top">
+                        <button type="button" (click)="gotoProductinfo()" class="btn btn-custom-secondary rounded fs-6 py-1">NEXT</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="MostUsedCategory" role="tabpanel" aria-labelledby="MostUsedCategory-tab">
+                <div class="browser-categories d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex my-3 px-4 align-items-center">
+                            <input type="text" class="form-control py-1 fs-6" placeholder="Search for categories, sub-categories">
+                            <button type="button" class="btn btn-custom-secondary rounded fs-6 py-1">SEARCH</button>
+                        </div>
+                        <div class="mt-4">
+                            <div class="categories active">
+                                <label class="right-arrow">FOR QUEENS</label>
+                                <label class="right-arrow">BEAUTY</label>
+                                <label class="right-arrow">MAKEUP</label>
+                                <label class="right-arrow">EYE PRIMER</label>
+                            </div>
+                            <div class="categories">
+                                <label class="right-arrow">FOR KINGS</label>
+                                <label class="right-arrow">PERSONAL CARE</label>
+                                <label class="right-arrow">SKIN CARE</label>
+                                <label class="right-arrow">BODY LOTION</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-end p-4 border-top">
+                        <button (click)="gotoProductinfo()"
+                         type="button" class="btn btn-custom-secondary rounded fs-6 py-1">NEXT1</button>
+                    </div>
+                </div>
+                <p class="find-categories mt-3">Don’t find your categories? <a href="javascript:void(0)">Click here</a>
+                    to browse the category tree.</p>
+            </div>
+
+
+
+            <div class="tab-pane fade" id="ProductInformation" role="tabpanel" aria-labelledby="ProductInformation-tab">
+                <form method="post"  (ngSubmit)="onProductCreate(product)" enctype="multipart/form-data" #product>
+                <div class="product-information">
+                    <h3>*Indicates required field. RECOMMENDED MINIMUM CONTENT SCORE - 501111</h3>
+                    <div class="row">
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" [(ngModel)]="objVendormodel.name" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">*Name</div>
+                            </div>
+                            <span>This should include the actual product name for example; Estee Lauder Pleasures
+                                Cologne
+                                Spray For Men 100ml</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" [(ngModel)]="objVendormodel.sale_price" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">*Sale Price (SP)</div>
+                            </div>
+                            <span>This should be the Sale Price/ Discounted Price of the Product For example;
+                                9,000</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" [(ngModel)]="objVendormodel.short_description" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">*Short Description</div>
+                            </div>
+                            <span>This should include the product brief description for example; Smell good for a
+                                week</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" [(ngModel)]="objVendormodel.discount" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">Discount</div>
+                            </div>
+                            <span>This should include the Discount or Price Off Percentage For example; 10% (Will be
+                                autogenerated)</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" [(ngModel)]="objVendormodel.details" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">*Details</div>
+                            </div>
+                            <span>This should include the selling proposition or why this products? For example; Get
+                                your confidence game on with Pleasures Cologne Spray</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" [(ngModel)]="objVendormodel.brand" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">Brand</div>
+                            </div>
+                            <span>This should include the brand of the Products For example; Nivea or Loreal</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" [(ngModel)]="objVendormodel.price" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">*Price</div>
+                            </div>
+                            <span>This should be the Recommended Retail Price For example; 9,200.00</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" [(ngModel)]="objVendormodel.influencer" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">Select Influencer</div>
+                            </div>
+                            <label class="custom-checkbox custom-red">Do you want this product to be exclusive to
+                                specific influencer(s)
+                                <input [(ngModel)]="objVendormodel.influencer" type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-6 text-center mt-4">
+                            <button (click)="onClickMoreProductInformation1()" name="ProductInfo" class="btn btn-custom-secondary">More
+                                Product Information1111</button>
+                            <span>RECOMMENDED MINIMUM CONTENT SCORE - 50</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-center">
+                            <div class="chart-text me-4">
+                                <p-chart type="doughnut" [data]="data" [options]="chartOptions"
+                                    [style]="{'width': '100%'}"></p-chart>
+                                <h3>50</h3>
+                            </div>
+                            <span>Add More Information to increase Your Content Score</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+            <div class="tab-pane fade" id="ProductImage" role="tabpanel" aria-labelledby="ProductImage-tab">
+                <div class="product-image">
+                    <h3>
+                        <a href="">Upload Images</a> and <a href="">Finish Editing</a> and <a href="">Preview</a>
+                    </h3>
+                    <div class="img-box-wrap">
+                        <div class="box cursor-pointer">
+                            <img height="15" class="me-2" src="assets/images/plus-dark.png" alt="">
+                            <span>Add Images</span>
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="product-image-footer">
+                        <p>Total files: 7</p>
+                        <p>We only support JPG and PNG Images under 5MB</p>
+                        <button type="button" class="btn btn-custom-secondary text-capitalize">Upload Images</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recommend Modal -->
+<div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isRecommendModalShow">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content recommend-modal border-0">
+            <img class="close-btn" (click)="onClickRecommend()" src="assets/images/close.svg" alt="" />
+            <div class="search-wrap mb-4">
+                <input type="text" class="form-control" placeholder="SEARCH">
+                <div class="search-result shadow">
+                    <div class="result-item">
+                        <img src="assets/images/Influencer1.png" alt="" />
+                        <p>Influencer1</p>
+                    </div>
+                    <div class="result-item">
+                        <img src="assets/images/Influencer2.png" alt="" />
+                        <p>Influencer2</p>
+                    </div>
+                    <div class="result-item">
+                        <img src="assets/images/Influencer3.png" alt="" />
+                        <p>Influencer3</p>
+                    </div>
+                </div>
+            </div>
+            <div class="recommend-box">
+                <div class="item">
+                    <div class="close-item shadow">
+                        <img src="assets/images/close.svg" alt="" />
+                    </div>
+                    <img class="influencer-img" src="assets/images/Influencer1.png" alt="" />
+                </div>
+                <div class="item">
+                    <div class="close-item shadow">
+                        <img src="assets/images/close.svg" alt="" />
+                    </div>
+                    <img class="influencer-img" src="assets/images/Influencer2.png" alt="" />
+                </div>
+                <div class="item">
+                    <div class="close-item shadow">
+                        <img src="assets/images/close.svg" alt="" />
+                    </div>
+                    <img class="influencer-img" src="assets/images/Influencer3.png" alt="" />
+                </div>
+                <div class="item">
+                    <div class="close-item shadow">
+                        <img src="assets/images/close.svg" alt="" />
+                    </div>
+                    <img class="influencer-img" src="assets/images/Influencer4.png" alt="" />
+                </div>
+                <div class="item">
+                    <div class="close-item shadow">
+                        <img src="assets/images/close.svg" alt="" />
+                    </div>
+                    <img class="influencer-img" src="assets/images/Influencer5.png" alt="" />
+                </div>
+            </div>
+            <div class="text-end mt-3">
+                <button type="button" class="btn btn-custom-secondary">Recommend</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- More Product Information Modal -->
+<div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isMoreProductInformationModalShow">
+ 
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content more-product-information-modal border-0">
+            <img class="close-btn" (click)="onClickMoreProductInformation()" src="assets/images/close-red.png" alt="" />
+            <h5>*Indicates required field. RECOMMENDED MINIMUM CONTENT SCORE - 50</h5>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="taxHeading">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#texCollapse" aria-expanded="true" aria-controls="texCollapse">
+                            Tax
+                        </button>
+                    </h2>
+                    <div id="texCollapse" class="accordion-collapse collapse" aria-labelledby="taxHeading"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">Yes
+                                <input type="radio" [(ngModel)]="objVendormodel.texCollapse" checked="checked" name="texCollapse">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">No
+                                <input type="radio" [(ngModel)]="objVendormodel.texCollapse" name="texCollapse">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="ProductInformationHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Product Information
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse"
+                        aria-labelledby="ProductInformationHeading" data-bs-parent="#accordionExample">
+
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="float-input">
+                                        <input type="text" [(ngModel)]="objVendormodel.texCollapse" class="form-control" placeholder=" ">
+                                        <div class="placeholder-text">Product Information</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="accordion-body">
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">Yes
+                                <input type="radio" checked="checked" name="SelCat">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">No
+                                <input type="radio" name="SelCat">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="ProductLineHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#ProductLineCollapse" aria-expanded="false"
+                            aria-controls="ProductLineCollapse">
+                            Product Line
+                        </button>
+                    </h2>
+                    <div id="ProductLineCollapse" class="accordion-collapse collapse"
+                        aria-labelledby="ProductLineHeading" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="float-input">
+                                        <input type="text" class="form-control" placeholder=" ">
+                                        <div class="placeholder-text">Product Line</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="AddInfoProductHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#AddInfoProductCollapse" aria-expanded="false"
+                            aria-controls="AddInfoProductCollapse">
+                            Additional Product Information
+                        </button>
+                    </h2>
+                    <div id="AddInfoProductCollapse" class="accordion-collapse collapse"
+                        aria-labelledby="AddInfoProductHeading" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="float-input">
+                                        <input type="text" class="form-control" placeholder=" ">
+                                        <div class="placeholder-text">Additional Product Information</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="ProductWarrantyHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#ProductWarrantyCollapse" aria-expanded="false"
+                            aria-controls="ProductWarrantyCollapse">
+                            Product Warranty
+                        </button>
+                    </h2>
+                    <div id="ProductWarrantyCollapse" class="accordion-collapse collapse"
+                        aria-labelledby="ProductWarrantyHeading" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">Yes
+                                <input type="radio" [(ngModel)]="objVendormodel.ProductWarranty" checked="checked" name="ProductWarranty">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">No
+                                <input type="radio" name="ProductWarranty">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="PickUpTimeHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#PickUpTimeCollapse" aria-expanded="false"
+                            aria-controls="PickUpTimeCollapse">
+                            Pick Up Time
+                        </button>
+                    </h2>
+                    <div id="PickUpTimeCollapse" class="accordion-collapse collapse show"
+                        aria-labelledby="PickUpTimeHeading" data-bs-parent="#accordionExample">
+                        <div class="accordion-body d-flex align-items-center">
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">Express
+                                <input type="radio" [(ngModel)]="objVendormodel.ProductWarranty" checked="checked" name="PickUpTime">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">1 Day
+                                <input type="radio" [(ngModel)]="objVendormodel.ProductWarranty" name="PickUpTime">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">2 Day
+                                <input type="radio" [(ngModel)]="objVendormodel.ProductWarranty" name="PickUpTime">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">Custom
+                                <input type="radio" [(ngModel)]="objVendormodel.ProductWarranty" name="PickUpTime">
+                                <span class="checkmark"></span>
+                            </label>
+                            <div class="d-flex">
+                                <input type="text" [(ngModel)]="objVendormodel.ProductWarranty" class="form-control rounded-0 me-3" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="PRKitAvailabilityHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#PRKitAvailabilityCollapse" aria-expanded="false"
+                            aria-controls="PRKitAvailabilityCollapse">
+                            PR Kit Availability
+                        </button>
+                    </h2>
+                    <div id="PRKitAvailabilityCollapse" class="accordion-collapse collapse"
+                        aria-labelledby="PRKitAvailabilityHeading" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">Yes
+                                <input type="radio" [(ngModel)]="objVendormodel.PRKitAvailability" name="PRKitAvailability">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">No
+                                <input type="radio" [(ngModel)]="objVendormodel.PRKitAvailability"  name="PRKitAvailability">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-end mt-3">
+                    <button type="submit"
+                        class="btn btn-custom-secondary text-capitalize fs-6 py-2"  >Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+//##########01_02_22####################
+<div class="my-products-wrapper" *ngIf="isMyProductsShow">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h3 class="title">My Products</h3>
+            </div>
+            <!-- <div class="col-sm-6 text-end">
+                <div class="rate-page">
+                    <img src="assets/images/star.svg" alt="" />
+                    <p>Rate This Page</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="filter-wrap mb-5">
+        <div class="filter-by-lbl mb-4">
+            <a (click)="onTabSelection('All Orders')" class="{{TabSelection=='All'?'active':''}}"  href="javascript:void(0)">All</a>
+            <a (click)="onTabSelection('Live')" class="{{TabSelection=='Live'?'active':''}}" href="javascript:void(0)">Live</a>
+            <a (click)="onTabSelection('Image Missing')" class="{{TabSelection=='Image Missing'?'active':''}}" href="javascript:void(0)">Image Missing <span class="custom-badge">4</span></a>
+            <a (click)="onTabSelection('Rejected')" class="{{TabSelection=='Rejected'?'active':''}}" href="javascript:void(0)">Rejected <span class="custom-badge">1</span></a>
+            <a (click)="onTabSelection('Sold Out')" class="{{TabSelection=='Sold Out'?'active':''}}" href="javascript:void(0)">Sold Out <span class="custom-badge">3</span></a>
+            <a (click)="onTabSelection('Best Selling')" class="{{TabSelection=='Best Selling'?'active':''}}" href="javascript:void(0)">Best Selling</a>
+            <select class="form-select" >
+                <option value="Inactive">Inactive</option>
+                <option value="Active">Active</option>
+            </select>
+            <a href="javascript:void(0)" (click)="onTabSelection('No Authorized')" class="{{TabSelection=='No Authorized'?'active':''}}">No Authorized <span class="custom-badge">2</span></a>
+            <!-- <a href="javascript:void(0)">Tagged</a> -->
+        </div>
+        <div class="filter-by-search">
+            <div class="row">
+                <div class="col-sm-4 d-flex align-items-center">
+                    <select class="form-select w-auto me-2">
+                        <option value="Rejected">Bulk Action</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Sold Out">Sold Out</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="Sold Out">Recommend</option>
+                    </select>
+                    <button (click)="onClickRecommend()"
+                        class="btn btn-custom-secondary rounded fs-6 px-3 py-1">GO</button>
+                </div>
+                <div class="col-sm-3 d-flex align-items-center">
+                   
+                    <select class="form-select w-auto me-4" [(ngModel)]="btnExport" (change)="Downloadfile()">
+                        <option selected value="">Export</option>
+                        <option value="Excel">Excel</option>
+                        <option value="CSV">CSV</option>
+                    </select>
+
+                    <button (click)="onClickAdd()" class="btn btn-custom-light rounded fs-6 px-3 py-1 text-capitalize">
+                        Add
+                        <img src="assets/images/plus-red.png" height="10" alt="">
+                    </button>
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" placeholder="Product Name, SKU or available criteria">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-product-list">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th>
+                        <label class="custom-checkbox custom-red custom-bg-light">
+                            <input type="checkbox" [(ngModel)]="SelectAll" (change)="onSelectAll()">
+                            <span class="checkmark"></span>
+                        </label>
+                    </th>
+                    <th>Name
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>SKU
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Created
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Price
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Sale Price
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Bumified Score
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Available
+                        <div class="arrows">
+                            <img src="assets/images/up-white.png" alt="">
+                            <img src="assets/images/down-white.png" alt="">
+                        </div>
+                    </th>
+                    <th>Visible</th>
+                    <th>PR Kit</th>
+                    <th>Active</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>
+                        <label class="custom-checkbox custom-red custom-bg-light">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                    <td>REVLON</td>
+                    <td>BM 1710ST</td>
+                    <td>18 Dec 2021</td>
+                    <td>777,777.00</td>
+                    <td>677,777.00</td>
+                    <td>-</td>
+                    <td>
+                        <img height="14" class="me-2" src="assets/images/warning-red.png" alt="">
+                        666
+                    </td>
+                    <td>
+                        <img height="8" src="assets/images/checkmark-dark.png" alt="">
+                    </td>
+                    <td>YES</td>
+                    <td>
+                        <label class="custom-switch switch-red switch-sm mt-1">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <select class="form-select">
+                            <option value="">Action</option>
+                            <option value="">Edit</option>
+                            <option value="">Sold Out</option>
+                            <option value="">Recommend</option>
+                        </select>
+                    </td>
+                </tr> -->
+            
+                <tr *ngFor ="let item of JsonData">
+                    <td>
+                        <label class="custom-checkbox custom-red custom-bg-light">
+                            <input type="checkbox" [(ngModel)]="item.Selected">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.sku}}</td>
+                    <td>{{item.created}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.sale_price}}</td>
+                    <td>{{item.available}}</td>
+                    <td>
+                        <img height="14" class="me-2" src="assets/images/warning-red.png" alt="">
+                        {{item.available}}
+                    </td>
+                    <td>
+                        <img height="8" src="assets/images/checkmark-dark.png" alt="">
+                        <!-- {{item.Visible}} -->
+                    </td>
+                    <td>{{item.pr_kit}}</td>
+                    <td>
+                        <label class="custom-switch switch-red switch-sm mt-1">
+                            <input type="checkbox" [(ngModel)]="item.active" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <select class="form-select" [(ngModel)]="item.active" (change)=Oneditproduct(item)>
+                            <option value="">Action</option>
+                            <option value="Edit" >Edit</option>
+                            <option value="Sold Out">Sold Out</option>
+                            <option value="Recommend">Recommend</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="add-a-product-wrapper" *ngIf="isAddProductShow">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h3 class="title">Add a Product</h3>
+            </div>
+            <!-- <div class="col-sm-6 d-flex align-items-center justify-content-end">
+                <label class="me-3">Language</label>
+                <select class="form-select w-auto">
+                    <option value="">English</option>
+                    <option value="">English 1</option>
+                </select>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="create-new-product mb-3">
+        <div class="row align-items-center">
+            <div class="col-sm-8">
+                <h2 class="mb-4">Search our catalog for existing products similar to yours</h2>
+                <div class="d-flex mb-4">
+                    <input type="text" class="form-control" placeholder="Product Name, SKU or available criteria">
+                    <button type="button" class="btn btn-custom-dark">SEARCH</button>
+                </div>
+                <p>Can’t find it in our catalog? <a (click)="onClickCreateNewProduct()" href="javascript:void(0)">Create
+                        New Product</a></p>
+            </div>
+            <div class="col-sm-4 text-end">
+                <img height="180" src="assets/images/create-ad-preview.png" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <div class="lot-of-things-to-sell mb-5">
+        <div class="row align-items-center">
+            <div class="col-sm-8">
+                <h2 class="mb-4">Have a lot of things to sell?</h2>
+                <p class="mb-4">Download and fill our bulk upload template below to add all your products at one go!</p>
+                <div class="d-flex align-items-center">
+                    <button type="button"
+                        class="btn btn-custom-light rounded fs-6 text-capitalize px-4 py-2 me-5">Download Template
+                        (CSV)</button>
+                    <button type="button" class="btn btn-custom-secondary fs-6 rounded text-capitalize px-4 py-2">Upload
+                        (CSV) File(s)</button>
+                </div>
+            </div>
+            <div class="col-sm-4 text-end">
+                <img height="180" src="assets/images/csv-banner.png" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <div class="add-product-footer">
+        <div>
+            <a href="javascript:void(0)">About Bumi</a>
+            <a href="javascript:void(0)">Drop Off/RTV Locations</a>
+            <a href="javascript:void(0)"> Policies & Guidelines </a>
+            <a href="javascript:void(0)">Contact Us</a>
+        </div>
+        <!-- <div class="rate-page">
+            <img src="assets/images/star.svg" alt="" />
+            <p>Rate This Page</p>
+        </div> -->
+    </div>
+</div>
+
+<div class="add-new-product-wrapper" *ngIf="isAddNewProductShow">
+    <div class="sub-header">
+        <h3 class="title">Add a Product</h3>
+        <p>Add a Product (Please select a primary category for your product)</p>
+    </div>
+
+    <div class="add-product-category">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item col-3" role="presentation">
+                <button class="nav-link w-100 active" id="BrowseCategories-tab" data-bs-toggle="tab"
+                    data-bs-target="#BrowseCategories" type="button" role="tab" aria-controls="BrowseCategories"
+                    aria-selected="true">Browse Categories</button>
+            </li>
+            <li class="nav-item col-3" role="presentation">
+                <button class="nav-link w-100" id="MostUsedCategory-tab" data-bs-toggle="tab"
+                    data-bs-target="#MostUsedCategory" type="button" role="tab" aria-controls="MostUsedCategory"
+                    aria-selected="false" (click)="onClickMostCategory()">Most Used Category</button>
+            </li>
+            <li class="nav-item col-3" role="presentation">
+                <button class="nav-link w-100" id="ProductInformation-tab" data-bs-toggle="tab"
+                    data-bs-target="#ProductInformation" type="button" role="tab" aria-controls="ProductInformation"
+                    aria-selected="false">Product Information</button>
+            </li>
+            <li class="nav-item col-3" role="presentation">
+                <button class="nav-link w-100" id="ProductImage-tab" data-bs-toggle="tab" data-bs-target="#ProductImage"
+                    type="button" role="tab" aria-controls="ProductImage" aria-selected="false">Product Image</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="BrowseCategories" role="tabpanel"
+                aria-labelledby="BrowseCategories-tab">
+                <div class="browser-categories">
+                    <div class="d-flex my-3 px-4 align-items-center">
+                        <input type="text" class="form-control py-1 fs-6" placeholder="Search for categories, sub-categories">
+                        <button type="button" class="btn btn-custom-secondary rounded fs-6 py-1">SEARCH</button>
+                    </div>
+                    <div class="d-flex" style="min-height: 400px;">
+                        <div class="col-3 border-end">
+                            <!-- <div class="h-50"> -->
+                                <div class="categories h-50 active" *ngFor ="let item of categoryData" >
+                                    <label class="right-arrow" (click)="onClickForGender(item.id,'1')" > {{ item.name }} {{ item.id }} </label>
+                                </div>
+                            <!-- </div> -->
+                            <!-- <div class="categories">
+                                <label class="right-arrow" (click)="onClickForGender('male' , '1')">FOR KINGS12</label>
+                            </div> -->
+                        </div>
+                        <div class="col-3 border-end" *ngIf="isCategoryShow1">
+                            <div class="categories " *ngFor ="let item of categoryData1" >
+                                <label (click)="onClickForGender(item.id, '2')">{{item.name}}</label>
+                                <!-- <label (click)="onClickCategory1(item.parent_id, type1)">{{item.name}}</label> -->
+                            </div>
+                            
+                        </div>
+                        <div class="col-3 border-end" *ngIf="isCategoryShow2">
+                            <div class="categories" *ngFor ="let item of categoryData2">
+                                <label (click)="onClickForGender(item.id, '3')" >{{item.name}}</label>
+                            </div>
+                        </div>
+                        <div class="col-3" *ngIf="isCategoryShow3">
+                            
+                            <div class="categories" *ngFor ="let item of categoryData3">
+                                <label (click)="onClickForGender(item.id, '4')" >{{item.name}}</label>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                    <div class="text-end p-4 border-top">
+                        <button type="button" (click)="gotoProductinfo()" class="btn btn-custom-secondary rounded fs-6 py-1">NEXT</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="MostUsedCategory" role="tabpanel" aria-labelledby="MostUsedCategory-tab">
+                <div class="browser-categories d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex my-3 px-4 align-items-center">
+                            <input type="text" class="form-control py-1 fs-6" placeholder="Search for categories, sub-categories">
+                            <button type="button" class="btn btn-custom-secondary rounded fs-6 py-1">SEARCH</button>
+                        </div>
+                        <div class="mt-4"  >
+                            <div class="categories active" *ngFor ="let item of categoryMost" >
+                                <label class="right-arrow">{{item.cat_id}}</label>
+                                <label class="right-arrow">{{item.cat_id_1}}</label>
+                                <label class="right-arrow">{{item.cat_id_2}}</label>
+                                <label class="right-arrow">{{item.cat_id_3}}</label>
+                            </div>
+                          
+                        </div>
+                    </div>
+                    <div class="text-end p-4 border-top">
+                        <button (click)="gotoProductinfo()"
+                         type="button" class="btn btn-custom-secondary rounded fs-6 py-1">NEXT1</button>
+                    </div>
+                </div>
+                <p class="find-categories mt-3">Don’t find your categories? <a href="javascript:void(0)">Click here</a>
+                    to browse the category tree.</p>
+            </div>
+
+
+
+            <div class="tab-pane fade" id="ProductInformation" role="tabpanel" aria-labelledby="ProductInformation-tab">
+                <form method="post" [formGroup]="checkoutForm" (ngSubmit)="onProductCreate(data)" enctype="multipart/form-data" #product>
+                <div class="product-information">
+                    <h3>*Indicates required field. RECOMMENDED MINIMUM CONTENT SCORE - 50</h3>
+                    <div class="row">
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" id="name"  formControlName="name" class="form-control" placeholder="">
+                                <div class="placeholder-text">*Name</div>
+                            </div>
+                            <span>This should include the actual product name for example; Estee Lauder Pleasures
+                                Cologne
+                                Spray For Men 100ml</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" formControlName="sale_price" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">*Sale Price (SP)</div>
+                            </div>
+                            <span>This should be the Sale Price/ Discounted Price of the Product For example;
+                                9,000</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" formControlName="short_description" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">*Short Description</div>
+                            </div>
+                            <span>This should include the product brief description for example; Smell good for a
+                                week</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" formControlName="discount" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">*Discount</div>
+                            </div>
+                            <span>This should include the Discount or Price Off Percentage For example; 10% (Will be
+                                autogenerated)</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" formControlName="details" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">*Details</div>
+                            </div>
+                            <span>This should include the selling proposition or why this products? For example; Get
+                                your confidence game on with Pleasures Cologne Spray</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" formControlName="brand" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">Brand</div>
+                            </div>
+                            <span>This should include the brand of the Products For example; Nivea or Loreal</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" formControlName="price" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">*Price</div>
+                            </div>
+                            <span>This should be the Recommended Retail Price For example; 9,200.00</span>
+                        </div>
+                        <div class="col-sm-6 mb-2">
+                            <div class="float-input">
+                                <input type="text" formControlName="influencer" class="form-control" placeholder=" ">
+                                <div class="placeholder-text">Select Influencer</div>
+                            </div>
+                            <label class="custom-checkbox custom-red">Do you want this product to be exclusive to
+                                specific influencer(s)
+                                <input formControlName="influencer" type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-6 text-center mt-4">
+                            <button (click)="onClickMoreProductInformation()" name="ProductInfo" class="btn btn-custom-secondary">More
+                                Product Information</button>
+                            <span>RECOMMENDED MINIMUM CONTENT SCORE - 50</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-center">
+                            <div class="chart-text me-4">
+                                <p-chart type="doughnut" [data]="data" [options]="chartOptions"
+                                    [style]="{'width': '100%'}"></p-chart>
+                                <h3>50</h3>
+                            </div>
+                            <span>Add More Information to increase Your Content Score</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+            <div class="tab-pane fade" id="ProductImage" role="tabpanel" aria-labelledby="ProductImage-tab">
+                <form method="POST"    enctype="multipart/form-data" >
+                    <!-- [formGroup] = "uploadForm" (ngSubmit)="onSubmitImage()" -->
+                    <!-- #uploadformId  (ngSubmit)="UploadDocument(uploadformId)" -->
+                    <!-- [formGroup]="myForm" (ngSubmit)="imageSubmit()" -->
+                   
+                <div class="product-image">
+                    <h3>
+                        <a href="">Upload Images</a> and <a href="">Finish Editing</a> and <a href="">Preview</a>
+                    </h3> 
+                    
+                    <div class="img-box-wrap">
+                     
+                        <!-- <div class="box cursor-pointer">                           
+                          <input type="file" name="profile" (change)="onFileChange($event)" multiple=""  >                          
+                        </div> -->
+                    
+                        <!-- <div class="form-group">
+                            <label for="file">File</label>
+                            <input 
+                                formControlName="file[]"
+                                id="file" 
+                                type="file" 
+                                accept="image/*"
+                                class="form-control"
+                                multiple="" 
+                                (change)="onFileChange($event)">
+                             <div *ngIf="dataf.file.invalid" class="alert alert-danger">
+                                <div *ngIf="dataf.file.errors.required">File is required.</div>
+                            </div> 
+                        </div> -->
+                       
+                        <img *ngFor='let url of images'  [src]="url" height="150" width="200px" style="margin: 3px;"> <br/>
+    
+    
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                        <div class="box">
+                            <img src="assets/images/img-placeholder.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="product-image-footer">
+                        <p>Total files: 7</p>
+                        <p>We only support JPG and PNG Images under 5MB</p>
+                        <button type="submit" class="btn btn-custom-secondary text-capitalize">Upload Images</button>
+                    </div>
+                </div>
+            </form >
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recommend Modal -->
+<div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isRecommendModalShow">
+    <!-- <form method="post" [formGroup]=""  enctype="multipart/form-data" > -->
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content recommend-modal border-0">
+            <img class="close-btn" (click)="onClickRecommend()" src="assets/images/close.svg" alt="" />
+            <div class="search-wrap mb-4">
+                <input type="text" class="form-control" placeholder="SEARCH">
+                <div class="search-result shadow">
+                    <div class="result-item">
+                        <img src="assets/images/Influencer1.png" alt="" />
+                        <p>Influencer1</p>
+                    </div>
+                    <div class="result-item">
+                        <img src="assets/images/Influencer2.png" alt="" />
+                        <p>Influencer2</p>
+                    </div>
+                    <div class="result-item">
+                        <img src="assets/images/Influencer3.png" alt="" />
+                        <p>Influencer3</p>
+                    </div>
+                </div>
+            </div>
+            <div class="recommend-box">
+                <div class="item">
+                    <div class="close-item shadow">
+                        <img src="assets/images/close.svg" alt="" />
+                    </div>
+                    <img class="influencer-img" src="assets/images/Influencer1.png" alt="" />
+                </div>
+                <div class="item">
+                    <div class="close-item shadow">
+                        <img src="assets/images/close.svg" alt="" />
+                    </div>
+                    <img class="influencer-img" src="assets/images/Influencer2.png" alt="" />
+                </div>
+                <div class="item">
+                    <div class="close-item shadow">
+                        <img src="assets/images/close.svg" alt="" />
+                    </div>
+                    <img class="influencer-img" src="assets/images/Influencer3.png" alt="" />
+                </div>
+                <div class="item">
+                    <div class="close-item shadow">
+                        <img src="assets/images/close.svg" alt="" />
+                    </div>
+                    <img class="influencer-img" src="assets/images/Influencer4.png" alt="" />
+                </div>
+                <div class="item">
+                    <div class="close-item shadow">
+                        <img src="assets/images/close.svg" alt="" />
+                    </div>
+                    <img class="influencer-img" src="assets/images/Influencer5.png" alt="" />
+                </div>
+            </div>
+            <div class="text-end mt-3">
+                <button type="button" class="btn btn-custom-secondary">Recommend</button>
+            </div>
+        </div>
+    </div>
+<!-- </form > -->
+</div>
+
+<!-- More Product Information Modal -->
+<div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isMoreProductInformationModalShow">
+    <form method="post" [formGroup]="secondCheckoutForm" (ngSubmit)="onSecondProductCreate(data)"  enctype="multipart/form-data" >
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content more-product-information-modal border-0">
+            <img class="close-btn" (click)="onClickMoreProductInformation()" src="assets/images/close-red.png" alt="" />
+            <h5>*Indicates required field. RECOMMENDED MINIMUM CONTENT SCORE - 50</h5>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="taxHeading">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#texCollapse" aria-expanded="true" aria-controls="texCollapse">
+                            Tax
+                        </button>
+                    </h2>
+                    <div id="texCollapse" class="accordion-collapse collapse"  aria-labelledby="taxHeading"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">Yes
+                                <input type="radio" value="YES" formControlName="tax" checked="checked" name="texCollapse">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">No
+                                <input type="radio" value="NO" formControlName="tax"  name="texCollapse">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" >
+                    <h2 class="accordion-header" id="ProductInformationHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Product Information
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse"
+                        aria-labelledby="ProductInformationHeading" data-bs-parent="#accordionExample">
+
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="float-input">
+                                        <input type="text" formControlName="product_info" class="form-control" placeholder=" ">
+                                        <div class="placeholder-text">Product Information</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="accordion-body">
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">Yes
+                                <input type="radio" checked="checked" name="SelCat">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">No
+                                <input type="radio" name="SelCat">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="ProductLineHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#ProductLineCollapse" aria-expanded="false"
+                            aria-controls="ProductLineCollapse">
+                            Product Line
+                        </button>
+                    </h2>
+                    <div id="ProductLineCollapse" class="accordion-collapse collapse"
+                        aria-labelledby="ProductLineHeading" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="float-input">
+                                        <input type="text" formControlName="product_line" class="form-control" placeholder=" ">
+                                        <div class="placeholder-text">Product Line</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="AddInfoProductHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#AddInfoProductCollapse" aria-expanded="false"
+                            aria-controls="AddInfoProductCollapse">
+                            Additional Product Information
+                        </button>
+                    </h2>
+                    <div id="AddInfoProductCollapse" class="accordion-collapse collapse"
+                        aria-labelledby="AddInfoProductHeading" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="float-input">
+                                        <input type="text" value="add_product_info" formControlName="add_product_info" class="form-control" placeholder=" ">
+                                        <div class="placeholder-text">Additional Product Information</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="ProductWarrantyHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#ProductWarrantyCollapse" aria-expanded="false"
+                            aria-controls="ProductWarrantyCollapse">
+                            Product Warranty
+                        </button>
+                    </h2>
+                    <div id="ProductWarrantyCollapse" class="accordion-collapse collapse"
+                        aria-labelledby="ProductWarrantyHeading" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">Yes
+                                <input type="radio" value="YES" formControlName="product_warranty" checked="checked" name="ProductWarranty">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">No
+                                <input type="radio" value="NO" formControlName="product_warranty">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="PickUpTimeHeading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#PickUpTimeCollapse" aria-expanded="false"
+                            aria-controls="PickUpTimeCollapse">
+                            Pick Up Time
+                        </button>
+                    </h2>
+                    <div id="PickUpTimeCollapse" class="accordion-collapse collapse show"
+                        aria-labelledby="PickUpTimeHeading" data-bs-parent="#accordionExample">
+                        <div class="accordion-body d-flex align-items-center">
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">Express
+                                <input type="radio" value="express" formControlName="pick_up_time" checked="checked" name="PickUpTime">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">1 Day
+                                <input type="radio" value="1 Day" formControlName="pick_up_time" name="PickUpTime">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">2 Day
+                                <input type="radio" value="2 Day" formControlName="pick_up_time" name="PickUpTime">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-sm fs-6 d-inline-block me-3">Custom
+                                <input type="radio" value="Custom" formControlName="pick_up_time" name="PickUpTime">
+                                <span class="checkmark"></span>
+                            </label>
+                            <div class="d-flex">
+                                <input type="text" formControlName="ProductWarranty" class="form-control rounded-0 me-3" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item"  >
+                    <h2 class="accordion-header" id="PRKitAvailabilityHeading">
+                        <button class="accordion-button  collapsed"  type="button" data-bs-toggle="collapse"
+                            data-bs-target="#PRKitAvailabilityCollapse" aria-expanded="false"
+                            aria-controls="PRKitAvailabilityCollapse">
+                            PR Kit Availability
+                        </button>
+                    </h2>
+                    <div id="PRKitAvailabilityCollapse" class="accordion-collapse collapse"
+                        aria-labelledby="PRKitAvailabilityHeading" data-bs-parent="#accordionExample">
+                        <div class="accordion-body" formControlName="prkitavailabilityYes" >
+                            <label class="custom-radio  radio-sm fs-6 d-inline-block me-3">Yes
+                                <input type="radio" value="YES" formControlName="pr_kit"   name="PRKitAvailabilityYES">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio  radio-sm fs-6 d-inline-block me-3">No
+                                <input type="radio" value="NO" formControlName="pr_kit"   name="PRKitAvailabilityYES">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-end mt-3">
+                    <button type="submit"
+                        class="btn btn-custom-secondary text-capitalize fs-6 py-2">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form >
+
+</div>

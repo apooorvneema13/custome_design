@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="134.587" height="72.009" viewBox="0 0 134.587 72.009">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_24" data-name="Path 24" d="M189.587,186.789c2.954,0,5.586-.075,8.589-.075,0-2.784-1.076-4.74-2.753-7.172-1.712-2.091-3.055-1.776-4.143-2.1a13.568,13.568,0,0,0-5.576-.109,5.311,5.311,0,0,1-5.243-2.123,3.3,3.3,0,0,1-.536-3.422c.171-.406.284-.836.438-1.247a1.1,1.1,0,0,0-.6-1.57,7.678,7.678,0,0,1-1.314-.853,1.416,1.416,0,0,1-.132-2.438c.272-.273.58-.507.949-.824-.323-.141-.609-.256-.884-.388a1.727,1.727,0,0,1-1.026-2.364,10.474,10.474,0,0,1,.536-1.208c.186-.394.392-.782.669-1.33-.775-.246-3.109-1.22-3.372-2.492-.248-1.181.67-1.858,1.347-2.665a19.993,19.993,0,0,0,3.514-6.494,6.478,6.478,0,0,0,.382-1.683c.079-.742-.013-1.4-.988-1.572a2.814,2.814,0,0,1-1.191-.78c.542.116,1.086.227,1.724.363-.98-2.924.011-5.514.737-8.129.3-1.08.669-2.142,1.007-3.214-.054-.045-.111-.091-.165-.137-.509.569-4.561-1.594-4.344-4.918-.861.778,5.712,2.507,6.325-2.07.542-4.027,6.8-4.5,10.7-5.908-.993.158-1.991.3-2.98.475s-2.01.349-3,.6a25.825,25.825,0,0,0-14.222,8.5c-2.5,3.134-1.178,5.148-1.126,5.176-.427,1.407-.876,2.807-1.27,4.222a26.614,26.614,0,0,0-.69,2.976,6.663,6.663,0,0,0,.352,3.971,3.966,3.966,0,0,1-.826,4.508c-1.649,2.6-5.818,7.6-1.361,10.363.527.154.7.415.506.973s-1.449,2.088-1.545,2.686c-.25,1.554,1.091,1.087,2.4,1.823-3.353-.246-2.967,3.418-.579,3.011,1.088-.046,1.587,1.331,1.359,2.327a11.042,11.042,0,0,0-.358,2.69,4,4,0,0,0,3.248,3.719,31.761,31.761,0,0,0,4.163.561c1.447.167,2.907.244,4.344.475a3.024,3.024,0,0,1,2.617,2.336c.653,6.164,4.262,5.274,4.317,5.528" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_19" data-name="Group 19" transform="translate(-167.124 -114.78)">
+    <line id="Line_56" data-name="Line 56" x2="15.402" y2="22.841" transform="translate(182.879 115.078)" fill="none" stroke="#a3195c" stroke-linecap="round" stroke-width="0.43"/>
+    <line id="Line_57" data-name="Line 57" x2="29.646" y2="45.767" transform="translate(179.725 121.047)" fill="none" stroke="#009ee2" stroke-linecap="round" stroke-width="0.43"/>
+    <line id="Line_58" data-name="Line 58" x2="21.558" y2="33.281" transform="translate(182.879 152.625)" fill="none" stroke="#93c01f" stroke-linecap="round" stroke-width="0.43"/>
+    <line id="Line_59" data-name="Line 59" x2="5.474" y2="8.469" transform="translate(201.7 136.32)" fill="none" stroke="#00a099" stroke-linecap="round" stroke-width="0.43"/>
+    <line id="Line_60" data-name="Line 60" x2="7.855" y2="12.154" transform="translate(195.939 159.032)" fill="none" stroke="#f15a24" stroke-linecap="round" stroke-width="1.921"/>
+    <text id="BUMI" transform="translate(221.711 165.137)" font-size="34.584" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0" letter-spacing="-0.04em">B</tspan><tspan y="0" letter-spacing="-0.039em">U</tspan><tspan y="0" letter-spacing="-0.04em">M</tspan><tspan y="0">I</tspan></text>
+    <g id="Group_18" data-name="Group 18">
+      <g id="Group_17" data-name="Group 17" clip-path="url(#clip-path)">
+        <line id="Line_61" data-name="Line 61" x2="47.699" y2="73.813" transform="translate(182.078 115.161)" fill="none" stroke="#00a099" stroke-linecap="round" stroke-width="0.43"/>
+        <line id="Line_62" data-name="Line 62" x2="48.558" y2="73.813" transform="translate(178.276 115.161)" fill="none" stroke="#941d80" stroke-linecap="round" stroke-width="4.294"/>
+        <line id="Line_63" data-name="Line 63" x2="48.13" y2="73.813" transform="translate(174.019 115.591)" fill="none" stroke="#00a099" stroke-linecap="round" stroke-width="4.294"/>
+        <line id="Line_64" data-name="Line 64" x2="48.558" y2="73.813" transform="translate(184.483 113.444)" fill="none" stroke="#ed7309" stroke-linecap="round" stroke-width="8.588"/>
+        <line id="Line_65" data-name="Line 65" x2="48.13" y2="73.813" transform="translate(166.315 115.161)" fill="none" stroke="#f29102" stroke-linecap="round" stroke-width="8.16"/>
+        <line id="Line_66" data-name="Line 66" x2="48.13" y2="73.813" transform="translate(159.078 115.161)" fill="none" stroke="#941d80" stroke-linecap="round" stroke-width="4.294"/>
+        <line id="Line_67" data-name="Line 67" x2="48.13" y2="73.813" transform="translate(153.989 115.161)" fill="none" stroke="#f8b133" stroke-linecap="round" stroke-width="4.294"/>
+        <line id="Line_68" data-name="Line 68" x2="48.13" y2="73.813" transform="translate(148.899 115.161)" fill="none" stroke="#e4037d" stroke-linecap="round" stroke-width="4.294"/>
+        <line id="Line_69" data-name="Line 69" x2="48.13" y2="73.813" transform="translate(143.809 115.161)" fill="none" stroke="#a3195c" stroke-linecap="round" stroke-width="4.725"/>
+        <line id="Line_70" data-name="Line 70" x2="48.13" y2="73.813" transform="translate(136.142 115.161)" fill="none" stroke="#2fab67" stroke-linecap="round" stroke-width="8.16"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+.add-new-product-wrapper .add-product-category .browser-categories .categories label.right-arrow {
+    padding: 12px 35px 12px 35px;
+    display: block;
+}
+.add-new-product-wrapper .add-product-category .browser-categories .categories.active label {
+    background-color: rgba(222, 55, 49, 0.1);
+}
+.add-new-product-wrapper .add-product-category .browser-categories .categories.active {
+    background-color: transparent;
+}
+.add-new-product-wrapper.add-product-category.tab-pane.product-information.float-input option.form-control{
+width: 459px;
+height: 52px;
+border-color: silver;
+border-radius: 2%;
+}
+.add-a-product-wrapper.add-product-category.tab-content.tab-pane.product-image.img-box-wrap.button.close{
+    margin-right: 90%;
+}
+.add-new-product-wrapper[_ngcontent-usl-c42] .add-product-category[_ngcontent-usl-c42] .browser-categories[_ngcontent-wnt-c75] .categories.active[_ngcontent-wnt-c75] label[_ngcontent-wnt-c75] {
+    background-color: rgba(222, 55, 49, 0.1);    
+}
+.close-img {
+    position: relative;
+    top: -65px;
+    right: 55px;    
+}
+
+
+.select-colored{
+    width: 459px;
+    height: 52px;
+    border-color: silver;
+    border-radius: 2%;
+}

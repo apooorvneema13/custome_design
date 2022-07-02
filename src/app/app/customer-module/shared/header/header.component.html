@@ -1,0 +1,257 @@
+<!-- 
+<!doctype html>
+<html lang="en"> -->
+
+    <!-- <body> -->
+       
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarsExample04">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="#">New</a></li>
+                <li class="nav-item dropdown megamenu-li"> <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Stars</a>
+                     <div class="dropdown-menu megamenu" aria-labelledby="dropdown01">
+                                        <div class="row">
+                                         <div class="col-sm-6 col-lg-3">
+                                          <h5>Mackup</h5>
+                                          <a class="dropdown-item" href="#">Face</a>
+                                          <a class="dropdown-item" href="#">Eyes</a>
+                                          <a class="dropdown-item" href="#">Lips</a>
+                                          <a class="dropdown-item" href="#">Eyelashes</a>
+                                          <a class="dropdown-item" href="#">Brushes & Accessories</a>
+                                         </div>
+                                         <div class="col-sm-6 col-lg-3">
+                                          <h5>Skincare</h5>
+                                          <a class="dropdown-item" href="#">Moisturizers </a>
+                                          <a class="dropdown-item" href="#">Cleansers</a>
+                                          <a class="dropdown-item" href="#">Treatment & Masks </a>
+                                          <a class="dropdown-item" href="#"> Eyecare</a>
+                                          <a class="dropdown-item" href="#"> Suncare & Tan </a>
+                                          <a class="dropdown-item" href="#"> Lipcare</a>
+                                         </div>
+                                         <div class="col-sm-6 col-lg-3">
+                                           <h5>Hair</h5>
+                                          <a class="dropdown-item" href="#"> Haircare  Hair </a>
+                                          <a class="dropdown-item" href="#">Hair Styling</a>
+                                          <a class="dropdown-item" href="#"> Hair Colour </a>
+                                          <a class="dropdown-item" href="#"> Eyecare</a>
+                                          <a class="dropdown-item" href="#"> Suncare & Tan </a>
+                                          <a class="dropdown-item" href="#"> Lipcare</a>
+                                         </div>
+                                         <div class="col-sm-6 col-lg-3">
+                                          <h5>Hair</h5>
+                                          <a class="dropdown-item" href="#"> Haircare  Hair </a>
+                                          <a class="dropdown-item" href="#">Hair Styling</a>
+                                          <a class="dropdown-item" href="#"> Hair Colour </a>
+                                          <a class="dropdown-item" href="#"> Eyecare</a>
+                                          <a class="dropdown-item" href="#"> Suncare & Tan </a>
+                                          <a class="dropdown-item" href="#"> Lipcare</a>
+                                         </div>
+                                        </div>
+                                       </div>
+                </li>
+                <li class="nav-item"> <a class="nav-link" [routerLink]="['/customer/brands']">Brands</a></li>
+                <li class="nav-item dropdown megamenu-li"> <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" (mouseover)="getCategory1('5')">Beauty</a>
+                    <div class="dropdown-menu megamenu" aria-labelledby="dropdown01">
+                                       <div class="row">
+                                        <div class="col-sm-6 col-lg-3" *ngFor="let cat1 of getCat1">
+                                         <h5>{{cat1.name}}</h5>
+                                          <!-- <div *ngFor="let cat2 of cat1.id"> -->
+                                            <a class="dropdown-item" href="#" *ngFor="let a of arr">{{a.name}}</a>
+                                            <!-- <a class="dropdown-item" href="#">Eyes</a>
+                                            <a class="dropdown-item" href="#">Lips</a>
+                                            <a class="dropdown-item" href="#">Eyelashes</a>
+                                            <a class="dropdown-item" href="#">Brushes & Accessories</a> -->
+                                            <!-- </div> -->
+                                        </div>
+                                       
+                                       </div>
+                                      </div>
+               </li>
+                <li class="nav-item"> <a class="nav-link" href="#">Fashions</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Lifstyle</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Discover</a></li>
+                
+                
+              </ul>
+              <form class="search-form">
+                <input class="form-control" type="text" placeholder="Search">
+                <button><i class="fa fa-search"></i></button>
+              </form>
+            </div></div>
+          </nav>
+    <!-- </body> -->
+<!-- </html> -->
+<div  class="modal fade text-center" id="login" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">  
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body">
+                <div
+                    class="row g-0 min-vh-100">
+                    <!-- Welcome Text
+                          ========================= -->
+                    <div class="col-md-6">
+                        <div class="hero-wrap d-flex align-items-center h-100">
+                            <div class="hero-content w-100 min-vh-100 d-flex flex-column">
+                                <div class="row g-0">
+                                    <div class="col-10 col-lg-9 mx-auto">
+                                        <div class="logo mt-5 mb-5 mb-md-0">
+                                            <a class="d-flex" href="/" title="Oxyy"><img src="../../../../assets/images/footer-logo.png"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Welcome Text End -->
+
+                    <!-- Login Form
+                          ========================= -->
+                          <div class="col-md-6 d-flex">
+                            
+                                <div class="container my-auto py-5">
+                                    <div class="row g-0">
+                                        <div class="col-10 col-lg-9 col-xl-8 mx-auto">
+                                            <h3 class="text-center mb-4">Welcome to BUMI app</h3>
+                                            <form method="post" [formGroup]="userlogin" (ngSubmit)="onSubmit()" enctype="multipart/form-data" >
+                                                <div class="mb-3">
+                                                    <input type="email" formControlName="email_address" class="form-control" id="emailAddress" required="" placeholder="Enter Your Email">
+                                                    <span *ngIf="issubmitlogin" class="error-msg">Please Enter
+                                                        Email</span>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input type="password" formControlName="password" class="form-control" [(ngModel)]="objvendorlogin.Password" id="loginPassword" required="" placeholder="Enter Password">
+                                                    <span *ngIf="issubmitlogin && objvendorlogin.Password==''" class="error-msg">Please Enter
+                                                        Password</span>
+                                                </div>
+                                                <div class="d-grid my-4">
+                                                    <!-- <button class="btn btn-primary" href="#" type="submit" (click)="ValidateUser()">Login</button> -->
+                                                    <button class="btn btn-primary" type="submit">Login</button>
+                                                </div>
+                                                <h6 class="text-center">Or Login with Social Media</h6>
+                                                <ul class="mt-3 mb-3">
+                                                    <li>
+                                                        <a href="#"><img src="../../../../assets/images/fb.png"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="../../../../assets/images/tw.png"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="../../../../assets/images/li.png"></a>
+                                                    </li>
+                                                </ul>
+    
+                                            </form>
+                                            
+                                            <p class="haveacc">Don't have an account?
+                                                <a class="link-primary" href="/singup">Create an account?</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                          
+                        </div>
+                    <!-- Login Form End -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- </form> -->
+<div class="modal fade" id="register" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body">
+                <h3>Create an Account</h3>
+                <form [formGroup]="registerCustomerForm" (ngSubmit)="createCustomer()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" formControlName="first_name" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" formControlName="last_name" class="form-control" placeholder="Last Name">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="email" formControlName="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="tel" formControlName="phone" class="form-control" placeholder="Telephone Nmber">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" formControlName="country" class="form-control" placeholder="Country">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" formControlName="language" class="form-control" placeholder="Language">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="password" formControlName="password" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="rdio rdio-primary radio-inline">
+                                    <input name="radio" value="2" id="radio1" type="radio">
+                                    <label for="radio1">I agree to Bumi’s
+                                        <span>
+                                            Terms and Conditions</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+    
+                                    <div class="rdio rdio-primary radio-inline">
+                                        <input name="radio" value="2" id="radio2" type="radio">
+                                        <label for="radio2">I agree to Bumi’s
+                                            <span>
+                                                Privacy Policy</span>
+                                        </label>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <button class="btn btn-primary" >REGISTER</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    

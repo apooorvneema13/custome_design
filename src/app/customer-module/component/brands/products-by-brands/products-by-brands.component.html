@@ -1,0 +1,106 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+<div id="cover-spin"></div> 
+<section id="breadcum" class="mb-2">
+    <div class="container">
+      HOME <i class="fa fa-angle-right"></i> {{gen}} <i class="fa fa-angle-right"></i> BRANDS <i class="fa fa-angle-right"></i> {{BrandData}} 
+    </div>
+  </section>
+   <section id="product-page-header">
+      <div class="container">
+        <div class="product-page-header-inner">
+           <span><img src="{{brandImage}}" onerror="this.src='https://logo.clearbit.com/Lakme.com';" ></span>
+         </div>
+      </div>
+    </section>
+  <section id="product-listing-outer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="filter-sidebar">
+            <h2>Filter By</h2>
+            <div class="filter-wrap">
+              <h3>Category  </h3>
+              <!-- <i class="fa fa-search"></i> -->
+              <input type="text" (input)="searchCategory($any($event.target).value)" class="form-control" placeholder="Search Category">
+              <ul>       
+                <div class="text-danger">{{msg}} </div>         
+                <li *ngFor= "let cat of category " [ngClass]= "{'highlight': selectedIndex === cat.id}"><a (click)="cat.count > 0 && selectCategory(cat.id)">{{cat.name}} <span class="pro-count">({{cat.count}})</span></a></li>
+               </ul>
+            </div>
+            <div class="filter-wrap">
+              <h3>Brand  </h3>
+              <!-- <div class="text-danger">{{msg_brand}} </div>   -->
+              <input type="text" (input)="searchBrand($any($event.target).value)" class="form-control" placeholder="Search Brand">
+              <!-- <i class="fa fa-search"></i> -->
+              <ul>
+                <!-- <li *ngFor="let cat of category" [ngClass]="{'highlight': selectedIndex === cat.id}"><a (click)="cat.count > 0 && selectCategory(cat.id)">{{cat.name}} <span class="pro-count">({{cat.count}})</span></a></li> -->
+               <li><a (click)="priceBrand()">{{BrandData}}<span class="pro-count">(33)</span></a></li>          
+                
+              </ul>
+            </div>
+             <div class="filter-wrap">
+              <h3>Price  </h3>
+              <ul>
+                 <li *ngFor= "let price of Prices"  [ngClass]= "{'highlight': selectedIndex_rang === price.range}">
+                  <a (click)="filterBrand(price)">{{price.range}} 
+                    <span class="pro-count">({{price.count}})</span>
+                  </a>
+                </li>                 
+              </ul>
+            </div>
+            <div class="filter-wrap">
+              <h3>Discount  </h3>
+              <ul>
+                <li *ngFor="let list of getdiscount" [ngClass]="{'highlight': selectedIndex_discount === list.id}"><a (click)="selectColor(list.id)">{{list.color_name}} <span class="pro-count">({{list.count}})</span></a></li>
+                  <!-- <li><a href="#">50% & Above <span class="pro-count">(33)</span></a></li>
+                  <li><a href="#">40% & Above <span class="pro-count">(33)</span></a></li>
+                  <li><a href="#">30% & Above <span class="pro-count">(33)</span></a></li>
+                  <li><a href="#">20% & Above <span class="pro-count">(33)</span></a></li>
+                  <li><a href="#">10% & Above <span class="pro-count">(33)</span></a></li>
+                  <li><a href="#">5% & Above Upto 5%<span class="pro-count">(33)</span></a></li> -->
+              </ul>
+            </div>
+            <div class="filter-wrap">
+              <h3>Colour Palette  </h3>
+              <ul>
+                <li *ngFor="let list of getColor" [ngClass]="{'highlight': selectedIndex_color === list.id}"><a (click)="selectColor(list.id)">{{list.color_name}} <span class="pro-count">({{list.count}})</span></a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+     
+  
+        <div class="col-md-9">
+          
+  
+          <div class="product-listing-wrap">
+            <div class="row mb-4">
+                <div class="col-md-6"></div>
+                <div class="col-md-6 text-right"><select class="custom-select"><option>Sort By</option><option>Price(low to high)</option><option>Sort By</option></select></div>
+            </div>
+            <div class="text-danger text-center" style="font-size: xx-large;">{{msg_brand}} </div>
+            <div class="row">
+              <div class="col-md-3" *ngFor="let product of products">
+                  <div class="product_list_inner">
+                    <div  (click)="gotToProductDetail(product.id,products.products)">
+                    <div class="pro_img"><img src="{{url}}/{{product?.image}}" onerror="this.src='../../../../assets/images/f1.png';">
+                      <span class="sold-box">{{product.status}}</span>
+                    </div>
+                    <h5>{{product.name}}</h5>
+                    <h6 class="mt-2">{{product.sale_price}} <span class="old-price d-block">{{product.price}}</span></h6>
+                  </div>
+                    <a class="btn" (click)="addToCart(product.id)">ADD TO CART </a>
+                  </div>
+              </div>
+             
+            </div>
+  
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-footer></app-footer>

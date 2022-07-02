@@ -1,0 +1,795 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+<div>
+    <!-- <div id="cover-spin"></div> -->
+
+    <section id="banner">
+        <img src="../../../../assets/images/banner.png">
+    </section>
+    <section id="star_outer">
+        <div class="container">
+          <div class="title purple"><span>Bumi Stars</span></div>
+          <div class="row">
+            <div class="col" *ngFor="let stars of bumiStars.slice(0, 5);">
+                <div class="star_wrap">
+                    <a><img src="{{url}}/{{stars?.profile_pic}}"
+                            onerror="this.src='../../../../assets/images/1.png';">
+                        <h3>{{stars?.username}}</h3>
+                    </a>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10">
+                <owl-carousel [options]="SlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
+                    <div class="item" *ngFor="let img of Images">
+                        <div style="align-content: center">
+                            <img style="height: 260px;width:100%" src={{img}} />
+
+                        </div>
+                    </div>
+                </owl-carousel>
+                
+            </div>
+            <div class="col-md-2">
+              <div class="watch_box">
+                <img src="../../../../assets/images/squre.svg">
+                <span>Watch This Space!</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="star_addwrap col-md-12 mt-3">
+             <img src="../../../../assets/images/add3.png">
+            </div>
+          </div>
+        </div>
+      </section>
+</div>
+
+<section id="help">
+    <div class="container">
+        <div class="title blue">
+            <span>
+                Bumi Self Help</span>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="help_wrap">
+                    <div class="help_img"><img src="../../../../assets/images/h1.png"><a href="#" class="play"><img
+                                src="../../../../assets/images/play.png"></a>
+                        <a href="#" class="watch"><img src="../../../../assets/images/watch.png"></a>
+                        <a href="#" class="btn btn-primary">Watch & Shop
+                            <i class="fa fa-mobile"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="help_title">
+                    <h3>Makeup Tutorial</h3>
+                    <p>Chantelle Petit</p>
+                    <p>95K View • 12 Hours Ago</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="help_wrap">
+                    <div class="help_img"><img src="../../../../assets/images/h2.png"><a href="#" class="play"><img
+                                src="../../../../assets/images/play.png"></a>
+                        <a href="#" class="watch"><img src="../../../../assets/images/watch.png"></a>
+                        <a href="#" class="btn btn-primary">Watch & Shop
+                            <i class="fa fa-mobile"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="help_title">
+                    <h3>Makeup Tutorial</h3>
+                    <p>Chantelle Petit</p>
+                    <p>95K View • 12 Hours Ago</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="help_wrap">
+                    <div class="help_img"><img src="../../../../assets/images/h3.png"><a href="#" class="play"><img
+                                src="images/play.png"></a>
+                        <a href="#" class="watch"><img src="../../../../assets/images/watch.png"></a>
+                        <a href="#" class="btn btn-primary">Watch & Shop
+                            <i class="fa fa-mobile"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="help_title">
+                    <h3>Eye & Lips Care Tutorial</h3>
+                    <p>Chantelle Petit</p>
+                    <p>95K View • 12 Hours Ago</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="product_list" class="text-center green">
+    <div class="container">
+        <div class="title ">
+            <span>Customerssss Favourites</span>
+        </div>
+        <div class="row">
+
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide *ngFor="let img of favProducts" class="item">
+                  <div class="slide" class="product_list_inner" >
+                    <div class="pro_img"><img style="height: 260px;width:100%" src="{{url}}/{{img.image}}"  onerror="this.src='../../../../assets/images/1.png';"/></div>
+                    <h5>{{img.sku}}</h5>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            4.8 (3936)
+                        </div>
+                        <!-- <h2>KSh1,550.00 -->
+                            <h2>{{img.sale_price}}
+                            <span>Sold By: Yummy Mummy</span>
+                            <a  class="btn">ADD TO CART
+                                    <i class="fa fa-heart-o"></i>
+                            </a>
+                        </h2> 
+                  </div>
+                </ng-template>
+               
+              </owl-carousel-o>
+
+            <!-- <owl-carousel [options]="SlideOptions_product" [carouselClasses]="['owl-theme', 'sliding']">
+
+                <div class="item" *ngFor="let img of favProducts">
+                    <div style="align-content: center" class="product_list_inner">
+                        <div class="pro_img"><img style="height: 260px;width:100%" src="{{url}}/{{img.image}}" /></div>                               
+                        <h5>{{img.sku}}</h5>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            4.8 (3936)
+                        </div>
+                        <h2>KSh1,550.00
+                            <span>Sold By: Yummy Mummy</span>
+                        </h2> -->
+                        <!-- <a  class="btn">ADD TO CART
+                                    <i class="fa fa-heart-o"></i>
+                                </a> -->
+
+                    <!-- </div>
+                </div>
+
+            </owl-carousel> -->
+        </div>
+    </div>
+</section>
+
+<section id="fragrance_list" class="text-center pink">
+    <div class="container">
+        <div class="title ">
+            <span>Fragrance Lounge</span>
+        </div>
+        <div class="row">
+
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide *ngFor="let img of fragranceList">
+                  <div class="slide" >
+                    <img style="height: 260px;width:100%" src="{{url}}/{{img.image}}"  onerror="this.src='../../../../assets/images/1.png';"/>
+                  </div>
+                </ng-template>
+               
+            </owl-carousel-o>
+        </div>
+    </div>
+
+            
+
+            <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                     
+                        <div class="item">
+                            <div class="product_list_inner">
+                                <div class="pro_img"><img src="{{ slide.img }}"></div>
+                                <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    4.8 (3936)
+                                </div>
+                                <h2>KSh1,550.00
+                                    <span>Sold By: Yummy Mummy</span>
+                                </h2>
+                                <a href="customer/addcart" class="btn">ADD TO CART
+                                    <i class="fa fa-heart-o"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-slick-carousel> -->
+
+            <!-- <div class="owl-slider">
+                <div id="carousel" class="owl-carousel carousel">
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f2.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f3.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f4.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f5.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f3.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div> -->
+
+        <!-- </div>
+    </div> -->
+</section>
+<section id="product_add">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="customer/addcart"><img src="../../../../assets/images/add1.png"></a>
+            </div>
+            <div class="col-md-6">
+                <a href="customer/addcart"><img src="../../../../assets/images/add2.png"></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="brand_list" class="text-center blue">
+    <div class="container">
+        <div class="title blue">
+            <span>Featured Brands</span>
+        </div>
+        <div class="row">
+            <owl-carousel [options]="SlideOptions_product" [carouselClasses]="['owl-theme', 'sliding']">
+                <!-- <div class="owl-slider"> -->
+
+                <div class="item" *ngFor="let img of Images_product">
+                    <div style="align-content: center" class="product_list_inner">
+                        <div class="pro_img"><img style="height: 260px;width:100%" src={{img}} /></div>
+                        <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            4.8 (3936)
+                        </div>
+                        <h2>KSh1,550.00
+                            <span>Sold By: Yummy Mummy</span>
+                        </h2>
+                        <a href="customer/addcart" class="btn">ADD TO CART
+                            <i class="fa fa-heart-o"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- </div> -->
+            </owl-carousel>
+
+            <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                        
+                        <div class="item">
+                            <div class="product_list_inner">
+                                <div class="pro_img"><img src="{{ slide.img }}"></div>
+                                <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    4.8 (3936)
+                                </div>
+                                <h2>KSh1,550.00
+                                    <span>Sold By: Yummy Mummy</span>
+                                </h2>
+                                <a href="customer/addcart" class="btn">ADD TO CART
+                                    <i class="fa fa-heart-o"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-slick-carousel> -->
+            <!-- <div class="owl-slider">
+                <div id="carousel" class="owl-carousel carousel">
+                    <div class="item"><img src="../../../../assets/images/b1.jpg"></div>
+                    <div class="item"><img src="../../../../assets/images/b2.jpg"></div>
+                    <div class="item"><img src="../../../../assets/images/b3.jpg"></div>
+                    <div class="item"><img src="../../../../assets/images/b4.jpg"></div>
+                    <div class="item"><img src="../../../../assets/images/b5.jpg"></div>
+                    <div class="item"><img src="../../../../assets/images/b2.jpg"></div>
+
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</section>
+<section id="apparels_list" class="text-center dpink">
+    <div class="container">
+        <div class="title ">
+            <span>Bumi Apparels</span>
+        </div>
+        <div class="row">
+            <owl-carousel [options]="SlideOptions_product" [carouselClasses]="['owl-theme', 'sliding']">
+                <!-- <div class="owl-slider"> -->
+
+                <div class="item" *ngFor="let img of Images_product">
+                    <div style="align-content: center" class="product_list_inner">
+                        <div class="pro_img"><img style="height: 260px;width:100%" src={{img}} /></div>
+                        <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            4.8 (3936)
+                        </div>
+                        <h2>KSh1,550.00
+                            <span>Sold By: Yummy Mummy</span>
+                        </h2>
+                        <a href="customer/addcart" class="btn">ADD TO CART
+                            <i class="fa fa-heart-o"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- </div> -->
+            </owl-carousel>
+
+            <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                      
+                        <div class="item">
+                            <div class="product_list_inner">
+                                <div class="pro_img"><img src="{{ slide.img }}"></div>
+                                <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                                <div class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    4.8 (3936)
+                                </div>
+                                <h2>KSh1,550.00
+                                    <span>Sold By: Yummy Mummy</span>
+                                </h2>
+                                <a href="customer/addcart" class="btn">ADD TO CART
+                                    <i class="fa fa-heart-o"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-slick-carousel> -->
+            <!-- <div class="owl-slider">
+                <div id="carousel" class="owl-carousel carousel">
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f2.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f3.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f4.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f5.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f3.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)</div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</section>
+<section id="tech_list" class="text-center gray">
+    <div class="container">
+        <div class="title ">
+            <span>Tech & Accessories </span>
+        </div>
+        <div class="row">
+            <owl-carousel [options]="SlideOptions_product" [carouselClasses]="['owl-theme', 'sliding']">
+                <!-- <div class="owl-slider"> -->
+
+                <div class="item" *ngFor="let img of Images_product">
+                    <div style="align-content: center" class="product_list_inner">
+                        <div class="pro_img"><img style="height: 260px;width:100%" src={{img}} /></div>
+                        <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            4.8 (3936)
+                        </div>
+                        <h2>KSh1,550.00
+                            <span>Sold By: Yummy Mummy</span>
+                        </h2>
+                        <a href="customer/addcart" class="btn">ADD TO CART
+                            <i class="fa fa-heart-o"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- </div> -->
+            </owl-carousel>
+
+            <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                 
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="{{ slide.img }}"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)
+                            </div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </ngx-slick-carousel> -->
+            <div class="owl-slider">
+                <div id="carousel" class="owl-carousel carousel">
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)
+                            </div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f2.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)
+                            </div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f3.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)
+                            </div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f4.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)
+                            </div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f5.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)
+                            </div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product_list_inner">
+                            <div class="pro_img"><img src="../../../../assets/images/f3.png"></div>
+                            <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                4.8 (3936)
+                            </div>
+                            <h2>KSh1,550.00
+                                <span>Sold By: Yummy Mummy</span>
+                            </h2>
+                            <a href="customer/addcart" class="btn">ADD TO CART
+                                <i class="fa fa-heart-o"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>

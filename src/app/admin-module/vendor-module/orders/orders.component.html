@@ -1,0 +1,487 @@
+<div class="my-orders-wrapper" *ngIf="isOrderListingViewShow">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h3 class="title">My Orders</h3>
+            </div>
+            <!-- <div class="col-sm-6 text-end">
+                <div class="rate-page">
+                    <img src="assets/images/star.svg" alt="" />
+                    <p>Rate This Page</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="my-orders-filter mb-4">
+        <div class="d-flex justify-content-between">
+            <a (click)="onTabSelection('All Orders')" class="{{TabSelection=='All Orders'?'active':''}}"  href="javascript:void(0)">All Orders</a>
+            <a (click)="onTabSelection('Pending')" class="{{TabSelection=='Pending'?'active':''}}" href="javascript:void(0)">Pending <span class="custom-badge">10</span></a>
+            <a (click)="onTabSelection('Processing')" class="{{TabSelection=='Processing'?'active':''}}" href="javascript:void(0)">Processing</a>
+            <a (click)="onTabSelection('Ready to Ship')" class="{{TabSelection=='Ready to Ship'?'active':''}}" href="javascript:void(0)">Ready to Ship</a>
+            <a (click)="onTabSelection('Shipped')" class="{{TabSelection=='Shipped'?'active':''}}" href="javascript:void(0)">Shipped</a>
+            <a (click)="onTabSelection('Delivered')" class="{{TabSelection=='Delivered'?'active':''}}" href="javascript:void(0)">Delivered <span class="custom-badge">10</span></a>
+            <a (click)="onTabSelection('Completed')" class="{{TabSelection=='Completed'?'active':''}}" href="javascript:void(0)">Completed</a>
+        </div>
+       
+
+    </div>
+    <div class="my-orders-filter mb-4">
+        <div class="d-flex justify-content-between">
+            <a  href="javascript:void(0)" (click)="onTabSelection('Pre Orders')" class="{{TabSelection=='Pre Orders'?'active':''}}">Pre Orders</a>
+        </div>
+    </div>
+    <div class="my-order-export mb-4">
+        <div class="row justify-content-end">
+            <div class="col-sm-2">
+                <select class="form-select" [(ngModel)]="btnExport" (change)="Downloadfile()">
+                    <option selected value="">Export</option>
+                    <option value="Excel">Excel</option>
+                    <option value="CSV">CSV</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <!-- <button type="button" class="btn btn-custom-light">Bulk Order Update</button> -->
+                <select class="form-select">
+                    <option value="Rejected">Bulk Action</option>
+                    <option [value]="item.Action"  *ngFor="let item of BulkActionList">
+                        {{item.Action}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <div class="custom-dropdown">
+                    <div class="custom-dropdown-btn" (click)="onClickCustomDropdown()">
+                        <span>
+                            Order number, customer or other
+                        </span>
+                        <img class="me-4" src="assets/images/ic_grid.png" height="15" alt="">
+                    </div>
+                    <div *ngIf="isCustomDropdownShow" class="custom-dropdown-menu">
+                        <div class="d-flex align-items-start">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                aria-orientation="vertical">
+                                <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
+                                    aria-selected="true">
+                                    <img width="12" class="me-2" src="assets/images/order-red.png" alt="">
+                                    Order
+                                </button>
+                                <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-profile" type="button" role="tab"
+                                    aria-controls="v-pills-profile" aria-selected="false">
+                                    <img width="12" class="me-2" src="assets/images/payment-red.png" alt="">
+                                    Payment
+                                </button>
+                                <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-messages" type="button" role="tab"
+                                    aria-controls="v-pills-messages" aria-selected="false">
+                                    <img width="12" class="me-2" src="assets/images/date-red.png" alt="">
+                                    Date
+                                </button>
+                                <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                                    data-bs-target="#v-pills-settings" type="button" role="tab"
+                                    aria-controls="v-pills-settings" aria-selected="false">
+                                    <img width="12" class="me-2" src="assets/images/product-red.png" alt="">
+                                    Product
+                                </button>
+                            </div>
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                                    aria-labelledby="v-pills-home-tab">
+                                    <p>Please choose your search criterion and start typing.</p>
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                                    aria-labelledby="v-pills-profile-tab">Payment</div>
+                                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                                    aria-labelledby="v-pills-messages-tab">Date</div>
+                                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                                    aria-labelledby="v-pills-settings-tab">Product</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-orders-data">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <label class="custom-checkbox custom-red custom-bg-light">
+                                <input type="checkbox" [(ngModel)]="SelectAll" (change)="onSelectAll()">
+                                <span class="checkmark"></span>
+                            </label>
+                        </th>
+                        <th>
+                            Order No.
+                            <div class="arrows">
+                                <img src="assets/images/up-white.png" alt="">
+                                <img src="assets/images/down-white.png" alt="">
+                            </div>
+                        </th>
+                        <th>Order Date
+                            <div class="arrows">
+                                <img src="assets/images/up-white.png" alt="">
+                                <img src="assets/images/down-white.png" alt="">
+                            </div>
+                        </th>
+                        <th>Updated Date
+                            <div class="arrows">
+                                <img src="assets/images/up-white.png" alt="">
+                                <img src="assets/images/down-white.png" alt="">
+                            </div>
+                        </th>
+                        <th>Order Status</th>
+                        <th>Price
+                            <div class="arrows">
+                                <img src="assets/images/up-white.png" alt="">
+                                <img src="assets/images/down-white.png" alt="">
+                            </div>
+                        </th>
+                        <th>#
+                            <div class="arrows">
+                                <img src="assets/images/up-white.png" alt="">
+                                <img src="assets/images/down-white.png" alt="">
+                            </div>
+                        </th>
+                        <th>Packed Items</th>
+                        <th>Payment Method</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let item of JsonData">
+                        <td>
+                            <label class="custom-checkbox custom-red custom-bg-light">
+                                <input type="checkbox" [(ngModel)]="item.Selected">
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                        <td (click)="onClickOrder()">
+                            <img height="10" class="me-1" src="assets/images/plus-dark.png" alt="">
+                            <a  href="javascript:void(0)"
+                                class="text-decoration-none">{{item.OrderNo}}</a>
+                        </td>
+                        <td>{{item.OrderDate}}</td>
+                        <td>{{item.UpdatedDate}}</td>
+                        <td>{{item.OrderStatus}}</td>
+                        <td>{{item.Price}}</td>
+                        <td>{{item.Items}}</td>
+                        <td>{{item.PackedItems}}</td>
+                        <td>{{item.PaymentMethod}}</td>
+                        <td>
+                            <select class="form-select" [(ngModel)]="item.Action" (change)="onclickAction(item)">
+                                <option value="" >select</option>
+                                <option value="vieworder">View Order</option>
+                                <option value="accept">Accept Order</option>
+                                <option value="Reject">Reject Order</option>
+                            </select>
+                        </td>
+                    </tr>
+
+
+                    <!-- <tr>
+                        <td>
+                            <label class="custom-checkbox custom-red custom-bg-light">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <img height="10" class="me-1" src="assets/images/plus-dark.png" alt="">
+                            <a (click)="onClickOrder()" href="javascript:void(0)"
+                                class="text-decoration-none">#022943</a>
+                        </td>
+                        <td>10/03/2021 <br /> 14:44</td>
+                        <td>10/03/2021 <br /> 14:44</td>
+                        <td>• Completed</td>
+                        <td>1,999.99</td>
+                        <td>5</td>
+                        <td>0</td>
+                        <td>Google Pay</td>
+                        <td>
+                            <select class="form-select" [(ngModel)]="actionmode" (change)="onclickAction()">
+                                <option value="" >select</option>
+                                <option value="vieworder">View Order</option>
+                                <option value="accept">Accept Order</option>
+                                <option value="Reject">Reject Order</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="custom-checkbox custom-red custom-bg-light">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                        <td><img height="10" class="me-1" src="assets/images/plus-dark.png" alt=""> #022943</td>
+                        <td>10/03/2021 <br /> 14:44</td>
+                        <td>10/03/2021 <br /> 14:44</td>
+                        <td>• Completed</td>
+                        <td>1,999.99</td>
+                        <td>5</td>
+                        <td>0</td>
+                        <td>Google Pay</td>
+                        <td>
+                            <select class="form-select">
+                                
+                                <option>View Order</option>
+                                <option>Accept Order</option>
+                                <option>Reject Order</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="custom-checkbox custom-red custom-bg-light">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                        <td><img height="10" class="me-1" src="assets/images/plus-dark.png" alt=""> #022943</td>
+                        <td>10/03/2021 <br /> 14:44</td>
+                        <td>10/03/2021 <br /> 14:44</td>
+                        <td>• Completed</td>
+                        <td>1,999.99</td>
+                        <td>5</td>
+                        <td>0</td>
+                        <td>Google Pay</td>
+                        <td>
+                            <select class="form-select">
+                                
+                                <option>View Order</option>
+                                <option>Accept Order</option>
+                                <option>Reject Order</option>
+                            </select>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="my-orders-wrapper" *ngIf="isOrderDetailsViewShow">
+    <div class="sub-header" style="margin-bottom: 15px;">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h3 class="title">View Orders</h3>
+            </div>
+            <!-- <div class="col-sm-6 text-end">
+                <div class="rate-page">
+                    <img src="assets/images/star.svg" alt="" />
+                    <p>Rate This Page</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="view-order">
+        <p>1. Order Details</p>
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label>Order Number</label>
+                    <input type="text" class="form-control" placeholder="#0000001">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label>Time Window</label>
+                            <input type="text" class="form-control" placeholder="1:11 PM">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label>Payment Terms*</label>
+                            <input type="text" class="form-control" placeholder="COD / M-PESA On Delivery">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label>Product Name</label>
+                    <input type="text" class="form-control" placeholder="Paco Rabanne">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label>SKU</label>
+                            <input type="text" class="form-control" placeholder="00010293U3">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label>Quantity</label>
+                            <input type="text" class="form-control" placeholder="14">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label>Action</label>
+                            <input type="text" class="form-control" placeholder="Pending">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label>Date</label>
+                            <input type="text" class="form-control" placeholder="March 10. 2021">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label>Destination add new</label>
+                    <input type="text" class="form-control" placeholder="Select an Address">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label>Product Category</label>
+                            <input type="text" class="form-control" placeholder="Fragrance">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label>Brand Name</label>
+                            <input type="text" class="form-control" placeholder="1 Million">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>2. Product Image(s)</p>
+        <div class="row">
+            <div class="col-sm-5">
+                <!-- (click)="onClickImage()" -->
+                <img class="w-100"  src="assets/images/fake-img.png" alt="">
+            </div>
+            <div class="col-sm-2">
+                <img class="w-100 mb-4" src="assets/images/fake-img.png" alt="">
+                <img class="w-100" src="assets/images/fake-img.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="my-orders-wrapper" *ngIf="isOrderMediaDetailsShow">
+    <div class="sub-header" style="margin-bottom: 15px;">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h3 class="title">Media Details</h3>
+            </div>
+            <!-- <div class="col-sm-6 text-end">
+                <div class="rate-page">
+                    <img src="assets/images/star.svg" alt="" />
+                    <p>Rate This Page</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="view-order media-details">
+        <p>1. Video Thumbnail</p>
+        <div class="row mb-4">
+            <div class="col-sm-5">
+                <img class="w-100" src="assets/images/fake-img.png" alt="">
+            </div>
+        </div>
+        
+        <p>2. Video Title</p>
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Add a title that describes the content of your video">
+        </div>
+
+        <p>3. Video Description</p>
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Add a short description that describes the content of your video">
+        </div>
+
+        <p>4. Video Tags (List the different categories/sub-categories that your video falls under)</p>
+        <div class="video-tag mb-4">
+            <div class="tag">
+                <span>Makeup</span>
+                <img height="14" class="ms-2" src="assets/images/close-circle.png" alt="">
+            </div>
+            <div class="tag">
+                <span>SkinCare</span>
+                <img height="14" class="ms-2" src="assets/images/close-circle.png" alt="">
+            </div>
+            <div class="tag">
+                <span>HairCare</span>
+                <img height="14" class="ms-2" src="assets/images/close-circle.png" alt="">
+            </div>
+        </div>
+
+        <div class="text-end">
+            <button type="button" class="btn btn-custom-dark rounded text-capitalize me-3">
+                Back
+            </button>
+            <button type="button" class="btn btn-custom-secondary rounded text-capitalize border-0">
+                Submit
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Reject Order Modal -->
+<div class="modal d-block" *ngIf="isRejectOrderModel"  style="background-color: rgba(0,0,0,.7);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content reject-order-modal border-0">
+            <textarea rows="10" type="text" class="form-control"
+                placeholder="| Please explain briefly Reasons for Rejecting Order"></textarea>
+
+            <div class="text-center mt-3 mb-2">
+                <button type="button" (click)="onClickRejectorder()" class="btn btn-custom-dark rounded text-capitalize me-3">
+                    Back
+                </button>
+                <button type="button" (click)="onClickRejectorder()" class="btn btn-custom-secondary rounded text-capitalize border-0">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Share Shop Modal-->
+<div class="modal d-none" style="background-color: rgba(0,0,0,.7);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content share-shop-modal border-0">
+            <img class="close-icon" src="assets/images/close.svg" alt="">
+            <h4>Share Shop</h4>
+            <div class="d-flex mt-3 mb-4">
+                <div class="text-center me-3">
+                    <img class="social-icon" src="assets/images/facebook.png" alt="">
+                    <p>Facebook</p>
+                </div>
+                <div class="text-center me-3">
+                    <img class="social-icon" src="assets/images/whatsapp.png" alt="">
+                    <p>Whatsapp</p>
+                </div>
+                <div class="text-center me-3">
+                    <img class="social-icon" src="assets/images/twitter.png" alt="">
+                    <p>Twitter</p>
+                </div>
+                <div class="text-center me-3">
+                    <img class="social-icon" src="assets/images/linkdin.png" alt="">
+                    <p>Linkedin</p>
+                </div>
+                <div class="text-center me-3">
+                    <img class="social-icon" src="assets/images/pinterest.png" alt="">
+                    <p>pinterest</p>
+                </div>
+            </div>
+            <div class="copy">
+                <h5>https://www.bumi.com/sdsjhdskdjs</h5>
+                <a href="javascript:void(0)">COPY</a>
+            </div>
+        </div>
+    </div>
+</div>

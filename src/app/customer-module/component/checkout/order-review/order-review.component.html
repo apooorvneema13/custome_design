@@ -1,0 +1,161 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+
+<section id="cart_order_panel">
+    <div class="container">
+      <h4>Checkout</h4>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="checkout_step">
+              <div class="steps">
+                <span class="active"><i class="fa fa-check"></i></span>
+                <p>Address Details</p>
+              </div>
+              <div class="steps">
+                 <span class="active"><i class="fa fa-check"></i></span>
+                <p>Delivery Method</p>
+              </div>
+              <div class="steps">
+                <span class="active"><i class="fa fa-check"></i></span>
+                <p>Review</p>
+              </div>
+               <div class="steps">
+                 <span class="">4</span>
+                <p>Payment</p>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="checkout_step_mid">
+             <div class="title-checkout"><h4>4. Order Summary</h4></div>
+             
+             <h5>Products added to cart</h5>
+  
+             <ul id="order-sum" *ngFor="let orders of getCartList;let i=index;">
+              <li>
+                <div class="order-img"><img src="{{url}}/{{orders.image}}" onerror="this.src='../../../../assets/images/f1.png';"> <span>{{i+1}}
+                    
+                </span></div>
+                <div class="order-cont">
+                    <h5>{{orders.name}} ({{orders.quantitys}}pcs) </h5>
+                    <h4>{{orders.sale_price}}</h4>  
+                    <div class="old-price">{{orders.price}}</div>
+                    <!-- <span class="class-order" >x</span> -->
+                    <a (click)="removeItem(orders)" style="cursor: pointer;"><span class="class-order">x</span></a>
+
+
+                </div>
+              </li>
+              <!-- <li>
+                <div class="order-img"><img src="images/f1.png">   <span>1</span></div>
+                <div class="order-cont">
+                    <h5>Best Collection Perfum Set (3pcs) </h5>
+                    <h4>KSh8,000.00</h4>  
+                    <div class="old-price">10,000.00</div>
+                    <span class="class-order">x</span>
+                </div>
+                
+              </li>
+              <li>
+                <div class="order-img"><img src="images/f1.png">   <span>1</span></div>
+                <div class="order-cont">
+                    <h5>Best Collection Perfum Set (3pcs) </h5>
+                    <h4>KSh8,000.00</h4>  
+                    <div class="old-price">10,000.00</div>
+                    <span class="class-order">x</span>
+                </div>
+                
+              </li>
+              <li>
+                <div class="order-img"><img src="images/f1.png">   <span>1</span></div>
+                <div class="order-cont">
+                    <h5>Best Collection Perfum Set (3pcs) </h5>
+                    <h4>KSh8,000.00</h4>  
+                    <div class="old-price">10,000.00</div>
+                    <span class="class-order">x</span>
+                </div>
+                
+              </li> -->
+            </ul>
+  
+             
+            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="checkout_step_order">
+            <div class="last-step">
+              <div class="title-checkout"><h4>Delivery Address </h4></div>
+              <p>Premier Industrial Park,Baba Dogo Road Nairobi, Kenya </p>
+                <p>Shipping Fee <span>  Ksh 220 </span></p>
+              </div>
+  
+              <div class="last-step">
+                 <div class="title-checkout"><h4>Payment Method </h4></div>
+                  <div class="Payment_methode">
+                    <img src="../../../../../assets/images/lifestyle/lifestyle_banner.png">
+                    {{pay_method}}
+                    Pay On Delivery
+                  </div>
+                </div>
+                <div class="last-step">
+                  <div class="title-checkout"><h4>Voucher/Gift Card <span>(Optional)</span></h4></div>
+                  <input type="text" class="form-control" placeholder="Enter Your Code" name="">
+                </div>
+            <div class="subtotal_box">
+                <p><span>Subtotal</span> <span>{{total }}</span></p>
+                <p><span>VAT</span> <span>0</span></p>
+                <p><span> Local delivery fees Total</span> <span>0</span></p>
+            </div>
+            <div class="total_box">
+                <span>Total</span><span> {{total}}</span>
+            </div>
+            <!-- <a  class="btn btn-primary" data-toggle="modal" data-target="#order">PLACE YOUR ORDER</a> -->
+
+
+            
+            <a  class="btn btn-primary"  (click)="Orderpaypaback()">PLACE YOUR ORDER</a>
+       
+
+         
+            <div class="row paypsalwore" style="display: none;">
+
+              <div #paypalRef></div>
+
+
+
+
+          </div>
+
+            <p class="term">By placing an order at bumi.ke, you’re agreeing to our <a href="#">Privacy Policy,</a> <a href="#">Terms and Conditions</a> and <a href="#">Cancellation Policy</a>. We may occassionally email you product recommendations. Don’t worry, you can <a href="#">unsubscribe</a> at any time by simply clicking the <a href="#">unsubscribe</a> link.</p>
+          </div>
+
+          <div>
+        
+
+        </div>
+  
+        </div>
+      </div>
+    </div>
+</section>
+
+<app-footer></app-footer>
+
+<div class="modal fade" id="order" tabindex="-1" aria-labelledby="order" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <div class="modal-body text-center">
+        <h3>Order Confirmation</h3>
+        <span class="check-icon"><i class="fa fa-check"></i></span>
+        <h4>Thank You <br> Order Successfully Placed</h4>
+        <div class="est-date">Estimated Delivery Date <strong>Sat, June 05, 2021</strong></div>
+         <div class="est-date">Payment Method <strong>M-PESA/CASH ON DELIVERY</strong></div>
+         <p>We will keep you posted about the status of the order via SMS and Email. <span>NOTE: Orders on Saturday and Sunday will be delivered on Monday.</span></p>
+      </div>
+     
+    </div>
+  </div>
+</div>

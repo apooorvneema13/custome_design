@@ -1,0 +1,630 @@
+<div class="my-insights-wrapper">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-3">
+                <h3 class="title">My Insights</h3>
+            </div>
+            <div class="col-sm-3">
+                <div class="date-rate">
+                    <span>Date Range</span>
+                    <!-- <p-calendar #calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true"
+                        inputId="range" (onSelect)="onSelect()"
+                        [inline]="true" ></p-calendar>  -->
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="date-time">
+                    <div class="time-info">
+                        <span>08:05</span>
+                        <div class="time">
+                            <p>AM</p>
+                            <span>Monday</span>
+                        </div>
+                    </div>
+                    <div class="date">
+                        <span>31 Mar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-insights-content">
+        <div class="export-wrap">
+            <select class="form-select w-auto me-4">
+                <option selected value="">Export</option>
+                <option value="Excel">Excel</option>
+                <option value="CSV">CSV</option>
+            </select>
+            <button type="button" class="btn btn-custom-dark text-capitalize rounded">Print</button>
+        </div>
+        <div class="sales-report-by-date mb-5">
+            <h3>Sales Report by Date</h3>
+            <div class="report-cat">
+                <div>
+                    <p>150,000,000</p>
+                    <label>Gross Sales</label>
+                </div>
+                <div>
+                    <p>10,000,000</p>
+                    <label>Vendor Earnings</label>
+                </div>
+                <div>
+                    <p>100,000,000</p>
+                    <label>Total Shop Visits</label>
+                </div>
+                <div>
+                    <p>1,000,000</p>
+                    <label>Ad Campaigns Spend</label>
+                </div>
+                <div>
+                    <p>80,000</p>
+                    <label>Orders Completed</label>
+                </div>
+                <div>
+                    <p>150,000</p>
+                    <label>Products Sold</label>
+                </div>
+            </div>
+
+            <p-chart type="line" [data]="lineStylesData" [options]="basicOptions1"></p-chart>
+        </div>
+
+        <div class="shop-performance mb-5">
+            <h2>Shop Performance</h2>
+            <div class="row">
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Sales</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>25,000,000</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total sales generated from Vendor shop</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label class="up">&#8593; 50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Products Sold</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>250,000</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total products sold from the full list of products hosted on vendor shop</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label class="up">&#8593; 50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Orders Completed</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>15,000</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total orders that have been marked as completed by the vendor</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label class="up">&#8593; 50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Refunds</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>15</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total number of products sold by the vendor that were refunded to customers</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label class="down">&#8595; 50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <div class="card-header mb-2">
+                            <h5>Top Purchased Products</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <div class="card-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Units</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <div class="card-header mb-2">
+                            <h5>Top Selling Products</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <div class="card-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Units</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10.</td>
+                                        <td>Maybelline Fit Me Foudantion</td>
+                                        <td>1500</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Conversion Rate</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>88%</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total percentage of website users who have purchased products on from vendor’s shop
+                                </p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label class="up">&#8593; 50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card align-items-center justify-content-center" (click)="openCloseAddInsightsModal()">
+                        <img class="plus-icon" src="assets/images/in-plus.png" alt="">
+                        <h2>Add Insights</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="shop-performance mb-5">
+            <h2>Shop Insights</h2>
+            <div class="row">
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Products</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>25,000,000</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total sales generated from Vendor shop</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label><img class="me-2" src="assets/images/filled-up-green.svg" alt="">50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Brands</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>250,000</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total products sold from the full list of products hosted on vendor shop</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label><img class="me-2" src="assets/images/filled-up-green.svg" alt="">50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Shop Visits</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>15,000</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total orders that have been marked as completed by the vendor</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label><img class="me-2" src="assets/images/filled-up-green.svg" alt="">50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card align-items-center justify-content-center">
+                        <img class="plus-icon" src="assets/images/in-plus.png" alt="">
+                        <h2>Add Insights</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="shop-performance mb-5">
+            <h2>Advertising Insights</h2>
+            <div class="row">
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Campaigns</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>25,000,000</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total sales generated from Vendor shop</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label><img class="me-2" src="assets/images/filled-up-green.svg" alt="">50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Ads Spend</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>250,000</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total products sold from the full list of products hosted on vendor shop</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label><img class="me-2" src="assets/images/filled-up-green.svg" alt="">50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Reports</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>15,000</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total orders that have been marked as completed by the vendor</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label><img class="me-2" src="assets/images/filled-up-green.svg" alt="">50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Impressions</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>15,000</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total orders that have been marked as completed by the vendor</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label><img class="me-2" src="assets/images/filled-up-green.svg" alt="">50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card">
+                        <img src="assets/images/close.svg" alt="">
+                        <div class="card-header">
+                            <h5>Link Clicks</h5>
+                            <p>5 Feb - 11 Feb</p>
+                        </div>
+                        <h4>15,000</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <p>Total orders that have been marked as completed by the vendor</p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <label><img class="me-2" src="assets/images/filled-up-green.svg" alt="">50.5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-4">
+                    <div class="card align-items-center justify-content-center">
+                        <img class="plus-icon" src="assets/images/in-plus.png" alt="">
+                        <h2>Add Insights</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Add Insight Modal -->
+    <div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isAddInsightsModalShow">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content add-widget-insight border-0">
+                <div class="add-widget-insight-header">
+                    <h5>Add a Insight</h5>
+                    <div>
+                        <button type="button" (click)="openCloseAddInsightsModal()" class="btn btn-custom-dark me-3 text-capitalize rounded">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-custom-dark-green">
+                            Save
+                        </button>
+                    </div>
+                </div>
+                <div class="add-widget-insight-content">
+                    <h4>Standard:</h4>
+                    <div class="row-5 mb-4">
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-sales.svg" alt="">
+                                <p>Sales</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-product.svg" alt="">
+                                <p>Product Sold</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-order.svg" alt="">
+                                <p>Order Completed</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-refund.svg" alt="">
+                                <p>Refunds</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-conversion.svg" alt="">
+                                <p>Conversion Rate</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-top-purchased.svg" alt="">
+                                <p>Top Purchased Products</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-top-selling.svg" alt="">
+                                <p>Top Selling Products</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Shop Insights</h4>
+                    <div class="row-5 mb-4">
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-shop-visit.svg" alt="">
+                                <p>Shop Visits</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-product.svg" alt="">
+                                <p>Products</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-brand.svg" alt="">
+                                <p>Brands</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Advertising Performance</h4>
+                    <div class="row-5 mb-4">
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-campaigns.svg" alt="">
+                                <p>Campaigns</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-ads-spend.svg" alt="">
+                                <p>Ads Spend</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-report.svg" alt="">
+                                <p>Reports</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-impressions.svg" alt="">
+                                <p>Impressions</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-link-clicks.svg" alt="">
+                                <p>Link Clicks</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Shop Insights</h4>
+                    <div class="row-5 mb-4">
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-shop-visit.svg" alt="">
+                                <p>Shop Visits</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-product.svg" alt="">
+                                <p>Products</p>
+                            </div>
+                        </div>
+                        <div class="col-20">
+                            <div class="box">
+                                <img src="assets/images/in-brand.svg" alt="">
+                                <p>Brands</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

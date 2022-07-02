@@ -1,0 +1,756 @@
+<div class="star-my-store-wrapper">
+    <div class="sub-header">
+        <h3 class="title">My Store</h3>
+    </div>
+
+    <div class="my-store-wrap">
+        <ul class="nav nav-pills justify-content-between" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                    type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-MyProducts-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-MyProducts" type="button" role="tab" aria-controls="pills-MyProducts"
+                    aria-selected="false">My Products</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-MyOrders-tab" data-bs-toggle="pill" data-bs-target="#pills-MyOrders"
+                    type="button" role="tab" aria-controls="pills-MyOrders" aria-selected="false">My Orders</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-Brands-tab" data-bs-toggle="pill" data-bs-target="#pills-Brands"
+                    type="button" role="tab" aria-controls="pills-Brands" aria-selected="false">Brands 3721</button>
+            </li>
+            <li class="nav-item upload-media" role="presentation">
+                <button class="nav-link" id="pills-UploadMedia-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-UploadMedia" type="button" role="tab" aria-controls="pills-UploadMedia"
+                    aria-selected="false">Upload Media
+                    <img height="28" class="ms-1 plain-icon" src="assets/images/round-plus-icon.png" alt="">
+                    <img height="28" class="ms-1 red-icon" src="assets/images/red-plus.png" alt="">
+                </button>
+                    <div class="create-box">
+                        <h2>Create</h2>
+                        <div class="d-flex align-items-start mb-3">
+                            <img src="assets/images/red-home-icon.png" alt="">
+                            <div (click)="onClickImgUpload()">
+                                <h3>Upload Video</h3>
+                                <p>Lorem ipsum dolor sit your amet, consectetuer adipiscing elit</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start">
+                            <img src="assets/images/red-link-icon.png" alt="">
+                            <div>
+                                <h3>Upload Photo</h3>
+                                <p>Lorem ipsum dolor sit your amet, consectetuer adipiscing elit</p>
+                            </div>
+                        </div>
+                    </div>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-ViewStore-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-ViewStore" type="button" role="tab" aria-controls="pills-ViewStore"
+                    aria-selected="false">View Store
+                    <img height="20" class="ms-1" src="assets/images/eye-gray.png" alt="">
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="store-details">
+                    <div class="cover-img">
+                        <button class="btn btn-custom-light">
+                            <img height="18" class="me-3" src="assets/images/camera-white.png" alt="">
+                            Edit Cover Photo
+                        </button>
+                    </div>
+                    <div class="influencer">
+                        <img src="assets/images/Influencer1.png" alt="">
+                        <h3>Azziad Nasenya</h3>
+                        <p>Content Creator | Actor | Official Global Ambassador: #SaveOurFuture</p>
+                        <p>youtu.be/U33kDMO4gOs</p>
+                        <a href="javascript:void(0)">Edit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-MyProducts" role="tabpanel" aria-labelledby="pills-MyProducts-tab">
+                <div class="star-my-products-wrapper">
+                    <div class="sub-header">
+                        <div class="row align-items-center">
+                            <div class="col-sm-6">
+                                <h3 class="title">My Products</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-wrap mb-5">
+                        <div class="filter-by-lbl mb-4">
+                            <a (click)="onTabSelection('All Orders')" class="{{TabSelection=='All'?'active':''}}"
+                                href="javascript:void(0)">All</a>
+                            <a (click)="onTabSelection('Live')" class="{{TabSelection=='Live'?'active':''}}"
+                                href="javascript:void(0)">Live</a>
+                            <a (click)="onTabSelection('Image Missing')"
+                                class="{{TabSelection=='Image Missing'?'active':''}}" href="javascript:void(0)">Sold Out
+                                <span class="custom-badge">4</span></a>
+                            <a (click)="onTabSelection('Rejected')" class="{{TabSelection=='Rejected'?'active':''}}"
+                                href="javascript:void(0)">Best Selling <span class="custom-badge">1</span></a>
+                            <a (click)="onTabSelection('Sold Out')" class="{{TabSelection=='Sold Out'?'active':''}}"
+                                href="javascript:void(0)">Inactive <span class="custom-badge">3</span></a>
+                            <a (click)="onTabSelection('Best Selling')"
+                                class="{{TabSelection=='Best Selling'?'active':''}}"
+                                href="javascript:void(0)">Recommended</a>
+                            <!-- <button class="btn btn-custom-pink rounded px-3 py-1 text-capitalize" style="font-size: 14px;">
+                                Add New Product(s)
+                                <img src="assets/images/plus-dark.png" height="10" alt="">
+                            </button>                  -->
+                        </div>
+                        <div class="filter-by-search">
+                            <div class="row">
+                                <div class="col-sm-4 d-flex align-items-center">
+                                    <select class="form-select w-auto me-2">
+                                        <option value="Rejected">Bulk Action</option>
+                                        <option value="Rejected">Rejected</option>
+                                        <option value="Sold Out">Sold Out</option>
+                                        <option value="inactive">Inactive</option>
+                                        <option value="Sold Out">Recommend</option>
+                                    </select>
+                                    <button class="btn btn-custom-pink rounded fs-6 px-3 py-1">GO</button>
+                                </div>
+                                <div class="col-sm-3 d-flex align-items-center">
+                                    <select class="form-select w-auto me-4" [(ngModel)]="btnExport"
+                                        (change)="Downloadfile()">
+                                        <option selected value="">Export</option>
+                                        <option value="Excel">Excel</option>
+                                        <option value="CSV">CSV</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control search-input"
+                                        placeholder="Product Name, SKU or available criteria">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="my-product-list">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <label class="custom-checkbox custom-pink custom-bg-light">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <th>Name
+                                        <div class="arrows">
+                                            <img src="assets/images/up-white.png" alt="">
+                                            <img src="assets/images/down-white.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>SKU
+                                        <div class="arrows">
+                                            <img src="assets/images/up-white.png" alt="">
+                                            <img src="assets/images/down-white.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>Created
+                                        <div class="arrows">
+                                            <img src="assets/images/up-white.png" alt="">
+                                            <img src="assets/images/down-white.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>Price
+                                        <div class="arrows">
+                                            <img src="assets/images/up-white.png" alt="">
+                                            <img src="assets/images/down-white.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>Sale Price
+                                        <div class="arrows">
+                                            <img src="assets/images/up-white.png" alt="">
+                                            <img src="assets/images/down-white.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>Subsidized Price
+                                        <div class="arrows">
+                                            <img src="assets/images/up-white.png" alt="">
+                                            <img src="assets/images/down-white.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>Available
+                                        <div class="arrows">
+                                            <img src="assets/images/up-white.png" alt="">
+                                            <img src="assets/images/down-white.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>Visible</th>
+                                    <th>PR Kit</th>
+                                    <th>Active</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="custom-checkbox custom-pink custom-bg-light">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>REVLON</td>
+                                    <td>BM 1710ST</td>
+                                    <td>18 Dec 2021</td>
+                                    <td>777,777.00</td>
+                                    <td>677,777.00</td>
+                                    <td>-</td>
+                                    <td>
+                                        <img height="14" class="me-2" src="assets/images/warning-red.png" alt="">
+                                        666
+                                    </td>
+                                    <td>
+                                        <img height="8" src="assets/images/checkmark-dark.png" alt="">
+                                    </td>
+                                    <td (click)="onClickRemoveProduct()">YES</td>
+                                    <td>
+                                        <label class="custom-switch switch-pink switch-sm mt-1">
+                                            <input type="checkbox" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <select class="form-select">
+                                            <option value="">Action</option>
+                                            <option value="">Remove Product</option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <!-- <tr *ngFor="let item of JsonData">
+                                    <td>
+                                        <label class="custom-checkbox custom-red custom-bg-light">
+                                            <input type="checkbox" [(ngModel)]="item.Selected">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>{{item.Name}}</td>
+                                    <td>{{item.SKU}}</td>
+                                    <td>{{item.Created}}</td>
+                                    <td>{{item.Price}}</td>
+                                    <td>{{item.SalePrice}}</td>
+                                    <td>{{item.AvailablePrice}}</td>
+                                    <td>
+                                        <img height="14" class="me-2" src="assets/images/warning-red.png" alt="">
+                                        {{item.Available}}
+                                    </td>
+                                    <td>
+                                        <img height="8" src="assets/images/checkmark-dark.png" alt="">
+                                    </td>
+                                    <td>{{item.PRKit}}</td>
+                                    <td>
+                                        <label class="custom-switch switch-red switch-sm mt-1">
+                                            <input type="checkbox" [(ngModel)]="item.Active" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <select class="form-select">
+                                            <option value="">Action</option>
+                                            <option value="">Edit</option>
+                                            <option value="">Sold Out</option>
+                                            <option value="">Recommend</option>
+                                        </select>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <label class="custom-checkbox custom-pink custom-bg-light">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <th>Product Photo</th>
+                                    <th>Product Name</th>
+                                    <th>Product Description</th>
+                                    <th>Price (Ksh.)
+                                        <div class="arrows">
+                                            <img src="assets/images/up-white.png" alt="">
+                                            <img src="assets/images/down-white.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>Taxonomics</th>
+                                    <th>PR Kit</th>
+                                    <th>Brand</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="custom-checkbox custom-pink custom-bg-light">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td><img height="70" src="assets/images/fake-img.png" alt=""></td>
+                                    <td>BM 1710ST</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</td>
+                                    <td>1,000.00</td>
+                                    <td>Categories.
+                                        <a href="" class="d-block">Uncategorized</a>
+                                    </td>
+                                    <td>YES</td>
+                                    <td>Revlon</td>
+                                    <td>
+                                        <img height="10" class="d-block mx-auto mb-1" src="assets/images/eye-gray.png" alt="">
+                                        Add To My Store
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-MyOrders" role="tabpanel" aria-labelledby="pills-MyOrders-tab">
+                <ng-container *ngIf="isMyOrderShow">
+                    <div class="star-my-products-wrapper">
+                        <div class="sub-header">
+                            <div class="row align-items-center">
+                                <div class="col-sm-6">
+                                    <h3 class="title">My Orders</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-wrap mb-5">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="filter-by-lbl justify-content-start gap-3 mb-4">
+                                        <a (click)="onTabSelection('All Orders')"
+                                            class="{{TabSelection=='All'?'active':''}}" href="javascript:void(0)">All
+                                            Orders</a>
+                                        <a (click)="onTabSelection('Live')" class="{{TabSelection=='Live'?'active':''}}"
+                                            href="javascript:void(0)">Processing</a>
+                                        <a (click)="onTabSelection('Image Missing')"
+                                            class="{{TabSelection=='Image Missing'?'active':''}}"
+                                            href="javascript:void(0)">Completed</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control search-input" placeholder="Search">
+                                </div>
+                            </div>
+                            <div class="filter-by-search">
+                                <div class="row justify-content-between">
+                                    <div class="col-sm-5 d-flex align-items-center">
+                                        <select class="form-select me-2">
+                                            <option value="Rejected">Bulk Action</option>
+                                            <option value="Rejected">Rejected</option>
+                                            <option value="Sold Out">Sold Out</option>
+                                            <option value="inactive">Inactive</option>
+                                            <option value="Sold Out">Recommend</option>
+                                        </select>
+                                        <button class="btn btn-custom-pink rounded fs-6 px-3 py-1">GO</button>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select class="form-select" [(ngModel)]="btnExport" (change)="Downloadfile()">
+                                            <option selected value="">Export</option>
+                                            <option value="Excel">Excel</option>
+                                            <option value="CSV">CSV</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="star-my-orders-data">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label class="custom-checkbox custom-pink custom-bg-light">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </th>
+                                            <th>
+                                                Order No.
+                                                <div class="arrows">
+                                                    <img src="assets/images/up-white.png" alt="">
+                                                    <img src="assets/images/down-white.png" alt="">
+                                                </div>
+                                            </th>
+                                            <th>Order Date
+                                                <div class="arrows">
+                                                    <img src="assets/images/up-white.png" alt="">
+                                                    <img src="assets/images/down-white.png" alt="">
+                                                </div>
+                                            </th>
+                                            <th>Updated Date
+                                                <div class="arrows">
+                                                    <img src="assets/images/up-white.png" alt="">
+                                                    <img src="assets/images/down-white.png" alt="">
+                                                </div>
+                                            </th>
+                                            <th>Order Status</th>
+                                            <th>Price
+                                                <div class="arrows">
+                                                    <img src="assets/images/up-white.png" alt="">
+                                                    <img src="assets/images/down-white.png" alt="">
+                                                </div>
+                                            </th>
+                                            <th>#
+                                                <div class="arrows">
+                                                    <img src="assets/images/up-white.png" alt="">
+                                                    <img src="assets/images/down-white.png" alt="">
+                                                </div>
+                                            </th>
+                                            <th>Packed Items</th>
+                                            <th>Payment Method</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label class="custom-checkbox custom-pink custom-bg-light">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <img height="10" class="me-1" src="assets/images/plus-dark.png" alt="">
+                                                <a (click)="onClickViewOrder()" href="javascript:void(0)"
+                                                    class="text-decoration-none">#022943</a>
+                                            </td>
+                                            <td>10/03/2021 <br /> 14:44</td>
+                                            <td>10/03/2021 <br /> 14:44</td>
+                                            <td>• Completed</td>
+                                            <td>1,999.99</td>
+                                            <td>5</td>
+                                            <td>0</td>
+                                            <td>Google Pay</td>
+                                            <td>
+                                                <select class="form-select">
+                                                    <option value="">Update</option>
+                                                    <option value="vieworder">View Order</option>
+                                                    <option value="accept">Accept Order</option>
+                                                    <option value="Reject">Reject Order</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="custom-checkbox custom-pink custom-bg-light">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td><img height="10" class="me-1" src="assets/images/plus-dark.png" alt="">
+                                                #022943</td>
+                                            <td>10/03/2021 <br /> 14:44</td>
+                                            <td>10/03/2021 <br /> 14:44</td>
+                                            <td>• Completed</td>
+                                            <td>1,999.99</td>
+                                            <td>5</td>
+                                            <td>0</td>
+                                            <td>Google Pay</td>
+                                            <td>
+                                                <select class="form-select">
+                                                    <option value="">Update</option>
+                                                    <option>View Order</option>
+                                                    <option>Accept Order</option>
+                                                    <option>Reject Order</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="custom-checkbox custom-pink custom-bg-light">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td><img height="10" class="me-1" src="assets/images/plus-dark.png" alt="">
+                                                #022943</td>
+                                            <td>10/03/2021 <br /> 14:44</td>
+                                            <td>10/03/2021 <br /> 14:44</td>
+                                            <td>• Completed</td>
+                                            <td>1,999.99</td>
+                                            <td>5</td>
+                                            <td>0</td>
+                                            <td>Google Pay</td>
+                                            <td>
+                                                <select class="form-select">
+                                                    <option value="">Update</option>
+                                                    <option>View Order</option>
+                                                    <option>Accept Order</option>
+                                                    <option>Reject Order</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="isViewOrderShow">
+                    <div class="star-my-products-wrapper">
+                        <div class="sub-header">
+                            <div class="row align-items-center">
+                                <div class="col-sm-6">
+                                    <h3 class="title">View Order</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="view-order">
+                            <p>1. Order Details</p>
+                            <div class="row mb-4">
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label>Customer Name</label>
+                                        <input type="text" class="form-control" placeholder="Stellah Wangu">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label>Action</label>
+                                                <input type="text" class="form-control" placeholder="Pending">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label>Date</label>
+                                                <input type="text" class="form-control" placeholder="March 10. 2021">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Destination <a href="javascript:void(0)">add new</a></label>
+                                        <input type="text" class="form-control" placeholder="Select an Address">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label>Product Category</label>
+                                                <input type="text" class="form-control" placeholder="Fragrance">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label>Brand Name</label>
+                                                <input type="text" class="form-control" placeholder="1 Million">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <label>Order Number</label>
+                                        <input type="text" class="form-control" placeholder="#0000001">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label>Time Window</label>
+                                                <input type="text" class="form-control" placeholder="1:11 PM">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label>Payment Terms*</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="COD / M-PESA On Delivery">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Product Name</label>
+                                        <input type="text" class="form-control" placeholder="Paco Rabanne">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label>SKU</label>
+                                                <input type="text" class="form-control" placeholder="00010293U3">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-3">
+                                                <label>Quantity</label>
+                                                <input type="text" class="form-control" placeholder="14">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>2. Product Image(s)</p>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <img class="w-100" src="assets/images/fake-img.png" alt="">
+                                </div>
+                                <div class="col-sm-2">
+                                    <img class="w-100" src="assets/images/fake-img.png" alt="">
+                                </div>
+                                <div class="col-sm-2">
+                                    <img class="w-100" src="assets/images/fake-img.png" alt="">
+                                </div>
+                                <div class="col-sm-2">
+                                    <img class="w-100" src="assets/images/fake-img.png" alt="">
+                                </div>
+                                <div class="col-sm-2">
+                                    <img class="w-100" src="assets/images/fake-img.png" alt="">
+                                </div>
+                                <div class="col-sm-2">
+                                    <img class="w-100" src="assets/images/fake-img.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="tab-pane fade" id="pills-Brands" role="tabpanel" aria-labelledby="pills-Brands-tab">
+                <div class="star-brand-wrapper">
+                    <div class="brand-box">
+                        <h5 class="me-4">Today's picks for you</h5>
+                        <img class="me-3 pick-img" src="assets/images/fake-img.png" alt="">
+                        <img class="me-3 pick-img" src="assets/images/fake-img.png" alt="">
+                        <img class="me-3 pick-img" src="assets/images/fake-img.png" alt="">
+                        <img class="me-3 pick-img" src="assets/images/fake-img.png" alt="">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 mb-3">
+                            <div class="brand-box">
+                                <img src="assets/images/revlon.png" alt="">
+                                <div class="flex-grow-1 px-3">
+                                    <h3>REVLON</h3>
+                                    <p>Descritor Goes Here</p>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        •••
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" href="#">Favourite</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="brand-box">
+                                <img src="assets/images/chanel.png" alt="">
+                                <div class="flex-grow-1 px-3">
+                                    <h3>CHANEL</h3>
+                                    <p>Descritor Goes Here</p>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        •••
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" href="#">Favourite</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="brand-box">
+                                <img src="assets/images/nivea.png" alt="">
+                                <div class="flex-grow-1 px-3">
+                                    <h3>NIVEA</h3>
+                                    <p>Descritor Goes Here</p>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        •••
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" href="#">Favourite</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="brand-box">
+                                <img src="assets/images/tomy.png" alt="">
+                                <div class="flex-grow-1 px-3">
+                                    <h3>TOMMY HILFIGER</h3>
+                                    <p>Descritor Goes Here</p>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        •••
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" href="#">Favourite</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-UploadMedia" role="tabpanel" aria-labelledby="pills-UploadMedia-tab">
+                <div class="star-create-media-wrapper">
+                    <img src="assets/images/create-media-bg.png" alt="">
+                </div>    
+            </div>
+            <div class="tab-pane fade" id="pills-ViewStore" role="tabpanel" aria-labelledby="pills-ViewStore-tab">
+                ViewStore</div>
+        </div>
+    </div>
+</div>
+
+<!-- Remove Product Modal -->
+<div class="modal d-block" *ngIf="isRemoveProductModel" style="background-color: rgba(0,0,0,.7);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content reject-order-modal border-0">
+            <textarea rows="10" type="text" class="form-control"
+                placeholder="| Please explain briefly Reasons for Removing Product(s)"></textarea>
+
+            <div class="text-center mt-3 mb-2">
+                <button type="button" (click)="onClickRemoveProduct()"
+                    class="btn btn-custom-dark rounded text-capitalize me-3">
+                    Back
+                </button>
+                <button type="button" (click)="onClickRemoveProduct()"
+                    class="btn btn-custom-pink rounded text-capitalize border-0">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Image Upload Modal -->
+<div class="modal d-block" *ngIf="isImageUploadModal" style="background-color: rgba(0,0,0,.7);">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content star-img-upload-modal border-0">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Upload Videos/Photo</h5>
+          <img class="ms-auto me-3" height="25" src="assets/images/warn-icon.png" alt="">
+          <button type="button" class="btn-close ms-0 opacity-100" (click)="onClickImgUpload()"></button>
+        </div>
+        <div class="modal-body">
+            <img class="rounded-circle mb-4" height="120" width="120" src="assets/images/upload-icon.png" alt="">
+            <h3 class="mb-0">Drag and drop video/photo files to upload</h3>
+            <p class="mb-4">Your videos will be private until you publish them.</p>
+            <button type="button" class="btn btn-custom-pink mb-4 rounded fs-6 text-capitalize">Select Files</button>
+            <p>By submitting your videos to Bumi, you acknowledge that you agree to <a href="javascript:void(0)">Terms and conditions</a> and online <a href="javascript:void(0)">Community Guidelines</a>.</p>
+            <p>Please make sure that you do not violate other’s copyright or privacy rights. <a href="javascript:void(0)">Learn more</a></p>
+        </div>
+      </div>
+    </div>
+  </div>

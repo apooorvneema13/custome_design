@@ -1,0 +1,172 @@
+<div class="wrapper">
+    <div class="header-wrap">
+        <div class="d-flex align-items-center">
+            <a href="javascript:void(0)" class="me-5">
+                <img src="assets/images/ic_logo.png" height="65" alt="BUMI" />
+            </a>
+            <a href="javascript:void(0)" class="me-5">
+                <img src="assets/images/ic_bars.png" width="22" alt="BUMI" />
+            </a>
+            <h2 class="m-0">Influencer Portal</h2>
+        </div>
+        <div class="d-flex align-items-center">
+            <a href="javascript:void(0)" class="icons">
+                <img src="assets/images/ic_chitchat.png" (click)="onclickSupport('Chat')" alt="Chitchat" />
+            </a>
+            <div class="dropdown notification-dropdown">
+                <a class="icons dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="assets/images/ic_bell.png" alt="Notification" />
+                    <span class="counters">50</span>
+                </a>
+              
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                    <li>
+                        <img src="assets/images/ic_file.png" />
+                        <span>You have received a New Influencer Application</span>
+                    </li>
+                    <li>
+                        <img src="assets/images/ic_file.png" />
+                        <span>You have received a New Vendor Application</span>
+                    </li>
+                    <li>
+                        <img src="assets/images/ic_money.png" />
+                        <span>Commission Request by Vendor XYZ has been processed</span>
+                    </li>
+                    <li>
+                        <img src="assets/images/ic_bag.png" />
+                        <span>A new product <b>Nyx Soft Matte Lip Cream - Madrid</b> Added by <b>Chantelle
+                                Petit</b></span>
+                    </li>
+                    <li>
+                        <img src="assets/images/ic_bag.png" />
+                        <span>A new product <b>P.Louise Rumour 3 Eyeshadow Base</b> Added by <b>Chantelle
+                                Petit</b></span>
+                    </li>
+                </ul>
+              </div>
+            <a href="javascript:void(0)" class="icons" (click)="onclickSupport('faq')" routerLinkActive="active"
+            [routerLink]="['/star/faq']">
+                <img src="assets/images/ic_questionMark.png" class="q-red" alt="Help" />
+                <img src="assets/images/ic_m_questionMark.png" class="q-white" alt="Help" />
+            </a>
+            <div class="profile-dropdown">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img class="profile-img" src="assets/images/ic_wanjugu.png" alt="Wanjugu" />
+                        <img class="ms-3" src="assets/images/down-arrow.svg" alt="Down Arrow" />
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <div class="text-center mb-4">
+                            <img class="mb-2" src="assets/images/ic_wanjugu.png" alt="Wanjugu" />
+                            <h5>Azziad Nasenya</h5>
+                        </div>
+                        <p (click)="onClickSidemenuRefresh('/star/my-account')">
+                            <img class="me-2" src="assets/images/settings-dropdown.svg" alt="Wanjugu" />
+                            <span>Account Settings</span>
+                        </p>
+                        <p class="mb-0" (click)="logOut()">
+                            <img class="me-2" src="assets/images/logout-dropdown.svg" alt="Wanjugu" />
+                            <span>Log Out</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="sidebar d-flex flex-column align-items-center justify-content-between">
+            <div class="w-100">
+                <div class="menu-item">
+                    <a href="javascript:void(0)" routerLinkActive="active" (click)="onClickSidemenuRefresh('/star/dashboard')" [routerLink]="['/star/dashboard']"
+                        class="menu-link">
+                        <img class="plain-icon" src="assets/images/ic_dashboard.svg" alt="dashboard" />
+                        <img class="color-icon" src="assets/images/ic_m_dashboard.png" alt="dashboard" />
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                 <div class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" routerLinkActive="active" (click)="onClickSidemenuRefresh('/star/my-store')" [routerLink]="['/star/my-store']">
+                        <img class="plain-icon" src="assets/images/ic_myProducts.svg" alt="store" />
+                        <img class="color-icon" src="assets/images/ic_m_myProducts.svg" alt="store" />
+                        <span>My Store</span>
+                    </a>
+                </div>
+               <!-- <div class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" (click)="onClickSidemenuRefresh('/star/my-orders')" routerLinkActive="active"
+                    [routerLink]="['/star/my-orders']">
+                        <img class="plain-icon" src="assets/images/ic_myOrders.svg" alt="Vendors" />
+                        <img class="color-icon" src="assets/images/ic_m_myOrders.svg" alt="Vendors" />
+                        <span>My Orders</span>
+                    </a>
+                </div> -->
+                <div class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" (click)="onClickSidemenuRefresh('/star/my-wallet')" routerLinkActive="active"
+                    [routerLink]="['/star/my-wallet']">
+                        <img class="plain-icon" src="assets/images/ic_wallet.svg" alt="wallet" />
+                        <img class="color-icon" src="assets/images/ic_m_wallet.png" alt="wallet" />
+                        <span>My Wallet</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" (click)="onClickSidemenuRefresh('/star/promotions')" routerLinkActive="active"
+                    [routerLink]="['/star/promotions']">
+                        <img class="plain-icon" src="assets/images/ic_promotions.svg" alt="Influenace" />
+                        <img class="color-icon" src="assets/images/ic_m_promotions.svg" alt="Influenace" />
+                        <span>Promotions</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" (click)="onClickSidemenuRefresh('/star/advertising')" routerLinkActive="active"
+                        [routerLink]="['/star/advertising']">
+                        <img class="plain-icon" src="assets/images/ic_advertising.svg" alt="Vendors" />
+                        <img class="color-icon" src="assets/images/ic_m_advertising.svg" alt="Vendors" />
+                        <span>Advertising</span>
+                    </a>
+                </div> 
+                <div class="menu-item">
+                    <a href="javascript:void(0)" (click)="onClickSidemenuRefresh('/star/my-insights')" routerLinkActive="active"
+                        [routerLink]="['/star/my-insights']" class="menu-link">
+                        <img class="plain-icon" src="assets/images/ic_insight.svg" alt="Insights" />
+                        <img class="color-icon" src="assets/images/ic_m_insight.png" alt="Insights" />
+                        <span>Insights</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" (click)="onClickSidemenuRefresh('/star/faq')" 
+                    routerLinkActive="active"
+                        [routerLink]="['/star/faq']">
+                        <img class="plain-icon" src="assets/images/ic_support.png" alt="Logout" />
+                        <img class="color-icon" src="assets/images/ic_m_support.png" alt="Logout" />
+                        <span>Support</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="menu-item w-100">
+                <a href="javascript:void(0)" class="menu-link" (click)="onClickSidemenuRefresh('/star/my-account')" 
+                routerLinkActive="active"
+                    [routerLink]="['/star/my-account']">
+                    <img class="plain-icon" src="assets/images/ic_user.svg" alt="Logout" />
+                    <img class="color-icon" src="assets/images/ic_m_user.svg" alt="Logout" />
+                    <span>My Account</span>
+                </a>
+            </div>
+        </div>
+        <div class="content-details">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <router-outlet></router-outlet>
+                    </div>
+                    <div class="col-sm-1">
+                        <div class="abstrat-right">
+                            <img class="w-100" src="assets/images/ic_colorful_lines.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

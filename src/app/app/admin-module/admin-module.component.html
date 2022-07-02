@@ -1,0 +1,127 @@
+<div class="wrapper">
+    <div class="header-wrap">
+        <div class="d-flex align-items-center">
+            <a href="javascript:void(0)" class="me-5">
+                <img src="assets/images/ic_logo.png" height="65" alt="BUMI" />
+            </a>
+            <a href="javascript:void(0)" class="me-5">
+                <img src="assets/images/ic_bars.png" width="22" alt="BUMI" />
+            </a>
+            <h2 class="m-0">Admin Portal</h2>
+        </div>
+        <div class="d-flex align-items-center">
+            <a href="javascript:void(0)" class="icons">
+                <img src="assets/images/ic_bell.png" alt="Notification" />
+                <span class="counters">235</span>
+            </a>
+            <a href="javascript:void(0)" class="icons">
+                <img src="assets/images/ic_chitchat.png" alt="Chitchat" />
+            </a>
+            <a href="javascript:void(0)" class="icons">
+                <img src="assets/images/ic_speaker.png" alt="BUMI" />
+            </a>
+            <a href="javascript:void(0)" class="icons">
+                <img src="assets/images/ic_questionMark.png" alt="Help" />
+            </a>
+            <div class="profile-dropdown">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img class="profile-img" src="assets/images/ic_wanjugu.png" alt="Wanjugu" />
+                        <img class="ms-3" src="assets/images/down-arrow.svg" alt="Down Arrow" />
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><button class="dropdown-item" type="button">Action</button></li>
+                        <li><button class="dropdown-item" type="button">Another action</button></li>
+                        <li><button class="dropdown-item" type="button">Something else here</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="sidebar">
+            <div class="menu-item">
+                <a href="javascript:void(0)" routerLinkActive="active" [routerLink]="['/admin/dashboard']"
+                    class="menu-link">
+                    <img class="plain-icon" src="assets/images/ic_dashboard.svg" alt="dashboard" />
+                    <img class="color-icon" src="assets/images/ic_m_dashboard.png" alt="dashboard" />
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="javascript:void(0)" routerLinkActive="active" [routerLink]="['/admin/store']" class="menu-link">
+                    <img class="plain-icon" src="assets/images/ic_stores.svg" alt="store" />
+                    <img class="color-icon" src="assets/images/ic_m_stores.png" alt="store" />
+                    <span>Store</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="javascript:void(0)" routerLinkActive="active" [routerLink]="['/admin/vendors']"
+                    class="menu-link">
+                    <img class="plain-icon" src="assets/images/ic_vendors.svg" alt="Vendors" />
+                    <img class="color-icon" src="assets/images/ic_m_vendors.png" alt="Vendors" />
+                    <span>Vendors</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/influenace']"  class="menu-link">
+                    <img class="plain-icon" src="assets/images/ic_influence.svg" alt="Influenace" />
+                    <img class="color-icon" src="assets/images/ic_m_influence.png" alt="Influenace" />
+                    <span>Influenace</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/wallet']" class="menu-link">
+                    <img class="plain-icon" src="assets/images/ic_wallet.svg" alt="wallet" />
+                    <img class="color-icon" src="assets/images/ic_m_wallet.png" alt="wallet" />
+                    <span>Wallet</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/advertisig']" class="menu-link">
+                    <img class="plain-icon" src="assets/images/ic_m_advertising.svg" alt="advertisig" />
+                    <img class="color-icon" src="assets/images/ic_m_advertising.svg" alt="advertisig" />
+                    <span> Advertising</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/insights']" class="menu-link">
+                    <img class="plain-icon" src="assets/images/ic_insight.svg" alt="Insights" />
+                    <img class="color-icon" src="assets/images/ic_m_insight.png" alt="Insights" />
+                    <span> My Insights</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="javascript:void(0)" routerLinkActive="active" [routerLink]="['/admin/settings']"
+                    class="menu-link">
+                    <img class="plain-icon" src="assets/images/ic_settings.svg" alt="Settings" />
+                    <img class="color-icon" src="assets/images/ic_m_settings.png" alt="Settings" />
+                    <span>Settings</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="javascript:void(0)" routerLinkActive="active" [routerLink]="['/admin/logout']" class="menu-link">
+                    <img class="plain-icon" src="assets/images/ic_logout.svg" alt="Logout" />
+                    <img class="color-icon" src="assets/images/ic_m_logout.png" alt="Logout" />
+                    <span>Log Out</span>
+                </a>
+            </div>
+        </div>
+        <div class="content-details">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <router-outlet></router-outlet>
+                    </div>
+                    <div class="col-sm-1">
+                        <div class="abstrat-right">
+                            <img class="w-100" src="assets/images/ic_colorful_lines.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

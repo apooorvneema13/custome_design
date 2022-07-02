@@ -1,0 +1,38 @@
+<div class="notification1 text-center">
+    <div class="container">
+        <span>
+            <i class="fas fa-gift"></i>Complimentary Ground Shipping on Any Order Over KSh.9,999/-<i class="fas fa-gift"></i>
+        </span>
+    </div>
+</div>
+<div class="notification2 text-center">
+    <div class="container">
+        <span>We use cookies to give you the best online experience. By using our website you agree to our use of cookies in accordance with our cookie policy. Learn More Here</span>
+    </div>
+</div>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="#"><img src="../../../../assets/images/logo.png" width="120px"></a>
+            </div>
+            <div class="col-md-9">
+                <ul>
+                    <li><a href="javascript:void(0)" routerLinkActive="active"  class="menu-link" ><img src="../../../../assets/images/flag.png">Kenya</a></li>&nbsp;&nbsp;
+                    <li><a href="javascript:void(0)" routerLinkActive="active"  class="menu-link" ><i class="fa fa-globe"></i>English</a></li>&nbsp;&nbsp;
+                    <li>
+                        <a href="/customer/kings" *ngIf="gen == 'king'"><i class="fa fa-mars"></i>Kings</a>&nbsp;&nbsp;
+                        <a href="/customer/kings" *ngIf="gen == 'queen'"><i class="fa fa-female"></i>Queens</a>&nbsp;&nbsp;
+                    </li>
+                    <li><a href="/customer/about"><i class="fa fa-users"></i>About Us</a></li>&nbsp;&nbsp;
+                    <li><a href="/customer/support"><i class="fa fa-cogs"></i>Support</a></li>&nbsp;&nbsp;
+                    <li><a href="#" data-toggle="modal" data-target="#register"><i class="fa fa-key"></i>Register</a></li>&nbsp;&nbsp;
+                    <li><a  style="cursor: pointer;" *ngIf="!logedin()" data-toggle="modal" data-target="#login"><i class="fa fa-unlock-alt"></i>Log In</a></li>&nbsp;&nbsp;
+                    <li><a style="cursor: pointer;" *ngIf="logedin()"  (click)="logOut()"><i class="fa fa-lock" ></i>Log Out</a></li>&nbsp;&nbsp;
+                    <li><a [routerLink]="['/checkout-my-cart']"><i class="fa fa-shopping-bag"></i>My Cart ({{getCount}})</a></li>&nbsp;&nbsp;
+                    <li><a href="/customer/wishlist"><i class="fa fa-heart-o"></i>Wishlist (0)</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

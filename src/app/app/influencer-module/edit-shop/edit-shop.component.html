@@ -1,0 +1,192 @@
+<div class="dashboard-wrapper">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-3">
+                <h3 class="title">My Account</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="edit-my-account">
+        <div class="my-account-breadcrumb">
+            <h2>Edit Shop</h2>
+            <div>
+                <button type="button" class="btn btn-custom-dark">CANCEL</button>
+                <button type="button" class="btn btn-custom-secondary ms-4">SAVE</button>
+            </div>
+        </div>
+        <div class="edit-content">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="content-left nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
+                        aria-orientation="vertical">
+                        <div class="profile">
+                            <img class="mb-2" src="assets/images/camera.svg" alt="" />
+                            <span>Change Profile Photo</span>
+                        </div>
+                        <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+                            aria-selected="true">
+                            <img class="plain-icon" src="assets/images/profile_edit_user.svg" alt="Edit Account" />
+                            <img class="color-icon" src="assets/images/profile_edit_user_active.svg"
+                                alt="Edit Account" />
+                            <span>
+                                Edit Account
+                            </span>
+                        </button>
+                        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
+                            aria-selected="false">
+                            <img class="plain-icon" src="assets/images/profile_edit_payment.svg" alt="Payments" />
+                            <img class="color-icon" src="assets/images/profile_edit_payment_active.svg"
+                                alt="Payments" />
+                            <span>
+                                Payments
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                            aria-labelledby="v-pills-profile-tab">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-4">
+                                        <label for="FirstName" class="form-label">First Name</label>
+                                        <input type="text" placeholder="First Name" class="form-control" id="ShopName"
+                                            aria-describedby="FirstName">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-4">
+                                        <label for="ShopName" class="form-label">Last Name</label>
+                                        <input type="text" placeholder="Last Name" class="form-control" id="ShopName"
+                                            aria-describedby="ShopName">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-4">
+                                        <label for="ShopName" class="form-label">Phone Number</label>
+                                        <input type="text" placeholder="+254720123456" class="form-control"
+                                            id="ShopName" aria-describedby="ShopName">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-4">
+                                        <label for="ShopName" class="form-label">Email Address</label>
+                                        <input type="email" placeholder="stellahwangu@bumi.ke" class="form-control"
+                                            id="ShopName" aria-describedby="ShopName">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-4">
+                                        <label for="ShopName" class="form-label">Reset Password</label>
+                                        <input type="text" placeholder="Current Password" class="form-control"
+                                            id="ShopName" aria-describedby="ShopName">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-4">
+                                        <label for="ShopName" class="form-label invisible">New Password</label>
+                                        <input type="email" placeholder="New Password" class="form-control"
+                                            id="ShopName" aria-describedby="ShopName">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-4">
+                                        <label for="ShopName" class="form-label">Reset Password</label>
+                                        <input type="text" placeholder="Confirm New Password" class="form-control"
+                                            id="ShopName" aria-describedby="ShopName">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                            aria-labelledby="v-pills-settings-tab">
+                            <div class="row border-dashed">
+                                <div class="col-sm-5">
+                                    <img class="w-75" src="assets/images/payment-1.svg" alt="" />
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="TillNo">Till No.</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="" aria-describedby="TillNo">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="PaybillNo">Paybill No.</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="" aria-describedby="PaybillNo">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="PaybillAccountNo">Paybill Account No.</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="" aria-describedby="PaybillAccountNo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <img class="w-75" src="assets/images/payment-2.svg" alt="" />
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="AccountName">Account Name</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="" aria-describedby="AccountName">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="AccountNo">Account No.</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="" aria-describedby="AccountNo">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="BankName">Bank Name</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="" aria-describedby="BankName">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="BranchName">Branch Name</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="" aria-describedby="BranchName">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row align-items-center">
+                                        <div class="col-4">
+                                            <label for="SWIFTCode">SWIFT Code</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" id="" aria-describedby="SWIFTCode">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,246 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+
+<section id="cart_order_panel">
+    <div class="container">
+        <h4>Checkout</h4>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="checkout_step">
+                    <div class="steps">
+                        <span class="active"><i class="fa fa-check"></i></span>
+                        <p>Address Details</p>
+                    </div>
+                    <div class="steps">
+                        <span class="active"><i class="fa fa-check"></i></span>
+                        <p>Delivery Method</p>
+                    </div>
+                    <div class="steps">
+                        <span class="">3</span>
+                        <p>Review</p>
+                    </div>
+                    <div class="steps">
+                        <span>4</span>
+                        <p>Payment</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="checkout_step_mid">
+                    <div class="title-checkout">
+                        <h4>3. Payment Method <a href="#">Change</a></h4>
+                    </div>
+                    <div class="delivery_add_outer">
+                        <div class="delivery_add_box  active" id="pickup_box" (click)="picupbox_advance('pay_in_advance')">
+                            <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                            <p>Pay in Advance</p>
+                        </div>
+                        <div class="delivery_add_box " (click)="picupbox_door('pay_in_door')"   id="pickup_add">
+                            <i class="fa fa-home"></i>
+                            <p>Pay on Delivery</p>
+                        </div>
+                    </div>
+                    <div id="pickup_box_cont" style ="display: block;">
+
+                        <h3>How do you prefer your to pay for your order?</h3>
+                        <div class="card_box_outer">
+                            <div class="card_box_inner d-flex justify-content-start">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="card1" name="card3" class="custom-control-input">
+                                    <label class="custom-control-label" for="card1">
+                                        <div class="card_img"><img src="../../../../../assets/images/card2.png"></div>
+                                    </label>
+                                </div>
+                                <div class="card_info">
+                                    <h5>MPESA payment </h5>
+                                    <p>Pay via M-PESA in advance</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_box_outer">
+                            <div class="card_box_inner d-flex justify-content-start">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="card2" name="card3" class="custom-control-input">
+                                    <label class="custom-control-label" for="card2">
+                                        <div class="card_img"><img src="../../../../../assets/images/card-visa.png">
+                                            <img src="../../../../../assets/images/card-master.png"></div>
+                                    </label>
+                                </div>
+                                <div class="card_info">
+                                    <h5>Pay Via Debit/ Credit Card </h5>
+                                    <p>Pay via your debit/ credit card in advance</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_box_outer">
+                            <div class="card_box_inner d-flex justify-content-start">
+                                <div class="custom-control custom-radio" (click)="activePaypal('paypal')">
+                                    <input type="radio" id="card3" name="card3" class="custom-control-input" (click)="activePaypal('paypal')">
+                                    <label class="custom-control-label" for="card3">
+                                        <div class="card_img"><img type="submit" (click)="activePaypal('paypal')" src="../../../../../assets/images/card-paypal.png">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="card_info">
+                                    <h5>Pay Via Paypal </h5>
+                                    <p>Pay via Paypal in advance</p>
+                                </div>
+                            </div>
+                            <!-- <div *ngIf="paypal">
+                                <div class="row"> -->
+                                    <!-- <div *ngIf="paypal"> -->
+                                    <!-- <div id="paypal-button-container"></div> -->
+                                    <!-- </div> -->
+            
+                                <!-- </div> -->
+            
+                            <!-- </div> -->
+
+
+                        </div>
+
+                    </div>
+                    <div id="pickup_add_cont" style ="display: none;" class="payment-box">
+                        <h3>How do you prefer your to pay for your order?</h3>
+                        <div class="card_box_outer">
+                            <div class="card_box_inner d-flex justify-content-start">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="card4" name="card6" class="custom-control-input">
+                                    <label class="custom-control-label" for="card4">
+                                        <div class="card_img"><img src="../../../../../assets/images/card2.png"></div>
+                                    </label>
+                                </div>
+                                <div class="card_info">
+                                    <h5>MPESA payment </h5>
+                                    <p>pay M-PESA at your doorstep  or pickup station/location</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_box_outer">
+                            <div class="card_box_inner d-flex justify-content-start">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="card5" name="card6" class="custom-control-input">
+                                    <label class="custom-control-label" for="card5">
+                                        <div class="card_img"><img src="../../../../../assets/images/card-visa.png">
+                                            <img src="../../../../../assets/images/card-master.png"></div>
+                                    </label>
+                                </div>
+                                <div class="card_info">
+                                    <h5>Pay Via Debit/ Credit Card </h5>
+                                    <p>Pay via your debit/credit card at  your doorstep or pickup station/location</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_box_outer">
+                            <div class="card_box_inner d-flex justify-content-start" >
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="card7" name="card6">
+                                    <label class="custom-control-label" for="card7">
+                                        <div class="card_img"><img 
+                                                src="../../../../../assets/images/card-paypal.png"></div>
+                                    </label>
+                                </div>
+                                <div class="card_info">
+                                    <h5>Pay Via Paypal </h5>
+                                    <p>Pay via Paypal  at  your doorstep or pickup station/location</p>
+                                </div>
+
+                            </div>
+                            <!-- <div *ngIf="paypal">
+                                <div class="row">
+            
+                                    <div id="paypal-button-container"></div>
+            
+                                </div>
+            
+                            </div> -->
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- <div *ngIf="paypal">
+                        <div class="row">
+    
+                            <div id="paypal-button-container"></div>
+    
+                        </div>
+    
+                    </div> -->
+                </div>
+
+                        <!-- <div id="paypal-button-container"></div> -->
+
+                
+                <div class="save-info"><input type="checkbox"> Save my information for future</div>
+                <!-- <div id="paypal-button-container"></div> -->
+                <div class="d-flex justify-content-between"><span class="pull-right"><i class="fa fa-arrow-left"
+                            aria-hidden="true" [routerLink]="['/checkout-address']"></i> Back</span><button class="btn btn-primary pull-right"
+                      (click)="OrderreviewData()" >Order Review</button></div>
+            </div>
+            <!-- [routerLink]="['/order-review/']" -->
+            <div class="col-md-4">
+                <div class="checkout_step_order">
+                    <div class="title-checkout">
+                        <h4>Order <span>x</span></h4>
+                    </div>
+                    <ul>
+                        <li *ngFor="let orders of getCartList">
+                            <div class="order-img"><img src="{{url}}/{{orders.image}}"
+                                    onerror="this.src='../../../../../assets/images/f1.png';"></div>
+                            <div class="order-cont">
+                                <h5>{{orders.name}} </h5>
+                                <p>By Lancome</p>
+                                <a (click)="removeItem(orders)" style="cursor: pointer;"><span class="class-order">x</span></a>
+
+                            </div>
+                            <div class="order-qty text-right">
+                                <span>{{orders.quantitys}}</span>
+                                <h5>{{orders.sale_price}}</h5>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                    <h4>Have a discount code?</h4>
+                    <div class="subtotal_box">
+                        <p><span>Subtotal</span> <span>{{total}}</span></p>
+                        <p><span>VAT</span> <span>0</span></p>
+                        <p><span> Local delivery fees Total</span> <span>0</span></p>
+                    </div>
+                    <div class="total_box">
+                        <span>Total</span><span> {{total}}</span>
+                    </div>
+                    <a href="#" class="link-btn-order">MODIFY CART</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- <script>
+    $(document).ready(function(){
+        alert(1)
+      $("#pickup_box").click(function(){
+         $("#pickup_add").removeClass("active");
+      $(this).addClass("active");
+        $("#pickup_box_cont").show();
+         $("#pickup_add_cont").hide();
+    
+      });
+     $("#pickup_add").click(function(){
+      $("#pickup_box").removeClass("active");
+      $(this).addClass("active");
+        $("#pickup_box_cont").hide();
+         $("#pickup_add_cont").show();
+    
+      });
+    });
+    </script> -->
+
+<app-footer></app-footer>

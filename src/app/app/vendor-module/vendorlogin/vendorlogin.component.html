@@ -1,0 +1,831 @@
+<div class="vendor-login-wrapper">
+    <!-- Vendor Login Section-->
+    <form method="post" (ngSubmit)="onSubmit(userlogin)" enctype="multipart/form-data" #userlogin>
+        <div *ngIf="isVendorLoginShown" class="vendor-login">
+            <div class="col-sm-6">
+                <div class="login-content">
+                    <div class="w-100">
+                        <img class="mb-5" src="assets/images/logo-black.svg" alt="" />
+                        <h1>Vendor</h1>
+                        <p>Your Account</p>
+                        <h5 style="color:red">{{LoginMSg}}</h5>
+                        <div class="mb-4 float-input">
+                            <input type="text" [(ngModel)]="objvendorlogin.UserName" class="form-control" id="email"
+                                placeholder="Username/Email/Phone Number ">
+                            <!-- <div class="placeholder-text">Username/Email/Phone Number</div> -->
+                            <span *ngIf="issubmitlogin && objvendorlogin.UserName==''" class="error-msg">
+                                Please Enter Username/Email/Phone Number</span>
+                        </div>
+                        <div class="mb-4 float-input">
+                            <input type="password" [(ngModel)]="objvendorlogin.Password" class="form-control"
+                                id="password" placeholder="Password">
+                            <!-- <div class="placeholder-text">Password</div> -->
+                            <span *ngIf="issubmitlogin && objvendorlogin.Password==''" class="error-msg">Please Enter
+                                Password</span>
+                        </div>
+                        <button type="submit" class="btn mb-4 w-100 text-capitalize btn-custom-secondary">
+                            Log In
+                        </button>
+
+                        <p class="have-an-account">Don’t have an account? <span (click)="goToRegister()">Register
+                                Here</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <img class="left-bg-img" src="assets/images/vendor-login-bg.png" alt="" />
+            </div>
+        </div>
+    </form>
+
+    <!-- Vendor Register Section-->
+    <ng-container *ngIf="isVendorRegisterShown">
+        <!-- Step 1 Section-->
+        <form method="post" #registration (ngSubmit)="onRegistrationSubmit(registration)" enctype="multipart/form-data">
+            <div *ngIf="isVendorRegisterStep1" class="vendor-login">
+                <div class="col-sm-6">
+                    <div class="login-content">
+                        <div class="w-100">
+                            <img class="mb-4" src="assets/images/logo-black.svg" alt="" />
+                            <div class="register-steps mb-4">
+                                <div class="step active"></div>
+                                <div class="step"></div>
+                                <div class="step"></div>
+                            </div>
+                            <h1>Vendor Portal</h1>
+                            <p>Registration</p>
+                            <div class="mb-4 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="objVendormodel.VendorName"
+                                    class="form-control" id="business" placeholder="Name of Business" name="business">
+                                <!-- <div class="placeholder-text">Name of Business/Email Address </div> -->
+                                <span *ngIf="issubmitreg && objVendormodel.VendorName==''" class="error-msg">Please
+                                    Enter Business Name</span>
+                            </div>
+                            <div class="mb-4">
+                                <select class="form-select" [(ngModel)]="objVendormodel.IndustryID" id="industry"
+                                    name="industry" id="industry">
+                                    <option value="0" selected>Please Select Category</option>
+                                    <option value="1">LifeStyle</option>
+                                    <option value="2">Fashion</option>
+                                    <option value="3">Beauty</option>
+                                </select>
+                                <span *ngIf="issubmitreg && objVendormodel.IndustryID==0" class="error-msg">Please
+                                    Select Industry</span>
+                            </div>
+                            <div class="mb-4 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="objVendormodel.VendorEmail"
+                                    class="form-control" id="email" placeholder="Email Address" name="email">
+                                <!-- <div class="placeholder-text">Email Address</div> -->
+                                <span class="error-msg" *ngIf="issubmitreg && objVendormodel.VendorEmail==''">Please
+                                    Enter Email Address</span>
+                            </div>
+                            <div class="text-end">
+                                <button (click)="onClickStep1()" type="button"
+                                    class="btn text-capitalize btn-custom-secondary">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <img class="left-bg-img" src="assets/images/registration-bg-1.png" alt="" />
+                </div>
+            </div>
+
+            <!-- Step 2 Section-->
+            <div *ngIf="isVendorRegisterStep2" class="vendor-login">
+                <div class="col-sm-6">
+                    <div class="login-content">
+                        <div class="w-100">
+                            <img class="mb-4" src="assets/images/logo-black.svg" alt="" />
+                            <div class="register-steps mb-4">
+                                <div class="step active"></div>
+                                <div class="step active"></div>
+                                <div class="step"></div>
+                            </div>
+                            <h1>Vendor Portal</h1>
+                            <p>Registration</p>
+                            <div class="mb-4 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="objVendormodel.FullName"
+                                    class="form-control" id="contact_person_name" placeholder="Contact Person Name"
+                                    name="contact_person_name">
+                                <!-- <div class="placeholder-text">Contact Person Name</div> -->
+                                <span class="error-msg" *ngIf="issubmittab1 && objVendormodel.FullName==''">
+                                    Please Enter Contact Person Name</span>
+
+                            </div>
+                            <div class="mb-4 float-input">
+                                <input type="text" mask="0000000000" maxlength="10"
+                                    [(ngModel)]="objVendormodel.PhoneNumber" class="form-control" id="phone_number"
+                                    placeholder="Phone Number" name="phone_number">
+                                <!-- <div class="placeholder-text">Phone Number</div> -->
+                                <span class="error-msg" *ngIf="issubmittab1 && objVendormodel.PhoneNumber==''">
+                                    Please Enter Phone Number</span>
+
+                            </div>
+                            <div class="mb-4 float-input">
+                                <input type="text" maxlength="100" [(ngModel)]="objVendormodel.UserName"
+                                    class="form-control" id="username" placeholder="Username" name="username">
+                                <!-- <div class="placeholder-text">Username</div> -->
+                                <span class="error-msg" *ngIf="issubmittab1 && objVendormodel.UserName==''">
+                                    Please Enter Phone Number</span>
+                            </div>
+                            <div class="mb-4 float-input">
+                                <input type="password" maxlength="30" [(ngModel)]="objVendormodel.Password"
+                                    class="form-control" id="password" placeholder="Password" name="password">
+                                <!-- <div class="placeholder-text">Password</div> -->
+                                <span class="error-msg" *ngIf="issubmittab1 && objVendormodel.Password==''">
+                                    Please Enter Password</span>
+                            </div>
+                            <div class="justify-content-between d-flex">
+                                <button type="button" class="btn text-capitalize btn-custom-gray"
+                                    (click)="goToRegister()">
+                                    Previous
+                                </button>
+                                <!--   <button (click)="onClickStep2()" type="button"
+                                class="btn text-capitalize btn-custom-secondary">
+                                Next
+                            </button> -->
+                                <button type="submit" class="btn text-capitalize btn-custom-secondary">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <img class="left-bg-img" src="assets/images/registration-bg-2.png" alt="" />
+                </div>
+            </div>
+        </form>
+        <!-- Step 3 Section-->
+
+        <div *ngIf="isVendorRegisterStep3" class="vendor-login">
+            <div class="col-sm-5">
+                <div class="login-content">
+                    <div class="w-100">
+                        <img class="mb-4" src="assets/images/logo-black.svg" alt="" />
+                        <div class="register-steps mb-4">
+                            <div class="step active"></div>
+                            <div class="step active"></div>
+                            <div class="step active"></div>
+                        </div>
+                        <h1>Vendor Portal</h1>
+                        <p>Input Documents</p>
+
+                        <!-------------------KRA-------------------->
+
+                        <form method="post" #uploadformId (ngSubmit)="UploadDocument(uploadformId)"
+                            enctype="multipart/form-data">
+                            <div class="btn-choose mb-3">
+                                <label class="btn">
+                                    Choose File <input type="file" hidden (change)="onFileChanged($event)" name="image">
+                                </label>
+                                <p>KRA PIN</p>
+                            </div>
+                            <div class="mb-4">
+                                <!-- <button type="submit" class="btn btn-custom-gray w-100 text-capitalize">
+                                    Upload Document
+                                </button> -->
+                                <span style="color: green;">
+
+
+                                    <!-- <img class="left-bg-img" src="assets/images/checkmark-dark.png" alt=""
+                                        style="width: 20px" ng-if=Uploadmsg /> -->
+                                    {{Uploadmsg}}
+
+
+                                </span>
+                            </div>
+                        </form>
+
+
+                        <!--------------------Incorporation-------------------------->
+
+
+                        <form method="post" #IncorporationFormId (ngSubmit)="UploadIncorpo(IncorporationFormId)"
+                            enctype="multipart/form-data">
+
+                            <div class="btn-choose mb-3">
+                                <label class="btn">
+                                    Choose File <input type="file" hidden (change)="onFileChangedIncop($event)"
+                                        name="image">
+                                </label>
+                                <p>Certificate Of Incorporation</p>
+                            </div>
+                            <div class="mb-4">
+                                <!-- <button type="submit" class="btn btn-custom-gray w-100 text-capitalize">
+                                    Upload Document
+                                </button> -->
+                                <span style="color: green;">{{UploadmsgForcerticate}}</span>
+                                <!-- <span style="color: green;">
+                
+
+                                <img class="left-bg-img" src="assets/images/checkmark-dark.png" alt="" style="width: 20px" ng-if=Uploadmsg/>
+                                    {{UploadmsgForcerticate}}
+                
+                                    
+                                </span> -->
+                            </div>
+
+                        </form>
+                        <!--------------------Directors’-------------------------->
+
+                        <form method="post" #DirectorsformId (ngSubmit)="UploadDirectors(DirectorsformId)"
+                            enctype="multipart/form-data">
+
+                            <div class="btn-choose mb-3">
+                                <label class="btn">
+                                    Choose File <input type="file" hidden (change)="onFileChangedDirect($event)"
+                                        name="image">
+                                </label>
+                                <p>ID Proof</p>
+                            </div>
+                            <div class="mb-4">
+                                <!-- <button type="submit" class="btn btn-custom-gray w-100 text-capitalize">
+                                    Upload Document
+                                </button> -->
+                                <span style="color: green;">{{UploadmsgForDire}}</span>
+                                <!-- <span style="color: green;">
+                
+
+                                <img class="left-bg-img" src="assets/images/checkmark-dark.png" alt="" style="width: 20px" ng-if=Uploadmsg/>
+                                    {{UploadmsgForDire}}
+                
+                                    
+                                </span> -->
+                            </div>
+                        </form>
+                        <!---------------------OEM------------------------->
+                        <form method="post" #OEMformId (ngSubmit)="UploadOEM(OEMformId)" enctype="multipart/form-data">
+
+                            <div class="btn-choose mb-3">
+                                <label class="btn">
+                                    Choose File <input type="file" hidden (change)="onFileChangedocm($event)"
+                                        name="image">
+                                </label>
+                                <p>OEM Certificate</p>
+                            </div>
+                            <div class="mb-4">
+                                <!-- <button type="submit" class="btn btn-custom-gray w-100 text-capitalize">
+                                    Upload Document
+                                </button> -->
+                                <span style="color: green;">{{UploadmsgForOrm}}</span>
+                                <!-- <span style="color: green;">
+                
+
+                                <img class="left-bg-img" src="assets/images/checkmark-dark.png" alt="" style="width: 20px" ng-if=Uploadmsg/>
+                                    {{UploadmsgForOrm}}
+                
+                                    
+                                </span> -->
+                            </div>
+                        </form>
+                        <!---------------------------------------------->
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="terms-conditions-wrap">
+                    <h2>Contract Terms & Conditions</h2>
+                    <h5>Before you can complete your registration, you must read and accept Bumi Vendor Terms &
+                        Conditions.</h5>
+                    <div class="terms-conditions-content">
+                        <!-- <p> -->
+                           <h6 > BUMI VENDORMANAGEMENT AGREEMENT </h6 >
+
+                           <h6 > 1. INTRODUCTION </h6 >
+                            1.1. Bumi Stores Limited (“Bumi”) operates an e-commerce platform consisting of a website
+                            (www.bumi.ke) and mobile application (Bumi App) (“website”), built around social media
+                            influencers, together with supporting logistics and payment infrastructure for the sale and
+                            purchase of consumer products in Kenya (“territory”).
+                            1.2. These vendor terms and conditions shall apply to all vendors on the website.
+                            1.3. If you register with our website as a vendor:
+                            1.1.1 you accept these vendor terms and conditionswhich may be amended by Bumi from time to
+                            time and which form an integral part of the terms upon which you may use the website;
+                            1.1.2 Bumi will ask you to expressly agree to these vendor terms and conditionsby either
+                            clicking to confirm that you agree (and such electronic signature shall be considered as an
+                            original signature for all purposes); and/or by physical signature.
+
+                        <h6 >2. SERVICES</h6 >
+                            2.1 The Vendor appoints Bumi and Bumi accepts such appointment to make available Bumi’s
+                            Business to the Vendor for the Products and in accordance with the terms of thisAgreement
+                            and as further agreed in the commercial understanding electronic document or any other
+                            similaror analogous electronic or other document (“Commercial Terms”) and in accordance with
+                            various Platformrules and policies including privacy policy (“Platform Policies”). The
+                            Commercial Terms and PlatformPolicies are deemed to have been incorporated in this Agreement
+                            by way of reference.
+                            2.2 The Vendor agrees and acknowledges that Bumi is free to provide Bumi’s Business to other
+                            vendors and in otherTerritories in any manner and for any consideration as may be decided by
+                            Bumi in its sole andabsolute discretion.
+                            2.3 Bumi may refuse to provide any one or more of the Bumi’s Business including Platform,
+                            Platform Services, Payment Facilitation Services and/or TransactionSupport Services if
+                            providing such Bumi’s Business tothe Vendor can be detrimental to the reputation, goodwill
+                            and competitiveness of Bumi orcould cause any breach of any contractual commitments of the
+                            Bumi and cause Bumito breach any applicable laws.
+                            2.4 In the event of any conflict or inconsistency between the terms of this Agreement and
+                            the terms of anyCommercial Terms thereto, the terms of this Agreement shall prevail to the
+                            extent of such conflict orinconsistency.
+
+                        <h6 >  3. PRODUCTS</h6 >
+                            3.1 The only products that may be the subject of a listing on our website are products
+                            falling within the product categories specified on the website.
+                            3.2 You must not advertise, buy, sell or supply through our website any product that:
+                            3.2.1 breaches any laws or regulations, or infringes any person's intellectual property
+                            rights or other rights, or gives rise to a cause of action against any person, in each case
+                            in any jurisdiction and under any applicable law;
+                            3.2.2 is or relates to: drugs, narcotics, steroids or controlled substances; pornography;
+                            obscene, indecent or sexually explicit materials; swords, firearms or other weapons;
+                            ammunition for any weapon; or items that are otherwise prohibited pursuant to the User
+                            Policies and Guidelines, as may be amended from time to time, or any applicable law.
+                            3.3 We operate a zero-tolerance approach to counterfeit products and any attempt to sell
+                            counterfeit products on the website
+
+                        <h6 >4. PRODUCT LISTINGS</h6 >
+                            4.1 Once you are registered to our vendor portal, you shall be responsible for uploading
+                            your products on the website which includes prices, detailed information, specifications and
+                            images in respect of each product.
+                            4.2 You may not publish more than one listing in respect of each product.
+                            4.3 You agree to be solely responsible for all listings submitted to our website and you
+                            agree that all listings must:
+                            4.3.1 constitute bona fide listings relating to products that comply with the categories and
+                            rules set out at Clause3;
+                            4.3.2 include all such information, specifications and guidelines as may be required
+                            pursuant to all applicable laws and regulations, including in respect of consumer
+                            protection.
+                            4.4 Listings that are submitted may be individually reviewed and approved, at Bumi’s
+                            discretion, before they are published on the website, and you acknowledge and agree there
+                            may be a lead time between submission of the product page to the Vendor Centre and the
+                            publishing of the Product page on the website due to time required for Bumi quality control
+                            operations.
+                            4.5 Without prejudice to our other rights, we reserve the right to reject, unpublish and/or
+                            delete any listings that breach these vendor terms and conditions. Bumishall communicate the
+                            reasons for rejection, unpublishing and/or deletion via email for you to remedy then
+                            resubmit for approval.
+                            4.6 You must keep your listings up to date. In particular, you must deactivate any listings
+                            in respect of products that are no longer available.
+
+                        <h6 >   5. ADVERTISING, MARKETING AND SALES PROMOTION</h6 >
+
+                            5.1 Bumi as the proprietor and owner of the website and may at its sole discretion carry out
+                            advertising and marketing activities in relation to promotion of the website, mobile
+                            application and brand in any manner and to any extent as may be deemed fit by Bumi, and for
+                            such purposes may engage in certain sales promotion activities to increase the sales of
+                            products on the website. Bumi and Vendor may agree on certain terms on which Vendor shall
+                            support such sales and marketing activities including providing discounts on the products or
+                            other free of cost goods and services to the end customers.
+                            5.2 Bumi may at its discretion on reasonable commercial efforts basis market, promote or
+                            advertise the products made available for sale by the Vendor on the website in compliance
+                            with this Agreement.
+                            5.3 Where the Vendor believes or is notified by other entity including any third party
+                            manufacturers of the products that any promotion plan/ activity undertaken by Bumi is
+                            against any applicable law or in breach of any contractual obligation of the Vendor or such
+                            third party manufacturer, the Vendor shall intimate the same to Bumi andupon such
+                            intimation, Bumi shall within reasonable time cease such plan/ activities.
+                            5.4 The Vendor agrees and acknowledges that Bumi shall have the sole right for the design,
+                            look and feel, architecture, layout, positioning and all aspects of the website including
+                            listing, positioning, indexing, placement and tiering the products offered for sale on the
+                            website.
+                            5.5 Bumi shall be solely responsible at its sole discretion to sell or license any and all
+                            advertising and promotional time and space with respect to the website including web-pages
+                            or such portions of the website that contain the details of the products. The advertisement
+                            and promotions on any part of the website may include video advertising, display/banner/text
+                            advertisements, including but not limited to medium rectangle, leader-board, roadblock,
+                            hyperlink, page branding, framing, widgets, popups, pop-under, network advertisements (for
+                            the sake of example, Google AdSense) available on the website. Bumi shall have the sole
+                            right and discretion to decide the style, placement and format of the advertisement and
+                            promotion and the price and/or any other consideration, if any, for the sale and license of
+                            such advertisement and promotion. Except for the facilitation of payment of sale
+                            consideration of the product, Bumi and/or its affiliates shall be entitled to retain any and
+                            all revenues generated from any sales or licenses of all such advertisements and promotions.
+                            5.6 Bumi shall reasonably ensure that all advertisement/ promotion activities undertaken:
+
+                            5.6.1 do not contain any material that, in its knowledge, would infringe or violate any
+                            intellectual property rights or any other personal or proprietary right of any person; and
+                            5.6.2 are not obscene or libellous; and
+                            5.6.3 comply with all applicable laws including standards and rules set forth by any
+                            relevant government authority.
+                            5.7 Bumi shall also request the vendor to provide PR packages to certain Influencers on its
+                            platform from time to time. This will ensure that the Influencers get a better first-hand
+                            understanding of the products and create content that clearly highlights the benefits of the
+                            products to their followers.This shall be subject to the acceptance of the Vendor
+
+                        <h6 > 6. COMMISSION AND FEES</h6 >
+                            6.1 We shall charge you a commission in respect of each sale made on each category on the
+                            website and fees in respect of all website services as indicated in Annexure 1 of this
+                            Agreement.
+                            6.2 In case of promotion or discount, commission may be calculated based on the selling
+                            price, being the price set by the vendor at the time of the order.
+                            6.3 Any changes in the commission payable to Bumi will be communicated indicating the reason
+                            for the changes and shall be subject to acceptance by the Vendor. This will not change any
+                            obligation to pay commission that accrues before the new rates are posted or for services
+                            that have been previously paid.
+                            6.4 Commission be charged on the gross sale price of each completed sale.
+
+                        <h6 >7. PRICE</h6 >
+                            7.1 All prices of products shall be stated inclusive of VAT and any other tax applicable to
+                            the transaction and in the currency of the territory.
+                            7.2 You shall be solely responsible for setting the price of your products on the website,
+                            including for the purpose of any seasonal or other discounts.
+                            7.3 The pricing of your products shall comply with all applicable laws, including
+                            competition laws.
+                            7.4 You shall ensure that the prices given are the best possible prices, set at par with any
+                            other e-commerce websites or physical shops.
+
+                        <h6 >   8. FULFILMENT, PACKAGING AND DELIVERY</h6 >
+                            8.1 Upon receipt of a confirmation of sale from Bumi, you shallprocess the order by packing
+                            and labelling the product(s) correctly.
+                            8.2 We may inspect any or all products we receive, and we reserve the right to return to you
+                            any product that fails to meet our packaging requirements or that fails to pass our quality
+                            control checks or any other product requirements set out at Clause3.
+                            8.3 You shall retain title to and ownership of the products until such time as the products
+                            are paid for in full by the buyer to Bumi and delivered to the buyer. Upon delivery to the
+                            buyer, ownership of the products shall vest in the buyer.
+                            8.4 We shall bear the risk of loss or damage to the products upon receipt and until delivery
+                            to the buyer. Our liability to you in respect of your products in our possession pursuant to
+                            this Clause8shall be limited to the cost price of the products.
+
+                        <h6 >9. PAYMENTS</h6 >
+                            9.1 We shall collect payments from buyers in respect of each product purchased from the
+                            website, and we shall deduct our commissions from this amount and, where applicable, any
+                            fees, charges, taxes, penalties, refunds and any other amounts that you owe to us in respect
+                            of any business whatsoever.
+                            9.2 We shall remit the proceeds of sale of the products, after all deductions pursuant to
+                            Clause9.1 above, and remit the remaining funds to you in the currency of the website
+                            territory and using such payment mechanism as we may notify to you from time to time.
+                            9.3 Evidence of payment to your nominated account shall constitute conclusive evidence of
+                            payment and receipt.
+                            9.4 You shall be entirely responsible for ensuring that the account details that you upload
+                            to the Vendor Centre are accurate and up to date, and that the account is secure. We shall
+                            not be liable for any loss or damage to you that may result from fraud or error in respect
+                            of your account.
+                            9.5 We shall provide you with an account statement, via email, which shall include details
+                            of all proceeds of sale of the products, deductions and remittances.
+                            9.6 Bumi shall remit payment for each completed sale within 7 days of completion of the
+                            sale. For avoidance of doubt, a sale is completed when payment has been received by Bumi
+                            from the end customer and the refund period for the product(s) sold has lapsed.
+                            9.7 Subject to the applicable laws of Kenya, we may at any time set off any amount that you
+                            owe to us against any amount that we owe to you, by sending you written notice of the
+                            set-off.
+                            9.8 We may delay or suspend payment to you in the event of investigation of a potential
+                            fraud or other breach of this agreement.
+                            9.9 In the event that the vendor disputes any transaction or statement of account it must
+                            report its claim to Bumi within three (3) months of the date of the relevant transaction,
+                            failing which such claim shall be deemed to be waived.
+                            9.10 Each Party shall be responsible for any and all taxes on its business, and taxes based
+                            on its net income or gross receipts.
+
+                        <h6 >   10. BREACHES OF VENDOR TERMS AND CONDITIONS </h6 >
+                            10.1 If we reasonably determine that you have breached these vendor terms and conditions, we
+                            may:
+                            10.1.1 send you one or more formal warnings;
+                            10.1.2 suspend, prohibit or block your access to our website
+                            10.1.3 commence legal action against you, whether for breach of contract or otherwise.
+                            10.2 We may vary the amount of the penalties for breach from time to time by updating the
+                            Vendor Penalty Policy, but this will not affect any liability to pay penalties that accrue
+                            before the new amounts are posted.
+                            10.3 The consequences of breach provided at Clause 16 above shall also apply ifyou fail to
+                            satisfy a minimum level of operational performance in order to provide a satisfactory buyer
+                            experience on the website.
+
+                        <h6 > 11. INDEMNIFICATION AND LIMITATION OF LIABILITY </h6 >
+                            11.1 The Vendor shall promptly on demand indemnify, defend and hold harmless Bumi, its
+                            affiliates and end customer and their respective officers, directors, proprietors, partners,
+                            managers, members, trustees, shareholders, employees and agents (“Indemnified Parties”) for
+                            and against all claims, liabilities, costs and expenses (including reasonable advocate’s
+                            fees) incurred or to be incurred by the Indemnified Parties that arise out of, in any way
+                            relate to, or result from any breach by the Vendor of any of the provisions of this
+                            Agreement, or breach of any laws by the Vendor, or negligence, fraud or wilful misconduct of
+                            the Vendor or its Affiliates and their respective officers, directors, shareholders,
+                            employees, contractors, sub-contractors, agents and personnel. For the avoidance of doubt,
+                            it is further clarified that the right to indemnification in connection with any of the
+                            aforesaid claims of cause of action is independent and in addition to other rights and
+                            remedies of the Indemnified Parties that may be available at law or in equity. Bumi shall
+                            have a lien on the products and on the consideration received from the end customer for the
+                            sale of products on the website until the Vendor has fully discharged its obligations and
+                            liabilities to Indemnified Parties in accordance with this Agreement. In the event the
+                            Vendor is unable to indemnify the Indemnified Parties within a reasonable period of time,
+                            Bumi shall be entitled to sell or otherwise dispose of the Products and set off the proceeds
+                            out of such sale and disposing off against Indemnified Parties’ indemnification claims
+                            and/or if permitted under law or by virtue of any order of any court of law Bumi shall be
+                            entitled to receive the sale consideration from the payment gateway which otherwise would
+                            have remitted by such payment gateway to the Vendor and/or set off the amounts received by
+                            Bumi from the end customer who has availed cash on delivery services.
+                            11.2 Notwithstanding anything contrary contained in this agreement, in any event Bumi and
+                            its affiliates shall not be liable (whether in contract, warranty, tort (including, but not
+                            limited to, negligence), product liability or other theory), to the Vendor or any other
+                            person or entity for cost of cover or for any indirect, incidental, special, consequential,
+                            punitive or exemplary damages (including damages for loss of revenues, loss profit or
+                            anticipated profits, loss of goodwill, loss of Business or data) arising out of or in
+                            relation this agreement. Bumi’s entire liability to Vendor under this Agreement or under any
+                            applicable law or equity shall be limited solely to actual and proven direct damages
+                            sustained by the Vendor as a result of the gross negligence or wilful misconduct of the Bumi
+                            and its affiliate and their respective directors, officers, employees and agents in the
+                            performance of their respective services and other obligations under this Agreement.
+
+                        <h6 >12. CONFIDENTIALITY AND DATA PRIVACY</h6 >
+                            12.1 All information and documents concerning the conduct of business pursuant to these
+                            vendor terms and conditions, including information relating to business methods, procedures,
+                            policies and sales information, is strictly confidential unless it is already in the public
+                            domain. You shall not use Bumi’s confidential information for any purpose other than to
+                            perform your obligations under this Agreement and you shall not disclose Bumi’s confidential
+                            information without our prior written consent.
+                            12.2 Vendors may not send advertising or promotional communications to buyers on the website
+                            without the prior written consent of Bumi and shall be directly responsible to website users
+                            for any misuse of their personal data.
+                            12.3 If Bumi is sued, fined, or otherwise incurs expenses as a result of the vendor’s
+                            handling of personal data obtained through the website, the vendor shall indemnify Bumi in
+                            respect of the same.
+                            13. MISCELLANEOUS
+                            13.1 These vendor terms and conditions shall be governed by and construed in accordance with
+                            the laws of the Republic of Kenya.
+                            13.2 We will ask for your express agreement to any revisions of these vendor terms and
+                            conditions within a period of 30 days; and if you do not give your express agreement to the
+                            revised versions within this period, you shall be deemed to have consented. If you expressly
+                            reject any such revisions, you may be deemed by us to have terminated the agreement and we
+                            may disable or delete your listing and/or account on the website.
+                            13.3 These vendor terms and conditions shall constitute the entire agreement between you and
+                            us in relation to your use of our website and shall supersede all previous agreements
+                            between you and us in relation to your use of our website.
+                            13.4 This contract shall be reviewed on an annual basis to allow for adjustments with regard
+                            to technology, relevant laws, pricing or any other factors that may need to be reviewed.
+
+                        <h6 >14. ARBITRATION </h6 >
+                            The parties hereto irrevocably agree that any dispute, controversy or claim arising out of,
+                            relating to or in connection with this Agreement (including any provision of any exhibit,
+                            annex or schedule hereto) or the existence, breach, termination or validity hereof shall be
+                            finally settled by arbitration as per the rules of the Chartered Institute of Arbitrators.
+                            The matter shall be referred to a single Arbitrator to be agreed upon by the Parties and in
+                            default of agreement such Arbitrator to be appointed by the Chair of the Chartered Institute
+                            of Arbitrators (Kenya Chapter). The Parties shall upon conclusion of the arbitration be at
+                            liberty to appeal to the High Court against the decision of the Arbitrator.
+
+                        <h6 >15. INDEPENDENT CONTRACTORS </h6 >
+                            The relationship between Parties is on principal to principal basis. Nothing in this
+                            Agreement shall be deemed to constitute either Party a partner, joint venture agent or legal
+                            representative of the other Party, or to create any fiduciary, employer-employee
+                            relationship between the Parties.
+
+                        <h6 >16. TERMINATION</h6 >
+                            16.1 This Agreement may be terminated by either of the parties in the following instances:-
+
+                            16.1.1 Breach of any of the terms of this agreement that has persisted for a period of 7
+                            days after written request has been issued to remedy the breach:
+                            16.1.2 By the issuance of a 1 month written notice by either of the parties;
+                            16.1.3 By mutual concurrence/ mutual agreement of the parties.
+
+                            16.2 Upon termination of this agreement, the Vendor shall:
+                            16.2.1 Give Bumi a 30-day grace period within which to process and finalise any orders made
+                            before the termination which may or may have not been collected from the vendor and to
+                            further allow Bumi process any returns to customers and refunds by customers.
+                            16.2.2 Give Bumi a 30-day grace period to process any payments due to the vendor as at the
+                            point of termination of the Agreement.
+                            16.2.3 Ensure that all orders made at the date of termination of the Agreement are filled
+                            out to the full satisfaction of the customer(s).
+                            17. ENTIRE AGREEMENT
+                            These terms and conditions shall constitute the entire agreement between Bumi and the Vendor
+                            in relation to the Vendor’s use of Bumi’s website and shall supersede all previous
+                            agreements between Bumi and the Vendor in relation to relation to the Vendor’s use of Bumi’s
+                            website.
+                        <h6 >18. VARIATION</h6 >
+                            18.1 Bumi may revise these terms and conditions, from time to time.
+                            18.2 The revised terms and conditions shall apply from the date of publication on the
+                            website.
+                            19. SEVERABILITY
+                            19.1 If a provision of these terms and conditions is determined by any court or other
+                            competent authority to be unlawful and/or unenforceable, the other provisions will continue
+                            in effect.
+                            19.2 If any unlawful and/or unenforceable provision of these terms and conditions would be
+                            lawful or enforceable if part of it were deleted, that part will be deemed to be deleted,
+                            and the rest of the provision will continue in effect.
+
+                            USER POLICIES AND GUIDELINES OF THE WEBSITE
+                        <h6 >   1. INTRODUCTION</h6 >
+
+                            Bumi Stores Kenya Limited (“Bumi” or “we”) operates an e-commerce platform consisting of a
+                            website and mobile application (“Website”), together with supporting logistics and payment
+                            infrastructure, for the sale and purchase of consumer products in Kenya (“territory”).
+
+                        <h6 >2. TERMS AND CONDITIONS OF SALE</h6 >
+
+                            2.1 The Vendor acknowledges and agree that:
+                            2.1.1 the Website provides an online location for the Vendor offer their goods and products
+                            for purchase;
+                            2.1.2 Bumi shall accept binding sales, on behalf of the Vendor, but Bumi is not a party to
+                            the transaction between the Vendor and the end customer; and
+                            2.1.3 a contract for the sale and purchase of a product or products will come into force
+                            between the end customer and the Vendor, and accordingly the Vendor commits to selling the
+                            relevant product or products, upon the end customer’s confirmation of purchase via the
+                            website.
+
+                        <h6 >3. RETURNS AND REFUNDS</h6 >
+
+                            3.1 The vendor agrees to accept returns for products based on the following criteria:
+                            a. Product is in good condition and has not been used by customer.
+                            b. Customer received wrong product from Vendor upon delivery.
+                            c. Product is received by the customer with defaults that make it impossible for customer to
+                            use.
+                            3.2 Bumi shall coordinate the returns of products by buyers and cost of return shall be
+                            borne by the vendor.
+                            3.3 In the event that the returned product is out of stock and cannot be procured within 7
+                            days, Bumi reserves the right to offer the customer a refund for orders already paid for
+                            before delivery.
+
+                        <h6 >4. VENDOR’S CONTENT</h6 >
+                            4.1 In these policies and guidelines, "Vendor’s content" means:
+                            4.1.1 all works and materials (including without limitation text, graphics, images, audio
+                            material, video material, audio-visual material, scripts, software and files) that the
+                            Vendor submits the website for storage or publication, processing by, or onward
+                            transmission; and
+                            4.1.2 all communications on the website, including product reviews, feedback and comments.
+
+                            4.2 The Vendor’s content, and the use of said content by Bumi in accordance with these
+                            general terms and conditions, must be accurate, complete and truthful.
+                            4.3 The Vendor’s content must be appropriate, civil and tasteful, and accord with generally
+                            accepted standards of etiquette and behaviour on the internet, and must not:
+                            4.3.1 be offensive, obscene, indecent, pornographic, lewd, suggestive or sexually explicit;
+                            4.3.2 depict violence in an explicit, graphic or gratuitous manner; or
+                            4.3.3 be blasphemous, in breach of racial or religious hatred or discrimination legislation;
+                            4.3.4 be deceptive, fraudulent, threatening, abusive, harassing, anti-social, menacing,
+                            hateful, discriminatory or inflammatory;
+                            4.3.5 cause annoyance, inconvenience or needless anxiety to any person; or
+                            4.3.6 constitute spam.
+
+                            4.4 The Vendor’s content must not be illegal or unlawful, infringe any person's legal
+                            rights, or be capable of giving rise to legal action against any person (in each case in any
+                            jurisdiction and under any applicable law). The Vendor’s content must not infringe or
+                            breach:
+                            4.4.1 any copyright, moral right, database right, trademark right, design right, right in
+                            passing off or other intellectual property right;
+                            4.4.2 any right of confidence, right of privacy or right under data protection legislation;
+                            4.4.3 any contractual obligation owed to any person; or
+                            4.4.4 any court order.
+
+                            4.5 The Vendor must not use the website to link to any website or web page consisting of or
+                            containing material that would, were it posted on the website, breach the provisions of
+                            these general terms and conditions.
+                            4.6 The Vendor must not submit to the website any material that is or has ever been the
+                            subject of any threatened or actual legal proceedings or other similar complaint.
+                            4.7 The review function on the website may be used to facilitate buyer reviews on products.
+                            The Vendor shall not use the review function or any other form of communication to provide
+                            inaccurate, inauthentic or fake reviews.
+                            4.8 The Vendor must not interfere with a transaction by:
+                            4.8.1 contacting another user to buy or sell an item listed on the website outside of the
+                            website; or
+                            4.8.2 communicating with a user involved in an active or completed transaction to warn them
+                            away from a particular buyer, seller or item; or
+                            4.8.3 contacting another user with the intent to collect any payments.
+
+                            4.9 The Vendor acknowledges that all users of the website are solely responsible for
+                            interactions with other users and you shall exercise caution and good judgment in The
+                            Vendor’s communication with users. The Vendor shall not send them personal information
+                            including credit card details.
+                            4.10 If the Vendor learns of any unlawful material or activity on the website, or any
+                            material or activity that breaches these general terms and conditions, the Vendor may inform
+                            Bumi immediately.
+
+                        <h6 >5. COPYRIGHT AND TRADEMARKS</h6 >
+                            5.1 Subject to the express provisions of these general terms and conditions:
+                            5.1.1 Bumi, together with its licensors, own and control all the copyright and other
+                            intellectual property rights in the website and the material on the website; and
+                            5.1.2 all the copyright and other intellectual property rights in the website and the
+                            material on the website are reserved.
+
+                            5.2 Bumi’s logos and other registered and unregistered trademarks are trademarks belonging
+                            to Bumi; Bumi gives no permission for the use of these trademarks, and such use may
+                            constitute an infringement of our rights.
+                            5.3 The third party registered and unregistered trademarks or service marks on the website
+                            are the property of their respective owners and we do not endorse and are not affiliated
+                            with any of the holders of any such rights and as such Bumi cannot grant any license to
+                            exercise such rights.
+
+                        <h6 >6 DATA PRIVACY</h6 >
+
+                            The Vendor shall be directly responsible to buyers for any misuse of their personal data and
+                            Bumi shall bear no liability to the buyers in respect of any misuse by the Vendor of their
+                            personal data.
+
+                        <h6 >7. BUMI’S ROLE AS A WEBSITE</h6 >
+                            7.1 The Vendor’s acknowledge that:
+                            7.1.1 Bumi does not confirm the identity of all website users, check their credit worthiness
+                            or bona fides, or otherwise vet them;
+                            7.1.2 Bumi does not check, audit or monitor all information contained in listings;
+                            7.1.3 Bumi is not party to any contract for the sale or purchase of products advertised on
+                            the website;
+                            7.1.4 Bumi is not involved in any transaction between a buyer and the Vendor in any way,
+                            save that we facilitate a website for buyers and the Vendor and process payments on behalf
+                            of the Vendor;
+                            7.1.5 Bumi is not the agent for any buyer or the Vendor, and accordingly Bumi will not be
+                            liable to any person in relation to the offer for sale, sale or purchase of any products
+                            advertised on the website; furthermore Bumi is not responsible for the enforcement of any
+                            contractual obligations arising out of a contract for the sale or purchase of any products
+                            and Bumi will have no obligation to mediate between the parties to any such contract.
+                            7.2 Bumi does not warrant or represent:
+                            7.2.1 the completeness or accuracy of the information published on the website;
+                            7.2.2 that the material on the website is up to date;
+                            7.2.3 that the website will operate without fault; or
+                            7.2.4 that the website or any service on the website will remain available.
+
+                            7.3 Bumi does not guarantee any commercial results concerning the use of the website.
+                            7.4 To the maximum extent permitted by applicable law, Bumi excludes all representations and
+                            warranties relating to the subject matter of these User Policies and Guidelines, the website
+                            and the use of the website.
+                        <!-- </p> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="finish-wrap">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <button type="button" (click)="onClickStep1()" style="margin-left: 135px"
+                                class="btn text-capitalize btn-custom-gray">
+                                Previous
+                            </button>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="row">
+                                <!--  <div class="col-6">
+                                    <button type="button" (click)="DownloadTOC()"
+                                        class="btn me-4 text-capitalize btn-custom-gray {{isActiveDownloadbtn==false?'disabled':''}}">
+                                        Download
+                                    </button>
+                                    <button type="button" (click)="UploadTOC()"
+                                        class="btn text-capitalize btn-custom-gray {{isDownloadTOC==false?'disabled':''}}">
+                                        Upload
+                                    </button>
+                                </div> -->
+                                <div class="col-6 d-flex justify-content-end align-items-center">
+
+                                    <!--  <label
+                                        class="custom-checkbox custom-red fs-6 {{isUploadTOC==false?'disabled':''}}">I
+                                        Accept the T&C
+                                        <input type="checkbox" [(ngModel)]="objVendormodel.TOCAcceptInd"
+                                            [attr.disabled]="isUploadTOC==false ? true : null" checked="">
+                                    
+                                        <span class="checkmark"></span>
+                                    </label> -->
+
+
+
+                                    <label class="custom-checkbox custom-red fs-6">I
+                                        Accept the T&C
+                                        <input type="checkbox" [(ngModel)]="isChecked" (click)="Finishchange()">
+                                        <!-- checked="checked"-->
+                                        <span class="checkmark"></span>
+                                    </label>
+
+
+                                    <!--  -->
+                                    <!-- data-bs-toggle="modal" data-bs-target="#finishModal" -->
+                                    <button type="button" (click)="AddVendor()"
+                                        class="btn ms-4 text-capitalize btn-custom-secondary" [disabled]="isDisabled">
+                                        Finish
+                                    </button>
+
+                                    <!--  <button type="submit" 
+                                        class="btn ms-4 text-capitalize btn-custom-secondary}}">
+                                        Finish
+                                       </button> -->
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Finish Modal -->
+            <div class="modal fade" id="finishModal" tabindex="-1" aria-labelledby="finishModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-custom-width">
+                    <div class="modal-content border-0 rounded-0">
+                        <div class="login-wrap d-flex">
+                            <button type="button" class="close" (click)="Closepopup()" data-bs-dismiss="modal"
+                                aria-label="Close">
+                                <img src="assets/images/close.svg" alt="" />
+                            </button>
+                            <div class="w-50 d-flex align-items-center justify-content-center bg-black">
+                                <a class="text-decoration-none" href="/">
+                                    <img src="assets/images/logo.svg" alt="" />
+                                </a>
+                            </div>
+                            <div class="w-50 p-5 d-flex flex-column justify-content-between">
+                                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+                                    <img class="mb-3" src="assets/images/clock.svg" alt="" />
+                                    <h1 class="mb-4">Your Account is under review</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ng-container>
+</div>

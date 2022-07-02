@@ -1,0 +1,312 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+<section id="breadcum">
+    <div class="container">
+      HOME <i class="fa fa-angle-right"></i> {{gen}} <i class="fa fa-angle-right"></i> BRANDS <i class="fa fa-angle-right"></i> {{brand}} <i class="fa fa-angle-right"></i> {{product_name}}
+    </div>
+  </section>
+  <section id="product-detail-outer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let data of getDetails">
+          <!-- <div class="owl-slider">
+          <div class="owl-carousel"> -->
+            <div class="">
+              <div class="">
+            <div class="item"><img src="http://139.59.21.147:8080/{{data.image}}" onerror="this.src='../../../../../assets/images/pro1.jpg';"></div>
+            <!-- <div class="item"><img src="../../../../../assets/images/pro1.jpg" ></div>
+            <div class="item"><img src="../../../../../assets/images/pro1.jpg" ></div>
+            <div class="item"><img src="../../../../../assets/images/pro1.jpg" ></div> -->
+          </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="product_cont" *ngFor="let data of getDetails">
+            <h1>{{data.brand}} - {{data.name}}</h1>
+            <div class="price">{{data.sale_price}}</div>
+            <div class="old-price">{{data.price}}</div>
+            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> 4.8 (3936)</div>
+            <form>
+              <div style="cursor: pointer;" class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+              <input type="number" id="number" value="1" (change)="getQuantity($any($event.target).value)"/>
+              <div style="cursor: pointer;" class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+            </form>
+            <div style="clear:both;"></div>
+            <div class="button_wrap">
+              <a style="cursor: pointer;" (click)="addToWishlist(data.id)">ADD TO WISHLIST</a>
+              <a style="cursor: pointer;" (click)="addToCart(data.id)">ADD TO CART</a>
+            </div>
+            <div class="social_share">
+              <h6>Share this product</h6> <a href="#"><i class="fa fa-facebook-square"></i></a> <a href="#"><i class="fa fa-instagram"></i></a> <a href="#"><i class="fa fa-twitter-square"></i></a>
+            </div>
+            <h2>Select Store</h2>
+            <ul class="pro-store-list">
+              <li><a href="#"><img src="../../../../../assets/images/1.png"></a></li>
+              <li><a href="#"><img src="../../../../../assets/images/2.png"></a></li>
+              <li><a href="#"><img src="../../../../../assets/images/3.png"></a></li>
+              <li><a href="#"><img src="../../../../../assets/images/4.png"></a></li>
+              <li><a href="#"><img src="../../../../../assets/images/5.png"></a></li>
+              <li><a href="#" data-toggle="modal" data-target="#Store"><img src="../../../../../assets/images/6.png"></a></li>
+  
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="product_dis" *ngFor="let data of getDetails">
+            <h3>Product Description</h3>
+            <p>{{data.short_description}}</p>
+            <h5>How to use :</h5>
+            <p>For best results sweep brush from root to tip to plump lashes and achieve dramatic volume. Do not let dry between coats</p>
+            <h3>Ingredients </h3>
+            <p>Aqua / Water,Paraffin,Potassium Cetyl Phosphate,Ethylene/Acrylic Acid Copolymer,Acacia Senegal / Acacia Senegal Gum,Cera Alba / Beeswax,Copernicia Cerifera Cera / Carnauba Wax,Glycerin,Cetyl Alcohol,Hydroxyethylcellulose,Hydrolyzed Corn Starch,Phenoxyethanol,PGE/PPG-17/18 Dimethicone,Steareth-20,Caprylyl Glycol,Sodium</p>
+            <h3>SPECIFICATIONS</h3>
+            <p>SKU: {{data.sku}}</p>
+            <p> Main Material: N/A. Weight (kg): 0.210186867</p>
+          </div>
+          <div class="filter-title">
+            <div class="row">
+              <div class="col-md-6"><h4>YOU MAY ALSO LIKE </h4></div>
+              <div class="col-md-6 text-right"><span class="left-arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><span class="right-arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></div>
+              </div>
+            </div>
+  
+  
+            <div class="product-listing-wrap">
+            
+            <div class="row">
+              <div class="col" *ngFor="let products of getLikeProducts">
+                  <div class="product_list_inner">
+                    <div class="pro_img"><img src="http://139.59.21.147:8080/{{products?.image}}" onerror="this.src='../../../../../assets/images/f1.png';"></div>
+                    <h5>{{products?.name}}</h5>
+                    <div class="rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i> 4.8 (3936)</div>
+                    <h2>{{products?.sale_price}} <span>Sold By: Yummy Mummy</span></h2>
+                    <a class="btn" (click)="addToCart(products.id)">ADD TO CART </a>
+                  </div>
+              </div>
+           
+              
+             
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section id="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="features_box"><img src="../../../../../assets/images/ft1.png"> <h3>Fast Shipping <span>For All Orders</span></h3> </div>
+        </div>
+        <div class="col-md-3">
+          <div class="features_box"><img src="../../../../../assets/images/ft2.png"> <h3>90 Day Return <span>For Faulty Goods</span></h3> </div>
+        </div>
+        <div class="col-md-3">
+          <div class="features_box"><img src="../../../../../assets/images/ft3.png"> <h3>Secure Payment  <span>100% Secure Payment</span></h3> </div>
+        </div>
+        <div class="col-md-3">
+          <div class="features_box"><img src="../../../../../assets/images/ft4.png"> <h3>24/7 Support<span>Dedicated Resource</span></h3> </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"><a href="#"><img src="../../../../../assets/images/footer-logo.png"></a></div>
+        <div class="col-md-3">
+          <h4>NEW TO BUMI?</h4>
+          <p>Subscribe to our newsletter to get updates on our latest offers!</p>
+        </div>
+        <div class="col-md-6">
+          <form>
+            <input type="search" class="form-control" placeholder="ENTER EMAIL ADDRESS">
+            <button  class="btn btn-primary">SUBMIT</button>
+            </form>
+        </div>
+      </div>
+    </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="row">
+            <div class="col">
+              <h4>What’s Hot</h4>
+              <ul>
+                <li><a href="#">Makeup</a></li>
+                <li><a href="#">Skin Care</a></li>
+              </ul>   
+            </div>
+            <div class="col">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Delivery Terms</a></li>
+              </ul>   
+            </div>
+            <div class="col">
+              <h4>On-The-Go</h4>
+              <ul>
+                <li><a href="#"><img src="../../../../../assets/images/gapp.png"></a></li>
+                <li><a href="#"><img src="../../../../../assets/images/appleapp.png"></a></li>
+              </ul>   
+            </div>
+            <div class="col">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="#">Exchange and returns</a></li>
+                <li><a href="#">Customer Service</a></li>
+                <li><a href="#">How to order</a></li>
+              </ul>   
+            </div>
+            <div class="col">
+              <h4>Get In Touch</h4>
+              <ul>
+                <li>Premier Industrial Park</li>
+                <li>Baba Dogo Road, Baba Dogo, Nairobi, Kenya. </li>
+                <li>Call: +254-717-858-585</li>
+              </ul> 
+              <ul class="social-link">
+                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+  
+                </ul>  
+            </div>
+        </div>
+        <div class="row bottom-footer">
+          <div class="col-md-4">Copyright © bumitech limited. 2021</div>
+          <div class="col-md-8 text-right">We Accept: <img src="../../../../../assets/images/card1.png"> <img src="../../../../../assets/images/card2.png"> <img src="../../../../../assets/images/card3.png"></div>
+        </div>
+      </div>
+    </footer>
+    <div class="modal fade text-center" id="login" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body">
+              <div class="row g-0 min-vh-100"> 
+        <!-- Welcome Text
+        ========================= -->
+        <div class="col-md-6">
+          <div class="hero-wrap d-flex align-items-center h-100">
+            <div class="hero-content w-100 min-vh-100 d-flex flex-column">
+              <div class="row g-0">
+                <div class="col-10 col-lg-9 mx-auto">
+                  <div class="logo mt-5 mb-5 mb-md-0"> <a class="d-flex" href="index.html" title="Oxyy"><img src="../../../../../assets/images/footer-logo.png" ></a> </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <!-- Welcome Text End --> 
+        
+        <!-- Login Form
+        ========================= -->
+        <div class="col-md-6 d-flex">
+          <div class="container my-auto py-5">
+            <div class="row g-0">
+              <div class="col-10 col-lg-9 col-xl-8 mx-auto">
+                <h3 class="text-center mb-4">Welcome to BUMI app</h3>
+                <form id="loginForm" method="post">
+                  <div class="mb-3">
+                    <input type="email" class="form-control" id="emailAddress" required="" placeholder="Enter Your Email">
+                  </div>
+                  <div class="mb-3">
+                    <input type="password" class="form-control" id="loginPassword" required="" placeholder="Enter Password">
+                  </div>
+                   <div class="d-grid my-4">
+                    <button class="btn btn-primary" type="submit">Login</button>
+                  </div>
+                  <h6 class="text-center">Or Login with Social Media</h6>
+                  <ul class="mt-3 mb-3">
+                    <li><a href="#"><img src="../../../../../assets/images/fb.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/tw.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/li.png"></a></li>
+                  </ul>
+                  
+                 
+                </form>
+                <p class="haveacc">Don't have an account? <a class="link-primary" href="register.html">Create an account?</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Login Form End --> 
+      </div>
+  </div>
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="Store" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          <div class="modal-body">
+            <div class="select_star">
+              <div class="rdio rdio-primary radio-inline">
+                  <input name="radio" value="2" id="radio1" type="radio">
+                   <label for="radio1">All Bumi Stars</label>
+              </div>
+               <div class="rdio rdio-primary radio-inline">
+                  <input name="radio" value="2" id="radio2" type="radio">
+                   <label for="radio2">Select Bumi Star(s)</label>
+              </div>
+            </div>
+            <div class="search_star">
+                <form class="search-form">
+                  <input class="form-control" type="text" placeholder="Search">
+                  <button><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="star_list">
+                    <ul class="pro-store-list">
+                    <li><a href="#"><img src="../../../../../assets/images/1.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/2.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/3.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/4.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/5.png"></a></li>
+                     <li><a href="#"><img src="../../../../../assets/images/1.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/2.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/3.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/4.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/5.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/1.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/2.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/3.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/4.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/5.png"></a></li>
+                     <li><a href="#"><img src="../../../../../assets/images/1.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/2.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/3.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/4.png"></a></li>
+                    <li><a href="#"><img src="../../../../../assets/images/5.png"></a></li>
+  
+                  </ul>
+            </div>
+            <button class="btn btn-primary">SUBMIT</button>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+
+    

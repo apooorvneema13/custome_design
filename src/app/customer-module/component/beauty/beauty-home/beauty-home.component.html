@@ -1,0 +1,84 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+<div id="cover-spin"></div> 
+<section id="breadcum">
+  <div class="container">
+    HOME <i class="fa fa-angle-right"></i> {{ gen }}
+    <i class="fa fa-angle-right"></i> {{ type }}
+    <i class="fa fa-angle-right" *ngIf="cat1"></i> {{ cat1 }}
+    <i class="fa fa-angle-right" *ngIf="cat2"></i> {{ cat2 }}
+    <i class="fa fa-angle-right" *ngIf="cat3"></i> {{ cat3 }}
+  </div>
+</section>
+<section id="product-listing-outer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">     
+
+        <div class="product-listing-wrap">
+          <!-- <div class="row mb-4">
+            <div class="col-md-6"><h4>Face</h4></div>
+            <div class="col-md-6 text-right">
+              <select class="custom-select">
+                <option>Sort By</option>
+                <option>Sort By</option>
+                <option>Sort By</option>
+              </select>
+            </div>
+          </div> -->
+
+          <div class="row">
+            <!-- <div class="col-md-3" *ngFor="let cat1 of getCat1">
+              <div class="product_list_inner" >
+                <h5>{{ cat1.name }}</h5>
+                <div *ngFor="let cat2 of arr;let i as index;">
+                 <div class="pro_img">
+                  <img
+                    src="{{ url }}/{{ products?.image }}"
+                    onerror="this.src='../../../../assets/images/f1.png';"
+                  />
+                </div> 
+
+            
+                 <div class="rating">
+                  <i class="fa fa-star"></i><i class="fa fa-star"></i
+                  ><i class="fa fa-star"></i><i class="fa fa-star"></i
+                  ><i class="fa fa-star"></i> 4.8 (3936)
+                </div> 
+                <h5>{{ cat2.name }}</h5>
+           </div>
+              </div>
+
+
+
+            </div> -->
+            <div>
+                <div class="row">
+                 <div class="col-sm-6 col-lg-3" *ngFor="let cat1 of getCat1">
+                  <h5>{{cat1.name}}</h5>
+                   <div *ngFor="let cat2 of newArrany;let i as index;">
+                     <a style="cursor:pointer;"  *ngIf="(cat1.id == cat2.parent_id)" (click)="goToBeauty(cat2)">{{cat2.name}}</a>
+                     <!-- <a class="dropdown-item" href="#">Eyes</a>
+                     <a class="dropdown-item" href="#">Lips</a>
+                     <a class="dropdown-item" href="#">Eyelashes</a>
+                     <a class="dropdown-item" href="#">Brushes & Accessories</a> -->
+                     </div>
+                 </div>
+                
+                </div>
+               </div>
+
+
+
+            
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

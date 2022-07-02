@@ -1,0 +1,580 @@
+<div class="star-promotion-wrapper">
+    <div class="sub-header">
+        <h3 class="title">Promotional Tools</h3>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" class="form-control" placeholder="Search by Campaign or Asset Name">
+    </div>
+    <div class="campaigns-list">
+        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-AllCampaigns-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-AllCampaigns" type="button" role="tab" aria-controls="pills-AllCampaigns"
+                    aria-selected="true">All Campaigns</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-BrandCampaign-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-BrandCampaign" type="button" role="tab" aria-controls="pills-BrandCampaign"
+                    aria-selected="false">Brand Campaign</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-category-tab" data-bs-toggle="pill" data-bs-target="#pills-category"
+                    type="button" role="tab" aria-controls="pills-category" aria-selected="false">Category & Service
+                    Activation</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-seasonal-tab" data-bs-toggle="pill" data-bs-target="#pills-seasonal"
+                    type="button" role="tab" aria-controls="pills-seasonal" aria-selected="false">Seasonal & Deals
+                    Activations</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-inspirations-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-inspirations" type="button" role="tab" aria-controls="pills-inspirations"
+                    aria-selected="false">Bumi Inspirations</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-AllCampaigns" role="tabpanel"
+                aria-labelledby="pills-AllCampaigns-tab">
+                <div class="campaigns-box-wrap" *ngIf="isCampaignListShow">
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-4">
+                            <h3>Campaigns</h3>
+                        </div>
+                        <div class="col-sm-8 d-flex align-items-center justify-content-end">
+                            <div class="d-flex align-items-center me-3">
+                                <label class="me-2">Sort by:</label>
+                                <select class="form-select">
+                                    <option selected>Newest</option>
+                                    <option>Oldest</option>
+                                </select>
+                            </div>
+                            <select class="form-select">
+                                <option selected>Last 60 days</option>
+                                <option>Last 50 days</option>
+                                <option>Last 40 days</option>
+                                <option>Last 30 days</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="campaigns-category mb-3">
+                        <h4>Brand Campaigns & Activation</h4>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="campaign-box" (click)="onClickCampaignBox()">
+                                    <img src="assets/images/star-promotional-img/awareness.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Awareness</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/women-day.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Women's Day</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/own-business-day.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Own Business Day</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/global-brand.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Global Brand Campaign</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaigns-category mb-3">
+                        <h4>Seasonal & Deals Activation</h4>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="campaign-box" (click)="onClickCampaignBox()">
+                                    <img src="assets/images/star-promotional-img/fashion.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Big/Flash Sale</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/black-november.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Black November</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/season-delights.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Season's Delights</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/back-to-school.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Back to School</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaigns-category mb-3">
+                        <h4>Category & Service Activation</h4>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/beauty.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Beauty</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/fashion.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Fashion</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/hair-care.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Lifestyle</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/hair-care.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>HairCare</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="campaigns-box-wrap" *ngIf="isCampaignListDetailsShow">
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-4">
+                            <h3>Awareness Campaign</h3>
+                        </div>
+                        <div class="col-sm-8 d-flex align-items-center justify-content-end">
+                            <div class="d-flex align-items-center me-3">
+                                <label class="me-2">Sort by:</label>
+                                <select class="form-select">
+                                    <option selected>Newest</option>
+                                    <option>Oldest</option>
+                                </select>
+                            </div>
+                            <select class="form-select">
+                                <option selected>Last 60 days</option>
+                                <option>Last 50 days</option>
+                                <option>Last 40 days</option>
+                                <option>Last 30 days</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="campaigns-category">
+                        <h4>Brand Campaigns & Activation</h4>
+                        <div class="row">
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-4">
+                                <div class="campaign-box p-3">
+                                    <h6 class="mb-3">Campaign One Headline Goes Here</h6>
+                                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetuer</p>
+                                    <button type="button" (click)="onClickViewCampaign()"
+                                        class="btn btn-custom-primary text-capitalize rounded-0 fs-6 p-2">View
+                                        Campaign</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-BrandCampaign" role="tabpanel"
+                aria-labelledby="pills-BrandCampaign-tab">
+                <div class="campaigns-box-wrap">
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-4">
+                            <h3>Campaigns</h3>
+                        </div>
+                        <div class="col-sm-8 d-flex align-items-center justify-content-end">
+                            <div class="d-flex align-items-center me-3">
+                                <label class="me-2">Sort by:</label>
+                                <select class="form-select">
+                                    <option selected>Newest</option>
+                                    <option>Oldest</option>
+                                </select>
+                            </div>
+                            <select class="form-select">
+                                <option selected>Last 60 days</option>
+                                <option>Last 50 days</option>
+                                <option>Last 40 days</option>
+                                <option>Last 30 days</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="campaigns-category mb-3">
+                        <h4>Brand Campaigns & Activation</h4>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="campaign-box" (click)="onClickCampaignBox()">
+                                    <img src="assets/images/star-promotional-img/awareness.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Awareness</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/women-day.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Women's Day</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/own-business-day.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Own Business Day</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/global-brand.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Global Brand Campaign</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-category" role="tabpanel" aria-labelledby="pills-category-tab">
+                <div class="campaigns-box-wrap">
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-4">
+                            <h3>Campaigns</h3>
+                        </div>
+                        <div class="col-sm-8 d-flex align-items-center justify-content-end">
+                            <div class="d-flex align-items-center me-3">
+                                <label class="me-2">Sort by:</label>
+                                <select class="form-select">
+                                    <option selected>Newest</option>
+                                    <option>Oldest</option>
+                                </select>
+                            </div>
+                            <select class="form-select">
+                                <option selected>Last 60 days</option>
+                                <option>Last 50 days</option>
+                                <option>Last 40 days</option>
+                                <option>Last 30 days</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="campaigns-category mb-3">
+                        <h4>Category & Service Activation</h4>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/beauty.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Beauty</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/fashion.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Fashion</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/hair-care.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Lifestyle</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/hair-care.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>HairCare</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-seasonal" role="tabpanel" aria-labelledby="pills-seasonal-tab">
+                <div class="campaigns-box-wrap">
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-4">
+                            <h3>Campaigns</h3>
+                        </div>
+                        <div class="col-sm-8 d-flex align-items-center justify-content-end">
+                            <div class="d-flex align-items-center me-3">
+                                <label class="me-2">Sort by:</label>
+                                <select class="form-select">
+                                    <option selected>Newest</option>
+                                    <option>Oldest</option>
+                                </select>
+                            </div>
+                            <select class="form-select">
+                                <option selected>Last 60 days</option>
+                                <option>Last 50 days</option>
+                                <option>Last 40 days</option>
+                                <option>Last 30 days</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="campaigns-category mb-3">
+                        <h4>Seasonal & Deals Activation</h4>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="campaign-box" (click)="onClickCampaignBox()">
+                                    <img src="assets/images/star-promotional-img/fashion.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Big/Flash Sale</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/black-november.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Black November</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/season-delights.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Season's Delights</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="campaign-box">
+                                    <img src="assets/images/star-promotional-img/back-to-school.png" alt="">
+                                    <div class="px-3 py-2">
+                                        <h5>Back to School</h5>
+                                        <p>99 Asset</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-inspirations" role="tabpanel" aria-labelledby="pills-inspirations-tab">
+                inspirations</div>
+        </div>
+    </div>
+</div>
+
+<!-- View Campaign Modal -->
+<div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isViewCampaignModalShow">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content join-a-campaign-modal border-0">
+            <img class="close-btn" (click)="onClickViewCampaign()" src="assets/images/close.svg" alt="" />
+            <div class="mb-4">
+                <img class="w-100" src="assets/images/star-campaign-banner.png" alt="">
+                <div class="px-4 py-3 border">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <h5 class="mb-0">Thumb-840x440</h5>
+                            <p class="mb-0">PNG</p>
+                        </div>
+                        <div class="col-sm-6 text-end">
+                            <img height="20" class="ms-3" src="assets/images/star-fav-icon.png" alt="">
+                            <img height="20" class="ms-3" src="assets/images/star-share-icon.png" alt="">
+                            <img height="20" class="ms-3" src="assets/images/star-download-icon.png" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="big-sale-details">
+                <div class="row align-items-center mb-3">
+                    <div class="col-sm-4">
+                        <h3>Campaign Title:</h3>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="big-sale-text">
+                            Black November Sale
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center mb-3">
+                    <div class="col-sm-4">
+                        <h3>Campaign Category:</h3>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="big-sale-text">
+                            Kids Fashion
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-sm-4">
+                        <h3>Campaign Duration:</h3>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="big-sale-text">
+                            01/11/2021 - 30/11/2021
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

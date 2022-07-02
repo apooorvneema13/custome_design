@@ -1,0 +1,433 @@
+<div class="vendor-login-wrapper">
+    <!-- Vendor Login Section-->
+    <form method="post"  (ngSubmit)="onSubmit(userlogin)" enctype="multipart/form-data" #userlogin>
+    <div *ngIf="isVendorLoginShown" class="vendor-login">
+        <div class="col-sm-6">
+            <div class="login-content">
+                <div class="w-100">
+                    <img class="mb-5" src="assets/images/logo-black.svg" alt="" />
+                    <h1>Vendor</h1>
+                    <p>Your Account</p>
+                    <div class="mb-4 float-input">
+                        <input type="text" [(ngModel)]="objvendorlogin.UserName" class="form-control" id="email"
+                            placeholder=" ">
+                        <div class="placeholder-text">Username/Email/Phone Number</div>
+                        <span *ngIf="issubmitlogin && objvendorlogin.UserName==''" class="error-msg">
+                            Please Enter Username/Email/Phone Number</span>
+                    </div>
+                    <div class="mb-4 float-input">
+                        <input type="password" [(ngModel)]="objvendorlogin.Password" class="form-control" id="password" placeholder=" ">
+                        <div class="placeholder-text">Password</div>
+                        <span *ngIf="issubmitlogin && objvendorlogin.Password==''" class="error-msg">Please Enter
+                            Password</span>
+                    </div>
+                    <button type="submit" 
+                        class="btn mb-4 w-100 text-capitalize btn-custom-secondary">
+                        Log In
+                    </button>
+                    <p class="have-an-account">Don’t have an account? <span (click)="goToRegister()">Register
+                            Here</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <img class="left-bg-img" src="assets/images/vendor-login-bg.png" alt="" />
+        </div>
+    </div>
+</form>
+
+    <!-- Vendor Register Section-->
+    <ng-container *ngIf="isVendorRegisterShown">
+        <!-- Step 1 Section-->
+ <form  method="post"  #registration  (ngSubmit)="onRegistrationSubmit(registration)" enctype="multipart/form-data"  >
+        <div *ngIf="isVendorRegisterStep1" class="vendor-login">
+            <div class="col-sm-6">
+                <div class="login-content">
+                    <div class="w-100">
+                        <img class="mb-4" src="assets/images/logo-black.svg" alt="" />
+                        <div class="register-steps mb-4">
+                            <div class="step active"></div>
+                            <div class="step"></div>
+                            <div class="step"></div>
+                        </div>
+                        <h1>Vendor Portal</h1>
+                        <p>Registration</p>
+                        <div class="mb-4 float-input">
+                            <input type="text" maxlength="100" [(ngModel)]="objVendormodel.VendorName" class="form-control" id="business" placeholder=" " name="business" >
+                            <div class="placeholder-text">Name of Business</div>
+                            <span *ngIf="issubmitreg && objVendormodel.VendorName==''" class="error-msg">Please Enter Business Name</span>
+                        </div>
+                        <div class="mb-4">
+                            <select class="form-select" [(ngModel)]="objVendormodel.IndustryID" id="industry" name="industry" id="industry">
+                                <option value="0" selected>Industry</option>
+                                <option value="1">Industry 1</option>
+                                <option value="2">Industry 2</option>
+                                <option value="3">Industry 3</option>
+                            </select>
+                            <span *ngIf="issubmitreg && objVendormodel.IndustryID==0" class="error-msg">Please Select Industry</span>
+                        </div>
+                       <div class="mb-4 float-input">
+                            <input type="text" maxlength="100" [(ngModel)]="objVendormodel.VendorEmail" class="form-control" id="email" placeholder=" " name="email">
+                            <div class="placeholder-text">Email Address</div>
+                            <span class="error-msg"  *ngIf="issubmitreg && objVendormodel.VendorEmail==''">Please Enter Email Address</span>
+                        </div>
+                        <div class="text-end">
+                            <button (click)="onClickStep1()" type="button"
+                                class="btn text-capitalize btn-custom-secondary">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <img class="left-bg-img" src="assets/images/registration-bg-1.png" alt="" />
+            </div>
+        </div>
+
+        <!-- Step 2 Section-->
+        <div *ngIf="isVendorRegisterStep2" class="vendor-login">
+            <div class="col-sm-6">
+                <div class="login-content">
+                    <div class="w-100">
+                        <img class="mb-4" src="assets/images/logo-black.svg" alt="" />
+                        <div class="register-steps mb-4">
+                            <div class="step active"></div>
+                            <div class="step active"></div>
+                            <div class="step"></div>
+                        </div>
+                        <h1>Vendor Portal</h1>
+                        <p>Registration</p>
+                        <div class="mb-4 float-input">
+                            <input type="text"maxlength="100" [(ngModel)]="objVendormodel.FullName" class="form-control" id="contact_person_name" placeholder=" " name="contact_person_name">
+                            <div class="placeholder-text">Contact Person Name</div>
+                            <span class="error-msg"  *ngIf="issubmittab1 && objVendormodel.FullName==''">
+                                Please Enter Contact Person Name</span>
+
+                        </div>
+                        <div class="mb-4 float-input">
+                            <input type="text" mask="0000000000" maxlength="10" [(ngModel)]="objVendormodel.PhoneNumber" class="form-control" id="phone_number" placeholder=" " name="phone_number">
+                            <div class="placeholder-text">Phone Number</div>
+                            <span class="error-msg" *ngIf="issubmittab1 && objVendormodel.PhoneNumber==''">
+                                Please Enter Phone Number</span>
+
+                        </div>
+                        <div class="mb-4 float-input">
+                            <input type="text" maxlength="100" [(ngModel)]="objVendormodel.UserName" class="form-control" id="username" placeholder=" " name="username">
+                            <div class="placeholder-text">Username</div>
+                            <span class="error-msg" *ngIf="issubmittab1 && objVendormodel.UserName==''">
+                                Please Enter Phone Number</span>
+                        </div>
+                        <div class="mb-4 float-input">
+                            <input type="password" maxlength="30" [(ngModel)]="objVendormodel.Password" class="form-control" id="password" placeholder=" " name="password">
+                            <div class="placeholder-text">Password</div>
+                            <span class="error-msg" *ngIf="issubmittab1 && objVendormodel.Password==''">
+                                Please Enter Password</span>
+                        </div>
+                        <div class="justify-content-between d-flex">
+                            <button type="button" class="btn text-capitalize btn-custom-gray" (click)="goToRegister()">
+                                Previous
+                            </button>
+                          <!--   <button (click)="onClickStep2()" type="button"
+                                class="btn text-capitalize btn-custom-secondary">
+                                Next
+                            </button> -->
+                              <button type="submit" 
+                                class="btn text-capitalize btn-custom-secondary">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="col-sm-6">
+                <img class="left-bg-img" src="assets/images/registration-bg-2.png" alt="" />
+            </div>
+        </div>
+</form>
+        <!-- Step 3 Section-->
+     
+        <div  class="vendor-login"> <!--*ngIf="isVendorRegisterStep3"-->
+            <div class="col-sm-5">
+                <div class="login-content">
+                    <div class="w-100">
+                        <img class="mb-4" src="assets/images/logo-black.svg" alt="" />
+                        <div class="register-steps mb-4">
+                            <div class="step active"></div>
+                            <div class="step active"></div>
+                            <div class="step active"></div>
+                        </div>
+                        <h1>Vendor Portal</h1>
+                        <p>Input Documents</p>
+
+                        <!-------------------KRA-------------------->
+
+                    <form  method="post"  #uploadformId  (ngSubmit)="UploadDocument(uploadformId)" enctype="multipart/form-data"  >
+                        <div class="btn-choose mb-3">
+                            <label class="btn">
+                                Choose File <input type="file" hidden  (change)="onFileChanged($event)" name="image">
+                            </label>
+                            <p *ngIf="Uploadmsg"> {{ kraFile.name }} </p>
+                        </div>
+                        <div class="mb-4">
+                            <button type="submit"
+                                class="btn btn-custom-gray w-100 text-capitalize">
+                                Upload Document
+                            </button>
+                            <span style="color: green;">{{Uploadmsg}}</span>
+                        </div>
+                         </form>
+
+
+                         <!--------------------Incorporation-------------------------->
+
+
+ <form  method="post"  #IncorporationFormId  (ngSubmit)="UploadIncorpo(IncorporationFormId)" enctype="multipart/form-data"  >
+
+                        <div class="btn-choose mb-3">
+                            <label class="btn">
+                                Choose File <input type="file" hidden (change)="onFileChangedIncop($event)" name="image">
+                            </label>
+                            <p>Certificate Of Incorporation</p>
+                        </div>
+                        <div class="mb-4">
+                            <button type="submit" 
+                                class="btn btn-custom-gray w-100 text-capitalize">
+                                Upload Document
+                            </button>
+                            <span style="color: green;">{{UploadmsgForcerticate}}</span>
+                        </div>
+
+                </form>         
+               <!--------------------Directors’-------------------------->
+
+<form  method="post"  #DirectorsformId  (ngSubmit)="UploadDirectors(DirectorsformId)" enctype="multipart/form-data"  >
+
+                        <div class="btn-choose mb-3">
+                            <label class="btn">
+                                Choose File <input type="file" hidden (change)="onFileChangedDirect($event)" name="image">
+                            </label>
+                            <p>Directors’ PIN(s)</p>
+                        </div>
+                          <div class="mb-4">
+                            <button type="submit" 
+                                class="btn btn-custom-gray w-100 text-capitalize">
+                                Upload Document
+                            </button>
+                             <span style="color: green;">{{UploadmsgForDire}}</span>
+                        </div>
+                    </form>
+             <!---------------------OEM------------------------->
+<form  method="post"  #OEMformId  (ngSubmit)="UploadOEM(OEMformId)" enctype="multipart/form-data"  >
+
+                          <div class="btn-choose mb-3">
+                            <label class="btn">
+                                Choose File <input type="file" hidden (change)="onFileChangedocm($event)" name="image">
+                            </label>
+                            <p>OEM Certificate</p>
+                        </div>
+                          <div class="mb-4">
+                            <button type="submit"
+                                class="btn btn-custom-gray w-100 text-capitalize">
+                                Upload Document
+                            </button>
+                             <span style="color: green;">{{UploadmsgForOrm}}</span>
+                        </div>
+                    </form>
+  <!---------------------------------------------->
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="terms-conditions-wrap">
+                    <h2>Contract Terms & Conditions</h2>
+                    <h5>Before you can complete your registration, you must read and accept Bumi Vendor Terms &
+                        Conditions.</h5>
+                    <div class="terms-conditions-content">
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+                            nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+                            ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Lorem
+                            ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                            ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                            exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+                            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                            illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                            blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="finish-wrap">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <button type="button" (click)="onClickStep1()" style="margin-left: 135px"
+                                class="btn text-capitalize btn-custom-gray">
+                                Previous
+                            </button>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="row">
+                               <!--  <div class="col-6">
+                                    <button type="button" (click)="DownloadTOC()"
+                                        class="btn me-4 text-capitalize btn-custom-gray {{isActiveDownloadbtn==false?'disabled':''}}">
+                                        Download
+                                    </button>
+                                    <button type="button" (click)="UploadTOC()"
+                                        class="btn text-capitalize btn-custom-gray {{isDownloadTOC==false?'disabled':''}}">
+                                        Upload
+                                    </button>
+                                </div> -->
+                                <div class="col-6 d-flex justify-content-end align-items-center">
+
+                                    <!--  <label
+                                        class="custom-checkbox custom-red fs-6 {{isUploadTOC==false?'disabled':''}}">I
+                                        Accept the T&C
+                                        <input type="checkbox" [(ngModel)]="objVendormodel.TOCAcceptInd"
+                                            [attr.disabled]="isUploadTOC==false ? true : null" checked="">
+                                    
+                                        <span class="checkmark"></span>
+                                    </label> -->
+
+
+
+                                    <label
+                                        class="custom-checkbox custom-red fs-6">I
+                                        Accept the T&C
+                                        <input type="checkbox" [(ngModel)]="isChecked" (click)="Finishchange()" >
+                                        <!-- checked="checked"-->
+                                        <span class="checkmark"></span>
+                                    </label>
+
+
+                                    <!--  -->
+                                    <!-- data-bs-toggle="modal" data-bs-target="#finishModal" -->
+                                    <button type="button" (click)="AddVendor()" 
+                                        class="btn ms-4 text-capitalize btn-custom-secondary" [disabled]="isDisabled">
+                                        Finish
+                                    </button>
+
+                                     <!--  <button type="submit" 
+                                        class="btn ms-4 text-capitalize btn-custom-secondary}}">
+                                        Finish
+                                       </button> -->
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Finish Modal -->
+            <div  class="modal fade" id="finishModal" tabindex="-1" aria-labelledby="finishModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-custom-width">
+                    <div class="modal-content border-0 rounded-0">
+                        <div class="login-wrap d-flex">
+                            <button type="button" class="close" (click)="Closepopup()"
+                             data-bs-dismiss="modal" aria-label="Close">
+                                <img src="assets/images/close.svg" alt="" />
+                            </button>
+                            <div class="w-50 d-flex align-items-center justify-content-center bg-black">
+                                <a class="text-decoration-none" href="/">
+                                    <img src="assets/images/logo.svg" alt="" />
+                                </a>
+                            </div>
+                            <div class="w-50 p-5 d-flex flex-column justify-content-between">
+                                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+                                    <img class="mb-3" src="assets/images/clock.svg" alt="" />
+                                    <h1 class="mb-4">Your Account is under review</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ng-container>
+</div>

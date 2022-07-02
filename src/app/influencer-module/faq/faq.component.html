@@ -1,0 +1,313 @@
+<div class="star-faq-wrapper">
+    <ng-container *ngIf="isFaqHomeShow">
+        <h1>Leapfrogging the future of Africa and changing lives, together.</h1>
+        <div class="row justify-content-center my-5">
+            <div class="col-sm-6">
+                <div class="faq-search-wrap">
+                    <img src="assets/images/search-gray.png" alt="">
+                    <input type="text" class="form-control" placeholder="Search Bumi or type a url">
+                    <img src="assets/images/mic.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 mb-4">
+                <div class="faq-box" (click)="onClickFaqBox()">
+                    <h3>Frequently Asked Questions</h3>
+                    <p>Read frequently asked questions from other vendors.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-4" (click)="onClickVideoBox()">
+                <div class="faq-box">
+                    <h3>Vendor Tutorials</h3>
+                    <p>View video tutorials and read articles to help you sell on Bumi.ke</p>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-4">
+                <div class="faq-box" (click)="onClickChatBox()">
+                    <h3>Chat Centre</h3>
+                    <p>Chat or message one of our representatives to get your questions answered promptly.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-4">
+                <div class="faq-box" (click)="onClickBlogBox()">
+                    <h3>Bumi Blog</h3>
+                    <p>Read industry Articles and trends to keep you ahead of the pack.</p>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <div class="faq-questions-wrap" *ngIf="isFaqQuestionsShow">
+        <h3>Frequently Asked Question</h3>
+        <div class="faq-questions">
+            <h4>Recent Activity</h4>
+            <div class="faq-q" (click)="onClickQuestionDetails()">
+                <div>
+                    <h5>Frequently Asked Question</h5>
+                    <p>How Do I View My Order History?</p>
+                </div>
+                <label>Comment Added 10 Mins Ago : 20</label>
+            </div>
+            <div class="faq-q">
+                <div>
+                    <h5>Frequently Asked Question</h5>
+                    <p>How Do I View My Order History?</p>
+                </div>
+                <label>Comment Added 10 Mins Ago : 20</label>
+            </div>
+            <div class="faq-q">
+                <div>
+                    <h5>Frequently Asked Question</h5>
+                    <p>How Do I View My Order History?</p>
+                </div>
+                <label>Comment Added 10 Mins Ago : 20</label>
+            </div>
+            <div class="faq-q">
+                <div>
+                    <h5>Frequently Asked Question</h5>
+                    <p>How Do I View My Order History?</p>
+                </div>
+                <label>Comment Added 10 Mins Ago : 20</label>
+            </div>
+            <div class="faq-q">
+                <div>
+                    <h5>Frequently Asked Question</h5>
+                    <p>How Do I View My Order History?</p>
+                </div>
+                <label>Comment Added 10 Mins Ago : 20</label>
+            </div>
+        </div>
+    </div>
+    <div class="faq-questions-wrap" *ngIf="isFaqQuestionsDetailsShow">
+        <h3>Frequently Asked Question</h3>
+        <div class="faq-questions">
+            <h4>How Do I View My Order History?</h4>
+            <div class="faq-q-comment">
+                <span class="feature me-2">Featured</span>
+                <span class="date">Feb 5, 2021</span>
+                <h5 class="mt-2">Adobe Animation 21.0.1 is live now!</h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply
+                    dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the
+                    printing and typesetting industry.</p>
+            </div>
+            <div class="faq-q-comment">
+                <span class="feature me-2">Featured</span>
+                <span class="date">Feb 5, 2021</span>
+                <h5 class="mt-2">Adobe Animation 21.0.1 is live now!</h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply
+                    dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the
+                    printing and typesetting industry.</p>
+            </div>
+        </div>
+    </div>
+    <div class="faq-blog-wrap" *ngIf="isFaqBlogShow">
+        <h3>Bumi Blog</h3>
+        <div class="faq-blog">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="blog-wrap">
+                        <h3>PHOTOGRAPHY</h3>
+                        <h1>Product Images Dos & Don’ts</h1>
+                        <h5>BY WANJUGU MUHINDI - BUMI COO</h5>
+                        <img height="30" src="assets/images/social-icons.png" alt="">
+                        <img class="w-100" src="assets/images/blog-img.png" alt="">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <p><span>Fashion</span> Jewellery tops list of Valentine’s gifts</p>
+                    <p><span>Society</span> Wealthy Kenyans keep romance alive</p>
+                    <p><span>Profiles</span> BIKO INTERVIEW: The thing about a father’s death</p>
+                    <p><span>Beauty</span> Are millennials looking at beauty differently?</p>
+                    <p><span>Style</span> Valentine’s desserts to make at home</p>
+                    <p><span>Personal</span> Finance ABBOTT: Those who’ll become like Steve Jobs must read, be curious
+                    </p>
+                    <p><span>Personal</span> Finance Follow these steps to achieve your goals</p>
+                    <p><span>Society</span> Finance KAMARA: Battling fear of unknown</p>
+                    <p><span>Personal</span> Finance MPUTHIA: Managing your gated apartments got easier</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="faq-chat-wrap" *ngIf="isFaqChatShow">
+        <h3>Chat Centre</h3>
+        <div class="faq-chat">
+            <div class="chat-left">
+                <div class="chat-header">
+                    <img class="user-icon" src="assets/images/user-placeholder.png" alt="">
+                    <img class="three-icon" src="assets/images/three-dot.png" alt="">
+                </div>
+                <div class="search">
+                    <input type="text" class="form-control" placeholder="Search or start new chat">
+                </div>
+                <div class="chat-user-list">
+                    <div class="chat-user">
+                        <img class="user-icon" src="assets/images/user-placeholder-gray.png" alt="">
+                        <div>
+                            <h3>User 1 <span>12:45</span></h3>
+                            <p>I am having trouble accessing my wallet...</p>
+                        </div>
+                    </div>
+                    <div class="chat-user">
+                        <img class="user-icon" src="assets/images/user-placeholder-gray.png" alt="">
+                        <div>
+                            <h3>User 1 <span>12:45</span></h3>
+                            <p>I am having trouble accessing my wallet...</p>
+                        </div>
+                    </div>
+                    <div class="chat-user">
+                        <img class="user-icon" src="assets/images/user-placeholder-gray.png" alt="">
+                        <div>
+                            <h3>User 1 <span>12:45</span></h3>
+                            <p>I am having trouble accessing my wallet...</p>
+                        </div>
+                    </div>
+                    <div class="chat-user">
+                        <img class="user-icon" src="assets/images/user-placeholder-gray.png" alt="">
+                        <div>
+                            <h3>User 1 <span>12:45</span></h3>
+                            <p>I am having trouble accessing my wallet...</p>
+                        </div>
+                    </div>
+                    <div class="chat-user">
+                        <img class="user-icon" src="assets/images/user-placeholder-gray.png" alt="">
+                        <div>
+                            <h3>User 1 <span>12:45</span></h3>
+                            <p>I am having trouble accessing my wallet...</p>
+                        </div>
+                    </div>
+                    <div class="chat-user">
+                        <img class="user-icon" src="assets/images/user-placeholder-gray.png" alt="">
+                        <div>
+                            <h3>User 1 <span>12:45</span></h3>
+                            <p>I am having trouble accessing my wallet...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-right">
+                <div class="chat-header">
+                    <img class="user-icon me-3" src="assets/images/user-placeholder.png" alt="">
+                    <div class="me-2">
+                        <h3>Bumi Vendor Support</h3>
+                        <p>Kenneth Oile, Wanjugu Muhindi, Umesh</p>
+                    </div>
+                    <img class="me-4" height="25" src="assets/images/search-white.png" alt="">
+                    <img class="three-icon" src="assets/images/three-dot.png" alt="">
+                </div>
+                <div class="msg-wrap">
+                    <div class="msg-grp">
+                        <div class="text-center">
+                            <div class="msg-date">
+                                17/02/2021
+                            </div>
+                        </div>
+                        <div class="msg-send">
+                            <p>Hello Bumi, I have some challenges with editing my users.</p>
+                            <span>12:46</span>
+                        </div>
+                        <div class="msg-receive">
+                            <p>Hello Bumi, I have some challenges with editing my users.</p>
+                            <span>12:46</span>
+                        </div>
+                    </div>
+                    <div class="msg-input">
+                        <img class="me-3" height="25" src="assets/images/smile.png" alt="">
+                        <img class="me-3" height="25" src="assets/images/link.png" alt="">
+                        <input class="me-3 form-control" type="text" placeholder="Type here..">
+                        <img height="25" src="assets/images/mic-gray.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="faq-vendor-tutorials" *ngIf="isFaqVendorTutorialsShow">
+        <h3>Vendor Tutorials</h3>
+        <div class="video-wrap">
+            <div class="video-left">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/SMKPKGW083c"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <div class="video-title-wrap">
+                    <label>#loremipsum #loremipsum</label>
+                    <h4>Lorem Ipsum Dolor Sit Amet - Lorem Ipsum Dolor Sit</h4>
+                    <div class="d-flex justify-content-between">
+                        <p>100k views</p>
+                        <div class="video-icons">
+                            <div>
+                                <img src="assets/images/like-red.png" alt="">
+                            </div>
+                            <div>
+                                <img src="assets/images/dislike.png" alt="">
+                            </div>
+                            <img src="assets/images/share.png" alt="">
+                            <img src="assets/images/save.png" alt="">
+                            <img src="assets/images/dot.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="video-subscribe-wrap">
+                    <div class="d-flex align-items-center">
+                        <img src="assets/images/user-placeholder-gray.png" alt="">
+                        <div>
+                            <h5>Lorem Ipsum Dolor</h5>
+                            <p>Lorem Ipsum Dolor</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-custom-secondary rounded fs-6 px-3 py-2">SUBSCRIBE 2.0M</button>
+                </div>
+            </div>
+            <div class="video-right">
+                <div class="video-lbl-wrap">
+                    <label class="active">All</label>
+                    <label class="ms-3">Related</label>
+                    <label class="ms-3">Recently Upload</label>
+                </div>
+                <div class="video-thumnail">
+                    <iframe width="150" height="100" src="https://www.youtube.com/embed/SMKPKGW083c"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                    <div class="video-thumnail-text">
+                        <h5>Products Do & Dont’s - Wanjugu Muhindi COO</h5>
+                        <p>Bumi Support</p>
+                        <p>7.4M views • 2 months ago</p>
+                    </div>
+                </div>
+                <div class="video-thumnail">
+                    <iframe width="150" height="100" src="https://www.youtube.com/embed/SMKPKGW083c"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                    <div class="video-thumnail-text">
+                        <h5>Products Do & Dont’s - Wanjugu Muhindi COO</h5>
+                        <p>Bumi Support</p>
+                        <p>7.4M views • 2 months ago</p>
+                    </div>
+                </div>
+                <div class="video-thumnail">
+                    <iframe width="150" height="100" src="https://www.youtube.com/embed/SMKPKGW083c"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                    <div class="video-thumnail-text">
+                        <h5>Products Do & Dont’s - Wanjugu Muhindi COO</h5>
+                        <p>Bumi Support</p>
+                        <p>7.4M views • 2 months ago</p>
+                    </div>
+                </div>
+                <div class="video-thumnail">
+                    <iframe width="150" height="100" src="https://www.youtube.com/embed/SMKPKGW083c"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                    <div class="video-thumnail-text">
+                        <h5>Products Do & Dont’s - Wanjugu Muhindi COO</h5>
+                        <p>Bumi Support</p>
+                        <p>7.4M views • 2 months ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

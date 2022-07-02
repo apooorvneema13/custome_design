@@ -1,0 +1,115 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+ 
+  <section id="cart_order_panel">
+    <div class="container">
+      <h4>Checkout</h4>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="checkout_step">
+              <div class="steps">
+                <span class="">1</span>
+                <p>Address Details</p>
+              </div>
+              <div class="steps">
+                <span>2</span>
+                <p>Delivery Method</p>
+              </div>
+              <div class="steps">
+                <span>3</span>
+                <p>Review</p>
+              </div>
+               <div class="steps">
+                <span>4</span>                
+                <p>Payment</p>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <form method="post" [formGroup]="addressForm" (ngSubmit)="addAddress()">
+          <div class="checkout_step_mid">
+            
+             <div class="title-checkout"><h4>1. Account Information</h4></div>
+             <div class="account_user" *ngFor="let user of addressDetails">
+                <div class="custom-control custom-radio" *ngIf="user.is_active == '1'">
+                  <input type="radio" id="customRadio1" class="custom-control-input" (click)="selectCus(user)" checked>
+                  <label class="custom-control-label" for="customRadio1" *ngIf="user.is_active == '1'">Existing Customer</label>
+                </div>
+                  <div class="account_user_add" >
+                    <h3 *ngIf="user.is_active == '1'">{{user.first_name}}</h3>
+                    <p *ngIf="user.is_active == '1'"> {{user.address}}. Call: {{user.phone_number}}</p>
+               </div>
+             </div>
+             <div class="new-customer">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio2" name="customRadio1" class="custom-control-input" checked>
+                  <label class="custom-control-label" for="customRadio2">New Customer</label>
+                </div>
+                 <!-- <div class="btn-group btn-toggle">
+                      <button type="text" class="btn btn-default" formControlName="salutation" value="Ms" data-toggle="collapse" data-target="#collapsible">Mrs./Ms.</button>
+                      <button type="text" class="btn btn-default active" formControlName="salutation" value="Mr" data-toggle="collapse" data-target="#collapsible">Mr.</button>
+                  </div> -->
+               </div>
+
+               <div class="form-group">
+                <input type="text" formControlName="salutation" class="form-control" placeholder="Mr/Ms/Mrs" name="">
+              </div>
+              
+               <div class="form-group">
+                 <input type="text" formControlName="first_name" class="form-control" placeholder="First Name" name="">
+               </div>
+               <div class="form-group">
+                 <input type="text" formControlName="last_name" class="form-control" placeholder="Last Name" name="">
+               </div>
+               <div class="form-group">
+                 <input type="text" formControlName="postcode" class="form-control" placeholder="Postcode" name="">
+               </div>
+               <div class="form-group">
+                 <div class="mobile-no"><span>+91</span><input type="text" formControlName="phone_number" class="form-control" placeholder="Mobile Number"></div>
+               </div>
+              <p>**Mandatory field</p>
+              
+          </div>
+          <div class="save-info"><input type="checkbox"> Save my information for future</div>
+          <button type="submit" class="btn btn-primary pull-right">PROCEED TO DELIVERY</button>
+        </form>
+        </div>
+        <div class="col-md-4">
+          <div class="checkout_step_order">
+            <div class="title-checkout"><h4>Order <span>x</span></h4></div>
+            <ul>
+              <li *ngFor="let orders of getCartList">
+                <div class="order-img"><img src="{{url}}/{{orders.image}}" onerror="this.src='../../../../../assets/images/f1.png';" ></div>
+                <div class="order-cont">
+                    <h5>{{orders.name}} </h5>
+                    <p>By Lancome</p>  
+                    <a style="color: #9E005D;font-weight: 600;font-size: 16px;cursor: pointer;" (click)="removeItem(orders)">REMOVE</a>
+
+                    <!-- <a (click)="removeItem(orders)" style="cursor: pointer;">REMOVE</a> -->
+    
+                </div>
+                <div class="order-qty text-right">
+                  <span>{{orders.quantitys}}</span>
+                  <h5>{{orders.quantitys *orders.sale_price}}</h5>
+                </div>
+              </li>
+             
+            </ul>
+            <h4>Have a discount code?</h4>
+            <div class="subtotal_box">
+                <p><span>Subtotal</span> <span>{{total}}</span></p>
+                <p><span>VAT</span> <span>0</span></p>
+                <p><span> Local delivery fees Total</span> <span>0</span></p>
+            </div>
+            <div class="total_box">
+                <span>Total</span><span> {{total}}</span>
+            </div>
+            <a href="#" class="link-btn-order">MODIFY CART</a>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-footer></app-footer>
+  

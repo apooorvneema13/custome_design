@@ -1,0 +1,1084 @@
+<div class="promotions-wrapper">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h3 class="title">Promotional Tools</h3>
+            </div>
+            <!-- <div class="col-sm-6 text-end">
+                <div class="rate-page">
+                    <img src="assets/images/star.svg" alt="" />
+                    <p>Rate This Page</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="promotions-content">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item col-4" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true">Home</button>
+            </li>
+            <li class="nav-item col-4" role="presentation">
+                <button class="nav-link" id="profiletab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                    role="tab" aria-controls="profile" aria-selected="false">Campaigns</button>
+            </li>
+            <li class="nav-item col-4" role="presentation">
+                <button class="nav-link" id="discounts-tab" data-bs-toggle="tab" data-bs-target="#discounts"
+                    type="button" role="tab" aria-controls="discounts" aria-selected="false">Discounts</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="marketing-campaigns">
+                    <div class="row mb-5">
+                        <div class="col-sm-6">
+                            <h3 style="text-align: center;">Marketing Campaigns</h3>
+                            <div class="marketing-box">
+                                <h2>There are 3 Active Marketing Campaigns</h2>
+                                <p>You have <span>19 products</span> applicable! Add products and boost your sales.</p>
+                                <button type="button" (click)="openCampaigns()"
+                                    class="btn btn-custom-primary text-capitalize w-auto fs-6 py-2 px-5 mt-3 mb-5">Join
+                                    A Campaign</button>
+                                <p class="mb-3">Capitalize on eyeballs and max ROI</p>
+                                <img src="assets/images/marketing-box.png" width="240" alt="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3 style="text-align: center;">Product Discounts</h3>
+                            <div class="marketing-box">
+                                <h2>Product Discounts</h2>
+                                <p>Discount all, certain category or individual product</p>
+                                <button type="button" (click)="Adddiscount()"
+                                    class="btn btn-custom-primary text-capitalize w-auto fs-6 py-2 px-5 mt-3 mb-5">Create
+                                    Discount</button>
+                                <div>
+                                    <img src="assets/images/discount-box.png" width="170" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="campaign-discount-summary">
+                        <select class="form-select position-absolute end-0 top-0`">
+                            <option selected>Last 7 days</option>
+                            <option>Last 15 days</option>
+                            <option>Last 30 days</option>
+                            <option>Last 90 days</option>
+                        </select>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="CampaignSummary-tab" data-bs-toggle="tab"
+                                    data-bs-target="#CampaignSummary" type="button" role="tab"
+                                    aria-controls="CampaignSummary" aria-selected="true">Campaign Summary</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="DiscountSummary-tab" data-bs-toggle="tab"
+                                    data-bs-target="#DiscountSummary" type="button" role="tab"
+                                    aria-controls="DiscountSummary" aria-selected="false">Discount Summary</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="CampaignSummaryNav">
+                            <div class="tab-pane fade show active" id="CampaignSummary" role="tabpanel"
+                                aria-labelledby="CampaignSummary-tab">
+                                <div class="row">
+                                    <div class="col-sm-4 mb-4">
+                                        <div class="campaigns-box"
+                                            style="background-image: url(assets/images/img_place1.png);">
+                                            <h3>Campaign One</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit</p>
+                                            <div class="text-end mt-3">
+                                                <button type="button" (click)="onClickJoinACampaign()"
+                                                    class="btn btn-custom-primary w-auto text-capitalize fs-6 py-1 px-4">View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 mb-4">
+                                        <div class="campaigns-box">
+                                            <h3>Campaign One</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit</p>
+                                            <div class="text-end mt-3">
+                                                <button type="button"
+                                                    class="btn btn-custom-primary w-auto text-capitalize fs-6 py-1 px-4">View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="DiscountSummary" role="tabpanel"
+                                aria-labelledby="DiscountSummary-tab">
+                                <div class="row">
+                                    <div class="col-sm-4 mb-4">
+                                        <div class="campaigns-box"
+                                            style="background-image: url(assets/images/img_place1.png);">
+                                            <h3>discounts One</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit</p>
+                                            <div class="text-end mt-3">
+                                                <button type="button" (click)="onClickDiscountSummary()"
+                                                    class="btn btn-custom-primary w-auto text-capitalize fs-6 py-1 px-4">View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 mb-4">
+                                        <div class="campaigns-box">
+                                            <h3>discounts One</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit</p>
+                                            <div class="text-end mt-3">
+                                                <button type="button"
+                                                    class="btn btn-custom-primary w-auto text-capitalize fs-6 py-1 px-4">View</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="marketing-campaigns-wrapper">
+                    <h2>Marketing Campaigns / Select Category</h2>
+
+                    <div *ngIf="isSelectYourProductsShow" class="select-your-products-msg mb-4">
+                        <div class="msg-icon">
+                            <img src="assets/images/msg-icon.png" alt="">
+                        </div>
+                        <div class="msg-txt">
+                            Please note that items with prices or existing discounts lower than the minimum discount
+                            for the selected campaign are filtered out at this stage. <span>0 Product</span> were
+                            affected
+                        </div>
+                    </div>
+
+                    <div *ngIf="isDiscountProductsShow" class="discount-products mb-4">
+                        <h2>Discount Products</h2>
+                        <div class="row align-items-center">
+                            <div class="col-sm-7">
+                                <div class="discount">
+                                    <p>Discount:</p>
+                                    <label class="custom-radio radio-primary radio-sm fs-6 d-inline-block me-3">Cash
+                                        <input type="radio" checked="checked" name="dicSelCat">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <div class="kes-input me-3">
+                                        <span>KSh</span>
+                                        <input type="text" mask="00000" class="form-control px-0" placeholder="">
+                                    </div>
+                                    <label
+                                        class="custom-radio radio-primary radio-sm fs-6 d-inline-block me-3">Percentage
+                                        <input type="radio" checked="checked" name="dicSelCat">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <div class="kes-input">
+                                        <span>(%)</span>
+                                        <input type="text" mask="00" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 text-end">
+                                <div class="prod-selected">
+                                    <label class="me-2">Product Selected 0</label>
+                                    <label>Total KSh 0.00</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="select-category">
+                                <div class="select-category-step active">
+                                    <span>1</span>
+                                    <p>Select Category</p>
+                                </div>
+                                <div
+                                    class="select-category-step {{ (isSelectCampaignShow || isSelectYourProductsShow || isDiscountProductsShow) ?'active':''}}">
+                                    <span>2</span>
+                                    <p>Select Campaign</p>
+                                </div>
+                                <div
+                                    class="select-category-step {{  (isSelectYourProductsShow || isDiscountProductsShow) ?'active':''}}">
+                                    <span>3</span>
+                                    <p>Select Your Products</p>
+                                </div>
+                                <div class="select-category-step {{ ( isDiscountProductsShow) ?'active':''}}">
+                                    <span>4</span>
+                                    <p>Discount Your Products</p>
+                                </div>
+                                <div class="select-category-step">
+                                    <span>5</span>
+                                    <p>View/See Confirmation</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div *ngIf="isSelectCategoryShow">
+                                <div class="category-list mb-3">
+                                    <label (click)="onClickSelectCategory()"
+                                        class="custom-radio radio-primary fw-bold d-inline-block me-3">Haircare
+                                        <input type="radio" checked="checked" name="catList">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <p>You have <span>5 products</span> applicable</p>
+                                </div>
+                                <div class="category-list mb-3">
+                                    <label (click)="onClickNoCategory()"
+                                        class="custom-radio radio-primary fw-bold d-inline-block me-3">Skincare
+                                        <input type="radio" name="catList">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <p>You have <span>5 products</span> applicable</p>
+                                </div>
+                                <div class="category-list mb-3">
+                                    <label class="custom-radio radio-primary fw-bold d-inline-block me-3">Televisions
+                                        <input type="radio" name="catList">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <p>You have <span>5 products</span> applicable</p>
+                                </div>
+                                <div class="category-list mb-3">
+                                    <label class="custom-radio radio-primary fw-bold d-inline-block me-3">Home Theatres,
+                                        Speakers and Audio
+                                        <input type="radio" name="catList">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <p>You have <span>5 products</span> applicable</p>
+                                </div>
+                                <div class="category-list mb-3">
+                                    <label class="custom-radio radio-primary fw-bold d-inline-block me-3">Televisions
+                                        <input type="radio" name="catList">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <p>You have <span>5 products</span> applicable</p>
+                                </div>
+                                <div class="category-list mb-3">
+                                    <label class="custom-radio radio-primary fw-bold d-inline-block me-3">Home Theatres,
+                                        Speakers and Audio
+                                        <input type="radio" name="catList">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <p>You have <span>5 products</span> applicable</p>
+                                </div>
+                            </div>
+                            <div *ngIf="isSelectCampaignShow">
+                                <div class="big-sale-banner mb-4">
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-6">
+                                            <img src="assets/images/big-sale.png" alt="">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p>Aug 11 - Sep 30 2021</p>
+                                            <h3>August Big Sale Deals</h3>
+                                            <label class="c-label">MIN-KSh 300</label>
+                                            <label class="c-label">MAX-100 PRODUCTS</label>
+                                            <div class="mt-4">
+                                                <label (click)="onClickSelectCampaign()"
+                                                    class="custom-radio radio-primary radio-sm fs-6 fw-bold d-inline-block">Select
+                                                    Campaign
+                                                    <input type="radio" checked="checked" name="selCat">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="big-sale-banner mb-4" style="background-color: #E4EDD8;">
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-6">
+                                            <img src="assets/images/big-sale-1.png" alt="">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p>Sep 01 - Sep 30 2021</p>
+                                            <h3>September Big Sale SO</h3>
+                                            <label class="c-label">MIN-KSh 300</label>
+                                            <label class="c-label">MAX-100 PRODUCTS</label>
+                                            <div class="mt-4">
+                                                <label
+                                                    class="custom-radio radio-primary radio-sm fs-6 fw-bold d-inline-block">Select
+                                                    Campaign
+                                                    <input type="radio" name="selCat">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="big-sale-banner mb-4" style="background-color: #F9F4A5;">
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-6">
+                                            <img src="assets/images/big-sale-2.png" alt="">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p>Nov 01 - Nov 30 2021</p>
+                                            <h3>Black November Deals</h3>
+                                            <label class="c-label">MIN-KSh 300</label>
+                                            <label class="c-label">MAX-100 PRODUCTS</label>
+                                            <div class="mt-4">
+                                                <label
+                                                    class="custom-radio radio-primary radio-sm fs-6 fw-bold d-inline-block">Select
+                                                    Campaign
+                                                    <input type="radio" name="selCat">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="isSelectYourProductsShow" class="select-your-products">
+                                <div class="table-responsive">
+                                    <table class="table border-top">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <label class="custom-checkbox custom-bg-light">All
+                                                        <input [(ngModel)]="SelectAllProduct" (change)="onSelectAll()" type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <th>Product Image</th>
+                                                <th>Product Description</th>
+                                                <th>Current Price On Website</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of productdata">
+                                                <td>
+                                                    <label class="custom-checkbox custom-bg-light">
+                                                        <input [(ngModel)]="item.Selected" type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <div class="prod-img">
+                                                        <img [src]="item.imageurl" alt="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    {{item.Descrition}}
+                                                </td>
+                                                <td>
+                                                    <span>{{item.Amount}}</span>
+                                                </td>
+                                            </tr>
+                                        <!-- 
+                                            <tr>
+                                                <td>
+                                                    <label class="custom-checkbox custom-bg-light">
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <div class="prod-img">
+                                                        <img src="assets/images/prod-img.png" alt="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Product Name Description Goes Here Model Number Here
+                                                </td>
+                                                <td>
+                                                    <span>KSh. 29,999.00</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="custom-checkbox custom-bg-light">
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <div class="prod-img">
+                                                        <img src="assets/images/prod-img.png" alt="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Product Name Description Goes Here Model Number Here
+                                                </td>
+                                                <td>
+                                                    <span>KSh. 29,999.00</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="custom-checkbox custom-bg-light">
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <div class="prod-img">
+                                                        <img src="assets/images/prod-img.png" alt="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Product Name Description Goes Here Model Number Here
+                                                </td>
+                                                <td>
+                                                    <span>KSh. 29,999.00</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="custom-checkbox custom-bg-light">
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <div class="prod-img">
+                                                        <img src="assets/images/prod-img.png" alt="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Product Name Description Goes Here Model Number Here
+                                                </td>
+                                                <td>
+                                                    <span>KSh. 29,999.00</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="custom-checkbox custom-bg-light">
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <div class="prod-img">
+                                                        <img src="assets/images/prod-img.png" alt="">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Product Name Description Goes Here Model Number Here
+                                                </td>
+                                                <td>
+                                                    <span>KSh. 29,999.00</span>
+                                                </td>
+                                            </tr> -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="mt-4 text-end">
+                                    <button type="button"
+                                        class="btn btn-custom-gray w-auto rounded-pill px-5 py-2 me-4 fw-bold text-capitalize fs-6">Back</button>
+                                    <button (click)="onClickSelectProduct()" type="button"
+                                        class="btn btn-custom-primary w-auto rounded-pill fw-bold px-5 text-capitalize py-2 fs-6">Proceed</button>
+                                </div>
+                            </div>
+                            <div *ngIf="isDiscountProductsShow" class="discount-products-wrapper">
+                                <table class="table border-top">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label class="custom-checkbox custom-bg-light">All
+                                                    <input [(ngModel)]="ProceedAllProduct" (change)="onProceedAllProduct()" type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </th>
+                                            <th>Product Image</th>
+                                            <th>Product Description</th>
+                                            <th>Current selling Price</th>
+                                            <th>Discounted Price</th>
+                                            <th>Vendor Earnings</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr *ngFor="let item of Selectedproductdata">
+                                            <td>
+                                                <label class="custom-checkbox custom-bg-light">
+                                                    <input [(ngModel)]="item.Selected" type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <div class="prod-img">
+                                                    <img [src]="item.imageurl" alt="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{item.Descrition}}
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- <tr>
+                                            <td>
+                                                <label class="custom-checkbox custom-bg-light">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <div class="prod-img">
+                                                    <img src="assets/images/prod-img.png" alt="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                Product Name Description Goes Here Model Number Here
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="custom-checkbox custom-bg-light">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <div class="prod-img">
+                                                    <img src="assets/images/prod-img.png" alt="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                Product Name Description Goes Here Model Number Here
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="custom-checkbox custom-bg-light">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <div class="prod-img">
+                                                    <img src="assets/images/prod-img.png" alt="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                Product Name Description Goes Here Model Number Here
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="kes-input">
+                                                    <span>KSh</span>
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                                <div class="mt-4 text-end">
+                                    <button type="button"
+                                        class="btn btn-custom-gray w-auto rounded-pill px-5 py-2 me-4 fw-bold text-capitalize fs-6">Back</button>
+                                    <button (click)="onClickConfirmCampaign('No')" type="button"
+                                        class="btn btn-custom-primary w-auto rounded-pill fw-bold px-5 text-capitalize py-2 fs-6">Proceed</button>
+                                </div>
+                            </div>
+
+                            <!-- No Record -->
+                            <div *ngIf="isNoCategoryShow" class="no-campaign">
+                                <div class="row h-100">
+                                    <div class="col-sm-6 align-self-end">
+                                        <img width="335" src="assets/images/no-capaign.png" alt="">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <p class="mb-3">Oops! No Campaigns under this category at the moment</p>
+                                        <img class="w-100" src="assets/images/no-campaign-line.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="discounts" role="tabpanel" aria-labelledby="discounts-tab">
+                <div class="discounts-wrapper" *ngIf="isDiscountWrapperShow">
+                    <h2>Discounts</h2>
+                    <div class="add-discounts mb-4 border-bottom pb-4">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="SEARCH FOR DISCOUNT...">
+                            </div>
+                            <div class="col-sm-8 text-end">
+                                <button (click)="onClickAddDiscount()" type="button" class="btn btn-custom-primary">Add
+                                    Discount</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Title
+                                        <div class="arrows">
+                                            <img class="mb-1" src="assets/images/up-gray.png" alt="">
+                                            <img src="assets/images/down-gray.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        Value(KSh)
+                                        <div class="arrows">
+                                            <img class="mb-1" src="assets/images/up-gray.png" alt="">
+                                            <img src="assets/images/down-gray.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        Start Date
+                                        <div class="arrows">
+                                            <img class="mb-1" src="assets/images/up-gray.png" alt="">
+                                            <img src="assets/images/down-gray.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        End Date
+                                        <div class="arrows">
+                                            <img class="mb-1" src="assets/images/up-gray.png" alt="">
+                                            <img src="assets/images/down-gray.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>
+                                        Is Active
+                                        <div class="arrows">
+                                            <img class="mb-1" src="assets/images/up-gray.png" alt="">
+                                            <img src="assets/images/down-gray.png" alt="">
+                                        </div>
+                                    </th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>Apple Capsule Crazy Deal</p>
+                                    </td>
+                                    <td>9,999.50</td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="30-09-2021">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="30-09-2021">
+                                    </td>
+                                    <td><span>Expired</span></td>
+                                    <td>
+                                        <img src="assets/images/edit.png" alt="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Apple Capsule Crazy Deal</p>
+                                    </td>
+                                    <td>9,999.50</td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="30-09-2021">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="30-09-2021">
+                                    </td>
+                                    <td><span>Expired</span></td>
+                                    <td>
+                                        <img src="assets/images/edit.png" alt="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>Apple Capsule Crazy Deal</p>
+                                    </td>
+                                    <td>9,999.50</td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="30-09-2021">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="30-09-2021">
+                                    </td>
+                                    <td><span>Expired</span></td>
+                                    <td>
+                                        <img src="assets/images/edit.png" alt="">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="create-new-discount" *ngIf="isCreateNewDiscountShow">
+                    <h2>Create New Discount</h2>
+                    <div class="discount-title mb-4">
+                        <h3>Discount Title</h3>
+                        <div class="d-flex align-items-center mb-3">
+                            <label class="me-3">Title</label>
+                            <input type="text" class="form-control" placeholder="">
+                        </div>
+                        <p class="ps-5 ms-2">Give your promotion name for you to recognize it. It will be visible only
+                            for you.</p>
+                    </div>
+                    <div class="discount-target mb-4">
+                        <div class="title">
+                            <img src="assets/images/target.png" alt="">
+                            <h3>Target</h3>
+                        </div>
+                        <!-- Brand -->
+                        <div class="brand-title" data-bs-toggle="collapse" href="#collapseBrand" role="button"
+                            aria-expanded="false" aria-controls="collapseBrand">
+                            <h4>BRAND</h4>
+                            <img src="assets/images/ic_down_black.png" alt="">
+                        </div>
+                        <div class="collapse show" id="collapseBrand">
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">REVLON
+                                <input type="radio" (click)="ExpantProduct()" name="target">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">DIOR
+                                <input type="radio" (click)="ExpantProduct()" name="target">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" (click)="ExpantProduct()" name="target">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" name="target">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" (click)="ExpantProduct()" name="target">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" (click)="ExpantProduct()" name="target">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" (click)="ExpantProduct()" name="target">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" (click)="ExpantProduct()" name="target">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <!-- Product -->
+                        <div class="brand-title mt-3 pt-3 border-top border-dark" data-bs-toggle="collapse"
+                            href="#collapseProduct" id="idproducttab" role="button" aria-expanded="false"
+                            aria-controls="collapseProduct">
+                            <h4>PRODUCT</h4>
+                            <img src="assets/images/ic_down_black.png" alt="">
+                        </div>
+                        <div class="collapse" id="collapseProduct">
+                            <div class="row justify-content-end mb-3">
+                                <div class="col-sm-4">
+                                    <div class="product-input">
+                                        <input type="text" class="form-control" placeholder="SEARCH">
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">REVLON
+                                <input type="radio" name="targetproduct">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">DIOR
+                                <input type="radio" name="targetproduct">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" name="targetproduct">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" name="targetproduct">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" name="targetproduct">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" name="targetproduct">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" name="targetproduct">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="custom-radio radio-primary radio-sm d-inline-block me-5">CHANEL
+                                <input type="radio" name="targetproduct">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="type-of-discount mb-4">
+                        <h3>Type of Discount</h3>
+                        <p class="mb-3">Maximum number of uses</p>
+                        <div class="row">
+                            <div class="col-sm-6 d-flex align-items-center">
+                                <label
+                                    class="custom-radio radio-primary radio-sm d-inline-block fw-bold me-3">Percentage
+                                    Discount
+                                    <input type="radio" checked="checked" name="dis">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="kes-input">
+                                    <span>(%)</span>
+                                    <input type="text" mask="00" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 d-flex align-items-center">
+                                <label class="custom-radio radio-primary radio-sm d-inline-block fw-bold me-3">Money
+                                    Discount
+                                    <input type="radio" checked="checked" name="dis">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="kes-input">
+                                    <span>(KSh)</span>
+                                    <input type="text" mask="00000" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conditions-discount mb-4">
+                        <h3>Conditions</h3>
+                        <p class="mb-3">Maximum number of uses</p>
+                        <div class="row align-items-center mb-4">
+                            <div class="col-sm-4 d-flex align-items-center">
+                                <label class="custom-radio radio-primary radio-sm d-inline-block fw-bold me-4">Limited
+                                    <input type="radio" (click)="onchangecondition('Limited')"  [(ngModel)]="Conditions" value="Limited" name="conditions1">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <select id="conditionddl" disabled class="form-select w-auto pe-5">
+                                    <option selected>Enter Number</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="custom-radio radio-primary radio-sm d-inline-block fw-bold">Unlimited
+                                    <input type="radio" (click)="onchangecondition('Unlimited')" [(ngModel)]="Conditions" value="Unlimited" name="conditions1">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="start-end-date">
+                            <div class="row">
+                                <div class="col-sm-6 d-flex align-items-center">
+                                    <label class="me-4">Duration</label>
+                                    <p-calendar #calendar [(ngModel)]="rangeDates" selectionMode="range"
+                                        [readonlyInput]="true" inputId="range" (onSelect)="onSelect()"></p-calendar>
+                                    <!-- <img class="me-3" src="assets/images/calendar-black.png" alt="">
+                                    <input type="text" class="form-control" placeholder="Start Date">
+                                    <span class="px-4">-</span>
+                                    <input type="text" class="form-control" placeholder="End Date"> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" (click)="onClickConfirmDiscount('No')"
+                            class="btn btn-custom-primary w-auto text-capitalize px-5 py-1 fs-6">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Join A Campaign Modal -->
+<div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isJoinACampaignModalShow">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content join-a-campaign-modal border-0">
+            <img class="close-btn" (click)="onClickJoinACampaign()" src="assets/images/close.svg" alt="" />
+            <div class="big-sale-banner mb-4">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img class="w-100" src="assets/images/big-sale.png" alt="">
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Aug 11 - Sep 30 2021</p>
+                        <h3>August Big Sale Deals</h3>
+                        <label>MIN-KSh 300</label>
+                        <label>MAX-100 PRODUCTS</label>
+                    </div>
+                </div>
+            </div>
+            <div class="big-sale-details">
+                <div class="row align-items-center mb-3">
+                    <div class="col-sm-4">
+                        <h3>Campaign Title:</h3>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="big-sale-text">
+                            Lorem Ipsum Dummy Text
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center mb-3">
+                    <div class="col-sm-4">
+                        <h3>Campaign Category:</h3>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="big-sale-text">
+                            Lorem Ipsum Dummy Text
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-sm-4">
+                        <h3>Campaign Duration:</h3>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="big-sale-text">
+                            Lorem Ipsum Dummy Text
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Discount Summary Modal -->
+<div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isDiscountSummaryModalShow">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content join-a-campaign-modal border-0">
+            <img class="close-btn" (click)="onClickDiscountSummary()" src="assets/images/close.svg" alt="" />
+            <div class="big-sale-banner mb-4">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img class="w-100" src="assets/images/big-sale.png" alt="">
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Aug 11 - Sep 30 2021</p>
+                        <h3>August Big Sale Deals</h3>
+                        <label>MIN-KSh 300</label>
+                        <label>MAX-100 PRODUCTS</label>
+                    </div>
+                </div>
+            </div>
+            <div class="big-sale-details">
+                <div class="row align-items-center mb-3">
+                    <div class="col-sm-6">
+                        <h3>Discount Summary Title:</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="big-sale-text">
+                            Lorem Ipsum Dummy Text
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center mb-3">
+                    <div class="col-sm-6">
+                        <h3>Discount Summary Category:</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="big-sale-text">
+                            Lorem Ipsum Dummy Text
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <h3>Discount Summary Duration:</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="big-sale-text">
+                            Lorem Ipsum Dummy Text
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirm Discount Modal-->
+<div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isConfirmDiscountModalShow">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content confirm-discount-modal border-0">
+            <h3 class="mb-4">Confirm that you want to submit this Discount</h3>
+            <p>By clicking YES, you agree to Bumi's</p>
+            <a href="javacript:void(0)">Terms & Conditions</a>
+            <div class="mt-4">
+                <button type="button" (click)="onClickConfirmDiscount('No')"
+                    class="btn btn-custom-gray w-auto rounded px-5 py-2 me-4 fs-6">No</button>
+                <button type="button" (click)="onClickConfirmDiscount('Yes')"
+                    class="btn btn-custom-primary w-auto px-5 py-2 fs-6">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirm Campaign Modal-->
+<div class="modal d-block" style="background-color: rgba(0,0,0,.7);" *ngIf="isConfirmCampaignModalShow">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content confirm-discount-modal border-0">
+            <h3 class="mb-4">Confirm that you want to proceed with this Campaign</h3>
+            <p>By clicking YES, you agree to Bumi's</p>
+            <a href="javacript:void(0)">Terms & Conditions</a>
+            <div class="mt-4">
+                <button type="button" (click)="onClickConfirmCampaign('No')"
+                    class="btn btn-custom-gray w-auto rounded px-5 py-2 me-4 fs-6">No</button>
+                <button type="button" (click)="onClickConfirmCampaign('Yes')"
+                    class="btn btn-custom-primary w-auto px-5 py-2 fs-6">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>

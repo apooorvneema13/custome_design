@@ -1,0 +1,143 @@
+<app-header-top></app-header-top>
+<app-header></app-header>
+<section id="breadcum">
+    <div class="container">
+      HOME <i class="fa fa-angle-right"></i> {{gen}} <i class="fa fa-angle-right"></i> Brand 
+    </div>
+  </section>
+  <section id="cart_panel">
+    <div class="container">
+      <h4>My Cart ({{getCartCount}} Items)</h4>
+      <div id="cover-spin"></div>
+    <!-- <span *ngIf="img_loader"><img src="../../../../assets/images/loading-loading-forever.gif" style="height: 48px;"></span> -->
+      <div class="row">
+        <div class="col-md-8">
+          <div class="cart_inner">
+              <table class="table">
+                <tr>
+                  <th>PRODUCT</th>
+                  <th>PRICE</th>
+                  <th>QUANTITY</th>
+                  <th>TOTAL</th>
+                </tr>
+                
+                <tr *ngFor="let products of getCartList">
+                  <td>
+                        <div class="product_list_inner">
+                        <div class="pro_img"><img src="http://139.59.21.147:8080/{{products.image}}" onerror="this.src='../../../../assets/images/f1.png';"></div>
+                        <span>Seller: Jacky Vike</span>
+                        <h5> {{products.name}}</h5>
+                        
+                        <!-- <a href="#" class="btn-link">MOVE TO SAVED ITEMS </a> -->
+                        <a  class="btn-link" style="cursor: pointer;" (click)="addToWishlist(products.id)">MOVE TO SAVED ITEMS </a>
+
+
+
+                        <a class="btn-link" style="cursor:pointer;" (click)="removeItem(products)">Remove </a>
+                      </div>
+                  </td>
+                  <td>
+                    <h6>{{products.sale_price}} <span class="old-price d-block">{{products.price}}</span></h6>
+                  </td>
+                  <td>
+                    <form>
+                      <div class="value-button" style="cursor: pointer;" id="decrease" (click)="decreaseValue(products)" value="Decrease Value">-</div>
+                      <input type="number" id="number" value="{{products.quantitys || '1'}}" />
+                      <div class="value-button" style="cursor: pointer;" id="increase" (click)="increaseValue(products)" value="Increase Value">+</div>
+                    </form>
+                  </td>
+                  <td>
+                    <h6>{{products.sale_price * products.quantitys | number}}</h6>
+                  </td>
+                </tr>
+              
+  
+              </table>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="cart_total">
+              <div class="total_cart">CART TOTAL <span>{{total}} </span></div>
+              <br>
+              
+              <div>
+                  <button type="submit" [routerLink]="['/checkout-address']">Buy Now</button>
+              </div>
+              <br>
+              <p>Shipping and Taxes calculated at checkout</p>
+              <div class="agree-cond mt-3 mb-3"><input type="checkbox" required>  I agree to Terms & Conditions</div>
+              <h6><a href="#">CONTINUE SHOPPING</a></h6>
+              <div class="checkbox_logo">
+                <a href="#"><img src="../../../../assets/images/mopesa.png"></a>
+                 <a href="#"><img src="../../../../assets/images/visa.png"></a>
+                  <a href="#"><img src="../../../../assets/images/paypal.png"></a>
+                  <!-- <a href="#"><img src="../../../../assets/images/loading-loading-forever.gif" style="
+                    height: 48px;"></a> -->
+              </div>
+          </div>
+  
+        </div>
+      </div>
+      <div class="filter-title mt-5">
+            <div class="row">
+              <div class="col-md-6"><h4>YOU MAY ALSO LIKE</h4></div>
+              <div class="col-md-6 text-right"><span class="left-arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><span class="right-arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></div>
+              </div>
+            </div>
+            <div class="product-listing-wrap">
+            
+  
+            <div class="row">
+              <div class="col" *ngFor="let like of getLikeProducts">
+                  <div class="product_list_inner">
+                    <div class="pro_img"><img src="http://139.59.21.147:8080/{{like.image}}" onerror="this.src='../../../../assets/images/f1.png';"></div>
+                    <h5>{{like.name}}</h5>
+                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 4.8 (3936)</div>
+                    <h2>{{like.sale_price}}<span>Sold By: Yummy Mummy</span></h2>
+                    <a class="btn" (click)="addToCart(like.id)">ADD TO CART </a>
+                  </div>
+              </div>
+              <!-- <div class="col">
+                  <div class="product_list_inner">
+                    <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                    <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 4.8 (3936)</div>
+                    <h2>KSh1,550.00 <span>Sold By: Yummy Mummy</span></h2>
+                    <a href="#" class="btn">ADD TO CART </a>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="product_list_inner">
+                    <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                    <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 4.8 (3936)</div>
+                    <h2>KSh1,550.00 <span>Sold By: Yummy Mummy</span></h2>
+                    <a href="#" class="btn">ADD TO CART </a>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="product_list_inner">
+                    <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                    <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 4.8 (3936)</div>
+                    <h2>KSh1,550.00 <span>Sold By: Yummy Mummy</span></h2>
+                    <a href="#" class="btn">ADD TO CART </a>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="product_list_inner">
+                    <div class="pro_img"><img src="../../../../assets/images/f1.png"></div>
+                    <h5>Revlon ULTRA HD MATTE LIP MOUSSE- Red Hot</h5>
+                    <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 4.8 (3936)</div>
+                    <h2>KSh1,550.00 <span>Sold By: Yummy Mummy</span></h2>
+                    <a href="#" class="btn">ADD TO CART </a>
+                  </div>
+              </div> -->
+              
+             
+            </div>
+  
+          </div>
+    </div>
+  </section>
+  <app-footer></app-footer>

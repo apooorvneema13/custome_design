@@ -1,0 +1,127 @@
+
+
+.custom-scrollbar , .asideContent {
+	scrollbar-color: rgba(0, 0, 0, .2) transparent;
+	scrollbar-color: var(--palette-black-alpha-20, rgba(0, 0, 0, .2)) transparent;
+	scrollbar-width: thin;
+}
+
+
+.custom-scrollbar.scroll-auto-hide {
+	scrollbar-color: transparent transparent
+}
+
+.custom-scrollbar.scroll-auto-hide:hover {
+	scrollbar-color: rgba(0, 0, 0, .2) transparent;
+	scrollbar-color: var(--palette-black-alpha-20, rgba(0, 0, 0, .2)) transparent
+}
+
+.custom-scrollbar::-webkit-scrollbar,
+.asideContent::-webkit-scrollbar {
+	width: 5px;
+	height: 18px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb,
+.asideContent::-webkit-scrollbar-thumb {
+	border: 6px solid transparent;
+	background: rgba(0, 0, 0, .2);
+	background: var(--palette-black-alpha-20, rgba(0, 0, 0, .2));
+	border-radius: 10px;
+	background-clip: padding-box
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+	background: transparent
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:vertical {
+	min-height: 30px
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:horizontal {
+	min-width: 5px
+}
+
+.custom-scrollbar.scroll-auto-hide::-webkit-scrollbar-thumb {
+	background: transparent;
+	background-clip: padding-box
+}
+
+.custom-scrollbar.scroll-auto-hide:hover::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, .2);
+	background: var(--palette-black-alpha-20, rgba(0, 0, 0, .2));
+	background-clip: padding-box
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, .3);
+	background: var(--palette-black-alpha-30, rgba(0, 0, 0, .3));
+	background-clip: padding-box
+}
+
+.custom-scrollbar-hidden {
+	-ms-overflow-style: none;
+	scrollbar-width: none
+}
+
+.custom-scrollbar-hidden::-webkit-scrollbar {
+	width: 0
+}
+
+
+/* Let's get this party started */
+*::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+	/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.09);  */
+	box-shadow: inset 0 0 6px rgba(0,0,0,0); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+*::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--palette-black-alpha-20, rgba(0, 0, 0, 0));
+	/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.5);  */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, .3);
+	background: var(--palette-black-alpha-30, rgba(0, 0, 0, 0.3));
+	background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:window-inactive {
+	background: var(--palette-black-alpha-20, rgba(0, 0, 0, .01));
+}
+
+*:hover::-webkit-scrollbar-track,
+.innerDiv:hover::-webkit-scrollbar-track,
+.innerTab:hover::-webkit-scrollbar-track,
+.asideRight .asideInner .asideContent:hover::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.2); 
+}
+*:hover::-webkit-scrollbar-thumb, 
+.innerDiv:hover::-webkit-scrollbar-thumb, 
+.innerTab:hover::-webkit-scrollbar-thumb,
+.asideRight .asideInner .asideContent:hover::-webkit-scrollbar-thumb {
+	background: var(--palette-black-alpha-20, rgba(0, 0, 0, .23));
+}
+
+
+.candidateCardView:hover::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0,0,0,0); 
+	opacity: 0;
+}
+.candidateCardView:hover::-webkit-scrollbar-thumb {
+	background: var(--palette-black-alpha-20, rgba(0, 0, 0, 0));
+	opacity: 0;
+}

@@ -1,0 +1,45 @@
+<div class="vendor-wrapper">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-3">
+                <h3 >Vendors Listing</h3>
+            </div>
+            <div class="col-sm-3">
+                <div class="date-rate">
+                    <span>Date Range</span>
+                    <input class="form-control" type="text" readonly value="13/05/2021 - 13/06/2021" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="date-time">
+                    <div class="time-info">
+                        <span>08:05</span>
+                        <div class="time">
+                            <p>AM</p>
+                            <span>Monday</span>
+                        </div>
+                    </div>
+                    <div class="date">
+                        <span>28 Mar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vendor-details">
+        <div class="vendor-menu">
+            <ul>
+                <li><a href="javascript:void(0)"  routerLinkActive="active"  [routerLink]="['/admin/vendors/home']">Home</a></li>
+                <li><a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/vendors/products']">Product</a></li>
+                <li><a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/vendors/orders']">Orders</a></li>
+                <li><a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/vendors/brands']">Brands(2712)</a></li>
+                <li><a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/vendors/uploadmedia']">Upload Media</a></li>
+                <li><a href="javascript:void(0)" routerLinkActive="active"  [routerLink]="['/admin/vendors/viewstoreproducts']">View Store</a></li>
+            </ul>
+          
+        </div>
+        <router-outlet class="d-none"></router-outlet>     
+        
+        
+    </div>
+</div>

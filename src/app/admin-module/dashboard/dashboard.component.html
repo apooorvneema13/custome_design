@@ -1,0 +1,221 @@
+<div class="dashboard-wrapper">
+    <div class="sub-header">
+        <div class="row align-items-center">
+            <div class="col-sm-3">
+                <h3 class="title">Dashboard</h3>
+            </div>
+            <div class="col-sm-4">
+                <div class="date-rate">
+                    <span>Date Range</span>
+                    
+                     <p-calendar #calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true"
+                        inputId="range" (onSelect)="onSelect()"
+                        [inline]="false" ></p-calendar> 
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="date-time">
+                    <div class="time-info">
+                        <span>{{rxTime | date: 'h:mm'}}</span>
+                        <div class="time">
+                            <p>{{rxTime | date: 'a'}}</p>
+                            <span>{{rxTime | date: 'EEEE'}}</span>
+                        </div>
+                    </div>
+                    <div class="date">
+                        <span>{{rxTime | date: 'd MMM'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="welcome-user">
+        <img src="assets/images/ic_wanjugu.png" alt="Wanjugu" />
+        <div class="user-info">
+            <h2>Welcome to BUMI Admin Dashboard</h2>
+            <h5>Wanjugu Muhindi</h5>
+            <div class="flex align-items-center">
+                <img height="15px" src="assets/images/stop.svg" alt="" />
+                <span>Last Login: 18:19 pm (March 27, 2021)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="highlights">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="box sales">
+                    <div class="box-left">
+                        <img src="assets/images/ic_gross_sales.png" />
+                    </div>
+                    <div class="box-right">
+                        <h4>Ksh 17,350.00</h4>
+                        <p>Gross Sales Earned</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="box commision">
+                    <div class="box-left">
+                        <img src="assets/images/ic_commision_paid.png" />
+                    </div>
+                    <div class="box-right">
+                        <h4>Ksh 5220.00</h4>
+                        <p>Commision Paid</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="box sold">
+                    <div class="box-left">
+                        <img src="assets/images/ic_sold.png" />
+                    </div>
+                    <div class="box-right">
+                        <h4>11 Items</h4>
+                        <p>Sold</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="box order">
+                    <div class="box-left">
+                        <img src="assets/images/ic_order_completed.png" />
+                    </div>
+                    <div class="box-right">
+                        <h4>8 Orders</h4>
+                        <p>Completed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sales-report">
+        <h3>Sales Report by Date</h3>
+        <p-chart type="line" [data]="sales_report_chart" [style]="{'width': '100%'}" [options]="basicOptions">
+        </p-chart>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="report-box">
+                <h3>Website Analytics</h3>
+                <p-chart type="line" [data]="website_analytics_chart" [style]="{'width': '100%'}"
+                    [options]="basicOptions"></p-chart>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="report-box">
+                <h3>Sales by Product</h3>
+                <p-chart type="pie" [data]="piedata" [options]="chartOptions" [style]="{'width': '100%'}">
+                </p-chart>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="report-box">
+                <h3>Notifications</h3>
+                <ul>
+                    <li>
+                        <img src="assets/images/ic_file.png" />
+                        <span>You have received a New Influencer Application</span>
+                    </li>
+                    <li>
+                        <img src="assets/images/ic_file.png" />
+                        <span>You have received a New Vendor Application</span>
+                    </li>
+                    <li>
+                        <img src="assets/images/ic_money.png" />
+                        <span>Commission Request by Vendor XYZ has been processed</span>
+                    </li>
+                    <li>
+                        <img src="assets/images/ic_bag.png" />
+                        <span>A new product <b>Nyx Soft Matte Lip Cream - Madrid</b> Added by <b>Chantelle
+                                Petit</b></span>
+                    </li>
+                    <li>
+                        <img src="assets/images/ic_bag.png" />
+                        <span>A new product <b>P.Louise Rumour 3 Eyeshadow Base</b> Added by <b>Chantelle
+                                Petit</b></span>
+                    </li>
+                </ul>
+                <div class="text-end">
+                    <button type="button" class="btn btn-custom-secondary">
+                        Show All
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="report-box">
+                <h3>Inquiries</h3>
+                <ul>
+                    <li>
+                        <img src="assets/images/ic_help_circle.png" />
+                        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi adipisci animi
+                            assumenda ipsum at, nulla libero.</span>
+                    </li>
+                    <li>
+                        <img src="assets/images/ic_help_circle.png" />
+                        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi adipisci animi
+                            assumenda ipsum at, nulla libero.</span>
+                    </li>
+                    <li>
+                        <img src="assets/images/ic_help_circle.png" />
+                        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi adipisci animi
+                            assumenda ipsum at, nulla libero.</span>
+                    </li>
+                    <li>
+                        <img src="assets/images/ic_help_circle.png" />
+                        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi adipisci animi
+                            assumenda ipsum at, nulla libero.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="report-box">
+                <h3>Customer Growth</h3>
+                <p-chart type="bar" [data]="c_growth" [options]="basicOptions" [style]="{'width': '100%'}">
+                </p-chart>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="report-box">
+                <div class="row latest-topics">
+                    <div class="col-6">
+                        <h3>Latest Topics</h3>
+                        <img class="w-100" src="assets/images/img_place1.png" />
+                        <span class="beauty">Beauty</span>
+                        <h5>Lorem Ipsum is Dummy Text for you to replace</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetuer sirt adipiscing elit, sed diam nonummy
+                            acevec nibh euismod tincidunt ut laoreet dolore...</p>
+                    </div>
+                    <div class="col-6">
+                        <p><span>Capital Markets</span> Sh80bn lost at NSE in a day on lockdown fears </p>
+                        <p><span>Economy</span> CBK upbeat on vaccine lift to Kenya economy amid curbs </p>
+                        <p><span>Capital Markets</span> Co-op Bank reclaims third position in asset rankings </p>
+                        <p><span>Companies Kagwe</span> in tax relief talks for oxygen firms on virus surge </p>
+                        <p><span>Corporate</span> Helb resists bid to hand graduates loans reprieve </p>
+                        <p><span>Shipping & Logistics</span> Tourism blow as agency reverses flights exemption </p>
+                        <p><span>Companies</span> Equity Bank freezes dividend for second year</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="report-box">
+                <h3>Influencer Statistics</h3>
+                <p-chart type="bar" [data]="influ_stat" [options]="influ_stat_basicOptions" [style]="{'width': '100%'}">
+                </p-chart>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="report-box">
+                <h3>Vendors Statistics</h3>
+                <p-chart type="bar" [data]="vendor_stat" [options]="basicOptions" [style]="{'width': '100%'}">
+                </p-chart>
+            </div>
+        </div>
+    </div>
+</div>
