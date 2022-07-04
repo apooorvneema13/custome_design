@@ -8,6 +8,10 @@ import { PersonalInfoComponent } from './component/personal-info/personal-info.c
 import { ChangePasswordComponent } from './component/personal-info/change-password/change-password.component';
 import { ChangeEmailComponent } from './component/personal-info/change-email/change-email.component';
 import { DeliveryDetailsComponent } from './component/personal-info/delivery-details/delivery-details.component';
+import { MyWhishlistComponent } from './component/personal-info/my-whishlist/my-whishlist.component';
+import { MyAssetsComponent } from './component/my-assets/my-assets.component';
+import { MyWalletComponent } from './component/my-assets/my-wallet/my-wallet.component';
+import { ContactComponent } from './component/personal-info/contact/contact.component';
 
 
 @NgModule({
@@ -17,7 +21,11 @@ import { DeliveryDetailsComponent } from './component/personal-info/delivery-det
     PersonalInfoComponent,
     ChangePasswordComponent,
     ChangeEmailComponent,
-    DeliveryDetailsComponent
+    DeliveryDetailsComponent,
+    MyWhishlistComponent,
+    MyAssetsComponent,
+    MyWalletComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,

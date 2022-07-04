@@ -45,6 +45,11 @@ import { PersonalInfoComponent }  from './my-acoount/component/personal-info/per
 import {ChangeEmailComponent} from './my-acoount/component/personal-info/change-email/change-email.component'
 import {ChangePasswordComponent} from './my-acoount/component/personal-info/change-password/change-password.component'
 import {DeliveryDetailsComponent} from './my-acoount/component/personal-info/delivery-details/delivery-details.component'
+import {MyWhishlistComponent} from './my-acoount/component/personal-info/my-whishlist/my-whishlist.component'
+import {MyAssetsComponent} from './my-acoount/component/my-assets/my-assets.component'
+import {MyWalletComponent} from './my-acoount/component/my-assets/my-wallet/my-wallet.component'
+import { ContactComponent } from './my-acoount/component/personal-info/contact/contact.component';
+import { InvoiceComponent } from './component/invoice/invoice/invoice.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -55,6 +60,10 @@ const routes: Routes = [
   {path:'pesonalinfo/change_email',component:ChangeEmailComponent},
   {path:'pesonalinfo/change_password',component:ChangePasswordComponent},
   {path:'pesonalinfo/delivery_details',component:DeliveryDetailsComponent},
+  {path:'pesonalinfo/my_whishlist',component:MyWhishlistComponent},
+  {path:'my_assets',component:MyAssetsComponent},
+  {path:'my_assets/my_wallet',component:MyWalletComponent},
+  {path:'my_assets/contact', component:ContactComponent},
   {path:'hearder', component: HeaderComponent},
   {path:'dashboard',component: DashboardComponent},
   // {path:'',component: DashboardComponent},
@@ -89,6 +98,7 @@ const routes: Routes = [
   {path:'payment',component:PaymentMethodComponent},
   {path:'order-review',component:OrderReviewComponent},
   {path:'beautyhome', component: BeautyHomeComponent},
+  {path:'invoice', component:InvoiceComponent},
   {path:'category_by_product', component: CategoryByProductComponent},
 ];
 

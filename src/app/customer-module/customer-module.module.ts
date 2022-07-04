@@ -45,6 +45,7 @@ import { OrderReviewComponent } from './component/checkout/order-review/order-re
 import { PaymentMethodComponent } from './component/checkout/payment-method/payment-method.component';
 import { BeautyHomeComponent } from './component/beauty/beauty-home/beauty-home.component';
 import { CategoryByProductComponent } from './component/lifstyle/category-by-product/category-by-product.component';
+import { InvoiceComponent } from './component/invoice/invoice/invoice.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { CategoryByProductComponent } from './component/lifstyle/category-by-pro
     PaymentMethodComponent,
     OrderReviewComponent,
     BeautyHomeComponent,
-    CategoryByProductComponent
+    CategoryByProductComponent,
+    InvoiceComponent
   ],
   imports: [
     CommonModule,
