@@ -50,6 +50,8 @@ import {MyAssetsComponent} from './my-acoount/component/my-assets/my-assets.comp
 import {MyWalletComponent} from './my-acoount/component/my-assets/my-wallet/my-wallet.component'
 import { ContactComponent } from './my-acoount/component/personal-info/contact/contact.component';
 import { InvoiceComponent } from './component/invoice/invoice/invoice.component';
+import { CustomerFaqComponent } from './component/customer-support/customer-faq/customer-faq.component';
+import { FaqDetailComponent } from './component/customer-support/faq-detail/faq-detail.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -100,6 +102,8 @@ const routes: Routes = [
   {path:'beautyhome', component: BeautyHomeComponent},
   {path:'invoice', component:InvoiceComponent},
   {path:'category_by_product', component: CategoryByProductComponent},
+  {path:'customer_faq', component:CustomerFaqComponent},
+  {path:'faq_detail', component:FaqDetailComponent}
 ];
 
 @NgModule({

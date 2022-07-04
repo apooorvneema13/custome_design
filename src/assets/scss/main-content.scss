@@ -11906,7 +11906,6 @@ input[type="number"] {
 
 // my whislist
 
-
 .my-whishlist-product img {
   height: 150px;
   width: 150px;
@@ -11940,60 +11939,58 @@ input[type="number"] {
   text-align: center;
 }
 
-.my-whishlist-product .btn{
-background: #fff !important;
-color: #000;
-border: 1px solid #ccc;
-padding: 8px 0px 8px 10px;
+.my-whishlist-product .btn {
+  background: #fff !important;
+  color: #000;
+  border: 1px solid #ccc;
+  padding: 8px 0px 8px 10px;
 }
 
-.cart-beg{
+.cart-beg {
   background: #9c1f60;
   color: #fff;
   padding: 10px;
 }
 
-
 // my assets
-.new-coupon{
+.new-coupon {
   border: 1px solid #e6e6e6;
   border-radius: 20px;
 }
 
-.coupon-offer{
+.coupon-offer {
   padding: 20px 10px 0px 10px;
 }
 
-.coupon-offer label{
+.coupon-offer label {
   font-size: 30px;
   color: #9c1f60;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.coupon-offer p{
+.coupon-offer p {
   margin: 0px;
   padding: 0px;
   font-weight: 800;
 }
 
-.coupon-offer span{
+.coupon-offer span {
   padding-left: 20px;
 }
 
-.expire-on{
-   border-top: 1px solid #ccc;
-   margin-top: 15px;
-} 
-.expire-on span{
+.expire-on {
+  border-top: 1px solid #ccc;
+  margin-top: 15px;
+}
+.expire-on span {
   color: #9c1f60;
   padding-left: 0px !important;
 }
 
-.redeem-btn{
+.redeem-btn {
   padding: 40px 0px;
 }
-
 
 .redeem-btn button {
   background-color: #9c1f60 !important;
@@ -12002,11 +11999,9 @@ padding: 8px 0px 8px 10px;
   width: 100%;
 }
 
-
-
 // my-wallet
 
-.my-wallet-box{
+.my-wallet-box {
   background-color: #9c1f60;
   text-align: center;
   padding: 30px 0px;
@@ -12015,21 +12010,21 @@ padding: 8px 0px 8px 10px;
   color: #fff;
 }
 
-.my-wallet-box h6{
-    font-size: 18px;
-    color: #fff;
-    padding: 10px 0px;
+.my-wallet-box h6 {
+  font-size: 18px;
+  color: #fff;
+  padding: 10px 0px;
 }
-.my-wallet-box p{
-    font-size: 16.78px;
-    margin-top: 10px;
-}
-
-.my-wallet-box p span{
-     font-size: 50px;
+.my-wallet-box p {
+  font-size: 16.78px;
+  margin-top: 10px;
 }
 
-.fund-wallet{
+.my-wallet-box p span {
+  font-size: 50px;
+}
+
+.fund-wallet {
   border: 1px solid #e6e6e6;
   width: 80%;
   padding: 5px;
@@ -12037,98 +12032,266 @@ padding: 8px 0px 8px 10px;
 
 // contact
 
-.contact-box{
+.contact-box {
   background-color: #e8e8e8;
   border-radius: 10px;
   margin: 0px;
 }
 
-.live-chat-block{
+.live-chat-block {
   padding: 0px;
 }
 
-.live-chat{
+.live-chat {
   background-color: #9c1f60;
   border-radius: 10px;
   margin: 0px;
   text-align: center;
   min-height: 140px;
 }
-.live-chat img{
+.live-chat img {
   align-items: center;
   padding-top: 50px;
 }
 
-.live-chat-head{
+.live-chat-head {
   padding-top: 20px;
   padding-left: 20px;
 }
 
-.live-chat-head h4{
-   color: #9c1f60;
-   padding-bottom: 10px;
-   font-size: 18px;
+.live-chat-head h4 {
+  color: #9c1f60;
+  padding-bottom: 10px;
+  font-size: 18px;
 }
-.live-chat-head p{
-   color: #000;
-   font-size: 12px;
+.live-chat-head p {
+  color: #000;
+  font-size: 12px;
 }
 
-.contact-email{
+.contact-email {
   padding-top: 40px;
 }
 
-.contact-email h6{
+.contact-email h6 {
   color: #9c1f60;
   font-size: 18px;
   font-weight: 800;
 }
 
-.contact-email p{
-  color: #4D4D4D;
+.contact-email p {
+  color: #4d4d4d;
   font-size: 14px;
   font-weight: 500;
 }
 
-
 // invoice
 
-#invoice{
+#invoice {
   padding: 20px 0px;
 }
 
-.company-details{
+.company-details {
   padding-top: 30px;
   float: right !important;
 }
 
-.company-details h5{
+.company-details h5 {
   font-size: 16px;
 }
-.company-details h6{
-  color: #76197C;
+.company-details h6 {
+  color: #76197c;
   padding-top: 10px;
   font-weight: 700;
   font-size: 16px;
 }
 
-.invoice-slip{
-   padding-top: 50px;
+.invoice-slip {
+  padding-top: 50px;
 }
 
-.invoice-slip h3{
-  color: #76197C;
+.invoice-slip h3 {
+  color: #76197c;
   font-size: 22px;
   text-transform: uppercase;
   font-weight: 800;
 }
 
-.customer-order{
+.customer-order {
   float: right;
 }
 
-.bg-invoice{
-  background-color: #76197C;
+.bg-invoice {
+  background-color: #76197c;
+}
+
+.bg-invoice tr th {
+  color: #fff;
+}
+.customer-notes p {
+  padding: 0px;
+  margin: 0px;
+}
+
+.total-amount {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.total-amount h5 {
+  padding: 2px 7px;
+}
+.total-amount span {
+  float: right;
+}
+
+.payment-method,
+.payment-details {
+  padding-top: 25px;
+}
+.payment-method span,
+.payment-details span {
+  color: #9c1f60;
+  padding-left: 20px;
+}
+.bhumified-logo {
+  float: right;
+}
+
+// Customer Support
+
+// customer faq
+
+.bg-faq {
+  background-image: url("../images/customer/bg-faq.svg");
+  padding-bottom: 40px;
+}
+.faq-heading {
+  padding: 20px 0px;
+}
+
+.faq-heading h1 {
+  font-weight: 900;
+  color: #fff !important;
+  text-align: center;
+  font-size: 50px;
+}
+
+.customer-form {
+  position: relative;
+}
+
+.customer-form .fa-search {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #9ca3af;
+}
+
+.customer-form span {
+  position: absolute;
+  right: 17px;
+  top: 13px;
+  padding: 2px;
+}
+
+.customer-form .left-pan {
+  padding-left: 7px;
+}
+
+.customer-form .left-pan i {
+  padding-left: 10px;
+}
+
+.customer-form .form-input {
+  height: 55px;
+  text-indent: 33px;
+  border-radius: 50px;
+}
+
+.faq-box{
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.faq-box h5{
+  font-size: 20px;
+  color: #9c1f60; 
+  padding-top: 30px;
+}
+.faq-box p{
+  font-size: 16px;
+}
+
+
+
+// FAQ QUESTION
+.faq-banner{
+  background-image: url("../images/customer/faq-banner.svg");
+}
+
+.faq-banner h1{
+  color: #fff;
+  padding: 40px 0px 40px 40px;
+}
+
+.icon-order i{
+  color: #000;
+}
+
+.order-head{
+  padding: 10px 0px;
+}
+
+.order-head h4{
+  font-size: 27px;
+  font-weight: 900;
+  color: #9E005D; 
+
+}
+
+.save-page span{
+  padding-left: 20px;
+}
+
+.accordion .card-header:after {
+  font-family: 'FontAwesome';  
+  content: "\f068";
+  float: right; 
+  border: 1px solid #000; 
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 20px;
+}
+.accordion .card-header.collapsed:after {
+  /* symbol for "collapsed" panels */
+  content: "\f067";
+  border: 1px solid #000; 
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 20px;
+}
+
+// #accordion .card{
+//    border: none !important;
+// }
+#accordion .card-header{
+  background-color: #fff !important;
+  font-size: 24px !important;
+  font-weight: 900;
+}
+
+#accordion .card-body h5{
+  font-size: 16px;
+font-weight: 900;
+color: #000;
+}
+
+#accordion .card-body p{
+  font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -12142,13 +12305,10 @@ padding: 8px 0px 8px 10px;
   }
 }
 
-
-@media (max-width: 768px){
-  .my-whishlist-product{
+@media (max-width: 768px) {
+  .my-whishlist-product {
     min-height: 250px;
     padding: 20px 0px;
     text-align: center;
-
   }
-
 }

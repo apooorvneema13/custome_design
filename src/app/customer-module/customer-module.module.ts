@@ -46,6 +46,9 @@ import { PaymentMethodComponent } from './component/checkout/payment-method/paym
 import { BeautyHomeComponent } from './component/beauty/beauty-home/beauty-home.component';
 import { CategoryByProductComponent } from './component/lifstyle/category-by-product/category-by-product.component';
 import { InvoiceComponent } from './component/invoice/invoice/invoice.component';
+import { CustomerFaqComponent } from './component/customer-support/customer-faq/customer-faq.component';
+import { CustomerSupportComponent } from './component/customer-support/customer-support.component';
+import { FaqDetailComponent } from './component/customer-support/faq-detail/faq-detail.component';
 
 
 @NgModule({
@@ -88,7 +91,10 @@ import { InvoiceComponent } from './component/invoice/invoice/invoice.component'
     OrderReviewComponent,
     BeautyHomeComponent,
     CategoryByProductComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    CustomerFaqComponent,
+    CustomerSupportComponent,
+    FaqDetailComponent
   ],
   imports: [
     CommonModule,

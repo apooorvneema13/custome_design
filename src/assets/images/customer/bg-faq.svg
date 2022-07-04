@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1366" height="800.033" viewBox="0 0 1366 800.033">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.104" y1="1.177" x2="0.896" y2="-0.177" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ed1e79"/>
+      <stop offset="0.293" stop-color="#c12280"/>
+      <stop offset="0.769" stop-color="#7f2a8c"/>
+      <stop offset="0.994" stop-color="#662d91"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_149" data-name="Rectangle 149" width="1366" height="800.033" transform="translate(0 214.487)" fill="url(#linear-gradient)"/>
+    </clipPath>
+  </defs>
+  <g id="Group_371" data-name="Group 371" transform="translate(0 -214.487)">
+    <rect id="Rectangle_148" data-name="Rectangle 148" width="1366" height="800.033" transform="translate(0 214.487)" fill="url(#linear-gradient)"/>
+    <g id="Group_370" data-name="Group 370" clip-path="url(#clip-path)">
+      <g id="Group_369" data-name="Group 369">
+        <line id="Line_94" data-name="Line 94" x2="16.998" y2="21.664" transform="translate(1353.738 295.059)" fill="none" stroke="red" stroke-linecap="round" stroke-width="1.172"/>
+        <g id="Group_368" data-name="Group 368">
+          <line id="Line_95" data-name="Line 95" x2="49.333" y2="61.664" transform="translate(1220.448 332.93)" fill="none" stroke="#a3195c" stroke-linecap="round" stroke-width="1.172"/>
+          <line id="Line_96" data-name="Line 96" x2="91.786" y2="117.239" transform="translate(1246.622 341.175)" fill="none" stroke="#fbe91c" stroke-linecap="round" stroke-width="1.172"/>
+          <line id="Line_97" data-name="Line 97" x2="91.786" y2="117.237" transform="translate(1208.893 266.022)" fill="none" stroke="#00a099" stroke-linecap="round" stroke-width="3.935"/>
+          <g id="Group_365" data-name="Group 365">
+            <line id="Line_98" data-name="Line 98" x2="91.626" y2="116.772" transform="translate(1310.391 278.431)" fill="none" stroke="#e4037d" stroke-linecap="round" stroke-width="1.172"/>
+            <line id="Line_99" data-name="Line 99" x2="91.626" y2="116.772" transform="translate(1313.371 318.247)" fill="none" stroke="#22b573" stroke-linecap="round" stroke-width="5.247"/>
+          </g>
+          <line id="Line_100" data-name="Line 100" x2="29.514" y2="37.617" transform="translate(1282.62 303.888)" fill="none" stroke="#e4037d" stroke-linecap="round" stroke-width="5.863"/>
+          <g id="Group_366" data-name="Group 366">
+            <line id="Line_101" data-name="Line 101" x2="46.765" y2="59.6" transform="translate(1348.979 308.981)" fill="none" stroke="#941d80" stroke-linecap="round" stroke-width="1.172"/>
+          </g>
+          <line id="Line_102" data-name="Line 102" x2="39.768" y2="49.079" transform="translate(1246.398 385.329)" fill="none" stroke="#00a099" stroke-linecap="round" stroke-width="1.172"/>
+          <g id="Group_367" data-name="Group 367">
+            <line id="Line_103" data-name="Line 103" x2="52.803" y2="66.098" transform="translate(1288.896 345.758)" fill="none" stroke="#f8b133" stroke-linecap="round" stroke-width="2.582"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

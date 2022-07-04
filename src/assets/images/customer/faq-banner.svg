@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1366" height="200" viewBox="0 0 1366 200">
+  <defs>
+    <linearGradient id="linear-gradient" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ed1e79"/>
+      <stop offset="0.293" stop-color="#c12280"/>
+      <stop offset="0.769" stop-color="#7f2a8c"/>
+      <stop offset="0.994" stop-color="#662d91"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_131" data-name="Rectangle 131" width="1366" height="200" transform="translate(1566.001 214.487)" fill="url(#linear-gradient)"/>
+    </clipPath>
+  </defs>
+  <g id="Group_328" data-name="Group 328" transform="translate(-1566.001 -214.487)">
+    <rect id="Rectangle_130" data-name="Rectangle 130" width="1366" height="200" transform="translate(1566.001 214.487)" fill="url(#linear-gradient)"/>
+    <g id="Group_327" data-name="Group 327" clip-path="url(#clip-path)">
+      <g id="Group_326" data-name="Group 326">
+        <line id="Line_78" data-name="Line 78" x2="16.998" y2="21.664" transform="translate(2919.74 295.059)" fill="none" stroke="red" stroke-linecap="round" stroke-width="1.172"/>
+        <g id="Group_325" data-name="Group 325">
+          <line id="Line_79" data-name="Line 79" x2="49.333" y2="61.664" transform="translate(2786.449 332.93)" fill="none" stroke="#a3195c" stroke-linecap="round" stroke-width="1.172"/>
+          <line id="Line_80" data-name="Line 80" x2="91.786" y2="117.239" transform="translate(2812.624 341.175)" fill="none" stroke="#fbe91c" stroke-linecap="round" stroke-width="1.172"/>
+          <line id="Line_81" data-name="Line 81" x2="91.786" y2="117.237" transform="translate(2774.894 266.022)" fill="none" stroke="#00a099" stroke-linecap="round" stroke-width="3.935"/>
+          <g id="Group_322" data-name="Group 322">
+            <line id="Line_82" data-name="Line 82" x2="91.626" y2="116.772" transform="translate(2876.392 278.431)" fill="none" stroke="#e4037d" stroke-linecap="round" stroke-width="1.172"/>
+            <line id="Line_83" data-name="Line 83" x2="91.626" y2="116.772" transform="translate(2879.372 318.247)" fill="none" stroke="#22b573" stroke-linecap="round" stroke-width="5.247"/>
+          </g>
+          <line id="Line_84" data-name="Line 84" x2="29.514" y2="37.617" transform="translate(2848.622 303.888)" fill="none" stroke="#e4037d" stroke-linecap="round" stroke-width="5.863"/>
+          <g id="Group_323" data-name="Group 323">
+            <line id="Line_85" data-name="Line 85" x2="46.765" y2="59.6" transform="translate(2914.98 308.981)" fill="none" stroke="#941d80" stroke-linecap="round" stroke-width="1.172"/>
+          </g>
+          <line id="Line_86" data-name="Line 86" x2="39.768" y2="49.079" transform="translate(2812.399 385.329)" fill="none" stroke="#00a099" stroke-linecap="round" stroke-width="1.172"/>
+          <g id="Group_324" data-name="Group 324">
+            <line id="Line_87" data-name="Line 87" x2="52.803" y2="66.098" transform="translate(2854.897 345.758)" fill="none" stroke="#f8b133" stroke-linecap="round" stroke-width="2.582"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
