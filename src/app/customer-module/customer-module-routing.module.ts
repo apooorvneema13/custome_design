@@ -52,6 +52,10 @@ import { ContactComponent } from './my-acoount/component/personal-info/contact/c
 import { InvoiceComponent } from './component/invoice/invoice/invoice.component';
 import { CustomerFaqComponent } from './component/customer-support/customer-faq/customer-faq.component';
 import { FaqDetailComponent } from './component/customer-support/faq-detail/faq-detail.component';
+import { BeautyFashionComponent } from './component/customer-support/beauty-fashion/beauty-fashion.component';
+import { CustomerChatComponent } from './component/customer-support/customer-chat/customer-chat.component';
+import { CustomerBlogComponent } from './component/customer-support/customer-blog/customer-blog.component';
+import { CustomerPlateformComponent } from './component/customer-support/customer-plateform/customer-plateform.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -103,7 +107,11 @@ const routes: Routes = [
   {path:'invoice', component:InvoiceComponent},
   {path:'category_by_product', component: CategoryByProductComponent},
   {path:'customer_faq', component:CustomerFaqComponent},
-  {path:'faq_detail', component:FaqDetailComponent}
+  {path:'faq_detail', component:FaqDetailComponent},
+  {path:'beauty_fashion', component:BeautyFashionComponent},
+  {path:'customer_chat',component:CustomerChatComponent},
+  {path:'customer_blog',component:CustomerBlogComponent},
+  {path:'customer_palteform', component:CustomerPlateformComponent},
 ];
 
 @NgModule({

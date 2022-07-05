@@ -49,6 +49,10 @@ import { InvoiceComponent } from './component/invoice/invoice/invoice.component'
 import { CustomerFaqComponent } from './component/customer-support/customer-faq/customer-faq.component';
 import { CustomerSupportComponent } from './component/customer-support/customer-support.component';
 import { FaqDetailComponent } from './component/customer-support/faq-detail/faq-detail.component';
+import { BeautyFashionComponent } from './component/customer-support/beauty-fashion/beauty-fashion.component';
+import { CustomerChatComponent } from './component/customer-support/customer-chat/customer-chat.component';
+import { CustomerBlogComponent } from './component/customer-support/customer-blog/customer-blog.component';
+import { CustomerPlateformComponent } from './component/customer-support/customer-plateform/customer-plateform.component';
 
 
 @NgModule({
@@ -94,7 +98,11 @@ import { FaqDetailComponent } from './component/customer-support/faq-detail/faq-
     InvoiceComponent,
     CustomerFaqComponent,
     CustomerSupportComponent,
-    FaqDetailComponent
+    FaqDetailComponent,
+    BeautyFashionComponent,
+    CustomerChatComponent,
+    CustomerBlogComponent,
+    CustomerPlateformComponent
   ],
   imports: [
     CommonModule,
