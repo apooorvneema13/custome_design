@@ -56,6 +56,9 @@ import { BeautyFashionComponent } from './component/customer-support/beauty-fash
 import { CustomerChatComponent } from './component/customer-support/customer-chat/customer-chat.component';
 import { CustomerBlogComponent } from './component/customer-support/customer-blog/customer-blog.component';
 import { CustomerPlateformComponent } from './component/customer-support/customer-plateform/customer-plateform.component';
+import { DiscoverTrendsComponent } from './component/discover/discover-trends/discover-trends.component';
+import { DiscoverMakeupComponent } from './component/discover/discover-makeup/discover-makeup.component';
+import { DiscoverBlogComponent } from './component/discover/discover-blog/discover-blog.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -112,6 +115,10 @@ const routes: Routes = [
   {path:'customer_chat',component:CustomerChatComponent},
   {path:'customer_blog',component:CustomerBlogComponent},
   {path:'customer_palteform', component:CustomerPlateformComponent},
+  {path:'discover-trends', component:DiscoverTrendsComponent},
+  {path:'discover-makeup', component:DiscoverMakeupComponent},
+  {path:'discover-blog', component:DiscoverBlogComponent},
+
 ];
 
 @NgModule({

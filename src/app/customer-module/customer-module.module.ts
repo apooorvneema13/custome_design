@@ -53,6 +53,9 @@ import { BeautyFashionComponent } from './component/customer-support/beauty-fash
 import { CustomerChatComponent } from './component/customer-support/customer-chat/customer-chat.component';
 import { CustomerBlogComponent } from './component/customer-support/customer-blog/customer-blog.component';
 import { CustomerPlateformComponent } from './component/customer-support/customer-plateform/customer-plateform.component';
+import { DiscoverTrendsComponent } from './component/discover/discover-trends/discover-trends.component';
+import { DiscoverMakeupComponent } from './component/discover/discover-makeup/discover-makeup.component';
+import { DiscoverBlogComponent } from './component/discover/discover-blog/discover-blog.component';
 
 
 @NgModule({
@@ -102,7 +105,10 @@ import { CustomerPlateformComponent } from './component/customer-support/custome
     BeautyFashionComponent,
     CustomerChatComponent,
     CustomerBlogComponent,
-    CustomerPlateformComponent
+    CustomerPlateformComponent,
+    DiscoverTrendsComponent,
+    DiscoverMakeupComponent,
+    DiscoverBlogComponent
   ],
   imports: [
     CommonModule,
